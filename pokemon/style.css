@@ -1,0 +1,21 @@
+.img {
+  border: 10px ridge blue;
+  border-radius: 200px;
+}
+.sty {
+  color: blueviolet;
+}
+.imgg {
+  border: 60px ridge blue;
+  border-radius: 10px;
+}
+.contaner {
+  margin: auto;
+  width: 400px;
+}
+p {
+  background-color: aqua;
+}
+h1 {
+  text-align: center;
+}
