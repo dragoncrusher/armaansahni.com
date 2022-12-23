@@ -3,7 +3,7 @@
   border-radius: 200px;
 }
 .sty {
-  color: blueviolet;
+  color: brown;
 }
 .imgg {
   border: 60px ridge blue;
@@ -13,9 +13,39 @@
   margin: auto;
   width: 400px;
 }
-p {
-  background-color: aqua;
-}
 h1 {
   text-align: center;
+}
+.box {
+  background: rgb(104, 236, 139);
+  background: radial-gradient(
+    circle,
+    rgba(104, 236, 139, 1) 0%,
+    rgba(106, 142, 242, 1) 99%
+  );
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+.mithicle-box {
+  background: rgb(246, 181, 245);
+  background: radial-gradient(
+    circle,
+    rgba(246, 181, 245, 1) 0%,
+    rgba(246, 235, 181, 1) 100%
+  );
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+.legendary-box {
+  background: rgb(99, 151, 247);
+  background: linear-gradient(
+    90deg,
+    rgba(99, 151, 247, 1) 0%,
+    rgba(248, 132, 164, 1) 100%
+  );
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 20px;
 }
