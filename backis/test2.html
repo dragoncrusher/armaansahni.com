@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>test #2</title>
+  </head>
+  <body>
+    <button onclick="AddIt();">add</button>
+    <button onclick="SubtractIt();">subtract</button>
+    <div id="output"></div>
+    <script>
+      total = 0;
+      function AddIt() {
+        what_to_add = window.prompt("enter the number you want to add.");
+        total = total + Number(what_to_add);
+        print("add " + what_to_add);
+      }
+      function SubtractIt() {
+        what_to_subtract = window.prompt("enter the number you want to subtract.");
+        total = total - Number(what_to_subtract);
+        print("subtract " + what_to_subtract);
+      }
+      function print(stuff) {
+        target_element_one = document.getElementById("output");
+        contentP = document.createElement("p");
+        contentP.innerHTML = stuff;
+        contentP.innerHTML = contentP.innerHTML + "<br>" + "total = " + total;
+        target_element_one.appendChild(contentP);
+      }
+      print(" ");
+    </script>
+  </body>
+</html>

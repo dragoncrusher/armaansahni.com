@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>THE GAMEY GAME</title>
+  </head>
+  <body>
+    <script>
+      sorry = "";
+      sorry_status = "";
+      function startGame5() {
+        hp = 30000;
+        full_hp = document.createElement("p");
+        where_to_print = document.getElementById("page");
+        full_hp.innerHTML = "enemyHP = " + hp;
+        where_to_print.appendChild(full_hp);
+      }
+      function startGame1() {
+        hp = 3;
+        full_hp = document.createElement("p");
+        where_to_print = document.getElementById("page");
+        full_hp.innerHTML = "enemyHP = " + hp;
+        where_to_print.appendChild(full_hp);
+      }
+      function startGame2() {
+        hp = 30;
+        full_hp = document.createElement("p");
+        where_to_print = document.getElementById("page");
+        full_hp.innerHTML = "enemyHP = " + hp;
+        where_to_print.appendChild(full_hp);
+      }
+      function startGame3() {
+        hp = 300;
+        full_hp = document.createElement("p");
+        where_to_print = document.getElementById("page");
+        full_hp.innerHTML = "enemyHP = " + hp;
+        where_to_print.appendChild(full_hp);
+      }
+      function startGame4() {
+        hp = 3000;
+        full_hp = document.createElement("p");
+        where_to_print = document.getElementById("page");
+        full_hp.innerHTML = "enemyHP = " + hp;
+        where_to_print.appendChild(full_hp);
+      }
+      function startGame6() {
+        hp = 300000;
+        full_hp = document.createElement("p");
+        where_to_print = document.getElementById("page");
+        full_hp.innerHTML = "enemyHP = " + hp;
+        where_to_print.appendChild(full_hp);
+      }
+      function askThem() {
+        question_array = [
+          "62 - 54 =",
+          "35 + 47 =",
+          "75 + 34 =",
+          "42 - 32 =",
+          "25 / 5 =",
+          "66 / 6 =",
+          "12 * 20 =",
+          "20 * 50 =",
+        ];
+        random_index = Math.floor(Math.random() * 8);
+        the_math_question = question_array[random_index];
+        the_answer = window.prompt(the_math_question);
+        checkTheAnswer();
+      }
+      function checkTheAnswer() {
+        where_to_print_error = document.getElementById("error");
+        answer_array = ["8", "82", "109", "10", "5", "11", "240", "1000"];
+        the_math_answer = answer_array[random_index];
+        console.log(where_to_print);
+        if (the_answer == the_math_answer) {
+          hp = hp - 10;
+          full_hp.innerHTML = "enemyHP = " + hp;
+          where_to_print.appendChild(full_hp);
+          sorry.innerHTML = "";
+          if (sorry_status == "yes") {
+            where_to_print_error.innerHTML = "";
+            sorry_status = "no";
+          }
+          if (hp < 1) {
+            document.write("you win");
+          }
+        } else {
+          sorry = document.createTextNode(
+            "Sorry, that was the wrong answer. The correct answer was: " + the_math_answer
+          );
+          where_to_print_error.appendChild(sorry);
+          sorry_status = "yes";
+        }
+      }
+    </script>
+    <ol>
+      <li><button onclick="startGame1()">battle,level 1</button></li>
+      <li><button onclick="startGame2()">battle,level 2</button></li>
+      <li><button onclick="startGame3()">battle,level 3</button></li>
+      <li><button onclick="startGame4()">battle,level 4</button></li>
+      <li><button onclick="startGame5()">battle,level 5</button></li>
+      <li><button onclick="startGame6()">battle,level 6</button></li>
+    </ol>
+    <button onclick="askThem()">attack-only use this button if you have pressed a battle button</button>
+    <div id="page"></div>
+    <div id="error"></div>
+  </body>
+</html>
