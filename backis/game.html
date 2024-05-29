@@ -8,43 +8,8 @@
     <script>
       sorry = "";
       sorry_status = "";
-      function startGame5() {
-        hp = 30000;
-        full_hp = document.createElement("p");
-        where_to_print = document.getElementById("page");
-        full_hp.innerHTML = "enemyHP = " + hp;
-        where_to_print.appendChild(full_hp);
-      }
-      function startGame1() {
-        hp = 3;
-        full_hp = document.createElement("p");
-        where_to_print = document.getElementById("page");
-        full_hp.innerHTML = "enemyHP = " + hp;
-        where_to_print.appendChild(full_hp);
-      }
-      function startGame2() {
-        hp = 30;
-        full_hp = document.createElement("p");
-        where_to_print = document.getElementById("page");
-        full_hp.innerHTML = "enemyHP = " + hp;
-        where_to_print.appendChild(full_hp);
-      }
-      function startGame3() {
-        hp = 300;
-        full_hp = document.createElement("p");
-        where_to_print = document.getElementById("page");
-        full_hp.innerHTML = "enemyHP = " + hp;
-        where_to_print.appendChild(full_hp);
-      }
-      function startGame4() {
-        hp = 3000;
-        full_hp = document.createElement("p");
-        where_to_print = document.getElementById("page");
-        full_hp.innerHTML = "enemyHP = " + hp;
-        where_to_print.appendChild(full_hp);
-      }
-      function startGame6() {
-        hp = 300000;
+      function startGame(HPsetter) {
+        hp = HPsetter;
         full_hp = document.createElement("p");
         where_to_print = document.getElementById("page");
         full_hp.innerHTML = "enemyHP = " + hp;
@@ -93,12 +58,12 @@
       }
     </script>
     <ol>
-      <li><button onclick="startGame1()">battle,level 1</button></li>
-      <li><button onclick="startGame2()">battle,level 2</button></li>
-      <li><button onclick="startGame3()">battle,level 3</button></li>
-      <li><button onclick="startGame4()">battle,level 4</button></li>
-      <li><button onclick="startGame5()">battle,level 5</button></li>
-      <li><button onclick="startGame6()">battle,level 6</button></li>
+      <li><button onclick="startGame(3)">battle,level 1</button></li>
+      <li><button onclick="startGame(30)">battle,level 2</button></li>
+      <li><button onclick="startGame(300)">battle,level 3</button></li>
+      <li><button onclick="startGame(3000)">battle,level 4</button></li>
+      <li><button onclick="startGame(30000)">battle,level 5</button></li>
+      <li><button onclick="startGame(300000)">battle,level 6</button></li>
     </ol>
     <button onclick="askThem()">attack-only use this button if you have pressed a battle button</button>
     <div id="page"></div>
