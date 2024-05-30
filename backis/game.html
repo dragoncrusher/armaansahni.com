@@ -5,6 +5,19 @@
     <title>THE GAMEY GAME</title>
   </head>
   <body>
+    <ol>
+      <li><button onclick="startGame(3)">battle,level 1</button></li>
+      <li><button onclick="startGame(30)">battle,level 2</button></li>
+      <li><button onclick="startGame(300)">battle,level 3</button></li>
+      <li><button onclick="startGame(3000)">battle,level 4</button></li>
+      <li><button onclick="startGame(30000)">battle,level 5</button></li>
+      <li><button onclick="startGame(300000)">battle,level 6</button></li>
+    </ol>
+    <button onclick="askThem()">attack</button>
+    <div id="page"></div>
+    <div id="error"></div>
+    <div id="smart"></div>
+
     <script>
       // "use strict";
 
@@ -30,6 +43,11 @@
       const answer_array = ["8", "82", "109", "10", "5", "11", "240", "1000"];
 
       const where_to_print = document.getElementById("page");
+      const smart = document.getElementById("smart");
+      let yhp = 10;
+      let yhpOutput = document.createElement("p");
+      yhpOutput.innerHTML = "yourHp =" + yhp;
+      smart.appendChild(yhpOutput);
       const full_hp = document.createElement("p");
       where_to_print.appendChild(full_hp);
 
@@ -37,8 +55,6 @@
 
       function startGame(HPsetter) {
         hp = HPsetter;
-        full_hp = document.createElement("p");
-        where_to_print = document.getElementById("page");
         full_hp.innerHTML = "enemyHP = " + hp;
       }
       function askThem() {
@@ -52,34 +68,27 @@
         if (the_answer == the_math_answer) {
           hp = hp - 10;
           full_hp.innerHTML = "enemyHP = " + hp;
-          where_to_print.appendChild(full_hp);
           sorry.innerHTML = "";
           if (sorry_status == "yes") {
             where_to_print_error.innerHTML = "";
             sorry_status = "no";
           }
           if (hp < 1) {
-            document.write("you win");
+            document.write("you win refresh to go again");
           }
         } else {
           sorry = document.createTextNode(
-            "Sorry, that was the wrong answer. The correct answer was: " + the_math_answer
+            "Sorry, that was the wrong answer. The correct answer was: " + the_math_answer + "\n"
           );
+          yhp = yhp - 1;
+          yhpOutput.innerHTML = "yourHp =" + yhp;
           where_to_print_error.appendChild(sorry);
           sorry_status = "yes";
+          if (yhp < 1) {
+            document.write("you lose refresh to try again.");
+          }
         }
       }
     </script>
-    <ol>
-      <li><button onclick="startGame(3)">battle,level 1</button></li>
-      <li><button onclick="startGame(30)">battle,level 2</button></li>
-      <li><button onclick="startGame(300)">battle,level 3</button></li>
-      <li><button onclick="startGame(3000)">battle,level 4</button></li>
-      <li><button onclick="startGame(30000)">battle,level 5</button></li>
-      <li><button onclick="startGame(300000)">battle,level 6</button></li>
-    </ol>
-    <button onclick="askThem()">attack-only use this button if you have pressed a battle button</button>
-    <div id="page"></div>
-    <div id="error"></div>
   </body>
 </html>
