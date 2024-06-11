@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>THE GAMEY GAME</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
     <ol>
@@ -18,6 +19,29 @@
     <div id="error"></div>
     <div id="smart"></div>
 
+    <div class="container">
+      <div id="1" class="left-side">rrrrrrrrrrrrrrrrr</div>
+      <div id="2" class="right-side">dsfgdffff</div>
+    </div>
+    <style>
+      .container {
+        display: flex;
+      }
+
+      .left-side,
+      .right-side {
+        width: 100%;
+        padding: 10px;
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        background-color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 625ms ease-in-out;
+      }
+    </style>
     <script>
       // "use strict";
 
@@ -29,7 +53,8 @@
 
       let sorry = "";
       let sorry_status = "";
-
+      const circlediv1 = document.getElementById("1");
+      const circlediv2 = document.getElementById("2");
       const question_array = [
         "62 - 54 =",
         "35 + 47 =",
@@ -69,6 +94,7 @@
           hp = hp - 10;
           full_hp.innerHTML = "enemyHP = " + hp;
           sorry.innerHTML = "";
+          GoleShootHit();
           if (sorry_status == "yes") {
             where_to_print_error.innerHTML = "";
             sorry_status = "no";
@@ -82,12 +108,25 @@
           );
           yhp = yhp - 1;
           yhpOutput.innerHTML = "yourHp =" + yhp;
+          GoleShootMiss();
           where_to_print_error.appendChild(sorry);
           sorry_status = "yes";
           if (yhp < 1) {
             document.write("you lose refresh to try again.");
           }
         }
+      }
+      function GoleShootHit() {
+        circlediv2.style.backgroundColor = "red";
+        setTimeout(function () {
+          circlediv2.style.backgroundColor = "white";
+        }, 1000);
+      }
+      function GoleShootMiss() {
+        circlediv1.style.backgroundColor = "red";
+        setTimeout(function () {
+          circlediv1.style.backgroundColor = "white";
+        }, 1000);
       }
     </script>
   </body>
