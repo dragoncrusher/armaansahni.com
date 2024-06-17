@@ -20,8 +20,12 @@
     <div id="smart"></div>
 
     <div class="container">
-      <div id="1" class="left-side"><img src="wisardgoodguyuse.png" alt="" style="width: 200px; height: 170px" /></div>
-      <div id="2" class="right-side"><img src="boss1use.png" alt="" style="width: 200px; height: 150px" /></div>
+      <div id="1" class="left-side">
+        <img id="1to2" src="wisardgoodguyuse.png" alt="" style="width: 200px; height: 170px" />
+      </div>
+      <div id="2" class="right-side">
+        <img id="2to2" src="boss1use.png" alt="" style="width: 200px; height: 150px" />
+      </div>
     </div>
     <a href="/">home</a>
     <style>
@@ -44,8 +48,6 @@
       }
     </style>
     <script>
-      // "use strict";
-
       let hp;
       let the_math_question;
       let the_math_answer;
@@ -54,8 +56,10 @@
 
       let sorry = "";
       let sorry_status = "";
-      const circlediv1 = document.getElementById("1");
-      const circlediv2 = document.getElementById("2");
+      const circlediv1 = document.getElementById("1to2");
+      const circlediv2 = document.getElementById("2to2");
+      const circlediv11 = document.getElementById(1);
+      const circlediv22 = document.getElementById(2);
       const question_array = [
         "62 - 54 =",
         "35 + 47 =",
@@ -118,15 +122,31 @@
         }
       }
       function GoleShootHit() {
-        circlediv2.style.backgroundColor = "red";
+        if (circlediv1.src.endsWith("wisardgoodguyuse.png")) {
+          circlediv1.src = "wisardgoodguyusecostume2.png";
+        }
+        if (circlediv1.src.endsWith("wisardgoodguyusecostume2.png")) {
+          setTimeout(function () {
+            circlediv1.src = "wisardgoodguyuse.png";
+          }, 1000);
+        }
+        circlediv22.style.backgroundColor = "red";
         setTimeout(function () {
-          circlediv2.style.backgroundColor = "white";
+          circlediv22.style.backgroundColor = "white";
         }, 1000);
       }
       function GoleShootMiss() {
-        circlediv1.style.backgroundColor = "red";
+        if (circlediv2.src.endsWith("boss1use.png")) {
+          circlediv2.src = "boss1usecostume2.png";
+        }
+        if (circlediv2.src.endsWith("boss1usecostume2.png")) {
+          setTimeout(function () {
+            circlediv2.src = "boss1use.png";
+          }, 1000);
+        }
+        circlediv11.style.backgroundColor = "red";
         setTimeout(function () {
-          circlediv1.style.backgroundColor = "white";
+          circlediv11.style.backgroundColor = "white";
         }, 1000);
       }
     </script>
