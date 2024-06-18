@@ -136,14 +136,13 @@
         }, 1000);
       }
       function GoleShootMiss() {
-        if (circlediv2.src.endsWith("boss1use.png")) {
-          circlediv2.src = "boss1usecostume2.png";
-        }
-        if (circlediv2.src.endsWith("boss1usecostume2.png")) {
-          setTimeout(function () {
-            circlediv2.src = "boss1use.png";
-          }, 1000);
-        }
+        circlediv2.src = "boss1usecostume2.png";
+        setTimeout(function () {
+          circlediv2.src = "boss1usecostume3.png";
+        }, 1000);
+        setTimeout(function () {
+          circlediv2.src = "boss1use.png";
+        }, 2000);
         circlediv11.style.backgroundColor = "red";
         setTimeout(function () {
           circlediv11.style.backgroundColor = "white";
