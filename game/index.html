@@ -7,12 +7,12 @@
   </head>
   <body>
     <ol>
-      <li><button onclick="startGame(3,'boss1')">battle,level 1</button></li>
-      <li><button onclick="startGame(30,'boss2')">battle,level 2</button></li>
-      <li><button onclick="startGame(300,'boss3')">battle,level 3</button></li>
-      <li><button onclick="startGame(3000,'boss4')">battle,level 4</button></li>
-      <li><button onclick="startGame(30000,'boss5')">battle,level 5</button></li>
-      <li><button onclick="startGame(300000,'boss6')">battle,level 6</button></li>
+      <li><button onclick="startGame(50,'boss1')">battle,level 1</button></li>
+      <li><button onclick="startGame(100,'boss2')">battle,level 2</button></li>
+      <li><button onclick="startGame(150,'boss3')">battle,level 3</button></li>
+      <li><button onclick="startGame(200,'boss4')">battle,level 4</button></li>
+      <li><button onclick="startGame(250,'boss5')">battle,level 5</button></li>
+      <li><button onclick="startGame(300,'boss6')">battle,level 6</button></li>
     </ol>
     <button onclick="askThem()">attack</button>
     <div id="page"></div>
@@ -48,6 +48,7 @@
       }
     </style>
     <script>
+      let utah;
       let hp;
       let the_math_question;
       let the_math_answer;
@@ -71,7 +72,8 @@
         "20 * 50 =",
       ];
       const answer_array = ["8", "82", "109", "10", "5", "11", "240", "1000"];
-
+      const boss_array = ["yes", "no", "no"];
+      let random_index_2;
       const where_to_print = document.getElementById("page");
       const smart = document.getElementById("smart");
       let yhp = 10;
@@ -101,7 +103,6 @@
           hp = hp - 10;
           full_hp.innerHTML = "enemyHP = " + hp;
           sorry.innerHTML = "";
-          GoleShootHit();
           if (sorry_status == "yes") {
             where_to_print_error.innerHTML = "";
             sorry_status = "no";
@@ -109,18 +110,20 @@
           if (hp < 1) {
             document.write("you win refresh to go again");
           }
+          GoleShootHit();
         } else {
           sorry = document.createTextNode(
             "Sorry, that was the wrong answer. The correct answer was: " + the_math_answer + "\n"
           );
-          yhp = yhp - 1;
-          yhpOutput.innerHTML = "yourHp =" + yhp;
-          GoleShootMiss();
           where_to_print_error.appendChild(sorry);
           sorry_status = "yes";
-          if (yhp < 1) {
-            document.write("you lose refresh to try again.");
-          }
+          circlediv1.src = "costumewrong.png";
+          setTimeout(function () {
+            circlediv1.src = "wisardgoodguy/wisardgoodguy.png";
+          }, 1000);
+          setTimeout(function () {
+            BossAttack();
+          }, 2000);
         }
       }
       function GoleShootHit() {
@@ -136,19 +139,46 @@
         setTimeout(function () {
           circlediv22.style.backgroundColor = "white";
         }, 1000);
-      }
-      function GoleShootMiss() {
-        circlediv2.src = boss + "/" + boss + "costume2.png";
         setTimeout(function () {
-          circlediv2.src = boss + "/" + boss + "costume3.png";
-        }, 1000);
-        setTimeout(function () {
-          circlediv2.src = boss + "/" + boss + ".png";
+          BossAttack();
         }, 2000);
-        circlediv11.style.backgroundColor = "red";
-        setTimeout(function () {
-          circlediv11.style.backgroundColor = "white";
-        }, 1000);
+      }
+      function BossAttack() {
+        random_index_2 = Math.floor(Math.random() * 3);
+        utah = boss_array[random_index_2];
+        if (utah == "yes") {
+          setTimeout(function () {
+            circlediv2.src = "costumeright.png";
+          }, 1000);
+          setTimeout(function () {
+            circlediv2.src = boss + "/" + boss + ".png";
+          }, 2000);
+          setTimeout(function () {
+            circlediv2.src = boss + "/" + boss + "costume2.png";
+          }, 3000);
+          setTimeout(function () {
+            circlediv2.src = boss + "/" + boss + "costume3.png";
+          }, 4000);
+          setTimeout(function () {
+            circlediv2.src = boss + "/" + boss + ".png";
+          }, 5000);
+          setTimeout(function () {
+            circlediv11.style.backgroundColor = "red";
+          }, 5000);
+          setTimeout(function () {
+            circlediv11.style.backgroundColor = "white";
+          }, 6000);
+          yhp = yhp - 1;
+          yhpOutput.innerHTML = "yourHp =" + yhp;
+          if (yhp < 1) {
+            document.write("you lose refresh to try again.");
+          }
+        } else {
+          circlediv2.src = "costumewrong.png";
+          setTimeout(function () {
+            circlediv2.src = boss + "/" + boss + ".png";
+          }, 1000);
+        }
       }
     </script>
   </body>
