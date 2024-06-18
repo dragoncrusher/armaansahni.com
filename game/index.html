@@ -7,12 +7,12 @@
   </head>
   <body>
     <ol>
-      <li><button onclick="startGame(3,'boss1use')">battle,level 1</button></li>
-      <li><button onclick="startGame(30,'boss2use')">battle,level 2</button></li>
-      <li><button onclick="startGame(300,'boss3use')">battle,level 3</button></li>
-      <li><button onclick="startGame(3000,'boss4use')">battle,level 4</button></li>
-      <li><button onclick="startGame(30000,'boss5use')">battle,level 5</button></li>
-      <li><button onclick="startGame(300000,'boss6use')">battle,level 6</button></li>
+      <li><button onclick="startGame(3,'boss1')">battle,level 1</button></li>
+      <li><button onclick="startGame(30,'boss2')">battle,level 2</button></li>
+      <li><button onclick="startGame(300,'boss3')">battle,level 3</button></li>
+      <li><button onclick="startGame(3000,'boss4')">battle,level 4</button></li>
+      <li><button onclick="startGame(30000,'boss5')">battle,level 5</button></li>
+      <li><button onclick="startGame(300000,'boss6')">battle,level 6</button></li>
     </ol>
     <button onclick="askThem()">attack</button>
     <div id="page"></div>
@@ -21,10 +21,10 @@
 
     <div class="container">
       <div id="1" class="left-side">
-        <img id="1to2" src="wisardgoodguyuse.png" alt="" style="width: 200px; height: 170px" />
+        <img id="1to2" src="wisardgoodguy/wisardgoodguy.png" alt="" style="width: 200px; height: 170px" />
       </div>
       <div id="2" class="right-side">
-        <img id="2to2" src="boss1use.png" alt="" style="width: 200px; height: 150px" />
+        <img id="2to2" src="boss1/boss1.png" alt="" style="width: 200px; height: 150px" />
       </div>
     </div>
     <a href="/">home</a>
@@ -87,7 +87,7 @@
         hp = HPsetter;
         full_hp.innerHTML = "enemyHP = " + hp;
         boss = theboss;
-        circlediv2.src = boss + ".png";
+        circlediv2.src = boss + "/" + boss + ".png";
       }
       function askThem() {
         random_index = Math.floor(Math.random() * 8);
@@ -124,12 +124,12 @@
         }
       }
       function GoleShootHit() {
-        if (circlediv1.src.endsWith("wisardgoodguyuse.png")) {
-          circlediv1.src = "wizardgoodguyusecostume2.png";
+        if (circlediv1.src.endsWith("wisardgoodguy/wisardgoodguy.png")) {
+          circlediv1.src = "wisardgoodguy/wizardgoodguycostume2.png";
         }
-        if (circlediv1.src.endsWith("wizardgoodguyusecostume2.png")) {
+        if (circlediv1.src.endsWith("wisardgoodguy/wizardgoodguycostume2.png")) {
           setTimeout(function () {
-            circlediv1.src = "wisardgoodguyuse.png";
+            circlediv1.src = "wisardgoodguy/wisardgoodguy.png";
           }, 1000);
         }
         circlediv22.style.backgroundColor = "red";
@@ -138,12 +138,12 @@
         }, 1000);
       }
       function GoleShootMiss() {
-        circlediv2.src = boss + "costume2.png";
+        circlediv2.src = boss + "/" + boss + "costume2.png";
         setTimeout(function () {
-          circlediv2.src = boss + "costume3.png";
+          circlediv2.src = boss + "/" + boss + "costume3.png";
         }, 1000);
         setTimeout(function () {
-          circlediv2.src = boss + ".png";
+          circlediv2.src = boss + "/" + boss + ".png";
         }, 2000);
         circlediv11.style.backgroundColor = "red";
         setTimeout(function () {
