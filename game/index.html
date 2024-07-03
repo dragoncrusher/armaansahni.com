@@ -18,7 +18,30 @@
       </ol>
     </div>
     <div class="middle">
-      <button class="ruuyty" onclick="askThem()">attack</button>
+      <div>
+        <div>
+          <button class="ruuyty" id="move11" onclick="askThem(0,1)">
+            <img id="move" src="wisardgoodguy/blast1.png" />
+          </button>
+        </div>
+        <div>
+          <button class="ruuyty" id="move22" onclick="askThem(2,2)">
+            <img id="move" src="wisardgoodguy/blast2.png" />
+          </button>
+        </div>
+      </div>
+      <div>
+        <div>
+          <button class="ruuyty" id="move33" onclick="askThem(3,3)">
+            <img id="move" src="wisardgoodguy/blast3.png" />
+          </button>
+        </div>
+        <div>
+          <button class="ruuyty" id="move44" onclick="askThem(4,4)">
+            <img id="move" src="wisardgoodguy/blast4.png" />
+          </button>
+        </div>
+      </div>
       <div id="page"></div>
       <div id="error"></div>
       <div id="smart"></div>
@@ -80,6 +103,9 @@
       }
     </style>
     <script>
+      let utah2;
+      const bossmovearray = ["1", "2", "3", "4"];
+      let TheCharge = 0;
       const BossKill = document.querySelector(".middle");
       const BossSelect = document.querySelector(".start");
       let utah;
@@ -105,18 +131,18 @@
         "12 * 20 =",
         "20 * 50 =",
       ];
+      let thedamigeas;
       const answer_array = ["8", "82", "109", "10", "5", "11", "240", "1000"];
       const boss_array = ["yes", "no", "no"];
       let random_index_2;
       const where_to_print = document.getElementById("page");
       const smart = document.getElementById("smart");
-      let yhp = 10;
+      let yhp = 30;
       let yhpOutput = document.createElement("p");
       yhpOutput.innerHTML = "yourHp =" + yhp;
       smart.appendChild(yhpOutput);
       const full_hp = document.createElement("p");
       where_to_print.appendChild(full_hp);
-
       const where_to_print_error = document.getElementById("error");
 
       function startGame(HPsetter, theboss) {
@@ -127,16 +153,22 @@
         boss = theboss;
         circlediv2.src = boss + "/" + boss + ".png";
       }
-      function askThem() {
-        random_index = Math.floor(Math.random() * 8);
-        the_math_question = question_array[random_index];
-        the_answer = window.prompt(the_math_question);
-        checkTheAnswer();
+      function askThem(charge, TheDamage) {
+        TheCharge = TheCharge + 1;
+        if (charge <= TheCharge) {
+          TheCharge = TheCharge - charge;
+          random_index = Math.floor(Math.random() * 8);
+          the_math_question = question_array[random_index];
+          the_answer = window.prompt(the_math_question);
+          checkTheAnswer(TheDamage);
+        } else {
+          window.prompt("The move you want to use is not charged up yet.Click 'ok' and then select another move.");
+        }
       }
-      function checkTheAnswer() {
+      function checkTheAnswer(TheDamage) {
         the_math_answer = answer_array[random_index];
         if (the_answer == the_math_answer) {
-          hp = hp - 10;
+          hp = hp - TheDamage * 10;
           full_hp.innerHTML = "enemyHP = " + hp;
           sorry.innerHTML = "";
           if (sorry_status == "yes") {
@@ -207,7 +239,9 @@
           setTimeout(function () {
             circlediv11.style.backgroundColor = "white";
           }, 6000);
-          yhp = yhp - 10;
+          utah2 = Math.floor(Math.random() * 4);
+          thedamigeas = bossmovearray[utah2];
+          yhp = yhp - thedamigeas;
           yhpOutput.innerHTML = "yourHp =" + yhp;
           if (yhp < 1) {
             setTimeout(function () {
