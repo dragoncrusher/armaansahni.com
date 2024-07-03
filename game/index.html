@@ -40,7 +40,7 @@
 
       <div class="container">
         <div id="1" class="left-side">
-          <img id="1to2" src="wisardgoodguy/wisardgoodguy.png" alt="" style="width: 200px; height: 170px" />
+          <img id="1to2" src="wisardgoodguy/wisardgoodguy.gif" alt="" style="width: 200px; height: 170px" />
         </div>
         <div id="2" class="right-side">
           <img id="2to2" src="boss1/boss1.gif" alt="" style="width: 200px; height: 150px" />
@@ -182,7 +182,7 @@
           sorry_status = "yes";
           circlediv1.src = "costumewrong.png";
           setTimeout(function () {
-            circlediv1.src = "wisardgoodguy/wisardgoodguy.png";
+            circlediv1.src = "wisardgoodguy/wisardgoodguy.gif";
           }, 1000);
           setTimeout(function () {
             BossAttack();
@@ -190,12 +190,12 @@
         }
       }
       function GoleShootHit() {
-        if (circlediv1.src.endsWith("wisardgoodguy/wisardgoodguy.png")) {
-          circlediv1.src = "wisardgoodguy/wizardgoodguycostume2.png";
+        if (circlediv1.src.endsWith("wisardgoodguy/wisardgoodguy.gif")) {
+          circlediv1.src = "wisardgoodguy/wizardgoodguycostume2.gif";
         }
-        if (circlediv1.src.endsWith("wisardgoodguy/wizardgoodguycostume2.png")) {
+        if (circlediv1.src.endsWith("wisardgoodguy/wizardgoodguycostume2.gif")) {
           setTimeout(function () {
-            circlediv1.src = "wisardgoodguy/wisardgoodguy.png";
+            circlediv1.src = "wisardgoodguy/wisardgoodguy.gif";
           }, 1000);
         }
         circlediv22.style.backgroundColor = "red";
@@ -220,16 +220,16 @@
             circlediv2.src = "costumeright.png";
           }, 1000);
           setTimeout(function () {
-            circlediv2.src = boss + "/" + boss + ".png";
+            circlediv2.src = boss + "/" + boss + ".gif";
           }, 2000);
           setTimeout(function () {
-            circlediv2.src = boss + "/" + boss + "costume2.png";
+            circlediv2.src = boss + "/" + boss + "costume2.gif";
           }, 3000);
           setTimeout(function () {
-            circlediv2.src = boss + "/" + boss + "costume3.png";
+            circlediv2.src = boss + "/" + boss + "costume3.gif";
           }, 4000);
           setTimeout(function () {
-            circlediv2.src = boss + "/" + boss + ".png";
+            circlediv2.src = boss + "/" + boss + ".gif";
           }, 5000);
           setTimeout(function () {
             circlediv11.style.backgroundColor = "red";
@@ -249,7 +249,7 @@
         } else {
           circlediv2.src = "costumewrong.png";
           setTimeout(function () {
-            circlediv2.src = boss + "/" + boss + ".png";
+            circlediv2.src = boss + "/" + boss + ".gif";
           }, 1000);
         }
       }
