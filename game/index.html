@@ -6,25 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
-    <ol>
-      <li><button onclick="startGame(50,'boss1')">battle,level 1</button></li>
-      <li><button onclick="startGame(100,'boss2')">battle,level 2</button></li>
-      <li><button onclick="startGame(150,'boss3')">battle,level 3</button></li>
-      <li><button onclick="startGame(200,'boss4')">battle,level 4</button></li>
-      <li><button onclick="startGame(250,'boss5')">battle,level 5</button></li>
-      <li><button onclick="startGame(300,'boss6')">battle,level 6</button></li>
-    </ol>
-    <button onclick="askThem()">attack</button>
-    <div id="page"></div>
-    <div id="error"></div>
-    <div id="smart"></div>
+    <div class="start">
+      <p>Chosse your oponent</p>
+      <ol>
+        <li><button class="ruuyt" onclick="startGame(50,'boss1')">flying snake</button></li>
+        <li><button class="ruuyt" onclick="startGame(100,'boss2')">cloud monster</button></li>
+        <li><button class="ruuyt" onclick="startGame(150,'boss3')">scorpion</button></li>
+        <li><button class="ruuyt" onclick="startGame(200,'boss4')">spider</button></li>
+        <li><button class="ruuyt" onclick="startGame(250,'boss5')">gun guy</button></li>
+        <li><button class="ruuyt" onclick="startGame(300,'boss6')">pounder monster</button></li>
+      </ol>
+    </div>
+    <div class="middle">
+      <button class="ruuyty" onclick="askThem()">attack</button>
+      <div id="page"></div>
+      <div id="error"></div>
+      <div id="smart"></div>
 
-    <div class="container">
-      <div id="1" class="left-side">
-        <img id="1to2" src="wisardgoodguy/wisardgoodguy.png" alt="" style="width: 200px; height: 170px" />
-      </div>
-      <div id="2" class="right-side">
-        <img id="2to2" src="boss1/boss1.png" alt="" style="width: 200px; height: 150px" />
+      <div class="container">
+        <div id="1" class="left-side">
+          <img id="1to2" src="wisardgoodguy/wisardgoodguy.png" alt="" style="width: 200px; height: 170px" />
+        </div>
+        <div id="2" class="right-side">
+          <img id="2to2" src="boss1/boss1.png" alt="" style="width: 200px; height: 150px" />
+        </div>
       </div>
     </div>
     <a href="/">home</a>
@@ -32,7 +37,34 @@
       .container {
         display: flex;
       }
-
+      .ruuyt {
+        width: 100%;
+        padding: 10px;
+        width: 100px;
+        height: 50px;
+        border-radius: 20%;
+        background-color: #ff0000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .ruuyty {
+        width: 100%;
+        padding: 10px;
+        width: 100px;
+        height: 50px;
+        border-radius: 20%;
+        background-color: #26ff00;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .start {
+        display: block;
+      }
+      .middle {
+        display: none;
+      }
       .left-side,
       .right-side {
         width: 100%;
@@ -48,6 +80,8 @@
       }
     </style>
     <script>
+      const BossKill = document.querySelector(".middle");
+      const BossSelect = document.querySelector(".start");
       let utah;
       let hp;
       let the_math_question;
@@ -86,6 +120,8 @@
       const where_to_print_error = document.getElementById("error");
 
       function startGame(HPsetter, theboss) {
+        BossSelect.style.display = "none";
+        BossKill.style.display = "block";
         hp = HPsetter;
         full_hp.innerHTML = "enemyHP = " + hp;
         boss = theboss;
@@ -106,9 +142,6 @@
           if (sorry_status == "yes") {
             where_to_print_error.innerHTML = "";
             sorry_status = "no";
-          }
-          if (hp < 1) {
-            document.write("you win refresh to go again");
           }
           GoleShootHit();
         } else {
@@ -139,9 +172,15 @@
         setTimeout(function () {
           circlediv22.style.backgroundColor = "white";
         }, 1000);
-        setTimeout(function () {
-          BossAttack();
-        }, 2000);
+        if (hp < 1) {
+          setTimeout(function () {
+            document.write("you win refresh to go again");
+          }, 4000);
+        } else {
+          setTimeout(function () {
+            BossAttack();
+          }, 2000);
+        }
       }
       function BossAttack() {
         random_index_2 = Math.floor(Math.random() * 3);
@@ -168,10 +207,12 @@
           setTimeout(function () {
             circlediv11.style.backgroundColor = "white";
           }, 6000);
-          yhp = yhp - 1;
+          yhp = yhp - 10;
           yhpOutput.innerHTML = "yourHp =" + yhp;
           if (yhp < 1) {
-            document.write("you lose refresh to try again.");
+            setTimeout(function () {
+              document.write("you lose refresh to try again.");
+            }, 7000);
           }
         } else {
           circlediv2.src = "costumewrong.png";
