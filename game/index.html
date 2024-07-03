@@ -18,29 +18,21 @@
       </ol>
     </div>
     <div class="middle">
-      <div>
-        <div>
-          <button class="ruuyty" id="move11" onclick="askThem(0,1)">
-            <img id="move" class="ruuytys" src="wisardgoodguy/blast1.png" />
-          </button>
-        </div>
-        <div>
-          <button class="ruuyty" id="move22" onclick="askThem(2,2)">
-            <img id="move" class="ruuytys" src="wisardgoodguy/blast2.png" />
-          </button>
-        </div>
+      <div class="sideside">
+        <button class="ruuyty" id="move11" onclick="askThem(0,1)">
+          <img id="move" class="ruuytys" src="wisardgoodguy/blast1.png" />
+        </button>
+        <button class="ruuyty" id="move22" onclick="askThem(2,2)">
+          <img id="move" class="ruuytys" src="wisardgoodguy/blast2.png" />
+        </button>
       </div>
-      <div>
-        <div>
-          <button class="ruuyty" id="move33" onclick="askThem(3,3)">
-            <img id="move" class="ruuytys" src="wisardgoodguy/blast3.png" />
-          </button>
-        </div>
-        <div>
-          <button class="ruuyty" id="move44" onclick="askThem(4,4)">
-            <img id="move" class="ruuytys" src="wisardgoodguy/blast4.png" />
-          </button>
-        </div>
+      <div class="sideside">
+        <button class="ruuyty" id="move33" onclick="askThem(3,3)">
+          <img id="move" class="ruuytys" src="wisardgoodguy/blast3.png" />
+        </button>
+        <button class="ruuyty" id="move44" onclick="askThem(4,4)">
+          <img id="move" class="ruuytys" src="wisardgoodguy/blast4.png" />
+        </button>
       </div>
       <div id="page"></div>
       <div id="error"></div>
@@ -51,12 +43,15 @@
           <img id="1to2" src="wisardgoodguy/wisardgoodguy.png" alt="" style="width: 200px; height: 170px" />
         </div>
         <div id="2" class="right-side">
-          <img id="2to2" src="boss1/boss1.png" alt="" style="width: 200px; height: 150px" />
+          <img id="2to2" src="boss1/boss1.gif" alt="" style="width: 200px; height: 150px" />
         </div>
       </div>
     </div>
     <a href="/">home</a>
     <style>
+      .sideside {
+        display: inline-block;
+      }
       .container {
         display: flex;
       }
@@ -154,7 +149,7 @@
         hp = HPsetter;
         full_hp.innerHTML = "enemyHP = " + hp;
         boss = theboss;
-        circlediv2.src = boss + "/" + boss + ".png";
+        circlediv2.src = boss + "/" + boss + ".gif";
       }
       function askThem(charge, TheDamage) {
         TheCharge = TheCharge + 1;
