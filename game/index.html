@@ -15,6 +15,10 @@
         <li><button class="ruuyt" onclick="startGame(200,'boss4')">spider</button></li>
         <li><button class="ruuyt" onclick="startGame(250,'boss5')">gun guy</button></li>
         <li><button class="ruuyt" onclick="startGame(300,'boss6')">pounder monster</button></li>
+        <li><button class="ruuyt" onclick="startGame(350,'boss7')">fire gollum</button></li>
+        <li><button class="ruuyt" onclick="startGame(400,'boss8')">black hole</button></li>
+        <li><button class="ruuyt" onclick="startGame(450,'boss9')">saw robot</button></li>
+        <li><button class="ruuyt" onclick="startGame(500,'boss10')">power warp core</button></li>
       </ol>
     </div>
     <div class="middle">
@@ -101,6 +105,8 @@
       }
     </style>
     <script>
+      let a;
+      let b;
       let utah2;
       const bossmovearray = ["1", "2", "3", "4"];
       let TheCharge = 0;
@@ -156,16 +162,41 @@
         if (charge <= TheCharge) {
           TheCharge = TheCharge - charge;
           random_index = Math.floor(Math.random() * 8);
-          the_math_question = question_array[random_index];
+
+          if (TheDamage == 1) {
+            a = Math.floor(Math.random() * 101);
+            b = Math.floor(Math.random() * 101);
+            the_math_question = a + "+" + b + "=";
+            the_math_answer = a + b;
+          }
+          if (TheDamage == 2) {
+            a = Math.floor(Math.random() * 1001);
+            a = a + 50;
+            b = Math.floor(Math.random() * 901);
+            the_math_question = a + "-" + b + "=";
+            the_math_answer = a - b;
+          }
+          if (TheDamage == 3) {
+            a = Math.floor(Math.random() * 11);
+            b = Math.floor(Math.random() * 11);
+            the_math_question = a + "x" + b + "=";
+            the_math_answer = a * b;
+          }
+          if (TheDamage == 4) {
+            a = Math.floor(Math.random() * 11);
+            b = Math.floor(Math.random() * 11);
+            a = a * b;
+            the_math_question = a + "÷" + b + "=";
+            the_math_answer = a / b;
+          }
           the_answer = window.prompt(the_math_question);
           checkTheAnswer(TheDamage);
         } else {
-          window.prompt("The move you want to use is not charged up yet.Click 'ok' and then select another move.");
+          window.alert("The move you want to use is not charged up yet.Click 'ok' and then select another move.");
         }
       }
       function checkTheAnswer(TheDamage) {
-        the_math_answer = answer_array[random_index];
-        if (the_answer == the_math_answer) {
+        if (Number(the_answer) == the_math_answer) {
           hp = hp - TheDamage * 10;
           full_hp.innerHTML = "enemyHP = " + hp;
           sorry.innerHTML = "";
