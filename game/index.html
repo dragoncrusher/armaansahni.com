@@ -38,21 +38,36 @@
           <img id="move" class="ruuytys" src="wisardgoodguy/blast4.png" />
         </button>
       </div>
-      <div id="page"></div>
       <div id="error"></div>
-      <div id="smart"></div>
 
       <div class="container">
-        <div id="1" class="left-side">
-          <img id="1to2" src="wisardgoodguy/wisardgoodguy.gif" alt="" style="width: 200px; height: 170px" />
+        <div>
+          <div id="1" class="left-side">
+            <img id="1to2" class="character" src="wisardgoodguy/wisardgoodguy.gif" alt="" />
+          </div>
+          <div class="hpshow" id="youhpholder"></div>
         </div>
-        <div id="2" class="right-side">
-          <img id="2to2" src="boss1/boss1.gif" alt="" style="width: 200px; height: 150px" />
+        <div>
+          <div id="2" class="right-side">
+            <img id="2to2" class="character" src="boss1/boss1.gif" alt="" />
+          </div>
+          <div class="hpshow" id="bosshpholder"></div>
         </div>
       </div>
+      <img class="sizeit" id="turnteller" src="yourturn.png" />
     </div>
     <a href="/">home</a>
     <style>
+      .sizeit {
+        width: 100px;
+      }
+      .hpshow {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        text-align: center;
+      }
       .sideside {
         display: inline-block;
       }
@@ -84,6 +99,9 @@
         width: 80px;
         height: 80px;
       }
+      .character {
+        width: 90%;
+      }
       .start {
         display: block;
       }
@@ -105,6 +123,7 @@
       }
     </style>
     <script>
+      const turnteller = document.getElementById("turnteller");
       let a;
       let b;
       let utah2;
@@ -139,12 +158,12 @@
       const answer_array = ["8", "82", "109", "10", "5", "11", "240", "1000"];
       const boss_array = ["yes", "no", "no"];
       let random_index_2;
-      const where_to_print = document.getElementById("page");
-      const smart = document.getElementById("smart");
+      const where_to_print = document.getElementById("bosshpholder");
+      const youhpholder = document.getElementById("youhpholder");
       let yhp = 30;
       let yhpOutput = document.createElement("p");
       yhpOutput.innerHTML = "yourHp =" + yhp;
-      smart.appendChild(yhpOutput);
+      youhpholder.appendChild(yhpOutput);
       const full_hp = document.createElement("p");
       where_to_print.appendChild(full_hp);
       const where_to_print_error = document.getElementById("error");
@@ -244,6 +263,8 @@
         }
       }
       function BossAttack() {
+        console.log(turnteller);
+        turnteller.src = "bossturn.png";
         random_index_2 = Math.floor(Math.random() * 3);
         utah = boss_array[random_index_2];
         if (utah == "yes") {
@@ -283,6 +304,9 @@
             circlediv2.src = boss + "/" + boss + ".gif";
           }, 1000);
         }
+        setTimeout(function () {
+          turnteller.src = "yourturn.png";
+        }, 9000);
       }
     </script>
   </body>
