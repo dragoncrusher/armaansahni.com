@@ -81,6 +81,9 @@
       }
       .container {
         display: flex;
+        background: green;
+        width: 450px;
+        max-width: 100%;
       }
       .ruuyt {
         width: 100%;
@@ -119,7 +122,7 @@
       .player-attack-wrapper {
         width: 100%;
         border-radius: 50%;
-        background-color: #ffffff;
+        /* background-color: #ffffff; */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -128,7 +131,6 @@
       .left-side,
       .right-side {
         width: 45%;
-        max-width: 200px;
       }
       .left-side {
         margin-right: 20px;
@@ -265,7 +267,7 @@
         }
         circlediv22.style.backgroundColor = "red";
         setTimeout(function () {
-          circlediv22.style.backgroundColor = "white";
+          circlediv22.style.backgroundColor = "transparent";
         }, 1000);
         if (hp < 1) {
           setTimeout(function () {
@@ -302,7 +304,7 @@
             circlediv11.style.backgroundColor = "red";
           }, 5000);
           setTimeout(function () {
-            circlediv11.style.backgroundColor = "white";
+            circlediv11.style.backgroundColor = "transparent";
           }, 6000);
           utah2 = Math.floor(Math.random() * 4);
           thedamigeas = bossmovearray[utah2];
