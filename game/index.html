@@ -45,7 +45,7 @@
       </div>
       <div id="error"></div>
 
-      <div class="container">
+      <div class="container" id="background">
         <div class="left-side">
           <div id="1" class="player-attack-wrapper">
             <img id="1to2" class="player" src="wisardgoodguy/wisardgoodguy.gif" alt="" />
@@ -59,7 +59,6 @@
           <div class="hpshow" id="bosshpholder"></div>
         </div>
       </div>
-      <img class="sizeit" id="turnteller" src="yourturn.png" />
     </div>
     <a href="/">home</a>
     <style>
@@ -73,6 +72,7 @@
         display: block;
         justify-content: center;
         align-items: center;
+        background-color: #ff0000;
         padding: 10px;
         text-align: center;
       }
@@ -81,7 +81,8 @@
       }
       .container {
         display: flex;
-        background: green;
+        /*background-image: url("boss1/background1.gif");*/
+        background-size: cover;
         width: 450px;
         max-width: 100%;
       }
@@ -122,7 +123,7 @@
       .player-attack-wrapper {
         width: 100%;
         border-radius: 50%;
-        /* background-color: #ffffff; */
+        border-style: solid;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -140,7 +141,8 @@
       }
     </style>
     <script>
-      const turnteller = document.getElementById("turnteller");
+      let imagePath;
+      let thebackground = document.getElementById("background");
       let a;
       let b;
       let utah2;
@@ -186,6 +188,10 @@
       const where_to_print_error = document.getElementById("error");
 
       function startGame(HPsetter, theboss) {
+        imagePath = `${theboss}/background1.gif`;
+        /*thebackground.style.backgroundImage = `url(${imagePath})`;*/
+        circlediv11.style.borderColor = "blue";
+        circlediv22.style.borderColor = "transparent";
         BossSelect.style.display = "none";
         BossKill.style.display = "block";
         hp = HPsetter;
@@ -280,8 +286,8 @@
         }
       }
       function BossAttack() {
-        console.log(turnteller);
-        turnteller.src = "bossturn.png";
+        circlediv11.style.borderColor = "transparent";
+        circlediv22.style.borderColor = "blue";
         random_index_2 = Math.floor(Math.random() * 3);
         utah = boss_array[random_index_2];
         if (utah == "yes") {
@@ -322,7 +328,8 @@
           }, 1000);
         }
         setTimeout(function () {
-          turnteller.src = "yourturn.png";
+          circlediv11.style.borderColor = "blue";
+          circlediv22.style.borderColor = "transparent";
         }, 9000);
       }
     </script>
