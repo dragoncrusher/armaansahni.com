@@ -250,26 +250,31 @@
         }
       }
       function GoleShootHit() {
-        if (circlediv1.src.endsWith("wisardgoodguy/wisardgoodguy.gif")) {
+        circlediv1.src = "costumeright.png";
+        setTimeout(function () {
+          circlediv1.src = "wisardgoodguy/wisardgoodguy.gif";
+        }, 1000);
+        setTimeout(function () {
           circlediv1.src = "wisardgoodguy/wizardgoodguycostume2.gif";
-        }
-        if (circlediv1.src.endsWith("wisardgoodguy/wizardgoodguycostume2.gif")) {
-          setTimeout(function () {
-            circlediv1.src = "wisardgoodguy/wisardgoodguy.gif";
-          }, 1000);
-        }
-        circlediv22.style.backgroundColor = "red";
+        }, 2000);
+
+        setTimeout(function () {
+          circlediv1.src = "wisardgoodguy/wisardgoodguy.gif";
+        }, 3000);
+        setTimeout(function () {
+          circlediv22.style.backgroundColor = "red";
+        }, 4000);
         setTimeout(function () {
           circlediv22.style.backgroundColor = "transparent";
-        }, 1000);
+        }, 5000);
         if (hp < 1) {
           setTimeout(function () {
             document.write("you win refresh to go again");
-          }, 4000);
+          }, 6000);
         } else {
           setTimeout(function () {
             BossAttack();
-          }, 2000);
+          }, 7000);
         }
       }
       function BossAttack() {
