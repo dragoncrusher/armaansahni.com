@@ -58,7 +58,6 @@
           <div class="hpshow" id="bosshpholder"></div>
         </div>
       </div>
-      <div id="error"></div>
     </div>
     <a href="/">home</a>
     <style>
@@ -157,8 +156,6 @@
       let the_answer;
       let random_index;
       let boss;
-      let sorry = "";
-      let sorry_status = "";
       const circlediv1 = document.getElementById("1to2");
       const circlediv2 = document.getElementById("2to2");
       const circlediv11 = document.getElementById(1);
@@ -185,7 +182,6 @@
       youhpholder.appendChild(yhpOutput);
       const full_hp = document.createElement("p");
       where_to_print.appendChild(full_hp);
-      const where_to_print_error = document.getElementById("error");
 
       function startGame(HPsetter, theboss) {
         imagePath = `${theboss}/background1.gif`;
@@ -241,18 +237,9 @@
         if (Number(the_answer) == the_math_answer) {
           hp = hp - TheDamage * 10;
           full_hp.innerHTML = "enemyHP = " + hp;
-          sorry.innerHTML = "";
-          if (sorry_status == "yes") {
-            where_to_print_error.innerHTML = "";
-            sorry_status = "no";
-          }
           GoleShootHit();
         } else {
-          sorry = document.createTextNode(
-            "Sorry, that was the wrong answer. The correct answer was: " + the_math_answer + "\n"
-          );
-          where_to_print_error.appendChild(sorry);
-          sorry_status = "yes";
+          window.alert("sorry that was the wrong answer, the corect answer was: " + the_math_answer + ".");
           circlediv1.src = "costumewrong.png";
           setTimeout(function () {
             circlediv1.src = "wisardgoodguy/wisardgoodguy.gif";
