@@ -43,7 +43,6 @@
           <div class="hpshow">exploding star</div>
         </button>
       </div>
-      <div id="error"></div>
 
       <div class="container" id="background">
         <div class="left-side">
@@ -59,6 +58,7 @@
           <div class="hpshow" id="bosshpholder"></div>
         </div>
       </div>
+      <div id="error"></div>
     </div>
     <a href="/">home</a>
     <style>
@@ -81,7 +81,7 @@
       }
       .container {
         display: flex;
-        /*background-image: url("boss1/background1.gif");*/
+        /* background-image: url("boss1/background1.gif"); */
         background-size: cover;
         width: 450px;
         max-width: 100%;
@@ -175,7 +175,7 @@
       ];
       let thedamigeas;
       const answer_array = ["8", "82", "109", "10", "5", "11", "240", "1000"];
-      const boss_array = ["yes", "no", "no"];
+      const boss_array = ["yes", "no"];
       let random_index_2;
       const where_to_print = document.getElementById("bosshpholder");
       const youhpholder = document.getElementById("youhpholder");
@@ -189,7 +189,7 @@
 
       function startGame(HPsetter, theboss) {
         imagePath = `${theboss}/background1.gif`;
-        /*thebackground.style.backgroundImage = `url(${imagePath})`;*/
+        // thebackground.style.backgroundImage = `url(${imagePath})`;
         circlediv11.style.borderColor = "blue";
         circlediv22.style.borderColor = "transparent";
         BossSelect.style.display = "none";
@@ -288,7 +288,7 @@
       function BossAttack() {
         circlediv11.style.borderColor = "transparent";
         circlediv22.style.borderColor = "blue";
-        random_index_2 = Math.floor(Math.random() * 3);
+        random_index_2 = Math.floor(Math.random() * 2);
         utah = boss_array[random_index_2];
         if (utah == "yes") {
           setTimeout(function () {
@@ -321,16 +321,20 @@
               document.write("you lose refresh to try again.");
             }, 7000);
           }
+          setTimeout(function () {
+            circlediv11.style.borderColor = "blue";
+            circlediv22.style.borderColor = "transparent";
+          }, 8000);
         } else {
           circlediv2.src = "costumewrong.png";
           setTimeout(function () {
             circlediv2.src = boss + "/" + boss + ".gif";
           }, 1000);
+          setTimeout(function () {
+            circlediv11.style.borderColor = "blue";
+            circlediv22.style.borderColor = "transparent";
+          }, 2000);
         }
-        setTimeout(function () {
-          circlediv11.style.borderColor = "blue";
-          circlediv22.style.borderColor = "transparent";
-        }, 9000);
       }
     </script>
   </body>
