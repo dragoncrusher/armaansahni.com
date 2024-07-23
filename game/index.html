@@ -234,6 +234,9 @@
         }
       }
       function checkTheAnswer(TheDamage) {
+        if (the_answer == null) {
+          return;
+        }
         if (Number(the_answer) == the_math_answer) {
           hp = hp - TheDamage * 10;
           full_hp.innerHTML = "enemyHP = " + hp;
