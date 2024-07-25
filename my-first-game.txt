@@ -1,0 +1,37 @@
+How I coded a game using AI as a 9 year old. 
+
+-------INTRO---------
+
+Hello, my name is Armaan and I'm 9 years old.
+
+Today I want to show you how I wrote a game in JavaScript using AI 
+
+//link to game
+
+I didn't just get AI to write a game for me. I used it to help find out about new codes like .Append child and setTimeout()
+
+-------------------why I chose JavaScript--------------------
+
+I first started coding with the Godot game engine. But that was too complicated and used the language called GDscript that I did not know.
+
+So my Dad decided to teach me how to code my own game using HTML And CSS, which were the two languages that I knew.
+He did this by giving me coding tests. Which were where he told me to make something and I had to make it using code, and I was able to  research using AI and Google search.
+He also did not tell me in which language I could do these tests So I would figure it out on my own.
+
+I only knew three languages, HTML CSS and the little bit of JavaScript.
+So I chose to use JavaScript because the easiest way to do the things that my dad was giving me was functions, and there was no way to create functions in HTML and CSS, in JavaScript, though, there was.
+
+-----------------I learned how to use AI to help me-------------------
+
+Out of my two options AI and Google search. I used AI because you can talk to AI like a person which to me was easier than looking at pre-written blogs on the internet.
+
+When I asked AI about code it would give me an explanation, then I would give it my understanding and ask it if I was understanding right and if I wasn't it would give me another explanation.
+
+Also, AI had the microphone tool which I could use to speak which was faster than typing.
+
+---------------------I built the game in baby steps---------------------
+
+My idea for the game was: that there would be some buttons to chose a enemy hp level
+
+              ------------------STEP 1--------------------
+
