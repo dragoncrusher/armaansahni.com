@@ -5,133 +5,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
-    <h1>How I coded a game using AI as a 9 year old.</h1>
-    <p>Hello, my name is Armaan and I'm 9 years old.</p>
-    <p>
-      Today I want to show you how I wrote a game in JavaScript using AI called
-      <a href="game/">THE GAMEY GAME</a> (please check out the game.)
-    </p>
-    <p>
-      I bet you are thinking that AI wrote the game for me, but I didn't just get AI to write a game for me. I used it
-      to help find out about new codes like .appendChild and setTimeout(). This is why in my opinion AI is very helpful.
-    </p>
-    <h2>Why I chose JavaScript</h2>
-    <p>
-      I already had an idea for the game, but I didn't know how to code a game in the browser. So I first started coding
-      with the Godot game engine. But that was too complicated and used the language called GDscript that I did not
-      know. So my Dad decided to teach me how to code my own game using HTML And CSS, which were the two languages that
-      I knew. He did this by giving me coding tests. He had me make something and I had to make it using code, and I was
-      able to research using AI and Google search. He also did not tell me in whitch language I could do these tests, so
-      I would figure it out on my own.
-    </p>
-    <p>
-      I only knew three languages, HTML CSS and he little bit of JavaScript. So I chose to use JavaScript because the
-      easiest way to do the things that my dad was giving me was functions, and there was no way to create functions in
-      HTML and CSS. In JavaScript, though, there was.
-    </p>
-    <h2>I learned how to use AI to help me</h2>
-    <p>
-      Out of my two options for research, AI and Google search. I used AI because you can talk to AI like a person which
-      to me was easier than looking at pre-written blogs on the internet.
-    </p>
-    <p>
-      When I asked AI about code it would give me an explanation, then I would give it my understanding and ask it if I
-      was understanding right and if I wasn't it would give me another explanation.
-    </p>
-    <p>Also, AI had the microphone tool which I could use to speak which was faster than typing.</p>
-    <p>
-      But there was one downside to AI. AI was like a human which is why you could talk to it like a human. But because
-      it was like a human, it could also be wrong like a human. So I had to make sure that it wasn't getting the answer
-      wrong. For which I would sometimes use Google Search.
-    </p>
-    <h2>I built the game in baby steps</h2>
-    <p>
-      My idea for the game was: that there would be some buttons to chose a enemy hp level. Then you ansered a math
-      question and if you got it, right you would do 10 damage to the HP level you chose. But if you got it wrong, you
-      would take one damage. The goal was to bring the HP level of the enemy to 0 before your HP level goes to 0.
-    </p>
-    <h3>Game progress step #1</h3>
-    <p>
-      There were 6 buttons. You selected one and it would set the enemy HP level. Then you clicked the attack button. It
-      asked you a math question randomized from an array of eight math questions. If you got it right, you would remove
-      10 of the enemy`s HP. But if you got it wrong, then your HP level would go down by 10. If your HP level went to 0,
-      then you lost but if the enemy HP level went to 0, you won.
-    </p>
-    <p>
-      <img src="gameV1.png" />
-    </p>
-    <h3>Game progress step #2</h3>
-    <p>
-      There were 2 img tags which each had an image in it. One had a wizard, this was your character. He didn't do
-      anything. It was just to represent your character. The next one was a boss. This image would vary depending on
-      which button you clicked. Each boss had a different enemy HP level.
-    </p>
-    <p><img src="gameV2.png" /></p>
-    <h3>Game progress step #3</h3>
-    <p>
-      There were animations in the characters, when you got the question right the wizard would raise his wizards staff
-      and then bring it down. And then the boss image would have its background turn red and then back to white. But
-      when you got the question wrong the boss would do something . And then the wizard image would have its background
-      turn red and then back to white.
-    </p>
-    <p>
-      For my pictures I used the Piskel app. The Piskel app had Layers and Frames, which were what I used for
-      animation.Layers are like one transparent slab in a stack of transparent slabs. You write stuff on each one and
-      they appear in front and behind of each other so all the layers are visible at the same time. For example, you
-      would put a background as your last layer and the main objects and\or characters as the first layer. Frames are
-      like a small time periods. Each frame has the same amount of layers. Each frame can represent as many seconds as
-      you want. The frame will last for that amount of time and then switch to the next frame. For example if I was
-      going to make an animation of a tree falling over, the first frame would be the tree standing straight. the last
-      frame would be the tree completely sideways on the ground.
-    </p>
-    <p>
-      <img src="gameV3.gif" />
-    </p>
-    <h3>Game progress step #4</h3>
-    <p>
-      I collected a lot of feedback and refined my game.To refine something means to make it better by adding a few
-      changes.
-    </p>
-    <p>
-      By now I had turns, your turn and the boss's turn. I made the characters whose turn it was outline circle glow
-      blue.
-    </p>
-    <p>I also made the background adjust size if it was a phone so my game could be played on the phone.</p>
-    <p><img src="gameV4.gif" /></p>
-    <h2>What I got out of making my game</h2>
-    <p>
-      While working on my game I learned JavaScript and a <strong><em>lot</em></strong> of CSS.I also got appreciation
-      from getting feedback and comments of people playing my game.
-    </p>
-    <h2>What`s next for THE GAMEY GAME</h2>
-    <p>Next in my game I will:</p>
-    <ol>
-      <li>add sound effects</li>
-      <li>add background</li>
-      <li>fix bugs</li>
-      <li>add backis boss</li>
-    </ol>
-    <p class="join_the_Journey">
-      <a class="link_to_join" href="/join.html">join the Journey to stay tuned for more!!!</a>
-    </p>
+    <div class="container">
+      <h1>How I coded a game using AI as a 9 year old.</h1>
+      <p>Hello, my name is Armaan and I'm 9 years old.</p>
+      <p>
+        Today I want to show you how I wrote a game in JavaScript using AI called
+        <a href="game/">THE GAMEY GAME</a> (please check out the game.)
+      </p>
+      <p>
+        I bet you are thinking that AI wrote the game for me, but I didn't just get AI to write a game for me. I used it
+        to help find out about new codes like .appendChild and setTimeout(). This is why in my opinion AI is very
+        helpful.
+      </p>
+      <h2>Why I chose JavaScript</h2>
+      <p>
+        I already had an idea for the game, but I didn't know how to code a game in the browser. So I first started
+        coding with the Godot game engine. But that was too complicated and used the language called GDscript that I did
+        not know. So my Dad decided to teach me how to code my own game using HTML And CSS, which were the two languages
+        that I knew. He did this by giving me coding tests. He had me make something and I had to make it using code,
+        and I was able to research using AI and Google search. He also did not tell me in whitch language I could do
+        these tests, so I would figure it out on my own.
+      </p>
+      <p>
+        I only knew three languages, HTML CSS and he little bit of JavaScript. So I chose to use JavaScript because the
+        easiest way to do the things that my dad was giving me was functions, and there was no way to create functions
+        in HTML and CSS. In JavaScript, though, there was.
+      </p>
+      <h2>I learned how to use AI to help me</h2>
+      <p>
+        Out of my two options for research, AI and Google search. I used AI because you can talk to AI like a person
+        which to me was easier than looking at pre-written blogs on the internet.
+      </p>
+      <p>
+        When I asked AI about code it would give me an explanation, then I would give it my understanding and ask it if
+        I was understanding right and if I wasn't it would give me another explanation.
+      </p>
+      <p>Also, AI had the microphone tool which I could use to speak which was faster than typing.</p>
+      <p>
+        But there was one downside to AI. AI was like a human which is why you could talk to it like a human. But
+        because it was like a human, it could also be wrong like a human. So I had to make sure that it wasn't getting
+        the answer wrong. For which I would sometimes use Google Search.
+      </p>
+      <h2>I built the game in baby steps</h2>
+      <p>
+        My idea for the game was: that there would be some buttons to chose a enemy hp level. Then you ansered a math
+        question and if you got it, right you would do 10 damage to the HP level you chose. But if you got it wrong, you
+        would take one damage. The goal was to bring the HP level of the enemy to 0 before your HP level goes to 0.
+      </p>
+      <h3>Game progress step #1</h3>
+      <p>
+        There were 6 buttons. You selected one and it would set the enemy HP level. Then you clicked the attack button.
+        It asked you a math question randomized from an array of eight math questions. If you got it right, you would
+        remove 10 of the enemy`s HP. But if you got it wrong, then your HP level would go down by 10. If your HP level
+        went to 0, then you lost but if the enemy HP level went to 0, you won.
+      </p>
+      <p>
+        <img src="gameV1.png" />
+      </p>
+      <h3>Game progress step #2</h3>
+      <p>
+        There were 2 img tags which each had an image in it. One had a wizard, this was your character. He didn't do
+        anything. It was just to represent your character. The next one was a boss. This image would vary depending on
+        which button you clicked. Each boss had a different enemy HP level.
+      </p>
+      <p><img src="gameV2.png" /></p>
+      <h3>Game progress step #3</h3>
+      <p>
+        There were animations in the characters, when you got the question right the wizard would raise his wizards
+        staff and then bring it down. And then the boss image would have its background turn red and then back to white.
+        But when you got the question wrong the boss would do something . And then the wizard image would have its
+        background turn red and then back to white.
+      </p>
+      <p>
+        For my pictures I used the Piskel app. The Piskel app had Layers and Frames, which were what I used for
+        animation.Layers are like one transparent slab in a stack of transparent slabs. You write stuff on each one and
+        they appear in front and behind of each other so all the layers are visible at the same time. For example, you
+        would put a background as your last layer and the main objects and\or characters as the first layer. Frames are
+        like a small time periods. Each frame has the same amount of layers. Each frame can represent as many seconds as
+        you want. The frame will last for that amount of time and then switch to the next frame. For example if I was
+        going to make an animation of a tree falling over, the first frame would be the tree standing straight. the last
+        frame would be the tree completely sideways on the ground.
+      </p>
+      <p>
+        <img src="gameV3.gif" />
+      </p>
+      <h3>Game progress step #4</h3>
+      <p>
+        I collected a lot of feedback and refined my game.To refine something means to make it better by adding a few
+        changes.
+      </p>
+      <p>
+        By now I had turns, your turn and the boss's turn. I made the characters whose turn it was outline circle glow
+        blue.
+      </p>
+      <p>I also made the background adjust size if it was a phone so my game could be played on the phone.</p>
+      <p><img src="gameV4.gif" /></p>
+      <h2>What I got out of making my game</h2>
+      <p>
+        While working on my game I learned JavaScript and a <strong><em>lot</em></strong> of CSS.I also got appreciation
+        from getting feedback and comments of people playing my game.
+      </p>
+      <h2>What`s next for THE GAMEY GAME</h2>
+      <p>Next in my game I will:</p>
+      <ol>
+        <li>add sound effects</li>
+        <li>add background</li>
+        <li>fix bugs</li>
+        <li>add backis boss</li>
+      </ol>
+      <p class="join_the_Journey">
+        <a class="link_to_join" href="/join.html">join the Journey to stay tuned for more!!!</a>
+      </p>
+    </div>
     <style>
       h2 {
         margin-top: 100px;
-        border-radius: 10px;
-        padding: 10px;
-        margin-bottom: 20px;
-        margin: auto;
-        width: 400px;
       }
-      h3 {
-        border-radius: 10px;
-        padding: 10px;
-        margin-bottom: 20px;
-        margin: auto;
-        width: 400px;
-      }
-      p {
-        border-radius: 10px;
+      .container {
         padding: 10px;
         margin-bottom: 20px;
         margin: auto;
