@@ -161,7 +161,7 @@
       let boss;
       const circlediv1 = document.getElementById("1to2");
       const circlediv2 = document.getElementById("2to2");
-      const circlediv11 = document.getElementById(1);
+      const circlediv11wisard_player = document.getElementById(1);
       const circlediv22 = document.getElementById(2);
       const question_array = [
         "62 - 54 =",
@@ -189,7 +189,7 @@
       function startGame(HPsetter, theboss) {
         imagePath = `${theboss}/background1.gif`;
         // thebackground.style.backgroundImage = `url(${imagePath})`;
-        circlediv11.style.borderColor = "blue";
+        wisard_player.style.borderColor = "blue";
         circlediv22.style.borderColor = "transparent";
         BossSelect.style.display = "none";
         BossKill.style.display = "block";
@@ -285,7 +285,7 @@
         }
       }
       function BossAttack() {
-        circlediv11.style.borderColor = "transparent";
+        wisard_player.style.borderColor = "transparent";
         circlediv22.style.borderColor = "blue";
         random_index_2 = Math.floor(Math.random() * 2);
         utah = boss_array[random_index_2];
@@ -306,10 +306,10 @@
             circlediv2.src = boss + "/" + boss + ".gif";
           }, 5000);
           setTimeout(function () {
-            circlediv11.style.backgroundColor = "red";
+            wisard_player.style.backgroundColor = "red";
           }, 5000);
           setTimeout(function () {
-            circlediv11.style.backgroundColor = "transparent";
+            wisard_player.style.backgroundColor = "transparent";
           }, 6000);
           utah2 = Math.floor(Math.random() * 4);
           thedamigeas = bossmovearray[utah2];
@@ -321,7 +321,7 @@
             }, 7000);
           }
           setTimeout(function () {
-            circlediv11.style.borderColor = "blue";
+            wisard_player.style.borderColor = "blue";
             circlediv22.style.borderColor = "transparent";
           }, 8000);
         } else {
@@ -330,7 +330,7 @@
             circlediv2.src = boss + "/" + boss + ".gif";
           }, 1000);
           setTimeout(function () {
-            circlediv11.style.borderColor = "blue";
+            wisard_player.style.borderColor = "blue";
             circlediv22.style.borderColor = "transparent";
           }, 2000);
         }
