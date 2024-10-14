@@ -143,16 +143,14 @@
       }
     </style>
     <script>
-      let imagePath;
-      let thebackground = document.getElementById("background");
-      let a;
-      let b;
-      let utah2;
+      //let imagePath;
+      //let thebackground = document.getElementById("background");
+      let the_boss_attack;
       const bossmovearray = ["10", "20", "30", "40"];
       let TheCharge = 0;
       const BossKill = document.querySelector(".FightPage");
       const BossSelect = document.querySelector(".ChoosePage");
-      let utah;
+      let the_bosses_answer;
       let hp;
       let the_math_question;
       let the_math_answer;
@@ -187,7 +185,7 @@
       where_to_print.appendChild(full_hp);
 
       function startGame(HPsetter, theboss) {
-        imagePath = `${theboss}/background1.gif`;
+        //imagePath = `${theboss}/background1.gif`;
         // thebackground.style.backgroundImage = `url(${imagePath})`;
         wisard_player.style.borderColor = "blue";
         boss_player.style.borderColor = "transparent";
@@ -205,27 +203,27 @@
           random_index = Math.floor(Math.random() * 8);
 
           if (TheDamage == 1) {
-            a = Math.floor(Math.random() * 101);
-            b = Math.floor(Math.random() * 101);
+            let a = Math.floor(Math.random() * 101);
+            let b = Math.floor(Math.random() * 101);
             the_math_question = a + "+" + b + "=";
             the_math_answer = a + b;
           }
           if (TheDamage == 2) {
-            a = Math.floor(Math.random() * 51);
+            let a = Math.floor(Math.random() * 51);
+            let b = Math.floor(Math.random() * 51);
             a = a + 50;
-            b = Math.floor(Math.random() * 51);
             the_math_question = a + "-" + b + "=";
             the_math_answer = a - b;
           }
           if (TheDamage == 3) {
-            a = Math.floor(Math.random() * 11);
-            b = Math.floor(Math.random() * 11);
+            let a = Math.floor(Math.random() * 11);
+            let b = Math.floor(Math.random() * 11);
             the_math_question = a + "x" + b + "=";
             the_math_answer = a * b;
           }
           if (TheDamage == 4) {
-            a = Math.floor(Math.random() * 11);
-            b = Math.floor(Math.random() * 10);
+            let a = Math.floor(Math.random() * 11);
+            let b = Math.floor(Math.random() * 10);
             b = b + 1;
             a = a * b;
             the_math_question = a + "÷" + b + "=";
@@ -288,8 +286,8 @@
         wisard_player.style.borderColor = "transparent";
         boss_player.style.borderColor = "blue";
         random_index_2 = Math.floor(Math.random() * 2);
-        utah = boss_array[random_index_2];
-        if (utah == "yes") {
+        the_bosses_answer = boss_array[random_index_2];
+        if (the_bosses_answer == "yes") {
           setTimeout(function () {
             boss_attack_wraper.src = "costumeright.png";
           }, 1000);
@@ -311,8 +309,8 @@
           setTimeout(function () {
             wisard_player.style.backgroundColor = "transparent";
           }, 6000);
-          utah2 = Math.floor(Math.random() * 4);
-          thedamigeas = bossmovearray[utah2];
+          the_boss_attack = Math.floor(Math.random() * 4);
+          thedamigeas = bossmovearray[the boss attack];
           yhp = yhp - thedamigeas;
           yhpOutput.innerHTML = "yourHp =" + yhp;
           if (yhp < 1) {
