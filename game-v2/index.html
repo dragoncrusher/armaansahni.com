@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
-    <div class="Start">
+    <div class="ChoosePage">
       <p>Chosse your oponent</p>
       <ol>
         <li><button class="BossButton" onclick="startGame(50,'boss1')">flying snake</button></li>
@@ -22,7 +22,7 @@
         <!-- <li><button class="BossButton" onclick="startGame(550,'boss12')">savoni<button><li> -->
       </ol>
     </div>
-    <div class="Middle">
+    <div class="FightPage">
       <div>chose your move</div>
       <div class="AttackCoulum">
         <button class="AttackButton" id="move11" onclick="askThem(0,1)">
@@ -119,10 +119,10 @@
       .Player {
         width: 100%;
       }
-      .Start {
+      .ChoosePage {
         display: block;
       }
-      .Middle {
+      .FightPage {
         display: none;
       }
       .PlayerAttackWrapper {
@@ -150,8 +150,8 @@
       let utah2;
       const bossmovearray = ["10", "20", "30", "40"];
       let TheCharge = 0;
-      const BossKill = document.querySelector(".Middle");
-      const BossSelect = document.querySelector(".Start");
+      const BossKill = document.querySelector(".FightPage");
+      const BossSelect = document.querySelector(".ChoosePage");
       let utah;
       let hp;
       let the_math_question;
