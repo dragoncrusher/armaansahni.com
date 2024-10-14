@@ -24,39 +24,39 @@
     </div>
     <div class="Middle">
       <div>chose your move</div>
-      <div class="AttackBeside">
+      <div class="AttackCoulum">
         <button class="AttackButton" id="move11" onclick="askThem(0,1)">
           <img id="move" class="BlastPanes" src="wisardgoodguy/blast1.png" />
-          <div class="AttackAndHpShower">throwing star</div>
+          <div class="AttackShower">throwing star</div>
         </button>
         <button class="AttackButton" id="move22" onclick="askThem(2,2)">
           <img id="move" class="BlastPanes" src="wisardgoodguy/blast2.png" />
-          <div class="AttackAndHpShower">shooting star</div>
+          <div class="AttackShower">shooting star</div>
         </button>
       </div>
-      <div class="AttackBeside">
+      <div class="AttackCoulum">
         <button class="AttackButton" id="move33" onclick="askThem(3,3)">
           <img id="move" class="BlastPanes" src="wisardgoodguy/blast3.png" />
-          <div class="AttackAndHpShower">blasting star</div>
+          <div class="AttackShower">blasting star</div>
         </button>
         <button class="AttackButton" id="move44" onclick="askThem(4,4)">
           <img id="move" class="BlastPanes" src="wisardgoodguy/blast4.png" />
-          <div class="AttackAndHpShower">exploding star</div>
+          <div class="AttackShower">exploding star</div>
         </button>
       </div>
 
-      <div class="Container" id="background">
+      <div class="BattleArina" id="background">
         <div class="LeftSide">
           <div id="1" class="PlayerAttackWrapper">
             <img id="1to2" class="Player" src="wisardgoodguy/wisardgoodguy.gif" alt="" />
           </div>
-          <div class="AttackAndHpShower" id="youhpholder"></div>
+          <div class="HpShower" id="youhpholder"></div>
         </div>
         <div class="RightSide">
           <div id="2" class="PlayerAttackWrapper">
             <img id="2to2" class="Player" src="boss1/boss1.gif" alt="" />
           </div>
-          <div class="AttackAndHpShower" id="bosshpholder"></div>
+          <div class="HpShower" id="bosshpholder"></div>
         </div>
       </div>
     </div>
@@ -65,7 +65,7 @@
       * {
         box-sizing: border-box;
       }
-      .AttackAndHpShower {
+      .AttackShower {
         display: block;
         justify-content: center;
         align-items: center;
@@ -73,10 +73,18 @@
         padding: 10px;
         text-align: center;
       }
-      .AttackBeside {
+      .HpShower {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        background-color: #ff0000;
+        padding: 10px;
+        text-align: center;
+      }
+      .AttackCoulum {
         display: inline-block;
       }
-      .Container {
+      .BattleArina {
         display: flex;
         /* background-image: url("boss1/background1.gif"); */
         background-size: cover;
