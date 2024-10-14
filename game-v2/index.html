@@ -47,13 +47,13 @@
 
       <div class="BattleArina" id="background">
         <div class="ArenaLeft">
-          <div id="1" class="PlayerAttackWrapper">
+          <div id="to_be_wisard_player" class="PlayerAttackWrapper">
             <img id="1to2" class="Player" src="wisardgoodguy/wisardgoodguy.gif" alt="" />
           </div>
           <div class="HpShower" id="youhpholder"></div>
         </div>
         <div class="ArenaRight">
-          <div id="2" class="PlayerAttackWrapper">
+          <div id="to_be_boss_player" class="PlayerAttackWrapper">
             <img id="2to2" class="Player" src="boss1/boss1.gif" alt="" />
           </div>
           <div class="HpShower" id="bosshpholder"></div>
@@ -159,10 +159,10 @@
       let the_answer;
       let random_index;
       let boss;
-      const circlediv1 = document.getElementById("1to2");
-      const circlediv2 = document.getElementById("2to2");
-      const wisard_player = document.getElementById(1);
-      const boss_player = document.getElementById(2);
+      const player_attack_wrapper = document.getElementById("1to2");
+      const boss_attack_wraper = document.getElementById("2to2");
+      const wisard_player = document.getElementById("to_be_wisard_player");
+      const boss_player = document.getElementById("to_be_boss_player");
       const question_array = [
         "62 - 54 =",
         "35 + 47 =",
@@ -196,7 +196,7 @@
         hp = HPsetter;
         full_hp.innerHTML = "enemyHP = " + hp;
         boss = theboss;
-        circlediv2.src = boss + "/" + boss + ".gif";
+        boss_attack_wraper.src = boss + "/" + boss + ".gif";
       }
       function askThem(charge, TheDamage) {
         TheCharge = TheCharge + 1;
@@ -247,9 +247,9 @@
           GoleShootHit();
         } else {
           window.alert("sorry that was the wrong answer, the corect answer was: " + the_math_answer + ".");
-          circlediv1.src = "costumewrong.png";
+          player_attack_wrapper.src = "costumewrong.png";
           setTimeout(function () {
-            circlediv1.src = "wisardgoodguy/wisardgoodguy.gif";
+            player_attack_wrapper.src = "wisardgoodguy/wisardgoodguy.gif";
           }, 1000);
           setTimeout(function () {
             BossAttack();
@@ -257,16 +257,16 @@
         }
       }
       function GoleShootHit() {
-        circlediv1.src = "costumeright.png";
+        player_attack_wrapper.src = "costumeright.png";
         setTimeout(function () {
-          circlediv1.src = "wisardgoodguy/wisardgoodguy.gif";
+          player_attack_wrapper.src = "wisardgoodguy/wisardgoodguy.gif";
         }, 1000);
         setTimeout(function () {
-          circlediv1.src = "wisardgoodguy/wizardgoodguycostume2.gif";
+          player_attack_wrapper.src = "wisardgoodguy/wizardgoodguycostume2.gif";
         }, 2000);
 
         setTimeout(function () {
-          circlediv1.src = "wisardgoodguy/wisardgoodguy.gif";
+          player_attack_wrapper.src = "wisardgoodguy/wisardgoodguy.gif";
         }, 3000);
         setTimeout(function () {
           boss_player.style.backgroundColor = "red";
@@ -291,19 +291,19 @@
         utah = boss_array[random_index_2];
         if (utah == "yes") {
           setTimeout(function () {
-            circlediv2.src = "costumeright.png";
+            boss_attack_wraper.src = "costumeright.png";
           }, 1000);
           setTimeout(function () {
-            circlediv2.src = boss + "/" + boss + ".gif";
+            boss_attack_wraper.src = boss + "/" + boss + ".gif";
           }, 2000);
           setTimeout(function () {
-            circlediv2.src = boss + "/" + boss + "costume2.gif";
+            boss_attack_wraper.src = boss + "/" + boss + "costume2.gif";
           }, 3000);
           setTimeout(function () {
-            circlediv2.src = boss + "/" + boss + "costume3.gif";
+            boss_attack_wraper.src = boss + "/" + boss + "costume3.gif";
           }, 4000);
           setTimeout(function () {
-            circlediv2.src = boss + "/" + boss + ".gif";
+            boss_attack_wraper.src = boss + "/" + boss + ".gif";
           }, 5000);
           setTimeout(function () {
             wisard_player.style.backgroundColor = "red";
@@ -325,9 +325,9 @@
             boss_player.style.borderColor = "transparent";
           }, 8000);
         } else {
-          circlediv2.src = "costumewrong.png";
+          boss_attack_wraper.src = "costumewrong.png";
           setTimeout(function () {
-            circlediv2.src = boss + "/" + boss + ".gif";
+            boss_attack_wraper.src = boss + "/" + boss + ".gif";
           }, 1000);
           setTimeout(function () {
             wisard_player.style.borderColor = "blue";
