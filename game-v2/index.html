@@ -247,9 +247,9 @@
           GoleShootHit();
         } else {
           window.alert("sorry that was the wrong answer, the corect answer was: " + the_math_answer + ".");
-          player_attack_wrapper.src = "costumewrong.png";
+          wisard_attack_wrapper.src = "costumewrong.png";
           setTimeout(function () {
-            player_attack_wrapper.src = "wisardgoodguy/wisardgoodguy.gif";
+            wisard_attack_wrapper.src = "wisardgoodguy/wisardgoodguy.gif";
           }, 1000);
           setTimeout(function () {
             BossAttack();
@@ -257,16 +257,16 @@
         }
       }
       function GoleShootHit() {
-        player_attack_wrapper.src = "costumeright.png";
+        wisard_attack_wrapper.src = "costumeright.png";
         setTimeout(function () {
-          player_attack_wrapper.src = "wisardgoodguy/wisardgoodguy.gif";
+          wisard_attack_wrapper.src = "wisardgoodguy/wisardgoodguy.gif";
         }, 1000);
         setTimeout(function () {
-          player_attack_wrapper.src = "wisardgoodguy/wizardgoodguycostume2.gif";
+          wisard_attack_wrapper.src = "wisardgoodguy/wizardgoodguycostume2.gif";
         }, 2000);
 
         setTimeout(function () {
-          player_attack_wrapper.src = "wisardgoodguy/wisardgoodguy.gif";
+          wisard_attack_wrapper.src = "wisardgoodguy/wisardgoodguy.gif";
         }, 3000);
         setTimeout(function () {
           boss_player.style.backgroundColor = "red";
