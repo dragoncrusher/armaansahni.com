@@ -47,8 +47,8 @@
 
       <div class="BattleArina" id="background">
         <div class="ArenaLeft">
-          <div id="to_be_wisard_player" class="PlayerAttackWrapper">
-            <img id="to_be_player_attack_wrapper" class="Player" src="wisardgoodguy/wisardgoodguy.gif" alt="" />
+          <div id="wisard_player" class="PlayerAttackWrapper">
+            <img id="wisard_attack_wrapper" class="Player" src="wisardgoodguy/wisardgoodguy.gif" alt="" />
           </div>
           <div class="HpShower" id="wisardhpholder"></div>
         </div>
@@ -159,9 +159,9 @@
       let the_answer;
       let random_index;
       let boss;
-      const player_attack_wrapper = document.getElementById("to_be_player_attack_wrapper");
+      const wisard_attack_wrapper = document.getElementById("wisard_attack_wrapper");
       const boss_attack_wraper = document.getElementById("to_be_boss_attack_wrapper");
-      const wisard_player = document.getElementById("to_be_wisard_player");
+      const wisard_player = document.getElementById("wisard_player");
       const boss_player = document.getElementById("to_be_boss_player");
       const question_array = [
         "62 - 54 =",
