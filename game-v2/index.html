@@ -50,7 +50,7 @@
           <div id="to_be_wisard_player" class="PlayerAttackWrapper">
             <img id="to_be_player_attack_wrapper" class="Player" src="wisardgoodguy/wisardgoodguy.gif" alt="" />
           </div>
-          <div class="HpShower" id="youhpholder"></div>
+          <div class="HpShower" id="wisardhpholder"></div>
         </div>
         <div class="ArenaRight">
           <div id="to_be_boss_player" class="PlayerAttackWrapper">
@@ -178,11 +178,11 @@
       const boss_array = ["yes", "no"];
       let random_index_2;
       const where_to_print = document.getElementById("bosshpholder");
-      const youhpholder = document.getElementById("youhpholder");
+      const wisardhpholder = document.getElementById("wisardhpholder");
       let yhp = 300;
       let yhpOutput = document.createElement("p");
       yhpOutput.innerHTML = "yourHp =" + yhp;
-      youhpholder.appendChild(yhpOutput);
+      wisardhpholder.appendChild(yhpOutput);
       const full_hp = document.createElement("p");
       where_to_print.appendChild(full_hp);
 
