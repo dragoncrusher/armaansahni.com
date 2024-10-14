@@ -161,8 +161,8 @@
       let boss;
       const circlediv1 = document.getElementById("1to2");
       const circlediv2 = document.getElementById("2to2");
-      const circlediv11wisard_player = document.getElementById(1);
-      const circlediv22 = document.getElementById(2);
+      const wisard_player = document.getElementById(1);
+      const boss_player = document.getElementById(2);
       const question_array = [
         "62 - 54 =",
         "35 + 47 =",
@@ -190,7 +190,7 @@
         imagePath = `${theboss}/background1.gif`;
         // thebackground.style.backgroundImage = `url(${imagePath})`;
         wisard_player.style.borderColor = "blue";
-        circlediv22.style.borderColor = "transparent";
+        boss_player.style.borderColor = "transparent";
         BossSelect.style.display = "none";
         BossKill.style.display = "block";
         hp = HPsetter;
@@ -269,10 +269,10 @@
           circlediv1.src = "wisardgoodguy/wisardgoodguy.gif";
         }, 3000);
         setTimeout(function () {
-          circlediv22.style.backgroundColor = "red";
+          boss_player.style.backgroundColor = "red";
         }, 4000);
         setTimeout(function () {
-          circlediv22.style.backgroundColor = "transparent";
+          boss_player.style.backgroundColor = "transparent";
         }, 5000);
         if (hp < 1) {
           setTimeout(function () {
@@ -286,7 +286,7 @@
       }
       function BossAttack() {
         wisard_player.style.borderColor = "transparent";
-        circlediv22.style.borderColor = "blue";
+        boss_player.style.borderColor = "blue";
         random_index_2 = Math.floor(Math.random() * 2);
         utah = boss_array[random_index_2];
         if (utah == "yes") {
@@ -322,7 +322,7 @@
           }
           setTimeout(function () {
             wisard_player.style.borderColor = "blue";
-            circlediv22.style.borderColor = "transparent";
+            boss_player.style.borderColor = "transparent";
           }, 8000);
         } else {
           circlediv2.src = "costumewrong.png";
@@ -331,7 +331,7 @@
           }, 1000);
           setTimeout(function () {
             wisard_player.style.borderColor = "blue";
-            circlediv22.style.borderColor = "transparent";
+            boss_player.style.borderColor = "transparent";
           }, 2000);
         }
       }
