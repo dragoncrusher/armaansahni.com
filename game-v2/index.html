@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body>
-    <div class="start">
+    <div class="Start">
       <p>Chosse your oponent</p>
       <ol>
         <li><button class="BossButton" onclick="startGame(50,'boss1')">flying snake</button></li>
@@ -22,39 +22,39 @@
         <!-- <li><button class="BossButton" onclick="startGame(550,'boss12')">savoni<button><li> -->
       </ol>
     </div>
-    <div class="middle">
+    <div class="Middle">
       <div>chose your move</div>
       <div class="AttackBeside">
-        <button class="attack-button" id="move11" onclick="askThem(0,1)">
+        <button class="AttackButton" id="move11" onclick="askThem(0,1)">
           <img id="move" class="BlastPanes" src="wisardgoodguy/blast1.png" />
           <div class="AttackAndHpShower">throwing star</div>
         </button>
-        <button class="attack-button" id="move22" onclick="askThem(2,2)">
+        <button class="AttackButton" id="move22" onclick="askThem(2,2)">
           <img id="move" class="BlastPanes" src="wisardgoodguy/blast2.png" />
           <div class="AttackAndHpShower">shooting star</div>
         </button>
       </div>
       <div class="AttackBeside">
-        <button class="attack-button" id="move33" onclick="askThem(3,3)">
+        <button class="AttackButton" id="move33" onclick="askThem(3,3)">
           <img id="move" class="BlastPanes" src="wisardgoodguy/blast3.png" />
           <div class="AttackAndHpShower">blasting star</div>
         </button>
-        <button class="attack-button" id="move44" onclick="askThem(4,4)">
+        <button class="AttackButton" id="move44" onclick="askThem(4,4)">
           <img id="move" class="BlastPanes" src="wisardgoodguy/blast4.png" />
           <div class="AttackAndHpShower">exploding star</div>
         </button>
       </div>
 
       <div class="Container" id="background">
-        <div class="left-side">
-          <div id="1" class="player-attack-wrapper">
-            <img id="1to2" class="player" src="wisardgoodguy/wisardgoodguy.gif" alt="" />
+        <div class="LeftSide">
+          <div id="1" class="PlayerAttackWrapper">
+            <img id="1to2" class="Player" src="wisardgoodguy/wisardgoodguy.gif" alt="" />
           </div>
           <div class="AttackAndHpShower" id="youhpholder"></div>
         </div>
-        <div class="right-side">
-          <div id="2" class="player-attack-wrapper">
-            <img id="2to2" class="player" src="boss1/boss1.gif" alt="" />
+        <div class="RightSide">
+          <div id="2" class="PlayerAttackWrapper">
+            <img id="2to2" class="Player" src="boss1/boss1.gif" alt="" />
           </div>
           <div class="AttackAndHpShower" id="bosshpholder"></div>
         </div>
@@ -94,7 +94,7 @@
         justify-content: center;
         align-items: center;
       }
-      .attack-button {
+      .AttackButton {
         padding: 10px;
         width: 180px;
         height: 80px;
@@ -108,16 +108,16 @@
         width: 80px;
         height: 80px;
       }
-      .player {
+      .Player {
         width: 100%;
       }
-      .start {
+      .Start {
         display: block;
       }
-      .middle {
+      .Middle {
         display: none;
       }
-      .player-attack-wrapper {
+      .PlayerAttackWrapper {
         width: 100%;
         border-radius: 50%;
         border-style: solid;
@@ -126,11 +126,11 @@
         align-items: center;
         transition: background-color 625ms ease-in-out;
       }
-      .left-side,
-      .right-side {
+      .LeftSide,
+      .RightSide {
         width: 45%;
       }
-      .left-side {
+      .LeftSide {
         margin-right: 20px;
       }
     </style>
@@ -142,8 +142,8 @@
       let utah2;
       const bossmovearray = ["10", "20", "30", "40"];
       let TheCharge = 0;
-      const BossKill = document.querySelector(".middle");
-      const BossSelect = document.querySelector(".start");
+      const BossKill = document.querySelector(".Middle");
+      const BossSelect = document.querySelector(".Start");
       let utah;
       let hp;
       let the_math_question;
