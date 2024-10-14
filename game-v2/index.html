@@ -155,22 +155,11 @@
       let the_math_question;
       let the_math_answer;
       let the_answer;
-      let random_index;
       let boss;
       const wisard_attack_wrapper = document.getElementById("wisard_attack_wrapper");
       const boss_attack_wraper = document.getElementById("boss_attack_wrapper");
       const wisard_player = document.getElementById("wisard_player");
       const boss_player = document.getElementById("to_be_boss_player");
-      const question_array = [
-        "62 - 54 =",
-        "35 + 47 =",
-        "75 + 34 =",
-        "42 - 32 =",
-        "25 / 5 =",
-        "66 / 6 =",
-        "12 * 20 =",
-        "20 * 50 =",
-      ];
       let thedamigeas;
       const answer_array = ["8", "82", "109", "10", "5", "11", "240", "1000"];
       const boss_array = ["yes", "no"];
@@ -200,7 +189,6 @@
         TheCharge = TheCharge + 1;
         if (charge <= TheCharge) {
           TheCharge = TheCharge - charge;
-          random_index = Math.floor(Math.random() * 8);
 
           if (TheDamage == 1) {
             let a = Math.floor(Math.random() * 101);
