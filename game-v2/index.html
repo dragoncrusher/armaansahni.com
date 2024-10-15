@@ -146,7 +146,6 @@
     <script>
       //let imagePath;
       //let thebackground = document.getElementById("background");
-      let the_boss_attack;
       const bossmovearray = ["10", "20", "30", "40"];
       let TheCharge = 0;
       const BossKill = document.querySelector(".FightPage");
@@ -297,7 +296,7 @@
           setTimeout(function () {
             wisard_player.style.backgroundColor = "transparent";
           }, 6000);
-          the_boss_attack = Math.floor(Math.random() * 4);
+          const the_boss_attack = Math.floor(Math.random() * 4);
           thedamigeas = bossmovearray[the_boss_attack];
           wisard_hp = wisard_hp - thedamigeas;
           yhpOutput.innerHTML = "yourHp =" + wisard_hp;
