@@ -154,7 +154,6 @@
       const boss_attack_wraper = document.getElementById("boss_attack_wrapper");
       const wisard_player = document.getElementById("wisard_player");
       const boss_player = document.getElementById("to_be_boss_player");
-      let thedamigeas;
       const boss_array = ["yes", "no"];
       let random_index;
       const where_to_print = document.getElementById("bosshpholder");
@@ -297,6 +296,7 @@
           }, 6000);
           const the_boss_attack = Math.floor(Math.random() * 4);
           const bossmovearray = ["10", "20", "30", "40"];
+          let thedamigeas;
           thedamigeas = bossmovearray[the_boss_attack];
           wisard_hp = wisard_hp - thedamigeas;
           yhpOutput.innerHTML = "yourHp =" + wisard_hp;
