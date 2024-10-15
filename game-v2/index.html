@@ -146,9 +146,7 @@
     <script>
       //let imagePath;
       //let thebackground = document.getElementById("background");
-      let the_bosses_answer;
       let hp;
-      let the_math_question;
       let the_math_answer;
       let the_answer;
       let boss;
@@ -187,6 +185,7 @@
         TheCharge = TheCharge + 1;
         if (charge <= TheCharge) {
           TheCharge = TheCharge - charge;
+          let the_math_question;
 
           if (TheDamage == 1) {
             let a = Math.floor(Math.random() * 101);
@@ -272,6 +271,7 @@
         wisard_player.style.borderColor = "transparent";
         boss_player.style.borderColor = "blue";
         random_index = Math.floor(Math.random() * 2);
+        let the_bosses_answer;
         the_bosses_answer = boss_array[random_index];
         if (the_bosses_answer == "yes") {
           setTimeout(function () {
