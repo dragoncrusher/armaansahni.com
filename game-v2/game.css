@@ -1,0 +1,79 @@
+* {
+  box-sizing: border-box;
+}
+.AttackShower {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  background-color: #ff0000;
+  padding: 10px;
+  text-align: center;
+}
+.HpShower {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  background-color: #ff0000;
+  padding: 10px;
+  text-align: center;
+}
+.AttackCoulum {
+  display: inline-block;
+}
+.BattleArina {
+  display: flex;
+  /* background-image: url("boss1/background1.gif"); */
+  background-size: cover;
+  width: 450px;
+  max-width: 100%;
+}
+.BossButton {
+  width: 100%;
+  padding: 10px;
+  width: 100px;
+  height: 50px;
+  border-radius: 20%;
+  background-color: #ff0000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.AttackButton {
+  padding: 10px;
+  width: 180px;
+  height: 80px;
+  border-radius: 20%;
+  background-color: #26ff00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.BlastPanes {
+  width: 80px;
+  height: 80px;
+}
+.Player {
+  width: 100%;
+}
+.ChoosePage {
+  display: block;
+}
+.FightPage {
+  display: none;
+}
+.PlayerAttackWrapper {
+  width: 100%;
+  border-radius: 50%;
+  border-style: solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 625ms ease-in-out;
+}
+.ArenaLeft,
+.ArenaRight {
+  width: 45%;
+}
+.ArenaLeft {
+  margin-right: 20px;
+}
