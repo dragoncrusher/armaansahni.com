@@ -146,9 +146,6 @@
     <script>
       //let imagePath;
       //let thebackground = document.getElementById("background");
-      let TheCharge = 0;
-      const BossKill = document.querySelector(".FightPage");
-      const BossSelect = document.querySelector(".ChoosePage");
       let the_bosses_answer;
       let hp;
       let the_math_question;
@@ -176,7 +173,9 @@
         // thebackground.style.backgroundImage = `url(${imagePath})`;
         wisard_player.style.borderColor = "blue";
         boss_player.style.borderColor = "transparent";
+        const BossSelect = document.querySelector(".ChoosePage");
         BossSelect.style.display = "none";
+        const BossKill = document.querySelector(".FightPage");
         BossKill.style.display = "block";
         hp = HPsetter;
         full_hp.innerHTML = "enemyHP = " + hp;
@@ -184,6 +183,7 @@
         boss_attack_wraper.src = boss + "/" + boss + ".gif";
       }
       function askThem(charge, TheDamage) {
+        let TheCharge = 0;
         TheCharge = TheCharge + 1;
         if (charge <= TheCharge) {
           TheCharge = TheCharge - charge;
