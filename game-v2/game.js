@@ -77,7 +77,7 @@ function askThem(charge, TheDamage) {
     checkTheAnswer(TheDamage);
 
   } else {
-    window.alert("The move you want to use is not charged up yet.Click 'ok' and then select another move.");
+    window.alert("The move you want to use is not charged up yet. Click 'ok' and then select another move.");
   }
 }
 
