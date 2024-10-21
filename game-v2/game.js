@@ -77,6 +77,8 @@ function askThem(charge, TheDamage) {
       the_math_question = a + "÷" + b + "=";
       the_math_answer = a / b;
     }
+
+    the_input_box.focus()
     the_input_words.innerHTML = "To proseed you must do math. What is " + the_math_question + "?"
     the_math_ask.appendChild(the_input_words);
     
