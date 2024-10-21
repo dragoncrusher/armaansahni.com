@@ -15,6 +15,7 @@ const boss_player = document.getElementById("to_be_boss_player");
 const where_to_print = document.getElementById("bosshpholder");
 const wisardhpholder = document.getElementById("wisardhpholder");
 const the_math_ask = document.getElementById("TheInputWords")
+const the_input_box = document.getElementById("input")
 
 let yhpOutput = document.createElement("p");
 let wisard_hp = 300;
@@ -84,7 +85,7 @@ function askThem(charge, TheDamage) {
   }
 }
 function getTheInput () {
-  the_answer = the_math_ask.value;
+  the_answer = the_input_box.value;
     checkTheAnswer(TheGlobalDamageInfo);
 
 }
