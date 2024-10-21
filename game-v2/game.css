@@ -77,3 +77,12 @@
 .ArenaLeft {
   margin-right: 20px;
 }
+.InputBox {
+  width: 200px;
+}
+.InputTeller {
+  width: 300px;
+  height: 40px;
+  justify-content: centre;
+  align-items: center;
+}
