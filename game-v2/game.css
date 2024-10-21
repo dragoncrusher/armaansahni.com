@@ -87,3 +87,6 @@
   align-items: center;
   margin: 50px;
 }
+.EndPage {
+  display: none;
+}

@@ -7,7 +7,9 @@ let boss;
 let TheCharge = 0;
 let TheGlobalDamageInfo
 let the_input_words = document.createElement("p")
+let the_end_screen_input = document.createElement("p")
 
+const BossKill = document.querySelector(".FightPage");
 const wisard_attack_wrapper = document.getElementById("wisard_attack_wrapper");
 const boss_attack_wraper = document.getElementById("boss_attack_wrapper");
 const wisard_player = document.getElementById("wisard_player");
@@ -16,6 +18,7 @@ const where_to_print = document.getElementById("bosshpholder");
 const wisardhpholder = document.getElementById("wisardhpholder");
 const the_math_ask = document.getElementById("TheInputWords")
 const the_input_box = document.getElementById("input")
+const the_end_screen = document.getElementById("theendscreen")
 
 let yhpOutput = document.createElement("p");
 let wisard_hp = 300;
@@ -28,7 +31,7 @@ function startGame(HPsetter, theboss) {
   //imagePath = `${theboss}/background1.gif`;
   // thebackground.style.backgroundImage = `url(${imagePath})`;
   const BossSelect = document.querySelector(".ChoosePage");
-  const BossKill = document.querySelector(".FightPage");
+  
 
   wisard_player.style.borderColor = "blue";
   boss_player.style.borderColor = "transparent";
@@ -141,7 +144,12 @@ function GoleShootHit() {
 
   if (hp < 1) {
     setTimeout(function () {
-      document.write("you win refresh to go again");
+
+      const the_end_message = document.querySelector(".EndPage")
+      BossKill.style.display = "none"
+      the_end_message.style.display = "block"
+      the_end_screen_input.innerHTML = "you win"
+      the_end_screen.appendChild(the_end_screen_input)
     }, 6000);
 
   } else {
@@ -196,7 +204,11 @@ function BossAttack() {
     yhpOutput.innerHTML = "yourHp =" + wisard_hp;
     if (wisard_hp < 1) {
       setTimeout(function () {
-        document.write("you lose refresh to try again.");
+        const the_end_message = document.querySelector(".EndPage")
+      BossKill.style.display = "none"
+      the_end_message.style.display = "block"
+      the_end_screen_input.innerHTML = "you lose"
+      the_end_screen.appendChild(the_end_screen_input)
       }, 7000);
 
     }
