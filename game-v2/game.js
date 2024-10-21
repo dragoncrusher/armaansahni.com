@@ -87,7 +87,9 @@ function askThem(charge, TheDamage) {
 function getTheInput () {
   the_answer = the_input_box.value;
     checkTheAnswer(TheGlobalDamageInfo);
-
+  the_input_box.value = ""
+  the_input_words.innerHTML = ""
+  the_math_ask.appendChild(the_input_words)
 }
 function checkTheAnswer(TheDamage) {
   if (the_answer == null) {
