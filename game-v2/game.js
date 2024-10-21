@@ -5,6 +5,7 @@ let the_math_answer;
 let the_answer;
 let boss;
 let TheCharge = 0;
+let TheGlobalDamageInfo
 
 const wisard_attack_wrapper = document.getElementById("wisard_attack_wrapper");
 const boss_attack_wraper = document.getElementById("boss_attack_wrapper");
@@ -12,6 +13,7 @@ const wisard_player = document.getElementById("wisard_player");
 const boss_player = document.getElementById("to_be_boss_player");
 const where_to_print = document.getElementById("bosshpholder");
 const wisardhpholder = document.getElementById("wisardhpholder");
+const the_math_ask = document.getElementById("")
 
 let yhpOutput = document.createElement("p");
 let wisard_hp = 300;
@@ -41,7 +43,7 @@ function askThem(charge, TheDamage) {
   if (charge <= TheCharge) {
     TheCharge = TheCharge - charge;
     let the_math_question;
-
+    TheGlobalDamageInfo = TheDamage
     if (TheDamage == 1) {
       let a = Math.floor(Math.random() * 101);
       let b = Math.floor(Math.random() * 101);
@@ -73,14 +75,16 @@ function askThem(charge, TheDamage) {
       the_math_answer = a / b;
     }
 
-    the_answer = window.prompt(the_math_question);
-    checkTheAnswer(TheDamage);
-
+    
   } else {
     window.alert("The move you want to use is not charged up yet. Click 'ok' and then select another move.");
   }
 }
+function getTheInput () {
+  the_answer = window.prompt(the_math_question);
+    checkTheAnswer(TheGlobalDamageInfo);
 
+}
 function checkTheAnswer(TheDamage) {
   if (the_answer == null) {
     return;
