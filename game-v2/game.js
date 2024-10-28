@@ -4,10 +4,11 @@ let hp;
 let the_math_answer;
 let the_answer;
 let boss;
-let TheCharge = 0;
+let TheCharge = 1;
 let TheGlobalDamageInfo
 let the_input_words = document.createElement("p")
 let the_end_screen_input = document.createElement("p")
+let info_div_input = document.createElement("p")
 
 const BossKill = document.querySelector(".FightPage");
 const wisard_attack_wrapper = document.getElementById("wisard_attack_wrapper");
@@ -21,6 +22,10 @@ const the_input_box = document.getElementById("input")
 const the_end_screen = document.getElementById("theendscreen")
 const BossSelect = document.querySelector(".ChoosePage");
 const the_end_message = document.querySelector(".EndPage")
+const info_div = document.getElementById("InfoDiv")
+const input_teller = document.getElementById("input_teller")
+
+info_div.appendChild(info_div_input)
 
 let yhpOutput = document.createElement("p");
 let wisard_hp = 300;
@@ -46,7 +51,7 @@ function startGame(HPsetter, theboss) {
 }
 
 function askThem(charge, TheDamage) {
-  TheCharge = TheCharge + 1;
+  input_teller.style.display = "block"
   if (charge <= TheCharge) {
     TheCharge = TheCharge - charge;
     let the_math_question;
@@ -88,7 +93,7 @@ function askThem(charge, TheDamage) {
     the_math_ask.appendChild(the_input_words);
     
   } else {
-    window.alert("The move you want to use is not charged up yet. Click 'ok' and then select another move.");
+    info_div_input.innerHTML = "The move you want to use is not charged up yet. Please select another move."
   }
 }
 function getTheInput () {
@@ -103,13 +108,14 @@ function checkTheAnswer(TheDamage) {
     return;
   }
 
+  input_teller.style.display = "none"
+
   if (Number(the_answer) == the_math_answer) {
-    hp = hp - TheDamage * 10;
-    full_hp.innerHTML = "enemyHP = " + hp;
+    TheCharge = TheCharge + 1;
     GoleShootHit();
 
   } else {
-    window.alert("sorry that was the wrong answer, the corect answer was: " + the_math_answer + ".");
+    info_div_input.innerHTML = "sorry that was the wrong answer, the corect answer was: " + the_math_answer + "."
     wisard_attack_wrapper.src = "costumewrong.png";
     setTimeout(function () {
       wisard_attack_wrapper.src = "wisardgoodguy/wisardgoodguy.gif";
@@ -138,6 +144,9 @@ function GoleShootHit() {
 
   setTimeout(function () {
     boss_player.style.backgroundColor = "red";
+
+    hp = hp - TheGlobalDamageInfo  *10;
+    full_hp.innerHTML = "enemyHP = " + hp;
   }, 4000);
 
   setTimeout(function () {
@@ -197,19 +206,20 @@ function BossAttack() {
     }, 5000);
     setTimeout(function () {
       wisard_player.style.backgroundColor = "red";
+
+      const the_boss_attack = Math.floor(Math.random() * 4);
+      const bossmovearray = ["10", "20", "30", "40"];
+      let thedamigeas;
+  
+      thedamigeas = bossmovearray[the_boss_attack];
+      wisard_hp = wisard_hp - thedamigeas;
+      yhpOutput.innerHTML = "yourHp =" + wisard_hp;
     }, 5000);
     setTimeout(function () {
 
       wisard_player.style.backgroundColor = "transparent";
     }, 6000);
 
-    const the_boss_attack = Math.floor(Math.random() * 4);
-    const bossmovearray = ["10", "20", "30", "40"];
-    let thedamigeas;
-
-    thedamigeas = bossmovearray[the_boss_attack];
-    wisard_hp = wisard_hp - thedamigeas;
-    yhpOutput.innerHTML = "yourHp =" + wisard_hp;
     
     if (wisard_hp < 1) {
       setTimeout(function () {
