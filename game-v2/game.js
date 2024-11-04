@@ -9,11 +9,11 @@ let TheGlobalDamageInfo
 let the_input_words = document.createElement("p")
 let the_end_screen_input = document.createElement("p")
 let info_div_input = document.createElement("p")
-
-const boss_timer_in_html = 
+let boss_timer_in_html = 
 setInterval(() =>  {
   timertick(boss_attack_timer_time)
 }, 1000);
+
 const BossKill = document.querySelector(".FightPage");
 const wisard_attack_wrapper = document.getElementById("wisard_attack_wrapper");
 const boss_attack_wraper = document.getElementById("boss_attack_wrapper");
