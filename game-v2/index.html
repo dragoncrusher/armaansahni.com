@@ -9,18 +9,18 @@
     <div class="ChoosePage">
       <p>Choose your opponent</p>
       <ol>
-        <li><button class="BossButton" onclick="startGame(50,'boss1')">flying snake</button></li>
-        <li><button class="BossButton" onclick="startGame(100,'boss2')">cloud monster</button></li>
-        <li><button class="BossButton" onclick="startGame(150,'boss3')">scorpion</button></li>
-        <li><button class="BossButton" onclick="startGame(200,'boss4')">spider</button></li>
-        <li><button class="BossButton" onclick="startGame(250,'boss5')">gun guy</button></li>
-        <li><button class="BossButton" onclick="startGame(300,'boss6')">pounder monster</button></li>
-        <li><button class="BossButton" onclick="startGame(350,'boss7')">fire gollum</button></li>
-        <li><button class="BossButton" onclick="startGame(400,'boss8')">black hole</button></li>
-        <li><button class="BossButton" onclick="startGame(450,'boss9')">saw robot</button></li>
-        <li><button class="BossButton" onclick="startGame(500,'boss10')">power warp core</button></li>
-        <li><button class="BossButton" onclick="startGame(550,'boss11')">engine warp core</button></li>
-        <li><button class="BossButton" onclick="startGame(600,'boss12')">savoni</button></li>
+        <li><button class="BossButton" onclick="startGame(50,'boss1', 10)">flying snake</button></li>
+        <li><button class="BossButton" onclick="startGame(100,'boss2', 20)">cloud monster</button></li>
+        <li><button class="BossButton" onclick="startGame(150,'boss3', 30)">scorpion</button></li>
+        <li><button class="BossButton" onclick="startGame(200,'boss4', 40)">spider</button></li>
+        <li><button class="BossButton" onclick="startGame(250,'boss5', 50)">gun guy</button></li>
+        <li><button class="BossButton" onclick="startGame(300,'boss6', 60)">pounder monster</button></li>
+        <li><button class="BossButton" onclick="startGame(350,'boss7', 70)">fire gollum</button></li>
+        <li><button class="BossButton" onclick="startGame(400,'boss8', 80)">black hole</button></li>
+        <li><button class="BossButton" onclick="startGame(450,'boss9', 90)">saw robot</button></li>
+        <li><button class="BossButton" onclick="startGame(500,'boss10', 100)">power warp core</button></li>
+        <li><button class="BossButton" onclick="startGame(550,'boss11', 110)">engine warp core</button></li>
+        <li><button class="BossButton" onclick="startGame(600,'boss12', 120)">savoni</button></li>
       </ol>
     </div>
     <div class="FightPage">
@@ -64,6 +64,11 @@
           </div>
           <div class="HpShower" id="bosshpholder"></div>
         </div>
+      </div>
+      <div>
+        The boss will attack in
+        <div id="bosstimer"></div>
+        seconds.
       </div>
     </div>
     <div class="EndPage">

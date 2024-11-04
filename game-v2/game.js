@@ -10,6 +10,10 @@ let the_input_words = document.createElement("p")
 let the_end_screen_input = document.createElement("p")
 let info_div_input = document.createElement("p")
 
+const boss_timer_in_html = 
+setInterval(() =>  {
+  timertick(boss_attack_timer_time)
+}, 1000);
 const BossKill = document.querySelector(".FightPage");
 const wisard_attack_wrapper = document.getElementById("wisard_attack_wrapper");
 const boss_attack_wraper = document.getElementById("boss_attack_wrapper");
@@ -34,22 +38,29 @@ wisardhpholder.appendChild(yhpOutput);
 const full_hp = document.createElement("p");
 where_to_print.appendChild(full_hp);
 
-function startGame(HPsetter, theboss) {
+function startGame(HPsetter, theboss, boss_attack_timer_time) {
   //imagePath = `${theboss}/background1.gif`;
   // thebackground.style.backgroundImage = `url(${imagePath})`;
   
-  
-
-  wisard_player.style.borderColor = "blue";
-  boss_player.style.borderColor = "transparent";
   BossSelect.style.display = "none";
   BossKill.style.display = "block";
   hp = HPsetter;
   full_hp.innerHTML = "enemyHP = " + hp;
   boss = theboss;
   boss_attack_wraper.src = boss + "/" + boss + ".gif";
+  bossTimer(boss_attack_timer_time)
 }
-
+function bossTimer(boss_attack_timer_time) {
+  boss_timer_html = document.getElementById("bosstimer")
+  boss_timer_html.innerHTML = boss_attack_timer_time 
+}
+function timertick(boss_attack_timer_time) {
+  boss_timer_html.innerHTML = boss_timer_html.innerHTML  - 1
+  if (boss_timer_html.innerHTML <= 0) {
+    BossAttack()
+    boss_timer_html.innerHTML = boss_attack_timer_time
+  }
+}
 function askThem(charge, TheDamage) {
   input_teller.style.display = "block"
   if (charge <= TheCharge) {
@@ -157,6 +168,7 @@ function GoleShootHit() {
     BossKill.style.display = "none"
     the_end_message.style.display = "block"
     the_end_screen_input.innerHTML = "you win"
+    clearInterval(boss_timer_in_html)
     the_end_screen.appendChild(the_end_screen_input)
   } else {
     setTimeout(function () {
@@ -180,8 +192,6 @@ function restart() {
 }
 
 function BossAttack() {
-  wisard_player.style.borderColor = "transparent";
-  boss_player.style.borderColor = "blue";
   let random_index;
   let the_bosses_answer;
   const boss_array = ["yes", "no"];
@@ -225,6 +235,7 @@ function BossAttack() {
         BossKill.style.display = "none"
         the_end_message.style.display = "block"
         the_end_screen_input.innerHTML = "you lose"
+        clearInterval(boss_timer_in_html)
         the_end_screen.appendChild(the_end_screen_input)
         }, 7000);
   
@@ -235,10 +246,6 @@ function BossAttack() {
       wisard_player.style.backgroundColor = "transparent";
     }, 6000);
 
-    setTimeout(function () {
-      wisard_player.style.borderColor = "blue";
-      boss_player.style.borderColor = "transparent";
-    }, 8000);
     
   } else {
     boss_attack_wraper.src = "costumewrong.png";
@@ -246,10 +253,6 @@ function BossAttack() {
       boss_attack_wraper.src = boss + "/" + boss + ".gif";
     }, 1000);
 
-    setTimeout(function () {
-      wisard_player.style.borderColor = "blue";
-      boss_player.style.borderColor = "transparent";
-    }, 2000);
 
   }
 }
