@@ -41,7 +41,10 @@ where_to_print.appendChild(full_hp);
 function startGame(HPsetter, theboss, boss_attack_timer_time) {
   //imagePath = `${theboss}/background1.gif`;
   // thebackground.style.backgroundImage = `url(${imagePath})`;
-  
+  boss_timer_in_html = 
+setInterval(() =>  {
+  timertick(boss_attack_timer_time)
+}, 1000);
   BossSelect.style.display = "none";
   BossKill.style.display = "block";
   hp = HPsetter;
