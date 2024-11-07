@@ -11,7 +11,8 @@ let the_end_screen_input = document.createElement("p")
 let info_div_input = document.createElement("p")
 let boss_timer_in_html 
 
-// const battle_sound = "file_example_MP3_700KB.mp3"
+const battle_sound = "Battle_sound_game.m4a"
+const wisard_attack_sound = "wisardgoodguy/Wisard_attack_sound.m4a"
 const BossKill = document.querySelector(".FightPage");
 const wisard_attack_wrapper = document.getElementById("wisard_attack_wrapper");
 const boss_attack_wraper = document.getElementById("boss_attack_wrapper");
@@ -36,15 +37,15 @@ wisardhpholder.appendChild(yhpOutput);
 const full_hp = document.createElement("p");
 where_to_print.appendChild(full_hp);
 
-// function playSound(soundFile) {
-//   const audio = new Audio(soundFile);
-//   audio.play();
-// }
+function playSound(soundFile) {
+  const audio = new Audio(soundFile);
+  audio.play();
+}
 
 function startGame(HPsetter, theboss, boss_attack_timer_time) {
   //imagePath = `${theboss}/background1.gif`;
   // thebackground.style.backgroundImage = `url(${imagePath})`;
-  // playSound(battle_sound)
+  playSound(battle_sound)
   boss_timer_in_html = 
 setInterval(() =>  {
   timertick(boss_attack_timer_time)
@@ -148,6 +149,7 @@ function checkTheAnswer(TheDamage) {
 function GoleShootHit() {
   wisard_attack_wrapper.src = "costumeright.png";
   setTimeout(function () {
+    playSound(wisard_attack_sound)
     wisard_attack_wrapper.src = "wisardgoodguy/wisardgoodguy.gif";
   }, 1000);
 
@@ -199,9 +201,11 @@ function restart() {
 }
 
 function BossAttack() {
+  const boss_attack_sound = boss + "/" + "attack_sound"
   let random_index;
   let the_bosses_answer;
   const boss_array = ["yes", "no"];
+  playSound(boss_attack_sound)
 
   random_index = Math.floor(Math.random() * 2);
   the_bosses_answer = boss_array[random_index];
@@ -211,6 +215,7 @@ function BossAttack() {
       boss_attack_wraper.src = "costumeright.png";
     }, 1000);
     setTimeout(function () {
+      playSound(wisard_attack_sound)
       boss_attack_wraper.src = boss + "/" + boss + ".gif";
     }, 2000);
     setTimeout(function () {
