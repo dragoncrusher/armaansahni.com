@@ -11,6 +11,7 @@ let the_end_screen_input = document.createElement("p")
 let info_div_input = document.createElement("p")
 let boss_timer_in_html 
 
+const hit_sound = "Hit_sound.m4a"
 const battle_sound = "Battle_sound_game.m4a"
 const wisard_attack_sound = "wisardgoodguy/Wisard_attack_sound.m4a"
 const BossKill = document.querySelector(".FightPage");
@@ -42,10 +43,15 @@ function playSound(soundFile) {
   audio.play();
 }
 
+function playSoundForever(soundFile) {
+  const audio = new Audio(soundFile);
+  audio.loop = true
+  audio.play();
+}
+
 function startGame(HPsetter, theboss, boss_attack_timer_time) {
   //imagePath = `${theboss}/background1.gif`;
   // thebackground.style.backgroundImage = `url(${imagePath})`;
-  playSound(battle_sound)
   boss_timer_in_html = 
 setInterval(() =>  {
   timertick(boss_attack_timer_time)
@@ -57,6 +63,9 @@ setInterval(() =>  {
   boss = theboss;
   boss_attack_wraper.src = boss + "/" + boss + ".gif";
   bossTimer(boss_attack_timer_time)
+  
+  playSoundForever(battle_sound)
+  
 }
 function bossTimer(boss_attack_timer_time) {
   boss_timer_html = document.getElementById("bosstimer")
@@ -164,6 +173,7 @@ function GoleShootHit() {
 
   setTimeout(function () {
     boss_player.style.backgroundColor = "red";
+    playSound(hit_sound)
 
     hp = hp - TheGlobalDamageInfo  *10;
     full_hp.innerHTML = "enemyHP = " + hp;
@@ -230,6 +240,7 @@ function BossAttack() {
     }, 5000);
     setTimeout(function () {
       wisard_player.style.backgroundColor = "red";
+      playSound(hit_sound)
       
       const the_boss_attack = Math.floor(Math.random() * 4);
       const bossmovearray = ["10", "20", "30", "40"];
