@@ -154,6 +154,9 @@ function checkTheAnswer(TheDamage) {
     wisard_attack_wrapper.src = "costumewrong.png";
     setTimeout(function () {
       wisard_attack_wrapper.src = "wisardgoodguy/wisardgoodguy.gif";
+      info_div.style.display = "none"
+      attack_holder.style.display  = "block"
+      input_teller.style.display = "none"
     }, 1000);
   }
 }
