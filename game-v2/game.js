@@ -31,10 +31,7 @@ const input_teller = document.getElementById("input_teller")
 const attack_holder = document.getElementById("AttackHolder")   
 info_div.style.display = "none"
 attack_holder.style.display  = "none"
-
-
-
-
+input_teller.style.display = "none"
 info_div.appendChild(info_div_input)
 
 let yhpOutput = document.createElement("p");
