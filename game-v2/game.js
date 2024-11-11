@@ -28,7 +28,12 @@ const BossSelect = document.querySelector(".ChoosePage");
 const the_end_message = document.querySelector(".EndPage")
 const info_div = document.getElementById("InfoDiv")
 const input_teller = document.getElementById("input_teller")
-const attack_holder = document.getElementById("AttackHolder")
+const attack_holder = document.getElementById("AttackHolder")   
+info_div.style.display = "none"
+attack_holder.style.display  = "none"
+
+
+
 
 info_div.appendChild(info_div_input)
 
