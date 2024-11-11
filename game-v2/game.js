@@ -9,8 +9,12 @@ let TheGlobalDamageInfo
 let the_input_words = document.createElement("p")
 let the_end_screen_input = document.createElement("p")
 let info_div_input = document.createElement("p")
-let boss_timer_in_html 
+let boss_timer_in_html
 
+const attack_button_1 = document.getElementById("Attackbutton1")
+const attack_button_2 = document.getElementById("Attackbutton2")
+const attack_button_3 = document.getElementById("Attackbutton3")
+const attack_button_4 = document.getElementById("Attackbutton4")
 const hit_sound = "Hit_sound.m4a"
 const battle_sound = "Battle_sound_game.m4a"
 const wisard_attack_sound = "wisardgoodguy/Wisard_attack_sound.m4a"
@@ -51,6 +55,9 @@ function playSoundForever(soundFile) {
 }
 
 function startGame(HPsetter, theboss, boss_attack_timer_time) {
+  attack_button_2.classList.add('Uncharged')
+  attack_button_3.classList.add('Uncharged')
+  attack_button_4.classList.add('Uncharged')
   info_div.style.display = "none"
   attack_holder.style.display  = "block"
   input_teller.style.display = "none"
@@ -88,6 +95,21 @@ function askThem(charge, TheDamage) {
   input_teller.style.display = "block"
   if (charge <= TheCharge) {
     TheCharge = TheCharge - charge;
+    if (TheCharge <= 2) {
+      attack_button_2.classList.add('Uncharged')
+    } else {
+      attack_button_2.classList.remove('Uncharged')
+    }
+    if (TheCharge <= 3) {
+      attack_button_3.classList.add('Uncharged')
+    } else {
+      attack_button_3.classList.remove('Uncharged')
+    }
+    if (TheCharge <= 4) {
+      attack_button_4.classList.add('Uncharged')
+    } else {
+      attack_button_4.classList.remove('Uncharged')
+    }
     let the_math_question;
     TheGlobalDamageInfo = TheDamage
 
