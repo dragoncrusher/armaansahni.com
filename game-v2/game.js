@@ -155,10 +155,6 @@ function checkTheAnswer(TheDamage) {
     setTimeout(function () {
       wisard_attack_wrapper.src = "wisardgoodguy/wisardgoodguy.gif";
     }, 1000);
-    setTimeout(function () {
-      BossAttack();
-
-    }, 2000);
   }
 }
 
