@@ -51,6 +51,9 @@ function playSoundForever(soundFile) {
 }
 
 function startGame(HPsetter, theboss, boss_attack_timer_time) {
+  info_div.style.display = "none"
+  attack_holder.style.display  = "block"
+  input_teller.style.display = "none"
   //imagePath = `${theboss}/background1.gif`;
   // thebackground.style.backgroundImage = `url(${imagePath})`;
   boss_timer_in_html = 
