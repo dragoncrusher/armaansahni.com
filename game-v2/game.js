@@ -125,6 +125,16 @@ function askThem(charge, TheDamage) {
     
   } else {
     info_div_input.innerHTML = "The move you want to use is not charged up yet. Please select another move."
+    info_div.style.display = "block"
+    attack_holder.style.display  = "none"
+    input_teller.style.display = "none"
+    setTimeout(function(){
+      info_div.style.display = "none"
+      attack_holder.style.display  = "block"
+      input_teller.style.display = "none"
+
+    },4000)
+
   }
 }
 function getTheInput () {
