@@ -206,6 +206,9 @@ function GoleShootHit() {
   setTimeout(function () {
     boss_player.style.backgroundColor = "transparent";
   }, 5000);
+  info_div.style.display = "none"
+  attack_holder.style.display  = "block"
+  input_teller.style.display = "none"
 
 }
 
