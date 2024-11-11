@@ -29,9 +29,7 @@ const the_end_message = document.querySelector(".EndPage")
 const info_div = document.getElementById("InfoDiv")
 const input_teller = document.getElementById("input_teller")
 const attack_holder = document.getElementById("AttackHolder")   
-info_div.style.display = "none"
-attack_holder.style.display  = "none"
-input_teller.style.display = "none"
+
 info_div.appendChild(info_div_input)
 
 let yhpOutput = document.createElement("p");
@@ -82,6 +80,8 @@ function timertick(boss_attack_timer_time) {
   }
 }
 function askThem(charge, TheDamage) {
+  info_div.style.display = "none"
+  attack_holder.style.display  = "none"
   input_teller.style.display = "block"
   if (charge <= TheCharge) {
     TheCharge = TheCharge - charge;
@@ -138,15 +138,19 @@ function checkTheAnswer(TheDamage) {
   if (the_answer == null) {
     return;
   }
-
+  info_div.style.display = "none"
+  attack_holder.style.display  = "none"
   input_teller.style.display = "none"
-
+  
   if (Number(the_answer) == the_math_answer) {
     TheCharge = TheCharge + 1;
     GoleShootHit();
 
   } else {
     info_div_input.innerHTML = "sorry that was the wrong answer, the corect answer was: " + the_math_answer + "."
+    info_div.style.display = "block"
+    attack_holder.style.display  = "none"
+    input_teller.style.display = "none"
     wisard_attack_wrapper.src = "costumewrong.png";
     setTimeout(function () {
       wisard_attack_wrapper.src = "wisardgoodguy/wisardgoodguy.gif";
