@@ -224,12 +224,17 @@ function GoleShootHit() {
     }
 
     if (hp <= 0) {
-  
-    BossKill.style.display = "none"
+    
+    info_div.style.display = "none"
+    attack_holder.style.display  = "none"
+    input_teller.style.display = "none"
     the_end_message.style.display = "block"
     the_end_screen_input.innerHTML = "you win"
     clearInterval(boss_timer_in_html)
     the_end_screen.appendChild(the_end_screen_input)
+    setInterval(function() {
+      boss_attack_wrapper.src = "dead.png"
+    },1)
   } else {
     setTimeout(function () {
       BossAttack();
@@ -299,11 +304,16 @@ function BossAttack() {
       }
       if (wisard_hp <= 0) {
         setTimeout(function () {
-        BossKill.style.display = "none"
+        info_div.style.display = "none"
+        attack_holder.style.display  = "none"
+        input_teller.style.display = "none"
         the_end_message.style.display = "block"
         the_end_screen_input.innerHTML = "you lose"
         clearInterval(boss_timer_in_html)
         the_end_screen.appendChild(the_end_screen_input)
+        setInterval(function() {
+          wisard_attack_wrapper.src = "dead.png"
+        },1)
         }, 7000);
   
       }
