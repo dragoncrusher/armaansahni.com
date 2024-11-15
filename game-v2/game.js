@@ -75,7 +75,7 @@ setInterval(() =>  {
   timertick(boss_attack_timer_time)
 }, 1000);
   BossSelect.style.display = "none";
-  BossKill.style.display = "block";
+  BossKill.style.display = "flex";
   hp = HPsetter;
   full_hp.innerHTML = "enemyHP = " + hp;
   boss = theboss;
