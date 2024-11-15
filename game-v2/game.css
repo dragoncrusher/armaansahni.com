@@ -39,6 +39,9 @@
 .BossName {
   margin: 20px;
 }
+.AttackInProgress {
+  display: none;
+}
 .BossButtonBossImage {
   width: 100px;
   height: 100px;

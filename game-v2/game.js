@@ -39,6 +39,7 @@ const the_end_message = document.querySelector(".EndPage")
 const info_div = document.getElementById("InfoDiv")
 const input_teller = document.getElementById("input_teller")
 const attack_holder = document.getElementById("AttackHolder")   
+const AttackInProgress = document.getElementById("AttackInProgress")
 
 info_div.appendChild(info_div_input)
 
@@ -218,6 +219,10 @@ function checkTheAnswer() {
 }
 
 function GoleShootHit() {
+  info_div.style.display = "none"
+  attack_holder.style.display  = "none"
+  input_teller.style.display = "none"
+  AttackInProgress.style.display = "block"
   wisard_attack_wrapper.src = "costumeright.png";
   setTimeout(function () {
     playSound(wisard_attack_sound)
@@ -267,10 +272,12 @@ function GoleShootHit() {
   setTimeout(function () {
     boss_player.style.backgroundColor = "transparent";
   }, 5000);
-  info_div.style.display = "none"
-  attack_holder.style.display  = "block"
-  input_teller.style.display = "none"
-
+  setTimeout(function() {
+    info_div.style.display = "none"
+    attack_holder.style.display  = "block"
+    input_teller.style.display = "none"
+    AttackInProgress.style.display = "none"
+  }, 6000);
 }
 
 function restart() {
@@ -281,16 +288,15 @@ function restart() {
 }
 
 function BossAttack() {
-  const boss_attack_sound = boss + "/" + "attack_sound"
+  const boss_attack_sound = boss + "/" + "attack_sound.m4a"
   let random_index;
   let the_bosses_answer;
   const boss_array = ["yes", "no"];
-  playSound(boss_attack_sound)
+  
 
   random_index = Math.floor(Math.random() * 2);
   the_bosses_answer = boss_array[random_index];
   if (the_bosses_answer == "yes") {
-
     setTimeout(function () {
       boss_attack_wraper.src = "costumeright.png";
     }, 1000);
@@ -303,6 +309,7 @@ function BossAttack() {
     }, 3000);
     setTimeout(function () {
       boss_attack_wraper.src = boss + "/" + boss + "costume3.gif";
+      playSound(boss_attack_sound)
     }, 4000);
 
     setTimeout(function () {
