@@ -4,12 +4,18 @@ let hp;
 let the_math_answer;
 let the_answer;
 let boss;
-let TheCharge = 1;
 let TheGlobalDamageInfo
 let the_input_words = document.createElement("p")
 let the_end_screen_input = document.createElement("p")
 let info_div_input = document.createElement("p")
 let boss_timer_in_html
+let attack_charges = {
+  attack_button_1_charge: 1,
+  attack_button_2_charge: 1,
+  attack_button_3_charge: 1,
+  attack_button_4_charge: 1
+}
+let the_attack
 
 const attack_button_1 = document.getElementById("Attackbutton1")
 const attack_button_2 = document.getElementById("Attackbutton2")
@@ -93,19 +99,31 @@ function askThem(charge, TheDamage) {
   info_div.style.display = "none"
   attack_holder.style.display  = "none"
   input_teller.style.display = "block"
-  if (charge <= TheCharge) {
-    TheCharge = TheCharge - charge;
-    if (TheCharge <= 2) {
+  if (TheDamage == 1) {
+    the_attack = "attack_button_1_charge"
+  }
+  if (TheDamage == 2) {
+    the_attack = "attack_button_2_charge"
+  }
+  if (TheDamage == 3) {
+    the_attack = "attack_button_3_charge"
+  }
+  if (TheDamage == 4) {
+    the_attack = "attack_button_4_charge"
+  }
+  if (charge <= attack_charges[the_attack]) {
+    attack_charges[the_attack] = attack_charges[the_attack] - charge;
+    if (attack_charges["attack_button_2_charge"] <= 2) {
       attack_button_2.classList.add('Uncharged')
     } else {
       attack_button_2.classList.remove('Uncharged')
     }
-    if (TheCharge <= 3) {
+    if (attack_charges["attack_button_3_charge"] <= 3) {
       attack_button_3.classList.add('Uncharged')
     } else {
       attack_button_3.classList.remove('Uncharged')
     }
-    if (TheCharge <= 4) {
+    if (attack_charges["attack_button_4_charge"] <= 4) {
       attack_button_4.classList.add('Uncharged')
     } else {
       attack_button_4.classList.remove('Uncharged')
@@ -164,12 +182,12 @@ function askThem(charge, TheDamage) {
 }
 function getTheInput () {
   the_answer = the_input_box.value;
-    checkTheAnswer(TheGlobalDamageInfo);
+    checkTheAnswer();
   the_input_box.value = ""
   the_input_words.innerHTML = ""
   the_math_ask.appendChild(the_input_words)
 }
-function checkTheAnswer(TheDamage) {
+function checkTheAnswer() {
   if (the_answer == null) {
     return;
   }
@@ -178,7 +196,10 @@ function checkTheAnswer(TheDamage) {
   input_teller.style.display = "none"
   
   if (Number(the_answer) == the_math_answer) {
-    TheCharge = TheCharge + 1;
+    attack_charges["attack_button_1_charge"] = attack_charges["attack_button_1_charge"] + 1 
+    attack_charges["attack_button_2_charge"] = attack_charges["attack_button_2_charge"] + 1
+    attack_charges["attack_button_3_charge"] = attack_charges["attack_button_3_charge"] + 1
+    attack_charges["attack_button_4_charge"] = attack_charges["attack_button_4_charge"] + 1
     GoleShootHit();
 
   } else {
