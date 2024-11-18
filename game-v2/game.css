@@ -41,16 +41,15 @@
   width: 100%;
   padding: 10px;
   width: 100%;
-  border-width: 20px;
+  border-width: 10px;
   border-radius: 70px;
   background-color: #ffffff;
   display: flex;
+  border-style: outset;
 }
 .BossButton:hover {
   cursor: pointer;
-  border-style: outset;
   border-color: rgb(205, 31, 31);
-  border-width: 20px;
 }
 .BossDiscription {
   text-align: left;
