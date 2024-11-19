@@ -22,9 +22,15 @@ b {
   justify-content: center;
   margin: 0;
 }
+.InstructionTitle {
+  font-size: 25px;
+}
 .inerrcenterred {
   width: 100%;
   max-width: 1000px;
+}
+.OpponentChooseTitle {
+  font-size: 20px;
 }
 .HpShower {
   display: block;
@@ -82,31 +88,40 @@ b {
 }
 .NoviceBossButton:hover {
   border-color: rgb(83, 146, 254);
+  cursor: pointer;
 }
 .SuperEasyBossButton:hover {
   border-color: rgb(3, 225, 159);
+  cursor: pointer;
 }
 .PracticeBossButton:hover {
   border-color: rgb(0, 76, 255);
+  cursor: pointer;
 }
 .EasyBossButton:hover {
   border-color: rgb(2, 181, 41);
+  cursor: pointer;
 }
 .MediumBossButton:hover {
   border-color: rgb(250, 198, 28);
+  cursor: pointer;
 }
 .HardBossButton:hover {
   border-color: rgb(255, 0, 0);
+  cursor: pointer;
 }
 .BossButton:hover {
   border-color: rgb(155, 2, 2);
+  cursor: pointer;
 }
 .UltraBossButton:hover {
   border-color: rgb(98, 0, 0);
+  cursor: pointer;
 }
 
 .BossDiscription {
   text-align: left;
+  font-size: 15px;
 }
 .AttackInProgress {
   display: none;
