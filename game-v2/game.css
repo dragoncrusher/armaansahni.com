@@ -36,7 +36,14 @@
   width: 450px;
   max-width: 100%;
 }
-.BossButton {
+.NoviceBossButton,
+.SuperEasyBossButton,
+.PracticeBossButton,
+.EasyBossButton,
+.MediumBossButton,
+.HardBossButton,
+.BossButton,
+.UltraBossButton {
   margin: 10px;
   width: 100%;
   padding: 10px;
@@ -47,10 +54,31 @@
   display: flex;
   border-style: outset;
 }
-.BossButton:hover {
-  cursor: pointer;
-  border-color: rgb(205, 31, 31);
+.NoviceBossButton:hover {
+  border-color: rgb(83, 146, 254);
 }
+.SuperEasyBossButton:hover {
+  border-color: rgb(3, 225, 159);
+}
+.PracticeBossButton:hover {
+  border-color: rgb(0, 76, 255);
+}
+.EasyBossButton:hover {
+  border-color: rgb(2, 181, 41);
+}
+.MediumBossButton:hover {
+  border-color: rgb(250, 198, 28);
+}
+.HardBossButton:hover {
+  border-color: rgb(255, 0, 0);
+}
+.BossButton:hover {
+  border-color: rgb(155, 2, 2);
+}
+.UltraBossButton:hover {
+  border-color: rgb(98, 0, 0);
+}
+
 .BossDiscription {
   text-align: left;
 }
