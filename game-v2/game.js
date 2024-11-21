@@ -17,18 +17,18 @@ let attackCharges = {
 }
 let theAttack
 
-const hit_sound = "Hit_sound.m4a"
-const battle_sound = "Battle_sound_game.m4a"
-const wisard_attack_sound = "wisardgoodguy/Wisard_attack_sound.m4a"
-const BossKill = document.querySelector(".FightPage");
-const wisard_attack_wrapper = document.getElementById("wisard_attack_wrapper");
-const boss_attack_wraper = document.getElementById("boss_attack_wrapper");
-const wisard_player = document.getElementById("wisard_player");
-const boss_player = document.getElementById("to_be_boss_player");
-const where_to_print = document.getElementById("bosshpholder");
-const wisardhpholder = document.getElementById("wisardhpholder");
-const the_math_ask = document.getElementById("TheInputWords")
-const the_input_box = document.getElementById("input")
+const hitSound = "Hit_sound.m4a"
+const battleSound = "Battle_sound_game.m4a"
+const wisardAttackSound = "wisardgoodguy/Wisard_attack_sound.m4a"
+const bossKill = document.querySelector(".FightPage");
+const wisardAttackWrapper = document.getElementById("wisard_attack_wrapper");
+const bossAttackWraper = document.getElementById("boss_attack_wrapper");
+const wisardPlayer = document.getElementById("wisard_player");
+const bossPlayer = document.getElementById("to_be_boss_player");
+const whereToPrint = document.getElementById("bosshpholder");
+const wisardHpHolder = document.getElementById("wisardhpholder");
+const theMathAsk = document.getElementById("TheInputWords")
+const theInputBox = document.getElementById("input")
 const the_end_screen = document.getElementById("theendscreen")
 const BossSelect = document.querySelector(".ChoosePage");
 const the_end_message = document.querySelector(".EndPage")
@@ -42,9 +42,9 @@ info_div.appendChild(infoDivInput)
 let yhpOutput = document.createElement("p");
 let wisard_hp = 300;
 yhpOutput.innerHTML = "yourHp =" + wisard_hp;
-wisardhpholder.appendChild(yhpOutput);
+wisardHpHolder.appendChild(yhpOutput);
 const full_hp = document.createElement("p");
-where_to_print.appendChild(full_hp);
+whereToPrint.appendChild(full_hp);
 
 function playSound(soundFile) {
   const audio = new Audio(soundFile);
@@ -71,14 +71,14 @@ setInterval(() =>  {
   timertick(boss_attack_timer_time)
 }, 1000);
   BossSelect.style.display = "none";
-  BossKill.style.display = "flex";
+  bossKill.style.display = "flex";
   hp = HPsetter;
   full_hp.innerHTML = "enemyHP = " + hp;
   boss = theboss;
-  boss_attack_wraper.src = boss + "/" + boss + ".gif";
+  bossAttackWraper.src = boss + "/" + boss + ".gif";
   bossTimer(boss_attack_timer_time)
   
-  playSoundForever(battle_sound)
+  playSoundForever(battleSound)
   
 }
 function bossTimer(boss_attack_timer_time) {
@@ -159,9 +159,9 @@ function askThem(charge, TheDamage) {
       theMathAnswer = a / b;
     }
 
-    the_input_box.focus()
+    theInputBox.focus()
     theInputWords.innerHTML = "To proseed you must do math. What is " + the_math_question + "?"
-    the_math_ask.appendChild(theInputWords);
+    theMathAsk.appendChild(theInputWords);
     
   } else {
     infoDivInput.innerHTML = "The move you want to use is not charged up yet. Please select another move."
@@ -178,11 +178,11 @@ function askThem(charge, TheDamage) {
   }
 }
 function getTheInput () {
-  theAnswer = the_input_box.value;
+  theAnswer = theInputBox.value;
     checkTheAnswer();
-  the_input_box.value = ""
+  theInputBox.value = ""
   theInputWords.innerHTML = ""
-  the_math_ask.appendChild(theInputWords)
+  theMathAsk.appendChild(theInputWords)
 }
 function checkTheAnswer() {
   if (theAnswer == null) {
@@ -204,9 +204,9 @@ function checkTheAnswer() {
     info_div.style.display = "block"
     attack_holder.style.display  = "none"
     input_teller.style.display = "none"
-    wisard_attack_wrapper.src = "costumewrong.png";
+    wisardAttackWrapper.src = "costumewrong.png";
     setTimeout(function () {
-      wisard_attack_wrapper.src = "wisardgoodguy/wisardgoodguy.gif";
+      wisardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif";
       info_div.style.display = "none"
       attack_holder.style.display  = "block"
       input_teller.style.display = "none"
@@ -219,24 +219,24 @@ function GoleShootHit() {
   attack_holder.style.display  = "none"
   input_teller.style.display = "none"
   AttackInProgress.style.display = "block"
-  wisard_attack_wrapper.src = "costumeright.png";
+  wisardAttackWrapper.src = "costumeright.png";
   setTimeout(function () {
-    playSound(wisard_attack_sound)
-    wisard_attack_wrapper.src = "wisardgoodguy/wisardgoodguy.gif";
+    playSound(wisardAttackSound)
+    wisardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif";
   }, 1000);
 
   setTimeout(function () {
-    wisard_attack_wrapper.src = "wisardgoodguy/wizardgoodguycostume2.gif";
+    wisardAttackWrapper.src = "wisardgoodguy/wizardgoodguycostume2.gif";
   }, 2000);
 
 
   setTimeout(function () {
-    wisard_attack_wrapper.src = "wisardgoodguy/wisardgoodguy.gif";
+    wisardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif";
   }, 3000);
 
   setTimeout(function () {
-    boss_player.style.backgroundColor = "red";
-    playSound(hit_sound)
+    bossPlayer.style.backgroundColor = "red";
+    playSound(hitSound)
 
     hp = hp - theGlobalDamageInfo  *10;
     full_hp.innerHTML = "enemyHP = " + hp;
@@ -266,7 +266,7 @@ function GoleShootHit() {
   }, 4000);
 
   setTimeout(function () {
-    boss_player.style.backgroundColor = "transparent";
+    bossPlayer.style.backgroundColor = "transparent";
   }, 5000);
   setTimeout(function() {
     info_div.style.display = "none"
@@ -294,26 +294,26 @@ function BossAttack() {
   the_bosses_answer = boss_array[random_index];
   if (the_bosses_answer == "yes") {
     setTimeout(function () {
-      boss_attack_wraper.src = "costumeright.png";
+      bossAttackWraper.src = "costumeright.png";
     }, 1000);
     setTimeout(function () {
-      playSound(wisard_attack_sound)
-      boss_attack_wraper.src = boss + "/" + boss + ".gif";
+      playSound(wisardAttackSound)
+      bossAttackWraper.src = boss + "/" + boss + ".gif";
     }, 2000);
     setTimeout(function () {
-      boss_attack_wraper.src = boss + "/" + boss + "costume2.gif";
+      bossAttackWraper.src = boss + "/" + boss + "costume2.gif";
     }, 3000);
     setTimeout(function () {
-      boss_attack_wraper.src = boss + "/" + boss + "costume3.gif";
+      bossAttackWraper.src = boss + "/" + boss + "costume3.gif";
       playSound(boss_attack_sound)
     }, 4000);
 
     setTimeout(function () {
-      boss_attack_wraper.src = boss + "/" + boss + ".gif";
+      bossAttackWraper.src = boss + "/" + boss + ".gif";
     }, 5000);
     setTimeout(function () {
-      wisard_player.style.backgroundColor = "red";
-      playSound(hit_sound)
+      wisardPlayer.style.backgroundColor = "red";
+      playSound(hitSound)
       
       const the_boss_attack = Math.floor(Math.random() * 4);
       const bossmovearray = ["10", "20", "30", "40"];
@@ -336,7 +336,7 @@ function BossAttack() {
         clearInterval(bossTimerInHtml)
         the_end_screen.appendChild(theEndScreenInput)
         setInterval(function() {
-          wisard_attack_wrapper.src = "dead.png"
+          wisardAttackWrapper.src = "dead.png"
         },1)
         }, 7000);
   
@@ -344,14 +344,14 @@ function BossAttack() {
     }, 5000);
     setTimeout(function () {
 
-      wisard_player.style.backgroundColor = "transparent";
+      wisardPlayer.style.backgroundColor = "transparent";
     }, 6000);
 
     
   } else {
-    boss_attack_wraper.src = "costumewrong.png";
+    bossAttackWraper.src = "costumewrong.png";
     setTimeout(function () {
-      boss_attack_wraper.src = boss + "/" + boss + ".gif";
+      bossAttackWraper.src = boss + "/" + boss + ".gif";
     }, 1000);
 
 
