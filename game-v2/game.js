@@ -17,6 +17,9 @@ let attackCharges = {
 }
 let theAttack
 
+const attack_button_2 = document.getElementById("Attackbutton2")
+const attack_button_3 = document.getElementById("Attackbutton3")
+const attack_button_4 = document.getElementById("Attackbutton4")
 const hitSound = "Hit_sound.m4a"
 const battleSound = "Battle_sound_game.m4a"
 const wisardAttackSound = "wisardgoodguy/Wisard_attack_sound.m4a"
@@ -29,22 +32,22 @@ const whereToPrint = document.getElementById("bosshpholder");
 const wisardHpHolder = document.getElementById("wisardhpholder");
 const theMathAsk = document.getElementById("TheInputWords")
 const theInputBox = document.getElementById("input")
-const the_end_screen = document.getElementById("theendscreen")
-const BossSelect = document.querySelector(".ChoosePage");
-const the_end_message = document.querySelector(".EndPage")
-const info_div = document.getElementById("InfoDiv")
-const input_teller = document.getElementById("input_teller")
-const attack_holder = document.getElementById("AttackHolder")   
-const AttackInProgress = document.getElementById("AttackInProgress")
+const theEndScreen = document.getElementById("theendscreen")
+const bossSelect = document.querySelector(".ChoosePage");
+const theEndMessage = document.querySelector(".EndPage")
+const infoDiv = document.getElementById("InfoDiv")
+const inputTeller = document.getElementById("input_teller")
+const attackHolder = document.getElementById("AttackHolder")   
+const attackInProgress = document.getElementById("AttackInProgress")
 
-info_div.appendChild(infoDivInput)
+infoDiv.appendChild(infoDivInput)
 
 let yhpOutput = document.createElement("p");
-let wisard_hp = 300;
-yhpOutput.innerHTML = "yourHp =" + wisard_hp;
+let wisardHp = 300;
+yhpOutput.innerHTML = "yourHp =" + wisardHp;
 wisardHpHolder.appendChild(yhpOutput);
-const full_hp = document.createElement("p");
-whereToPrint.appendChild(full_hp);
+const fullHp = document.createElement("p");
+whereToPrint.appendChild(fullHp);
 
 function playSound(soundFile) {
   const audio = new Audio(soundFile);
@@ -61,19 +64,19 @@ function startGame(HPsetter, theboss, boss_attack_timer_time) {
   attack_button_2.classList.add('Uncharged')
   attack_button_3.classList.add('Uncharged')
   attack_button_4.classList.add('Uncharged')
-  info_div.style.display = "none"
-  attack_holder.style.display  = "block"
-  input_teller.style.display = "none"
+  infoDiv.style.display = "none"
+  attackHolder.style.display  = "block"
+  inputTeller.style.display = "none"
   //imagePath = `${theboss}/background1.gif`;
   // thebackground.style.backgroundImage = `url(${imagePath})`;
   bossTimerInHtml = 
 setInterval(() =>  {
   timertick(boss_attack_timer_time)
 }, 1000);
-  BossSelect.style.display = "none";
+  bossSelect.style.display = "none";
   bossKill.style.display = "flex";
   hp = HPsetter;
-  full_hp.innerHTML = "enemyHP = " + hp;
+  fullHp.innerHTML = "enemyHP = " + hp;
   boss = theboss;
   bossAttackWraper.src = boss + "/" + boss + ".gif";
   bossTimer(boss_attack_timer_time)
@@ -93,9 +96,9 @@ function timertick(boss_attack_timer_time) {
   }
 }
 function askThem(charge, TheDamage) {
-  info_div.style.display = "none"
-  attack_holder.style.display  = "none"
-  input_teller.style.display = "block"
+  infoDiv.style.display = "none"
+  attackHolder.style.display  = "none"
+  inputTeller.style.display = "block"
   if (TheDamage == 1) {
     theAttack = "attackButton1Charge"
   }
@@ -165,13 +168,13 @@ function askThem(charge, TheDamage) {
     
   } else {
     infoDivInput.innerHTML = "The move you want to use is not charged up yet. Please select another move."
-    info_div.style.display = "block"
-    attack_holder.style.display  = "none"
-    input_teller.style.display = "none"
+    infoDiv.style.display = "block"
+    attackHolder.style.display  = "none"
+    inputTeller.style.display = "none"
     setTimeout(function(){
-      info_div.style.display = "none"
-      attack_holder.style.display  = "block"
-      input_teller.style.display = "none"
+      infoDiv.style.display = "none"
+      attackHolder.style.display  = "block"
+      inputTeller.style.display = "none"
 
     },4000)
 
@@ -188,9 +191,9 @@ function checkTheAnswer() {
   if (theAnswer == null) {
     return;
   }
-  info_div.style.display = "none"
-  attack_holder.style.display  = "none"
-  input_teller.style.display = "none"
+  infoDiv.style.display = "none"
+  attackHolder.style.display  = "none"
+  inputTeller.style.display = "none"
   
   if (Number(theAnswer) == theMathAnswer) {
     attackCharges["attackButton1Charge"] = attackCharges["attackButton1Charge"] + 1 
@@ -201,24 +204,24 @@ function checkTheAnswer() {
 
   } else {
     infoDivInput.innerHTML = "sorry that was the wrong answer, the corect answer was: " + theMathAnswer + "."
-    info_div.style.display = "block"
-    attack_holder.style.display  = "none"
-    input_teller.style.display = "none"
+    infoDiv.style.display = "block"
+    attackHolder.style.display  = "none"
+    inputTeller.style.display = "none"
     wisardAttackWrapper.src = "costumewrong.png";
     setTimeout(function () {
       wisardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif";
-      info_div.style.display = "none"
-      attack_holder.style.display  = "block"
-      input_teller.style.display = "none"
+      infoDiv.style.display = "none"
+      attackHolder.style.display  = "block"
+      inputTeller.style.display = "none"
     }, 1000);
   }
 }
 
 function GoleShootHit() {
-  info_div.style.display = "none"
-  attack_holder.style.display  = "none"
-  input_teller.style.display = "none"
-  AttackInProgress.style.display = "block"
+  infoDiv.style.display = "none"
+  attackHolder.style.display  = "none"
+  inputTeller.style.display = "none"
+  attackInProgress.style.display = "block"
   wisardAttackWrapper.src = "costumeright.png";
   setTimeout(function () {
     playSound(wisardAttackSound)
@@ -239,7 +242,7 @@ function GoleShootHit() {
     playSound(hitSound)
 
     hp = hp - theGlobalDamageInfo  *10;
-    full_hp.innerHTML = "enemyHP = " + hp;
+    fullHp.innerHTML = "enemyHP = " + hp;
      
     if (hp < 0) {
       hp = 0
@@ -247,13 +250,13 @@ function GoleShootHit() {
 
     if (hp <= 0) {
     
-    info_div.style.display = "none"
-    attack_holder.style.display  = "none"
-    input_teller.style.display = "none"
-    the_end_message.style.display = "block"
+    infoDiv.style.display = "none"
+    attackHolder.style.display  = "none"
+    inputTeller.style.display = "none"
+    theEndMessage.style.display = "block"
     theEndScreenInput.innerHTML = "you win"
     clearInterval(bossTimerInHtml)
-    the_end_screen.appendChild(theEndScreenInput)
+    theEndScreen.appendChild(theEndScreenInput)
     setInterval(function() {
       boss_attack_wrapper.src = "dead.png"
     },1)
@@ -269,18 +272,18 @@ function GoleShootHit() {
     bossPlayer.style.backgroundColor = "transparent";
   }, 5000);
   setTimeout(function() {
-    info_div.style.display = "none"
-    attack_holder.style.display  = "block"
-    input_teller.style.display = "none"
-    AttackInProgress.style.display = "none"
+    infoDiv.style.display = "none"
+    attackHolder.style.display  = "block"
+    inputTeller.style.display = "none"
+    attackInProgress.style.display = "none"
   }, 6000);
 }
 
 function restart() {
-  wisard_hp = 300 
-  yhpOutput.innerHTML = "yourHP = " + wisard_hp  
-  the_end_message.style.display = "none"
-  BossSelect.style.display = "block"
+  wisardHp = 300 
+  yhpOutput.innerHTML = "yourHP = " + wisardHp  
+  theEndMessage.style.display = "none"
+  bossSelect.style.display = "block"
 }
 
 function BossAttack() {
@@ -320,21 +323,21 @@ function BossAttack() {
       let thedamigeas;
   
       thedamigeas = bossmovearray[the_boss_attack];
-      wisard_hp = wisard_hp - thedamigeas;
-      yhpOutput.innerHTML = "yourHp =" + wisard_hp;
+      wisardHp = wisardHp - thedamigeas;
+      yhpOutput.innerHTML = "yourHp =" + wisardHp;
 
-      if (wisard_hp < 0) {
-        wisard_hp = 0
+      if (wisardHp < 0) {
+        wisardHp = 0
       }
-      if (wisard_hp <= 0) {
+      if (wisardHp <= 0) {
         setTimeout(function () {
-        info_div.style.display = "none"
-        attack_holder.style.display  = "none"
-        input_teller.style.display = "none"
-        the_end_message.style.display = "block"
+        infoDiv.style.display = "none"
+        attackHolder.style.display  = "none"
+        inputTeller.style.display = "none"
+        theEndMessage.style.display = "block"
         theEndScreenInput.innerHTML = "you lose"
         clearInterval(bossTimerInHtml)
-        the_end_screen.appendChild(theEndScreenInput)
+        theEndScreen.appendChild(theEndScreenInput)
         setInterval(function() {
           wisardAttackWrapper.src = "dead.png"
         },1)
