@@ -1,26 +1,22 @@
 //let imagePath;
 //let thebackground = document.getElementById("background");
 let hp;
-let the_math_answer;
-let the_answer;
+let theMathAnswer;
+let theAnswer;
 let boss;
-let TheGlobalDamageInfo
-let the_input_words = document.createElement("p")
-let the_end_screen_input = document.createElement("p")
-let info_div_input = document.createElement("p")
-let boss_timer_in_html
-let attack_charges = {
-  attack_button_1_charge: 1,
-  attack_button_2_charge: 1,
-  attack_button_3_charge: 1,
-  attack_button_4_charge: 1
+let theGlobalDamageInfo
+let theInputWords = document.createElement("p")
+let theEndScreenInput = document.createElement("p")
+let infoDivInput = document.createElement("p")
+let bossTimerInHtml
+let attackCharges = {
+  attackButton1Charge: 1,
+  attackButton2Charge: 1,
+  attackButton3Charge: 1,
+  attackButton4Charge: 1
 }
-let the_attack
+let theAttack
 
-const attack_button_1 = document.getElementById("Attackbutton1")
-const attack_button_2 = document.getElementById("Attackbutton2")
-const attack_button_3 = document.getElementById("Attackbutton3")
-const attack_button_4 = document.getElementById("Attackbutton4")
 const hit_sound = "Hit_sound.m4a"
 const battle_sound = "Battle_sound_game.m4a"
 const wisard_attack_sound = "wisardgoodguy/Wisard_attack_sound.m4a"
@@ -41,7 +37,7 @@ const input_teller = document.getElementById("input_teller")
 const attack_holder = document.getElementById("AttackHolder")   
 const AttackInProgress = document.getElementById("AttackInProgress")
 
-info_div.appendChild(info_div_input)
+info_div.appendChild(infoDivInput)
 
 let yhpOutput = document.createElement("p");
 let wisard_hp = 300;
@@ -70,7 +66,7 @@ function startGame(HPsetter, theboss, boss_attack_timer_time) {
   input_teller.style.display = "none"
   //imagePath = `${theboss}/background1.gif`;
   // thebackground.style.backgroundImage = `url(${imagePath})`;
-  boss_timer_in_html = 
+  bossTimerInHtml = 
 setInterval(() =>  {
   timertick(boss_attack_timer_time)
 }, 1000);
@@ -101,42 +97,42 @@ function askThem(charge, TheDamage) {
   attack_holder.style.display  = "none"
   input_teller.style.display = "block"
   if (TheDamage == 1) {
-    the_attack = "attack_button_1_charge"
+    theAttack = "attackButton1Charge"
   }
   if (TheDamage == 2) {
-    the_attack = "attack_button_2_charge"
+    theAttack = "attackButton2Charge"
   }
   if (TheDamage == 3) {
-    the_attack = "attack_button_3_charge"
+    theAttack = "attackButton3Charge"
   }
   if (TheDamage == 4) {
-    the_attack = "attack_button_4_charge"
+    theAttack = "attackButton4Charge"
   }
-  if (charge <= attack_charges[the_attack]) {
-    attack_charges[the_attack] = attack_charges[the_attack] - charge;
-    if (attack_charges["attack_button_2_charge"] <= 2) {
+  if (charge <= attackCharges[theAttack]) {
+    attackCharges[theAttack] = attackCharges[theAttack] - charge;
+    if (attackCharges["attackButton2Charge"] <= 2) {
       attack_button_2.classList.add('Uncharged')
     } else {
       attack_button_2.classList.remove('Uncharged')
     }
-    if (attack_charges["attack_button_3_charge"] <= 3) {
+    if (attackCharges["attackButton3Charge"] <= 3) {
       attack_button_3.classList.add('Uncharged')
     } else {
       attack_button_3.classList.remove('Uncharged')
     }
-    if (attack_charges["attack_button_4_charge"] <= 4) {
+    if (attackCharges["attackButton4Charge"] <= 4) {
       attack_button_4.classList.add('Uncharged')
     } else {
       attack_button_4.classList.remove('Uncharged')
     }
     let the_math_question;
-    TheGlobalDamageInfo = TheDamage
+    theGlobalDamageInfo = TheDamage
 
     if (TheDamage == 1) {
       let a = Math.floor(Math.random() * 101);
       let b = Math.floor(Math.random() * 101);
       the_math_question = a + "+" + b + "=";
-      the_math_answer = a + b;
+      theMathAnswer = a + b;
     }
 
     if (TheDamage == 2) {
@@ -144,14 +140,14 @@ function askThem(charge, TheDamage) {
       let b = Math.floor(Math.random() * 51);
       a = a + 50;
       the_math_question = a + "-" + b + "=";
-      the_math_answer = a - b;
+      theMathAnswer = a - b;
     }
 
     if (TheDamage == 3) {
       let a = Math.floor(Math.random() * 11);
       let b = Math.floor(Math.random() * 11);
       the_math_question = a + "x" + b + "=";
-      the_math_answer = a * b;
+      theMathAnswer = a * b;
     }
 
     if (TheDamage == 4) {
@@ -160,15 +156,15 @@ function askThem(charge, TheDamage) {
       b = b + 1;
       a = a * b;
       the_math_question = a + "÷" + b + "=";
-      the_math_answer = a / b;
+      theMathAnswer = a / b;
     }
 
     the_input_box.focus()
-    the_input_words.innerHTML = "To proseed you must do math. What is " + the_math_question + "?"
-    the_math_ask.appendChild(the_input_words);
+    theInputWords.innerHTML = "To proseed you must do math. What is " + the_math_question + "?"
+    the_math_ask.appendChild(theInputWords);
     
   } else {
-    info_div_input.innerHTML = "The move you want to use is not charged up yet. Please select another move."
+    infoDivInput.innerHTML = "The move you want to use is not charged up yet. Please select another move."
     info_div.style.display = "block"
     attack_holder.style.display  = "none"
     input_teller.style.display = "none"
@@ -182,29 +178,29 @@ function askThem(charge, TheDamage) {
   }
 }
 function getTheInput () {
-  the_answer = the_input_box.value;
+  theAnswer = the_input_box.value;
     checkTheAnswer();
   the_input_box.value = ""
-  the_input_words.innerHTML = ""
-  the_math_ask.appendChild(the_input_words)
+  theInputWords.innerHTML = ""
+  the_math_ask.appendChild(theInputWords)
 }
 function checkTheAnswer() {
-  if (the_answer == null) {
+  if (theAnswer == null) {
     return;
   }
   info_div.style.display = "none"
   attack_holder.style.display  = "none"
   input_teller.style.display = "none"
   
-  if (Number(the_answer) == the_math_answer) {
-    attack_charges["attack_button_1_charge"] = attack_charges["attack_button_1_charge"] + 1 
-    attack_charges["attack_button_2_charge"] = attack_charges["attack_button_2_charge"] + 1
-    attack_charges["attack_button_3_charge"] = attack_charges["attack_button_3_charge"] + 1
-    attack_charges["attack_button_4_charge"] = attack_charges["attack_button_4_charge"] + 1
+  if (Number(theAnswer) == theMathAnswer) {
+    attackCharges["attackButton1Charge"] = attackCharges["attackButton1Charge"] + 1 
+    attackCharges["attackButton2Charge"] = attackCharges["attackButton2Charge"] + 1
+    attackCharges["attackButton3Charge"] = attackCharges["attackButton3Charge"] + 1
+    attackCharges["attackButton4Charge"] = attackCharges["attackButton4Charge"] + 1
     GoleShootHit();
 
   } else {
-    info_div_input.innerHTML = "sorry that was the wrong answer, the corect answer was: " + the_math_answer + "."
+    infoDivInput.innerHTML = "sorry that was the wrong answer, the corect answer was: " + theMathAnswer + "."
     info_div.style.display = "block"
     attack_holder.style.display  = "none"
     input_teller.style.display = "none"
@@ -242,7 +238,7 @@ function GoleShootHit() {
     boss_player.style.backgroundColor = "red";
     playSound(hit_sound)
 
-    hp = hp - TheGlobalDamageInfo  *10;
+    hp = hp - theGlobalDamageInfo  *10;
     full_hp.innerHTML = "enemyHP = " + hp;
      
     if (hp < 0) {
@@ -255,9 +251,9 @@ function GoleShootHit() {
     attack_holder.style.display  = "none"
     input_teller.style.display = "none"
     the_end_message.style.display = "block"
-    the_end_screen_input.innerHTML = "you win"
-    clearInterval(boss_timer_in_html)
-    the_end_screen.appendChild(the_end_screen_input)
+    theEndScreenInput.innerHTML = "you win"
+    clearInterval(bossTimerInHtml)
+    the_end_screen.appendChild(theEndScreenInput)
     setInterval(function() {
       boss_attack_wrapper.src = "dead.png"
     },1)
@@ -336,9 +332,9 @@ function BossAttack() {
         attack_holder.style.display  = "none"
         input_teller.style.display = "none"
         the_end_message.style.display = "block"
-        the_end_screen_input.innerHTML = "you lose"
-        clearInterval(boss_timer_in_html)
-        the_end_screen.appendChild(the_end_screen_input)
+        theEndScreenInput.innerHTML = "you lose"
+        clearInterval(bossTimerInHtml)
+        the_end_screen.appendChild(theEndScreenInput)
         setInterval(function() {
           wisard_attack_wrapper.src = "dead.png"
         },1)
