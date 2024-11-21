@@ -17,9 +17,9 @@ let attackCharges = {
 }
 let theAttack
 
-const attack_button_2 = document.getElementById("Attackbutton2")
-const attack_button_3 = document.getElementById("Attackbutton3")
-const attack_button_4 = document.getElementById("Attackbutton4")
+const attackButton2 = document.getElementById("Attackbutton2")
+const attackButton3 = document.getElementById("Attackbutton3")
+const attackButton4 = document.getElementById("Attackbutton4")
 const hitSound = "Hit_sound.m4a"
 const battleSound = "Battle_sound_game.m4a"
 const wisardAttackSound = "wisardgoodguy/Wisard_attack_sound.m4a"
@@ -61,9 +61,9 @@ function playSoundForever(soundFile) {
 }
 
 function startGame(HPsetter, theboss, boss_attack_timer_time) {
-  attack_button_2.classList.add('Uncharged')
-  attack_button_3.classList.add('Uncharged')
-  attack_button_4.classList.add('Uncharged')
+  attackButton2.classList.add('Uncharged')
+  attackButton3.classList.add('Uncharged')
+  attackButton4.classList.add('Uncharged')
   infoDiv.style.display = "none"
   attackHolder.style.display  = "block"
   inputTeller.style.display = "none"
@@ -114,27 +114,27 @@ function askThem(charge, TheDamage) {
   if (charge <= attackCharges[theAttack]) {
     attackCharges[theAttack] = attackCharges[theAttack] - charge;
     if (attackCharges["attackButton2Charge"] <= 2) {
-      attack_button_2.classList.add('Uncharged')
+      attackButton2.classList.add('Uncharged')
     } else {
-      attack_button_2.classList.remove('Uncharged')
+      attackButton2.classList.remove('Uncharged')
     }
     if (attackCharges["attackButton3Charge"] <= 3) {
-      attack_button_3.classList.add('Uncharged')
+      attackButton3.classList.add('Uncharged')
     } else {
-      attack_button_3.classList.remove('Uncharged')
+      attackButton3.classList.remove('Uncharged')
     }
     if (attackCharges["attackButton4Charge"] <= 4) {
-      attack_button_4.classList.add('Uncharged')
+      attackButton4.classList.add('Uncharged')
     } else {
-      attack_button_4.classList.remove('Uncharged')
+      attackButton4.classList.remove('Uncharged')
     }
-    let the_math_question;
+    let theMathQuestion;
     theGlobalDamageInfo = TheDamage
 
     if (TheDamage == 1) {
       let a = Math.floor(Math.random() * 101);
       let b = Math.floor(Math.random() * 101);
-      the_math_question = a + "+" + b + "=";
+      theMathQuestion = a + "+" + b + "=";
       theMathAnswer = a + b;
     }
 
@@ -142,14 +142,14 @@ function askThem(charge, TheDamage) {
       let a = Math.floor(Math.random() * 51);
       let b = Math.floor(Math.random() * 51);
       a = a + 50;
-      the_math_question = a + "-" + b + "=";
+      theMathQuestion = a + "-" + b + "=";
       theMathAnswer = a - b;
     }
 
     if (TheDamage == 3) {
       let a = Math.floor(Math.random() * 11);
       let b = Math.floor(Math.random() * 11);
-      the_math_question = a + "x" + b + "=";
+      theMathQuestion = a + "x" + b + "=";
       theMathAnswer = a * b;
     }
 
@@ -158,12 +158,12 @@ function askThem(charge, TheDamage) {
       let b = Math.floor(Math.random() * 10);
       b = b + 1;
       a = a * b;
-      the_math_question = a + "÷" + b + "=";
+      theMathQuestion = a + "÷" + b + "=";
       theMathAnswer = a / b;
     }
 
     theInputBox.focus()
-    theInputWords.innerHTML = "To proseed you must do math. What is " + the_math_question + "?"
+    theInputWords.innerHTML = "To proseed you must do math. What is " + theMathQuestion + "?"
     theMathAsk.appendChild(theInputWords);
     
   } else {
@@ -287,15 +287,15 @@ function restart() {
 }
 
 function BossAttack() {
-  const boss_attack_sound = boss + "/" + "attack_sound.m4a"
-  let random_index;
-  let the_bosses_answer;
-  const boss_array = ["yes", "no"];
+  const bossAttackSound = boss + "/" + "attack_sound.m4a"
+  let randomIndex;
+  let theBossesAnswer;
+  const bossArray = ["yes", "no"];
   
 
-  random_index = Math.floor(Math.random() * 2);
-  the_bosses_answer = boss_array[random_index];
-  if (the_bosses_answer == "yes") {
+  randomIndex = Math.floor(Math.random() * 2);
+  theBossesAnswer = bossArray[randomIndex];
+  if (theBossesAnswer == "yes") {
     setTimeout(function () {
       bossAttackWraper.src = "costumeright.png";
     }, 1000);
@@ -308,7 +308,7 @@ function BossAttack() {
     }, 3000);
     setTimeout(function () {
       bossAttackWraper.src = boss + "/" + boss + "costume3.gif";
-      playSound(boss_attack_sound)
+      playSound(bossAttackSound)
     }, 4000);
 
     setTimeout(function () {
@@ -318,12 +318,12 @@ function BossAttack() {
       wisardPlayer.style.backgroundColor = "red";
       playSound(hitSound)
       
-      const the_boss_attack = Math.floor(Math.random() * 4);
+      const theBossAttack = Math.floor(Math.random() * 4);
       const bossmovearray = ["10", "20", "30", "40"];
-      let thedamigeas;
+      let theDamigeas;
   
-      thedamigeas = bossmovearray[the_boss_attack];
-      wisardHp = wisardHp - thedamigeas;
+      theDamigeas = bossmovearray[theBossAttack];
+      wisardHp = wisardHp - theDamigeas;
       yhpOutput.innerHTML = "yourHp =" + wisardHp;
 
       if (wisardHp < 0) {
