@@ -69,13 +69,13 @@ b {
 }
 
 .novice-boss-button,
-.SuperEasyBossButton,
-.PracticeBossButton,
-.EasyBossButton,
-.MediumBossButton,
-.HardBossButton,
-.BossButton,
-.UltraBossButton {
+.superEasy-boss-button,
+.practice-boss-button,
+.easy-boss-button,
+.medium-boss-button,
+.hard-boss-button,
+.boss-button,
+.ultra-boss-button {
   margin: 10px;
   width: 100%;
   padding: 10px;
@@ -90,31 +90,31 @@ b {
   border-color: rgb(83, 146, 254);
   cursor: pointer;
 }
-.SuperEasyBossButton:hover {
+.superEasy-boss-button:hover {
   border-color: rgb(3, 225, 159);
   cursor: pointer;
 }
-.PracticeBossButton:hover {
+.practice-boss-button:hover {
   border-color: rgb(0, 76, 255);
   cursor: pointer;
 }
-.EasyBossButton:hover {
+.easy-boss-button:hover {
   border-color: rgb(2, 181, 41);
   cursor: pointer;
 }
-.MediumBossButton:hover {
+.medium-boss-button:hover {
   border-color: rgb(250, 198, 28);
   cursor: pointer;
 }
-.HardBossButton:hover {
+.hard-boss-button:hover {
   border-color: rgb(255, 0, 0);
   cursor: pointer;
 }
-.BossButton:hover {
+.boss-button:hover {
   border-color: rgb(155, 2, 2);
   cursor: pointer;
 }
-.UltraBossButton:hover {
+.ultra-boss-button:hover {
   border-color: rgb(98, 0, 0);
   cursor: pointer;
 }
@@ -123,7 +123,7 @@ b {
   text-align: left;
   font-size: 15px;
 }
-.Attack-in-progress {
+.attack-in-progress {
   display: none;
 }
 .boss-button-boss-image {
@@ -131,7 +131,7 @@ b {
   height: 100px;
   margin: 10px;
 }
-.Uncharged {
+.uncharged {
   pointer-events: none;
   filter: grayscale(100%);
 }

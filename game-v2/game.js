@@ -61,9 +61,9 @@ function playSoundForever(soundFile) {
 }
 
 function startGame(HPsetter, theboss, boss_attack_timer_time) {
-  attackButton2.classList.add('Uncharged')
-  attackButton3.classList.add('Uncharged')
-  attackButton4.classList.add('Uncharged')
+  attackButton2.classList.add('uncharged')
+  attackButton3.classList.add('uncharged')
+  attackButton4.classList.add('uncharged')
   infoDiv.style.display = "none"
   attackHolder.style.display  = "block"
   inputTeller.style.display = "none"
@@ -114,19 +114,19 @@ function askThem(charge, TheDamage) {
   if (charge <= attackCharges[theAttack]) {
     attackCharges[theAttack] = attackCharges[theAttack] - charge;
     if (attackCharges["attackButton2Charge"] <= 2) {
-      attackButton2.classList.add('Uncharged')
+      attackButton2.classList.add('uncharged')
     } else {
-      attackButton2.classList.remove('Uncharged')
+      attackButton2.classList.remove('uncharged')
     }
     if (attackCharges["attackButton3Charge"] <= 3) {
-      attackButton3.classList.add('Uncharged')
+      attackButton3.classList.add('uncharged')
     } else {
-      attackButton3.classList.remove('Uncharged')
+      attackButton3.classList.remove('uncharged')
     }
     if (attackCharges["attackButton4Charge"] <= 4) {
-      attackButton4.classList.add('Uncharged')
+      attackButton4.classList.add('uncharged')
     } else {
-      attackButton4.classList.remove('Uncharged')
+      attackButton4.classList.remove('uncharged')
     }
     let theMathQuestion;
     theGlobalDamageInfo = TheDamage
