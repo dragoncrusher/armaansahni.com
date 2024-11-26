@@ -123,7 +123,7 @@ b {
   text-align: left;
   font-size: 15px;
 }
-.AttackInProgress {
+.Attack-in-progress {
   display: none;
 }
 .boss-button-boss-image {
@@ -185,6 +185,6 @@ b {
   align-items: center;
   margin: 50px;
 }
-.EndPage {
+.end-page {
   display: none;
 }
