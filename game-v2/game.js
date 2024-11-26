@@ -17,28 +17,28 @@ let attackCharges = {
 }
 let theAttack
 
-const attackButton2 = document.getElementById("Attackbutton2")
-const attackButton3 = document.getElementById("Attackbutton3")
-const attackButton4 = document.getElementById("Attackbutton4")
+const attackButton2 = document.getElementById("attack-button-2")
+const attackButton3 = document.getElementById("attack-button-3")
+const attackButton4 = document.getElementById("attack-button-4")
 const hitSound = "Hit_sound.m4a"
 const battleSound = "Battle_sound_game.m4a"
 const wisardAttackSound = "wisardgoodguy/Wisard_attack_sound.m4a"
 const bossKill = document.querySelector(".FightPage");
 const wisardAttackWrapper = document.getElementById("wisard_attack_wrapper");
 const bossAttackWraper = document.getElementById("boss_attack_wrapper");
-const wisardPlayer = document.getElementById("wisard_player");
+const wisardPlayer = document.getElementById("wisard-player");
 const bossPlayer = document.getElementById("to_be_boss_player");
 const whereToPrint = document.getElementById("bosshpholder");
 const wisardHpHolder = document.getElementById("wisardhpholder");
-const theMathAsk = document.getElementById("TheInputWords")
+const theMathAsk = document.getElementById("the-input-words")
 const theInputBox = document.getElementById("input")
-const theEndScreen = document.getElementById("theendscreen")
+const theEndScreen = document.getElementById("the-end-screen")
 const bossSelect = document.querySelector(".ChoosePage");
 const theEndMessage = document.querySelector(".EndPage")
-const infoDiv = document.getElementById("InfoDiv")
+const infoDiv = document.getElementById("info-div")
 const inputTeller = document.getElementById("input_teller")
-const attackHolder = document.getElementById("AttackHolder")   
-const attackInProgress = document.getElementById("AttackInProgress")
+const attackHolder = document.getElementById("Attack-holder")   
+const attackInProgress = document.getElementById("attack-in-progress")
 
 infoDiv.appendChild(infoDivInput)
 
