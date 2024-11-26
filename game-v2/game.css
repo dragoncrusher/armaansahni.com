@@ -22,7 +22,7 @@ b {
   justify-content: center;
   margin: 0;
 }
-.InstructionTitle {
+.instruction-title {
   font-size: 25px;
 }
 .inerrcenterred {
@@ -152,7 +152,7 @@ b {
 .Player {
   width: 100%;
 }
-.ChoosePage {
+.choose-page {
   display: block;
 }
 .FightPage {
