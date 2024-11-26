@@ -319,10 +319,10 @@ function BossAttack() {
       playSound(hitSound)
       
       const theBossAttack = Math.floor(Math.random() * 4);
-      const bossmovearray = ["10", "20", "30", "40"];
+      const bossMoveArray = ["10", "20", "30", "40"];
       let theDamigeas;
   
-      theDamigeas = bossmovearray[theBossAttack];
+      theDamigeas = bossMoveArray[theBossAttack];
       wisardHp = wisardHp - theDamigeas;
       yhpOutput.innerHTML = "yourHp =" + wisardHp;
 
