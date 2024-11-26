@@ -24,12 +24,12 @@ const hitSound = "Hit_sound.m4a"
 const battleSound = "Battle_sound_game.m4a"
 const wisardAttackSound = "wisardgoodguy/Wisard_attack_sound.m4a"
 const bossKill = document.querySelector(".FightPage");
-const wisardAttackWrapper = document.getElementById("wisard_attack_wrapper");
-const bossAttackWraper = document.getElementById("boss_attack_wrapper");
+const wisardAttackWrapper = document.getElementById("wisard-attack-wrapper");
+const bossAttackWraper = document.getElementById("boss-attack-wrapper");
 const wisardPlayer = document.getElementById("wisard-player");
-const bossPlayer = document.getElementById("to_be_boss_player");
-const whereToPrint = document.getElementById("bosshpholder");
-const wisardHpHolder = document.getElementById("wisardhpholder");
+const bossPlayer = document.getElementById("to-be-boss-player");
+const whereToPrint = document.getElementById("boss-hp-holder");
+const wisardHpHolder = document.getElementById("wisard-hp-holder");
 const theMathAsk = document.getElementById("the-input-words")
 const theInputBox = document.getElementById("input")
 const theEndScreen = document.getElementById("the-end-screen")
@@ -85,7 +85,7 @@ setInterval(() =>  {
   
 }
 function bossTimer(boss_attack_timer_time) {
-  boss_timer_html = document.getElementById("bosstimer")
+  boss_timer_html = document.getElementById("boss-timer")
   boss_timer_html.innerHTML = boss_attack_timer_time 
 }
 function timertick(boss_attack_timer_time) {
