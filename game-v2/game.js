@@ -37,7 +37,7 @@ const bossSelect = document.querySelector(".ChoosePage");
 const theEndMessage = document.querySelector(".EndPage")
 const infoDiv = document.getElementById("info-div")
 const inputTeller = document.getElementById("input_teller")
-const attackHolder = document.getElementById("Attack-holder")   
+const attackHolder = document.getElementById("attack-holder")   
 const attackInProgress = document.getElementById("attack-in-progress")
 
 infoDiv.appendChild(infoDivInput)

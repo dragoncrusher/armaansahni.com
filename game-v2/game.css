@@ -9,7 +9,7 @@ b {
   font-weight: 700;
   font-style: normal;
 }
-.AttackShower {
+.attack-shower {
   display: block;
   justify-content: center;
   align-items: center;
@@ -29,7 +29,7 @@ b {
   width: 100%;
   max-width: 1000px;
 }
-.OpponentChooseTitle {
+.opponent-choose-title {
   font-size: 20px;
 }
 .HpShower {
@@ -40,7 +40,7 @@ b {
   padding: 10px;
   text-align: center;
 }
-.AttackCoulum {
+.attack-coulum {
   display: inline-block;
 }
 .BattleArina {
@@ -68,7 +68,7 @@ b {
   font-style: normal;
 }
 
-.NoviceBossButton,
+.novice-boss-button,
 .SuperEasyBossButton,
 .PracticeBossButton,
 .EasyBossButton,
@@ -86,7 +86,7 @@ b {
   display: flex;
   border-style: outset;
 }
-.NoviceBossButton:hover {
+.novice-boss-button:hover {
   border-color: rgb(83, 146, 254);
   cursor: pointer;
 }
@@ -119,14 +119,14 @@ b {
   cursor: pointer;
 }
 
-.BossDiscription {
+.boss-discription {
   text-align: left;
   font-size: 15px;
 }
 .AttackInProgress {
   display: none;
 }
-.BossButtonBossImage {
+.boss-button-boss-image {
   width: 100px;
   height: 100px;
   margin: 10px;
@@ -135,7 +135,7 @@ b {
   pointer-events: none;
   filter: grayscale(100%);
 }
-.AttackButton {
+.attack-button {
   padding: 10px;
   width: 180px;
   height: 80px;
@@ -145,7 +145,7 @@ b {
   justify-content: center;
   align-items: center;
 }
-.BlastPanes {
+.blast-panes {
   width: 80px;
   height: 80px;
 }
@@ -155,7 +155,7 @@ b {
 .choose-page {
   display: block;
 }
-.FightPage {
+.fight-page {
   display: none;
   flex-direction: column;
   align-items: center;
