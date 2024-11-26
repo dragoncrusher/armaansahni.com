@@ -23,7 +23,7 @@ const attackButton4 = document.getElementById("attack-button-4")
 const hitSound = "Hit_sound.m4a"
 const battleSound = "Battle_sound_game.m4a"
 const wisardAttackSound = "wisardgoodguy/Wisard_attack_sound.m4a"
-const bossKill = document.querySelector(".FightPage");
+const bossKill = document.querySelector(".fight-page");
 const wisardAttackWrapper = document.getElementById("wisard-attack-wrapper");
 const bossAttackWraper = document.getElementById("boss-attack-wrapper");
 const wisardPlayer = document.getElementById("wisard-player");
@@ -33,8 +33,8 @@ const wisardHpHolder = document.getElementById("wisard-hp-holder");
 const theMathAsk = document.getElementById("the-input-words")
 const theInputBox = document.getElementById("input")
 const theEndScreen = document.getElementById("the-end-screen")
-const bossSelect = document.querySelector(".ChoosePage");
-const theEndMessage = document.querySelector(".EndPage")
+const bossSelect = document.querySelector(".choose-page");
+const theEndMessage = document.querySelector(".end-page")
 const infoDiv = document.getElementById("info-div")
 const inputTeller = document.getElementById("input_teller")
 const attackHolder = document.getElementById("attack-holder")   
@@ -258,7 +258,7 @@ function GoleShootHit() {
     clearInterval(bossTimerInHtml)
     theEndScreen.appendChild(theEndScreenInput)
     setInterval(function() {
-      boss_attack_wrapper.src = "dead.png"
+      bossAttackWraper.src = "dead.png"
     },1)
   } else {
     setTimeout(function () {
