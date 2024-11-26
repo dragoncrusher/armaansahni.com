@@ -32,7 +32,7 @@ b {
 .opponent-choose-title {
   font-size: 20px;
 }
-.HpShower {
+.hp-shower {
   display: block;
   justify-content: center;
   align-items: center;
@@ -43,7 +43,7 @@ b {
 .attack-coulum {
   display: inline-block;
 }
-.BattleArina {
+.battle-arina {
   display: flex;
   /* background-image: url("boss1/background1.gif"); */
   background-size: cover;
@@ -149,7 +149,7 @@ b {
   width: 80px;
   height: 80px;
 }
-.Player {
+.player {
   width: 100%;
 }
 .choose-page {
@@ -168,17 +168,17 @@ b {
   align-items: center;
   transition: background-color 625ms ease-in-out;
 }
-.ArenaLeft,
-.ArenaRight {
+.arena-left,
+.arena-right {
   width: 45%;
 }
-.ArenaLeft {
+.arena-left {
   margin-right: 20px;
 }
-.InputBox {
+.input-box {
   width: 200px;
 }
-.InputTeller {
+.input-teller {
   width: 300px;
   height: 40px;
   justify-content: centre;
