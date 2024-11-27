@@ -149,6 +149,19 @@ b {
   width: 80px;
   height: 80px;
 }
+.wisard-hitsplat,
+.boss-hitsplat {
+  background-color: aqua;
+  width: 200px;
+  height: 100px;
+  margin: 10px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+.hitsplat-holder {
+  display: flex;
+}
 .player {
   width: 100%;
 }

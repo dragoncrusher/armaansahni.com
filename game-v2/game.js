@@ -129,7 +129,7 @@ function askThem(charge, TheDamage) {
       attackButton4.classList.remove('uncharged')
     }
     let theMathQuestion;
-    theGlobalDamageInfo = TheDamage
+    theGlobalDamageInfo = TheDamage * 10
 
     if (TheDamage == 1) {
       let a = Math.floor(Math.random() * 101);
@@ -218,6 +218,9 @@ function checkTheAnswer() {
 }
 
 function GoleShootHit() {
+  const bossHitsplat = document.getElementById("boss-hitsplat")
+  const bossHitsplatInput = document.createElement("p")
+  bossHitsplat.appendChild(bossHitsplatInput)
   infoDiv.style.display = "none"
   attackHolder.style.display  = "none"
   inputTeller.style.display = "none"
@@ -239,9 +242,13 @@ function GoleShootHit() {
 
   setTimeout(function () {
     bossPlayer.style.backgroundColor = "red";
+    bossHitsplatInput.innerHTML = theGlobalDamageInfo
+   setTimeout(function() {
+     bossHitsplatInput.innerHTML = " "
+   }, 1000);
     playSound(hitSound)
 
-    hp = hp - theGlobalDamageInfo  *10;
+    hp = hp - theGlobalDamageInfo;
     fullHp.innerHTML = "enemyHP = " + hp;
      
     if (hp < 0) {
@@ -280,6 +287,7 @@ function GoleShootHit() {
 }
 
 function restart() {
+  wisardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif"
   wisardHp = 300 
   yhpOutput.innerHTML = "yourHP = " + wisardHp  
   theEndMessage.style.display = "none"
@@ -321,8 +329,22 @@ function BossAttack() {
       const theBossAttack = Math.floor(Math.random() * 4);
       const bossMoveArray = ["10", "20", "30", "40"];
       let theDamigeas;
+
+      const wisardHitsplat = document.getElementById("wisard-hitsplat")
+      const wisardHitsplatInput = document.createElement("p")
+      console.log(wisardHitsplatInput)
+      wisardHitsplat.appendChild(wisardHitsplatInput)
   
       theDamigeas = bossMoveArray[theBossAttack];
+
+      wisardPlayer.style.backgroundColor = "red";
+      wisardHitsplatInput.innerHTML = theDamigeas
+      setTimeout(function() {
+        wisardHitsplatInput.innerHTML = " "
+        console.log(wisardHitsplatInput)
+      }, 1000);
+      playSound(hitSound)
+      
       wisardHp = wisardHp - theDamigeas;
       yhpOutput.innerHTML = "yourHp =" + wisardHp;
 
