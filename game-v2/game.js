@@ -332,35 +332,86 @@ function BossAttack() {
 
       const wisardHitsplat = document.getElementById("wisard-hitsplat")
       const wisardHitsplatInput = document.createElement("p")
-      console.log(wisardHitsplatInput)
       wisardHitsplat.appendChild(wisardHitsplatInput)
   
       theDamigeas = bossMoveArray[theBossAttack];
 
-      wisardPlayer.style.backgroundColor = "red";
+      wisardPlayer.style.backgroundColor = "red";    
       wisardHitsplatInput.innerHTML = theDamigeas
       setTimeout(function() {
         wisardHitsplatInput.innerHTML = " "
-        console.log(wisardHitsplatInput)
       }, 1000);
       playSound(hitSound)
       
       setTimeout(function() {
-        console.log("i = " + i)
-        for (let i = 0; i < theDamigeas; i++) {
-          console.log("i = " + i)
-          setTimeout(function() {
-            console.log("i = " + i)
-            wisardHp = wisardHp - 1;
-            console.log("i = " + i)
-            yhpOutput.innerHTML = "yourHp =" + wisardHp;
-            console.log("i = " + i)
-          }, 1000);
-          console.log("i = " + i)
-        }
-        console.log("i = " + i)
+          setTimeout(function() {  
+            wisardHp = wisardHp - theDamigeas / 10;  
+            yhpOutput.innerHTML = "yourHp =" + wisardHp;  
+          }, 100);
+      }, 250);
+      setTimeout(function() {
+        setTimeout(function() {  
+          wisardHp = wisardHp - theDamigeas / 10;
+          console.log(wisardHp)  
+          yhpOutput.innerHTML = "yourHp =" + wisardHp;  
+        }, 100);
       }, 500);
-      console.log("i = " + i)
+      setTimeout(function() {
+        setTimeout(function() {  
+          wisardHp = wisardHp - theDamigeas / 10;
+          console.log(wisardHp)  
+          yhpOutput.innerHTML = "yourHp =" + wisardHp;  
+        }, 100);
+      }, 750);
+      setTimeout(function() {
+        setTimeout(function() {  
+          wisardHp = wisardHp - theDamigeas / 10;
+          console.log(wisardHp)  
+          yhpOutput.innerHTML = "yourHp =" + wisardHp;  
+        }, 100);
+      }, 1000);
+      setTimeout(function() {
+        setTimeout(function() {  
+          wisardHp = wisardHp - theDamigeas / 10;
+          console.log(wisardHp)  
+          yhpOutput.innerHTML = "yourHp =" + wisardHp;  
+        }, 100);
+      }, 1250);
+      setTimeout(function() {
+        setTimeout(function() {  
+          wisardHp = wisardHp - theDamigeas / 10;
+          console.log(wisardHp)  
+          yhpOutput.innerHTML = "yourHp =" + wisardHp;  
+        }, 100);
+      }, 1500);
+      setTimeout(function() {
+        setTimeout(function() {  
+          wisardHp = wisardHp - theDamigeas / 10;
+          console.log(wisardHp)  
+          yhpOutput.innerHTML = "yourHp =" + wisardHp;  
+        }, 100);
+      }, 1750);
+      setTimeout(function() {
+        setTimeout(function() {  
+          wisardHp = wisardHp - theDamigeas / 10;
+          console.log(wisardHp)  
+          yhpOutput.innerHTML = "yourHp =" + wisardHp;  
+        }, 100);
+      }, 2000);
+      setTimeout(function() {
+        setTimeout(function() {  
+          wisardHp = wisardHp - theDamigeas / 10;
+          console.log(wisardHp)  
+          yhpOutput.innerHTML = "yourHp =" + wisardHp;  
+        }, 100);
+      }, 2250);
+      setTimeout(function() {
+        setTimeout(function() {  
+          wisardHp = wisardHp - theDamigeas / 10;
+          console.log(wisardHp)  
+          yhpOutput.innerHTML = "yourHp =" + wisardHp;  
+        }, 100);
+      }, 2500);
 
       if (wisardHp < 0) {
         wisardHp = 0
