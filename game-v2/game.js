@@ -345,8 +345,22 @@ function BossAttack() {
       }, 1000);
       playSound(hitSound)
       
-      wisardHp = wisardHp - theDamigeas;
-      yhpOutput.innerHTML = "yourHp =" + wisardHp;
+      setTimeout(function() {
+        console.log("i = " + i)
+        for (let i = 0; i < theDamigeas; i++) {
+          console.log("i = " + i)
+          setTimeout(function() {
+            console.log("i = " + i)
+            wisardHp = wisardHp - 1;
+            console.log("i = " + i)
+            yhpOutput.innerHTML = "yourHp =" + wisardHp;
+            console.log("i = " + i)
+          }, 1000);
+          console.log("i = " + i)
+        }
+        console.log("i = " + i)
+      }, 500);
+      console.log("i = " + i)
 
       if (wisardHp < 0) {
         wisardHp = 0
