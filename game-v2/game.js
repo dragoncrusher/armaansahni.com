@@ -269,7 +269,7 @@ function GoleShootHit() {
       }
    setTimeout(function() {
      bossHitsplatInput.innerHTML = " "
-   }, 1000);
+   }, 2000);
     playSound(hitSound)
     
      
@@ -362,7 +362,7 @@ function BossAttack() {
       wisardHitsplatInput.innerHTML = theDamigeas
       setTimeout(function() {
         wisardHitsplatInput.innerHTML = " "
-      }, 1000);
+      }, 2000);
       playSound(hitSound)
       
       let timeout = 250
