@@ -16,6 +16,7 @@ let attackCharges = {
   attackButton4Charge: 1
 }
 let theAttack
+let globalHPsetter
 
 const attackButton2 = document.getElementById("attack-button-2")
 const attackButton3 = document.getElementById("attack-button-3")
@@ -60,7 +61,7 @@ function playSoundForever(soundFile) {
   audio.play();
 }
 
-function startGame(HPsetter, theboss, boss_attack_timer_time) {
+function startGame(HPsetter, theboss, boss_attack_timer_time,) {
   attackButton2.classList.add('uncharged')
   attackButton3.classList.add('uncharged')
   attackButton4.classList.add('uncharged')
@@ -76,6 +77,7 @@ setInterval(() =>  {
   bossSelect.style.display = "none";
   bossKill.style.display = "flex";
   hp = HPsetter;
+  globalHPsetter = HPsetter
   fullHp.innerHTML = "enemyHP = " + hp;
   boss = theboss;
   bossAttackWraper.src = boss + "/" + boss + ".gif";
@@ -243,13 +245,24 @@ function GoleShootHit() {
   setTimeout(function () {
     bossPlayer.style.backgroundColor = "red";
     bossHitsplatInput.innerHTML = theGlobalDamageInfo
+    let timeout = 250
+      for (let i = 0; i <10; i++) {
+        setTimeout(function() {
+            setTimeout(function() {  
+              hp = hp - theGlobalDamageInfo / 10;  
+              fullHp.innerHTML = "enemyHP =" + hp; 
+              const theBarWidth = hp / globalHPsetter * 100
+              const hpBar = document.getElementById("boss-hp-bar")
+              hpBar.style.width = theBarWidth + "%"
+            }, 100);
+        }, timeout);
+        timeout = timeout + 250
+      }
    setTimeout(function() {
      bossHitsplatInput.innerHTML = " "
    }, 1000);
     playSound(hitSound)
-
-    hp = hp - theGlobalDamageInfo;
-    fullHp.innerHTML = "enemyHP = " + hp;
+    
      
     if (hp < 0) {
       hp = 0
@@ -343,76 +356,19 @@ function BossAttack() {
       }, 1000);
       playSound(hitSound)
       
-      setTimeout(function() {
-          setTimeout(function() {  
-            wisardHp = wisardHp - theDamigeas / 10;  
-            yhpOutput.innerHTML = "yourHp =" + wisardHp;  
-          }, 100);
-      }, 250);
-      setTimeout(function() {
-        setTimeout(function() {  
-          wisardHp = wisardHp - theDamigeas / 10;
-          console.log(wisardHp)  
-          yhpOutput.innerHTML = "yourHp =" + wisardHp;  
-        }, 100);
-      }, 500);
-      setTimeout(function() {
-        setTimeout(function() {  
-          wisardHp = wisardHp - theDamigeas / 10;
-          console.log(wisardHp)  
-          yhpOutput.innerHTML = "yourHp =" + wisardHp;  
-        }, 100);
-      }, 750);
-      setTimeout(function() {
-        setTimeout(function() {  
-          wisardHp = wisardHp - theDamigeas / 10;
-          console.log(wisardHp)  
-          yhpOutput.innerHTML = "yourHp =" + wisardHp;  
-        }, 100);
-      }, 1000);
-      setTimeout(function() {
-        setTimeout(function() {  
-          wisardHp = wisardHp - theDamigeas / 10;
-          console.log(wisardHp)  
-          yhpOutput.innerHTML = "yourHp =" + wisardHp;  
-        }, 100);
-      }, 1250);
-      setTimeout(function() {
-        setTimeout(function() {  
-          wisardHp = wisardHp - theDamigeas / 10;
-          console.log(wisardHp)  
-          yhpOutput.innerHTML = "yourHp =" + wisardHp;  
-        }, 100);
-      }, 1500);
-      setTimeout(function() {
-        setTimeout(function() {  
-          wisardHp = wisardHp - theDamigeas / 10;
-          console.log(wisardHp)  
-          yhpOutput.innerHTML = "yourHp =" + wisardHp;  
-        }, 100);
-      }, 1750);
-      setTimeout(function() {
-        setTimeout(function() {  
-          wisardHp = wisardHp - theDamigeas / 10;
-          console.log(wisardHp)  
-          yhpOutput.innerHTML = "yourHp =" + wisardHp;  
-        }, 100);
-      }, 2000);
-      setTimeout(function() {
-        setTimeout(function() {  
-          wisardHp = wisardHp - theDamigeas / 10;
-          console.log(wisardHp)  
-          yhpOutput.innerHTML = "yourHp =" + wisardHp;  
-        }, 100);
-      }, 2250);
-      setTimeout(function() {
-        setTimeout(function() {  
-          wisardHp = wisardHp - theDamigeas / 10;
-          console.log(wisardHp)  
-          yhpOutput.innerHTML = "yourHp =" + wisardHp;  
-        }, 100);
-      }, 2500);
-
+      let timeout = 250
+      for (let i = 0; i <10; i++) {
+        setTimeout(function() {
+            setTimeout(function() {  
+              wisardHp = wisardHp - theDamigeas / 10;  
+              yhpOutput.innerHTML = "yourHp =" + wisardHp; 
+              const theBarWidth = wisardHP / 300 * 100
+              const hpBar = document.getElementById("wisard-hp-bar")
+              hpBar.style.width = theBarWidth + "%"
+            }, 100);
+        }, timeout);
+        timeout = timeout + 250
+      }
       if (wisardHp < 0) {
         wisardHp = 0
       }
