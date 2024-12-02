@@ -254,8 +254,14 @@ function GoleShootHit() {
               const theBarWidth = hp / globalHPsetter * 100
               const hpBar = document.getElementById("boss-hp-bar")
               hpBar.style.width = theBarWidth + "%"
+              if (theBarWidth > 80) {
+                hpBar.style.backgroundColor = "rgb(19, 130, 0)"
+              }
+              if (theBarWidth <= 80 && theBarWidth > 49) {
+                  hpBar.style.backgroundColor = "rgb(255, 221, 0)"
+              }
               if (theBarWidth < 50) {
-                hpBar.style.backgroundColor = "red"
+                hpBar.style.backgroundColor = "rgb(167, 14, 14)"
               }
             }, 100);
         }, timeout);
@@ -368,6 +374,15 @@ function BossAttack() {
               const theBarWidth = wisardHp / 300 * 100
               const hpBar = document.getElementById("wisard-hp-bar")
               hpBar.style.width = theBarWidth + "%"
+              if (theBarWidth > 80) {
+                hpBar.style.backgroundColor = "rgb(19, 130, 0)"
+              }
+              if (theBarWidth <= 80 && theBarWidth > 49) {
+                  hpBar.style.backgroundColor = "rgb(255, 221, 0)"
+              }
+              if (theBarWidth < 50) {
+                hpBar.style.backgroundColor = "rgb(167, 14, 14)"
+              }
             }, 100);
         }, timeout);
         timeout = timeout + 250
