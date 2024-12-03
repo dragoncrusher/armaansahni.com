@@ -163,11 +163,13 @@ b {
   height: 40px;
   width: 100%;
   background-color: rgb(19, 130, 0);
+  border-radius: 20px;
 }
 .hp-bar-holder {
   border-color: rgb(0, 0, 0);
   border-style: solid;
   background-color: rgb(0, 0, 0);
+  border-radius: 20px;
 }
 .hitsplat-holder {
   display: flex;
