@@ -141,7 +141,7 @@ b {
   height: 100px;
   margin: 10px;
   border-radius: 40px;
-  background-color: #26ff00;
+  background-color: rgb(38, 255, 0);
   display: flex;
   justify-content: center;
   align-items: center;
