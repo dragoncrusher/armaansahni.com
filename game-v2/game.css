@@ -48,6 +48,7 @@ b {
   background-size: cover;
   width: 450px;
   max-width: 100%;
+  position: relative;
 }
 .roboto-regular {
   font-family: "Roboto", sans-serif;
@@ -152,13 +153,22 @@ b {
 }
 .wisard-hitsplat,
 .boss-hitsplat {
-  background-color: aqua;
   width: 200px;
   height: 100px;
   margin: 10px;
   display: flex;
+  padding: 50px;
   text-align: center;
   align-items: center;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+.wisard-hitsplat {
+  left: 0;
 }
 .hp-bar {
   height: 40px;
