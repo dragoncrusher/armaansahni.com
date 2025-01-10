@@ -23,7 +23,7 @@ let globalHPsetter
 const attackButton2 = document.getElementById("attack-button-2")
 const attackButton3 = document.getElementById("attack-button-3")
 const attackButton4 = document.getElementById("attack-button-4")
-const hitSound = "Hit_sound.m4a"
+const hitSound = "Hit_sound.wav"
 const battleSound = "Battle_sound_game.m4a"
 const wisardAttackSound = "wisardgoodguy/Wisard_attack_sound.m4a"
 const bossKill = document.querySelector(".fight-page");
@@ -55,6 +55,7 @@ const fullHp = document.createElement("p");
 whereToPrint.appendChild(fullHp);
 
 function playSound(soundFile) {
+console.log("play sound",soundFile)
   const audio = new Audio(soundFile);
   audio.play();
 }
@@ -68,7 +69,6 @@ function playSoundForever(soundFile) {
 function startGame(HPsetter, theboss, boss_attack_timer_time,) {
   isBossDead = ""
   isWisardDead = ""
-  console.log("at the start", isWisardDead)
   bossHPbar.style.width = "100%"
   bossHPbar.style.backgroundColor = "rgb(19, 130, 0)"
   wisardHPbar.style.width = "100%"
@@ -235,9 +235,7 @@ function checkTheAnswer() {
 }
 
 function GoleShootHit() {
-  console.log("before attack", isWisardDead)
   if (isWisardDead == "") {
-    console.log("start of attack", isWisardDead)
     const bossHitsplat = document.getElementById("boss-hitsplat")
     const bossHitsplatInput = document.createElement("p")
     bossHitsplat.appendChild(bossHitsplatInput)
@@ -344,7 +342,7 @@ function restart() {
 
 function BossAttack() {
   if (isBossDead = "yes") {
-    const bossAttackSound = boss + "/" + "attack_sound.m4a"
+    const bossAttackSound = boss + "/" + "attack_sound.wav"
     let randomIndex;
     let theBossesAnswer;
     const bossArray = ["yes", "no"];
@@ -357,7 +355,6 @@ function BossAttack() {
         bossAttackWraper.src = "costumeright.png";
       }, 1000);
       setTimeout(function () {
-        playSound(wisardAttackSound)
         bossAttackWraper.src = boss + "/" + boss + ".gif";
       }, 2000);
       setTimeout(function () {
@@ -390,7 +387,6 @@ function BossAttack() {
         setTimeout(function() {
           wisardHitsplatInput.innerHTML = " "
         }, 2000);
-        playSound(hitSound)
         
         let timeout = 250
         for (let i = 0; i <10; i++) {
