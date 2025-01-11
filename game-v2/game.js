@@ -47,11 +47,11 @@ const wisardHPbar = document.getElementById("wisard-hp-bar")
 
 infoDiv.appendChild(infoDivInput)
 
-let yhpOutput = document.createElement("p");
+let yhpOutput = document.createElement("div");
 let wisardHp = 300;
-yhpOutput.innerHTML = "yourHp =" + wisardHp;
+yhpOutput.innerHTML = wisardHp;
 wisardHpHolder.appendChild(yhpOutput);
-const fullHp = document.createElement("p");
+const fullHp = document.createElement("div");
 whereToPrint.appendChild(fullHp);
 
 function playSound(soundFile) {
@@ -93,7 +93,7 @@ setInterval(() =>  {
   bossKill.style.display = "flex";
   hp = HPsetter;
   globalHPsetter = HPsetter
-  fullHp.innerHTML = "enemyHP = " + hp;
+  fullHp.innerHTML = hp;
   boss = theboss;
   bossAttackWraper.src = boss + "/" + boss + ".gif";
   bossTimer(boss_attack_timer_time)
@@ -270,7 +270,7 @@ function GoleShootHit() {
                    isBossDead = "yes"
                  } 
                  hp = hp - theGlobalDamageInfo / 10;  
-                 fullHp.innerHTML = "enemyHP =" + hp; 
+                 fullHp.innerHTML = + hp; 
                  if (hp <= 0) {
         
                    infoDiv.style.display = "none"
@@ -334,7 +334,7 @@ function GoleShootHit() {
 function restart() {
   wisardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif"
   wisardHp = 300 
-  yhpOutput.innerHTML = "yourHP = " + wisardHp  
+  yhpOutput.innerHTML = wisardHp  
   theEndMessage.style.display = "none"
   bossSelect.style.display = "block"
   bossKill.style.display = "none"
@@ -399,7 +399,7 @@ function BossAttack() {
                   isWisardDead = "yes"
                   console.log("after set to yes", isWisardDead)
                 }
-                yhpOutput.innerHTML = "yourHp =" + wisardHp; 
+                yhpOutput.innerHTML = wisardHp; 
                 const theBarWidth = wisardHp / 300 * 100
                 const wisardHPbar = document.getElementById("wisard-hp-bar")
                 wisardHPbar.style.width = theBarWidth + "%"
