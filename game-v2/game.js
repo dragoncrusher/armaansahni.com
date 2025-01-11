@@ -47,7 +47,7 @@ const wisardHPbar = document.getElementById("wisard-hp-bar")
 
 infoDiv.appendChild(infoDivInput)
 
-let yhpOutput = document.createElement("div");
+const yhpOutput = document.createElement("div");
 let wisardHp = 300;
 yhpOutput.innerHTML = wisardHp;
 wisardHpHolder.appendChild(yhpOutput);
