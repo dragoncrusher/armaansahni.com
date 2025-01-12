@@ -237,8 +237,6 @@ function checkTheAnswer() {
 function GoleShootHit() {
   if (isWisardDead == "") {
     const bossHitsplat = document.getElementById("boss-hitsplat")
-    const bossHitsplatInput = document.createElement("p")
-    bossHitsplat.appendChild(bossHitsplatInput)
     infoDiv.style.display = "none"
     attackHolder.style.display  = "none"
     inputTeller.style.display = "none"
@@ -261,7 +259,8 @@ function GoleShootHit() {
   
    setTimeout(function() {
        bossPlayer.style.backgroundColor = "red";
-       bossHitsplatInput.innerHTML = theGlobalDamageInfo
+       bossHitsplat.innerHTML = theGlobalDamageInfo
+       bossHitsplat.style.display = "flex"
        let timeout = 250
          for (let i = 0; i <10; i++) {
            setTimeout(function() {
@@ -299,7 +298,8 @@ function GoleShootHit() {
            timeout = timeout + 250
          }
       setTimeout(function() {
-        bossHitsplatInput.innerHTML = " "
+        bossHitsplat.style.display = "none"
+        bossHitsplat.innerHTML = " "
       }, 2000);
        playSound(hitSound)
        
@@ -377,15 +377,15 @@ function BossAttack() {
         let theDamigeas;
   
         const wisardHitsplat = document.getElementById("wisard-hitsplat")
-        const wisardHitsplatInput = document.createElement("p")
-        wisardHitsplat.appendChild(wisardHitsplatInput)
     
         theDamigeas = bossMoveArray[theBossAttack];
   
-        wisardPlayer.style.backgroundColor = "red";    
-        wisardHitsplatInput.innerHTML = theDamigeas
+        wisardPlayer.style.backgroundColor = "red"; 
+        wisardHitsplat.style.display = "flex"   
+        wisardHitsplat.innerHTML = theDamigeas
         setTimeout(function() {
-          wisardHitsplatInput.innerHTML = " "
+          wisardHitsplat.style.display = "none"   
+          wisardHitsplat.innerHTML = " "
         }, 2000);
         
         let timeout = 250
