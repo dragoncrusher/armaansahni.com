@@ -171,6 +171,15 @@ b {
   bottom: 0;
   right: 0;
 }
+.boss-timer {
+  left: 95px;
+  display: flex;
+  position: relative;
+}
+.boss-timer-inner {
+  margin-left: 5px;
+  margin-right: 5px;
+}
 .hitsplat-inner {
   border-radius: 40px;
   background-color: rgba(255, 0, 0, 0.8);

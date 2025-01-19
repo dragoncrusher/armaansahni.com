@@ -20,6 +20,7 @@ let attackCharges = {
 let theAttack
 let globalHPsetter
 
+const boss_timer_html = document.getElementById("boss-timer")
 const attackButton2 = document.getElementById("attack-button-2")
 const attackButton3 = document.getElementById("attack-button-3")
 const attackButton4 = document.getElementById("attack-button-4")
@@ -102,7 +103,6 @@ setInterval(() =>  {
   
 }
 function bossTimer(boss_attack_timer_time) {
-  boss_timer_html = document.getElementById("boss-timer")
   boss_timer_html.innerHTML = boss_attack_timer_time 
 }
 function timertick(boss_attack_timer_time) {
