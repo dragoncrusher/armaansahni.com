@@ -256,7 +256,6 @@ function GoleShootHit() {
       wisardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif";
     }, 3000);
   
-  
    setTimeout(function() {
        bossPlayer.style.backgroundColor = "red";
        bossHitsplat.innerHTML = theGlobalDamageInfo
@@ -265,8 +264,9 @@ function GoleShootHit() {
          for (let i = 0; i <10; i++) {
            setTimeout(function() {
                setTimeout(function() { 
-                 if (hp - theGlobalDamageInfo >= 0) {
+                 if (hp - theGlobalDamageInfo <= 0) {
                    isBossDead = "yes"
+                   bossAttackWraper.src = "dead.png"
                  } 
                  hp = hp - theGlobalDamageInfo / 10;  
                  fullHp.innerHTML = + hp; 
@@ -279,7 +279,6 @@ function GoleShootHit() {
                    theEndScreenInput.innerHTML = "you win"
                    clearInterval(bossTimerInHtml)
                    theEndScreen.appendChild(theEndScreenInput)
-                   bossAttackWraper.src = "dead.png"
                  } 
                  const theBarWidth = hp / globalHPsetter * 100
                  bossHPbar
@@ -341,7 +340,6 @@ function restart() {
 }
 
 function BossAttack() {
-  if (isBossDead = "yes") {
     const bossAttackSound = boss + "/" + "attack_sound.wav"
     let randomIndex;
     let theBossesAnswer;
@@ -393,11 +391,9 @@ function BossAttack() {
           setTimeout(function() {
               setTimeout(function() {  
                 wisardHp = wisardHp - theDamigeas / 10; 
-                  console.log("outside if", isWisardDead) 
                 if (wisardHp <= 0) {
-                  console.log("before set to yes", isWisardDead)
                   isWisardDead = "yes"
-                  console.log("after set to yes", isWisardDead)
+                  wisardAttackWrapper.src = "dead.png"
                 }
                 yhpOutput.innerHTML = wisardHp; 
                 const theBarWidth = wisardHp / 300 * 100
@@ -421,16 +417,13 @@ function BossAttack() {
         }
         if (wisardHp <= 0) {
           setTimeout(function () {
-          infoDiv.style.display = "none"
-          attackHolder.style.display  = "none"
-          inputTeller.style.display = "none"
-          theEndMessage.style.display = "block"
-          theEndScreenInput.innerHTML = "you lose"
-          clearInterval(bossTimerInHtml)
-          theEndScreen.appendChild(theEndScreenInput)
-          setInterval(function() {
-            wisardAttackWrapper.src = "dead.png"
-          },1)
+            infoDiv.style.display = "none"
+            attackHolder.style.display  = "none"
+            inputTeller.style.display = "none"
+            theEndMessage.style.display = "block"
+            theEndScreenInput.innerHTML = "you lose"
+            clearInterval(bossTimerInHtml)
+            theEndScreen.appendChild(theEndScreenInput)
           }, 7000);
     
         }
@@ -449,5 +442,5 @@ function BossAttack() {
   
   
     }
-  }
+  
 }
