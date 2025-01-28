@@ -156,45 +156,47 @@
         <!-- <audio>
           <source src="file_example_MP3_700KB.mp3" type="audio/mpeg" />
         </audio> -->
-        <div id="attack-holder">
-          <div>choose your move</div>
-          <div class="attack-coulum">
-            <button class="attack-button" onclick="askThem(0,1)">
-              <img class="blast-panes" src="wisardgoodguy/blast1.png" />
-              <div class="attack-shower"><b>throwing star </b><br />10 damidge (addition)</div>
-            </button>
-            <button class="attack-button" id="attack-button-2" onclick="askThem(2,2)">
-              <img class="blast-panes" src="wisardgoodguy/blast2.png" />
-              <div class="attack-shower"><b>shooting star </b><br />20 damidge (subtraction)</div>
-            </button>
+        <div class="notification-area">
+          <div id="attack-holder">
+            <div>choose your move</div>
+            <div class="attack-coulum">
+              <button class="attack-button" onclick="askThem(0,1)">
+                <img class="blast-panes" src="wisardgoodguy/blast1.png" />
+                <div class="attack-shower"><b>throwing star </b><br />10 damidge (addition)</div>
+              </button>
+              <button class="attack-button" id="attack-button-2" onclick="askThem(2,2)">
+                <img class="blast-panes" src="wisardgoodguy/blast2.png" />
+                <div class="attack-shower"><b>shooting star </b><br />20 damidge (subtraction)</div>
+              </button>
+            </div>
+            <div class="attack-coulum">
+              <button class="attack-button" id="attack-button-3" onclick="askThem(3,3)">
+                <img class="blast-panes" src="wisardgoodguy/blast3.png" />
+                <div class="attack-shower"><b>blasting star </b><br />30 damidge (multiplication)</div>
+              </button>
+              <button class="attack-button" id="attack-button-4" onclick="askThem(4,4)">
+                <img class="blast-panes" src="wisardgoodguy/blast4.png" />
+                <div class="attack-shower"><b>exploding star</b><br />40 damidge (divison)</div>
+              </button>
+            </div>
           </div>
-          <div class="attack-coulum">
-            <button class="attack-button" id="attack-button-3" onclick="askThem(3,3)">
-              <img class="blast-panes" src="wisardgoodguy/blast3.png" />
-              <div class="attack-shower"><b>blasting star </b><br />30 damidge (multiplication)</div>
-            </button>
-            <button class="attack-button" id="attack-button-4" onclick="askThem(4,4)">
-              <img class="blast-panes" src="wisardgoodguy/blast4.png" />
-              <div class="attack-shower"><b>exploding star</b><br />40 damidge (divison)</div>
-            </button>
+          <div class="attack-in-progress" id="attack-in-progress">attack in progress</div>
+          <div class="end-page">
+            <p id="the-end-screen"></p>
+            <button onclick="restart()">fight again</button>
           </div>
-        </div>
-        <div class="attack-in-progress" id="attack-in-progress">attack in progress</div>
-        <div class="end-page">
-          <p id="the-end-screen"></p>
-          <button onclick="restart()">fight again</button>
-        </div>
-        <div id="info-div"></div>
-        <div class="input-teller" id="input_teller">
-          <div id="the-input-words"></div>
-          <input
-            id="input"
-            class="input-box"
-            type="number"
-            name="math_answer"
-            placeholder="write your math answer here"
-          />
-          <button onclick="getTheInput()">answer</button>
+          <div id="info-div"></div>
+          <div class="input-teller" id="input_teller">
+            <div id="the-input-words"></div>
+            <input
+              id="input"
+              class="input-box"
+              type="number"
+              name="math_answer"
+              placeholder="write your math answer here"
+            />
+            <button onclick="getTheInput()">answer</button>
+          </div>
         </div>
         <div class="hitsplat-holder"></div>
         <div class="battle-arina" id="background">

@@ -91,6 +91,12 @@ b {
   display: flex;
   border-style: outset;
 }
+.notification-area {
+  height: 260px;
+  width: 450px;
+  align-items: center;
+  text-align: center;
+}
 .novice-boss-button:hover {
   border-color: rgb(83, 146, 254);
   cursor: pointer;
