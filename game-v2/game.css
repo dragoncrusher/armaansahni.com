@@ -248,9 +248,14 @@ b {
 .input-teller {
   width: 300px;
   height: 40px;
-  justify-content: centre;
+  justify-content: center;
   align-items: center;
   margin: 50px;
+  position: fixed;
+  top: 30px;
+  left: 900px;
+}
+.info-div {
 }
 .end-page {
   display: none;
