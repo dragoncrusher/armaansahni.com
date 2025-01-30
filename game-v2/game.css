@@ -249,10 +249,8 @@ b {
 }
 .input-teller {
   width: 300px;
-  height: 40px;
   justify-content: center;
   align-items: center;
-  margin: 50px;
 }
 .end-page {
   display: none;
