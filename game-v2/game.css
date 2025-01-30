@@ -96,6 +96,8 @@ b {
   width: 450px;
   align-items: center;
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 .novice-boss-button:hover {
   border-color: rgb(83, 146, 254);
@@ -251,11 +253,6 @@ b {
   justify-content: center;
   align-items: center;
   margin: 50px;
-  position: fixed;
-  top: 30px;
-  left: 900px;
-}
-.info-div {
 }
 .end-page {
   display: none;
