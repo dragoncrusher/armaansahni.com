@@ -19,12 +19,16 @@ let attackCharges = {
 }
 let theAttack
 let globalHPsetter
+let globalBossAttackTimerTime
 
-const boss_timer_html = document.getElementById("boss-timer")
+const bossTimerHtml = document.getElementById("boss-timer")
 const attackButton2 = document.getElementById("attack-button-2")
 const attackButton3 = document.getElementById("attack-button-3")
 const attackButton4 = document.getElementById("attack-button-4")
 const hitSound = "Hit_sound.wav"
+const bossRightOrWrong = document.querySelector ('.boss-right-or-wrong')
+const bossRightOrWrongInput = document.createElement("div") 
+const bossTimerHolder = document.getElementById("boss-timer-holder")
 const battleSound = "Battle_sound_game.m4a"
 const wisardAttackSound = "wisardgoodguy/Wisard_attack_sound.m4a"
 const bossKill = document.querySelector(".fight-page");
@@ -68,6 +72,7 @@ function playSoundForever(soundFile) {
 }
 
 function startGame(HPsetter, theboss, boss_attack_timer_time,) {
+  globalBossAttackTimerTime = boss_attack_timer_time
   isBossDead = ""
   isWisardDead = ""
   bossHPbar.style.width = "100%"
@@ -88,7 +93,7 @@ function startGame(HPsetter, theboss, boss_attack_timer_time,) {
   // thebackground.style.backgroundImage = `url(${imagePath})`;
   bossTimerInHtml = 
 setInterval(() =>  {
-  timertick(boss_attack_timer_time)
+  timertick()
 }, 1000);
   bossSelect.style.display = "none";
   bossKill.style.display = "flex";
@@ -103,13 +108,12 @@ setInterval(() =>  {
   
 }
 function bossTimer(boss_attack_timer_time) {
-  boss_timer_html.innerHTML = boss_attack_timer_time 
+  bossTimerHtml.innerHTML = boss_attack_timer_time 
 }
-function timertick(boss_attack_timer_time) {
-  boss_timer_html.innerHTML = boss_timer_html.innerHTML  - 1
-  if (boss_timer_html.innerHTML <= 0) {
+function timertick() {
+  bossTimerHtml.innerHTML = bossTimerHtml.innerHTML  - 1
+  if (bossTimerHtml.innerHTML <= 0) {
     BossAttack()
-    boss_timer_html.innerHTML = boss_attack_timer_time
   }
 }
 function askThem(charge, TheDamage) {
@@ -220,14 +224,15 @@ function checkTheAnswer() {
     GoleShootHit();
 
   } else {
-    infoDivInput.innerHTML = "sorry that was the wrong answer, the corect answer was: " + theMathAnswer + "."
+    infoDivInput.innerHTML = "Question wrong, try again"
+    infoDiv.classList.add('info-div-question-wrong')
     infoDiv.style.display = "block"
     attackHolder.style.display  = "none"
     inputTeller.style.display = "none"
-    wisardAttackWrapper.src = "costumewrong.png";
     setTimeout(function () {
       wisardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif";
       infoDiv.style.display = "none"
+      infoDiv.classList.remove('info-div-question-wrong')
       attackHolder.style.display  = "block"
       inputTeller.style.display = "none"
     }, 1000);
@@ -237,11 +242,19 @@ function checkTheAnswer() {
 function GoleShootHit() {
   if (isWisardDead == "") {
     const bossHitsplat = document.getElementById("boss-hitsplat")
-    infoDiv.style.display = "none"
+    infoDivInput.innerHTML = "Question right"
+    infoDiv.style.display = "block"
+    infoDiv.classList.add('info-div-question-right')
     attackHolder.style.display  = "none"
     inputTeller.style.display = "none"
-    attackInProgress.style.display = "block"
-    wisardAttackWrapper.src = "costumeright.png";
+    attackInProgress.style.display = "none"
+    setTimeout(function() {
+      infoDiv.style.display = "none"
+      infoDiv.classList.remove('info-div-question-right')
+      attackHolder.style.display  = "none"
+      inputTeller.style.display = "none"
+      attackInProgress.style.display = "block"
+    }, 2000);
     setTimeout(function () {
       playSound(wisardAttackSound)
       wisardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif";
@@ -322,7 +335,6 @@ function GoleShootHit() {
     }, 6000);
   } else {
     infoDivInput.innerHTML = "sorry you are dead, and you cannot attack if you are dead"
-    console.log("dead mesage", isWisardDead)
     infoDiv.style.display = "block"
     attackHolder.style.display  = "none"
     inputTeller.style.display = "none"
@@ -349,10 +361,17 @@ function BossAttack() {
     randomIndex = Math.floor(Math.random() * 2);
     theBossesAnswer = bossArray[randomIndex];
     if (theBossesAnswer == "yes") {
+        console.log("bossyo" + bossRightOrWrong)
+        bossRightOrWrong.classList.add('info-div-question-right')
+        bossRightOrWrong.style.display = "block"
+        bossRightOrWrong.appendChild(bossRightOrWrongInput)
+        bossRightOrWrongInput.innerHTML = "question right"
+        bossTimerHolder.style.display = "none"   
       setTimeout(function () {
-        bossAttackWraper.src = "costumeright.png";
-      }, 1000);
-      setTimeout(function () {
+        bossRightOrWrong.classList.remove('info-div-question-right')
+        bossTimerHtml.innerHTML = globalBossAttackTimerTime
+        bossRightOrWrong.style.display = "none"
+        bossTimerHolder.style.display = "block"
         bossAttackWraper.src = boss + "/" + boss + ".gif";
       }, 2000);
       setTimeout(function () {
@@ -384,7 +403,7 @@ function BossAttack() {
         setTimeout(function() {
           wisardHitsplat.style.display = "none"   
           wisardHitsplat.innerHTML = " "
-        }, 2000);
+        },6000);
         
         let timeout = 250
         for (let i = 0; i <10; i++) {
@@ -435,10 +454,17 @@ function BossAttack() {
   
       
     } else {
-      bossAttackWraper.src = "costumewrong.png";
+      bossTimerHolder.style.display = "none"
+      bossRightOrWrong.style.display = "block"
+      console.log("bossyo2" + bossRightOrWrong)
+      bossRightOrWrongInput.innerHTML =  "question wrong"
+      bossRightOrWrong.classList.add("info-div-question-wrong")
       setTimeout(function () {
-        bossAttackWraper.src = boss + "/" + boss + ".gif";
-      }, 1000);
+        bossTimerHolder.style.display = "block"
+         bossRightOrWrong.style.display = "none"
+         bossRightOrWrong.classList.remove("info-div-question-wrong")
+         bossTimerHtml.innerHTML = globalBossAttackTimerTime
+      }, 2000);
   
   
     }

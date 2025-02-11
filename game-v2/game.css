@@ -237,12 +237,25 @@ b {
   transition: background-color 625ms ease-in-out;
   position: relative;
 }
+.info-div-question-wrong {
+  font-weight: 700;
+  color: rgb(169, 0, 0);
+  font-size: 25px;
+}
+.info-div-question-right {
+  font-weight: 700;
+  color: rgb(4, 96, 12);
+  font-size: 25px;
+}
 .arena-left,
 .arena-right {
   width: 45%;
 }
 .arena-left {
   margin-right: 20px;
+}
+.boss-right-or-wrong {
+  display: none;
 }
 .input-box {
   width: 200px;
