@@ -160,6 +160,12 @@ b {
   justify-content: center;
   align-items: center;
 }
+.pointer-button:hover {
+  cursor: pointer;
+}
+.attack-button:hover {
+  cursor: pointer;
+}
 .blast-panes {
   width: 80px;
   height: 80px;
