@@ -361,14 +361,14 @@ function BossAttack() {
     theBossesAnswer = bossArray[randomIndex];
     if (theBossesAnswer == "yes") {
       
-        bossRightOrWrong.classList.add('info-div-question-right')
+        bossRightOrWrong.classList.add('boss-question-right')
         bossRightOrWrong.style.display = "block"
         bossRightOrWrong.appendChild(bossRightOrWrongInput)
         bossRightOrWrongInput.innerHTML = "question right"
        
         bossTimerHolder.style.display = "none"   
       setTimeout(function () {
-        bossRightOrWrong.classList.remove('info-div-question-right')
+        bossRightOrWrong.classList.remove('boss-question-right')
         bossTimerHtml.innerHTML = globalBossAttackTimerTime
         bossRightOrWrong.style.display = "none"
          bossTimerHolder.style.display = "flex"
@@ -456,14 +456,14 @@ function BossAttack() {
     } else {
       bossTimerHolder.style.display = "none"
       bossRightOrWrong.style.display = "block"
-    
       bossRightOrWrongInput.innerHTML =  "question wrong"
-     
-      bossRightOrWrong.classList.add("info-div-question-wrong")
+      console.log("question wrong")
+      bossRightOrWrong.classList.add('boss-question-wrong')
+      console.log("class add" + bossRightOrWrong.style.display + bossRightOrWrong.innerHTML)
       setTimeout(function () {
          bossTimerHolder.style.display = "flex"
          bossRightOrWrong.style.display = "none"
-         bossRightOrWrong.classList.remove("info-div-question-wrong")
+         bossRightOrWrong.classList.remove('boss-question-wrong')
          bossTimerHtml.innerHTML = globalBossAttackTimerTime
       }, 2000);
   

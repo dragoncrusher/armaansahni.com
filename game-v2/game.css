@@ -243,19 +243,25 @@ b {
   transition: background-color 625ms ease-in-out;
   position: relative;
 }
-.info-div-question-wrong {
+.info-div-question-wrong,
+.boss-question-wrong {
   font-weight: 700;
   color: rgb(169, 0, 0);
   font-size: 25px;
-  position: relative;
-  left: 95px;
 }
-.info-div-question-right {
+.info-div-question-right,
+.boss-question-right {
   font-weight: 700;
   color: rgb(4, 96, 12);
   font-size: 25px;
+}
+.boss-question-right {
   position: relative;
-  left: 95px;
+  left: 75px;
+}
+.boss-question-wrong {
+  position: relative;
+  left: 75px;
 }
 .arena-left,
 .arena-right {
