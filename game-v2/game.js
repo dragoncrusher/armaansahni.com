@@ -112,7 +112,6 @@ function bossTimer(boss_attack_timer_time) {
 function timertick() {
   bossTimerHtml.innerHTML = bossTimerHtml.innerHTML  - 1
   if (bossTimerHtml.innerHTML == 0) {
-    console.log("boss attack")
     BossAttack()
   }
 }
