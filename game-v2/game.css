@@ -247,11 +247,15 @@ b {
   font-weight: 700;
   color: rgb(169, 0, 0);
   font-size: 25px;
+  position: relative;
+  left: 95px;
 }
 .info-div-question-right {
   font-weight: 700;
   color: rgb(4, 96, 12);
   font-size: 25px;
+  position: relative;
+  left: 95px;
 }
 .arena-left,
 .arena-right {

@@ -60,7 +60,6 @@ const fullHp = document.createElement("div");
 whereToPrint.appendChild(fullHp);
 
 function playSound(soundFile) {
-console.log("play sound",soundFile)
   const audio = new Audio(soundFile);
   audio.play();
 }
@@ -112,7 +111,8 @@ function bossTimer(boss_attack_timer_time) {
 }
 function timertick() {
   bossTimerHtml.innerHTML = bossTimerHtml.innerHTML  - 1
-  if (bossTimerHtml.innerHTML <= 0) {
+  if (bossTimerHtml.innerHTML == 0) {
+    console.log("boss attack")
     BossAttack()
   }
 }
@@ -361,17 +361,18 @@ function BossAttack() {
     randomIndex = Math.floor(Math.random() * 2);
     theBossesAnswer = bossArray[randomIndex];
     if (theBossesAnswer == "yes") {
-        console.log("bossyo" + bossRightOrWrong)
+      
         bossRightOrWrong.classList.add('info-div-question-right')
         bossRightOrWrong.style.display = "block"
         bossRightOrWrong.appendChild(bossRightOrWrongInput)
         bossRightOrWrongInput.innerHTML = "question right"
+       
         bossTimerHolder.style.display = "none"   
       setTimeout(function () {
         bossRightOrWrong.classList.remove('info-div-question-right')
         bossTimerHtml.innerHTML = globalBossAttackTimerTime
         bossRightOrWrong.style.display = "none"
-        bossTimerHolder.style.display = "block"
+         bossTimerHolder.style.display = "flex"
         bossAttackWraper.src = boss + "/" + boss + ".gif";
       }, 2000);
       setTimeout(function () {
@@ -456,11 +457,12 @@ function BossAttack() {
     } else {
       bossTimerHolder.style.display = "none"
       bossRightOrWrong.style.display = "block"
-      console.log("bossyo2" + bossRightOrWrong)
+    
       bossRightOrWrongInput.innerHTML =  "question wrong"
+     
       bossRightOrWrong.classList.add("info-div-question-wrong")
       setTimeout(function () {
-        bossTimerHolder.style.display = "block"
+         bossTimerHolder.style.display = "flex"
          bossRightOrWrong.style.display = "none"
          bossRightOrWrong.classList.remove("info-div-question-wrong")
          bossTimerHtml.innerHTML = globalBossAttackTimerTime
