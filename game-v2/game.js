@@ -27,7 +27,6 @@ const attackButton3 = document.getElementById("attack-button-3")
 const attackButton4 = document.getElementById("attack-button-4")
 const hitSound = "Hit_sound.wav"
 const bossRightOrWrong = document.querySelector ('.boss-right-or-wrong')
-const bossRightOrWrongInput = document.createElement("div") 
 const bossTimerHolder = document.getElementById("boss-timer-holder")
 const battleSound = "Battle_sound_game.m4a"
 const wisardAttackSound = "wisardgoodguy/Wisard_attack_sound.m4a"
@@ -270,7 +269,7 @@ function GoleShootHit() {
   
    setTimeout(function() {
        bossPlayer.style.backgroundColor = "red";
-       bossHitsplat.innerHTML = theGlobalDamageInfo
+       bossHitsplat.innerHTML = "-" + theGlobalDamageInfo
        bossHitsplat.style.display = "flex"
        let timeout = 250
          for (let i = 0; i <10; i++) {
@@ -363,8 +362,7 @@ function BossAttack() {
       
         bossRightOrWrong.classList.add('boss-question-right')
         bossRightOrWrong.style.display = "block"
-        bossRightOrWrong.appendChild(bossRightOrWrongInput)
-        bossRightOrWrongInput.innerHTML = "question right"
+        bossRightOrWrong.innerHTML = "question right"
        
         bossTimerHolder.style.display = "none"   
       setTimeout(function () {
@@ -397,13 +395,12 @@ function BossAttack() {
     
         theDamigeas = bossMoveArray[theBossAttack];
   
-        wisardPlayer.style.backgroundColor = "red"; 
         wisardHitsplat.style.display = "flex"   
-        wisardHitsplat.innerHTML = theDamigeas
+        wisardHitsplat.innerHTML = "-" + theDamigeas
         setTimeout(function() {
           wisardHitsplat.style.display = "none"   
           wisardHitsplat.innerHTML = " "
-        },6000);
+        },2000);
         
         let timeout = 250
         for (let i = 0; i <10; i++) {
@@ -456,7 +453,7 @@ function BossAttack() {
     } else {
       bossTimerHolder.style.display = "none"
       bossRightOrWrong.style.display = "block"
-      bossRightOrWrongInput.innerHTML =  "question wrong"
+      bossRightOrWrong.innerHTML =  "question wrong"
       console.log("question wrong")
       bossRightOrWrong.classList.add('boss-question-wrong')
       console.log("class add" + bossRightOrWrong.style.display + bossRightOrWrong.innerHTML)
@@ -464,6 +461,7 @@ function BossAttack() {
          bossTimerHolder.style.display = "flex"
          bossRightOrWrong.style.display = "none"
          bossRightOrWrong.classList.remove('boss-question-wrong')
+        console.log("class remove")
          bossTimerHtml.innerHTML = globalBossAttackTimerTime
       }, 2000);
   

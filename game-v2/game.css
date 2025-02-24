@@ -185,24 +185,22 @@ b {
   right: 0;
 }
 .boss-timer {
-  left: 95px;
   display: flex;
-  position: relative;
 }
 .boss-timer-inner {
   margin-left: 5px;
   margin-right: 5px;
 }
 .hitsplat-inner {
-  border-radius: 40px;
-  background-color: rgba(255, 0, 0, 0.8);
-  width: 50px;
-  height: 50px;
+  width: 90px;
+  height: 90px;
   display: none;
-  color: #ffffff;
+  color: rgb(0, 0, 0);
   font-weight: 700;
   justify-content: center;
   align-items: center;
+  background-image: url("hitsplat.gif");
+  background-size: 90px;
 }
 .wisard-hitsplat {
   left: 0;
@@ -255,13 +253,8 @@ b {
   color: rgb(4, 96, 12);
   font-size: 25px;
 }
-.boss-question-right {
-  position: relative;
-  left: 75px;
-}
-.boss-question-wrong {
-  position: relative;
-  left: 75px;
+.under-boss {
+  padding-left: 20%;
 }
 .arena-left,
 .arena-right {
