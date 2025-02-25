@@ -260,12 +260,23 @@ b {
   color: rgb(4, 96, 12);
   font-size: 25px;
 }
+.attack-button-left {
+  margin-right: 5px;
+}
+.attack-button-right {
+  margin-left: 5px;
+}
 .arena-left,
 .arena-right {
   width: 45%;
 }
 .arena-left {
+  margin: 20px;
+}
+.arena-right {
+  margin-top: 20px;
   margin-right: 20px;
+  margin-bottom: 20px;
 }
 .boss-right-or-wrong {
   display: none;
