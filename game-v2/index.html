@@ -11,12 +11,14 @@
   <body class="centered">
     <div class="inerrcenterred">
       <div class="choose-page">
-        <div class="instruction-title">INSTRUCTIONS</div>
-        <div>
-          This game will put your math skills to test! Fight the monsters in a race aganst time, make sure to kill them
-          before they kill you! Use throwing star to charge up moves, then answer math questions to use moves.
+        <div class="titles-boss-chooser">
+          <div class="instruction-title">INSTRUCTIONS</div>
+          <div>
+            This game will put your math skills to test! Fight the monsters in a race aganst time, make sure to kill
+            them before they kill you! Use throwing star to charge up moves, then answer math questions to use moves.
+          </div>
+          <p class="opponent-choose-title">Choose your opponent</p>
         </div>
-        <p class="opponent-choose-title">Choose your opponent</p>
         <button class="novice-boss-button" onclick="startGame(50,'boss1', 10)">
           <img class="boss-button-boss-image" src="boss1/boss1.gif" />
           <p class="boss-discription">
@@ -223,15 +225,15 @@
               <div class="hp-shower roboto-bold" id="boss-hp-holder"></div>
               <div class="hp-bar" id="boss-hp-bar"></div>
             </div>
+            <div class="under-boss">
+              <div class="boss-timer" id="boss-timer-holder">
+                Boss attacks in
+                <div id="boss-timer" class="boss-timer-inner"></div>
+                seconds.
+              </div>
+              <div class="boss-right-or-wrong"></div>
+            </div>
           </div>
-        </div>
-        <div class="under-boss">
-          <div class="boss-timer" id="boss-timer-holder">
-            Boss attacks in
-            <div id="boss-timer" class="boss-timer-inner"></div>
-            seconds.
-          </div>
-          <div class="boss-right-or-wrong"></div>
         </div>
       </div>
       <a href="/">home</a>

@@ -24,6 +24,7 @@ b {
 }
 .instruction-title {
   font-size: 25px;
+  margin-bottom: 10px;
 }
 .inerrcenterred {
   width: 100%;
@@ -72,7 +73,9 @@ b {
   font-weight: 700;
   font-style: normal;
 }
-
+.titles-boss-chooser {
+  margin: 10px;
+}
 .novice-boss-button,
 .superEasy-boss-button,
 .practice-boss-button,
@@ -82,9 +85,8 @@ b {
 .boss-button,
 .ultra-boss-button {
   margin: 10px;
-  width: 100%;
+  width: calc(100% - 20px);
   padding: 10px;
-  width: 100%;
   border-width: 10px;
   border-radius: 70px;
   background-color: #ffffff;
@@ -232,6 +234,11 @@ b {
   flex-direction: column;
   align-items: center;
 }
+@media screen and (max-width: 600px) {
+  .boss-timer {
+    font-size: 14px;
+  }
+}
 .PlayerAttackWrapper {
   width: 100%;
   border-radius: 50%;
@@ -252,9 +259,6 @@ b {
   font-weight: 700;
   color: rgb(4, 96, 12);
   font-size: 25px;
-}
-.under-boss {
-  padding-left: 20%;
 }
 .arena-left,
 .arena-right {
