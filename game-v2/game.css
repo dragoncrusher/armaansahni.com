@@ -33,6 +33,10 @@ b {
 .opponent-choose-title {
   font-size: 20px;
 }
+.under-boss {
+  display: flex;
+  justify-content: center;
+}
 .hp-shower {
   display: block;
   justify-content: center;
@@ -216,6 +220,7 @@ b {
   background-color: rgb(0, 0, 0);
   border-radius: 26px;
   position: relative;
+  margin: 10px 0px;
 }
 .hitsplat-holder {
   display: flex;
@@ -272,11 +277,11 @@ b {
 }
 .arena-left {
   margin: 20px;
+  margin-right: 10px;
 }
 .arena-right {
-  margin-top: 20px;
-  margin-right: 20px;
-  margin-bottom: 20px;
+  margin: 20px;
+  margin-left: 10px;
 }
 .boss-right-or-wrong {
   display: none;
