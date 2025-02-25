@@ -170,8 +170,8 @@ b {
   cursor: pointer;
 }
 .blast-panes {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
 }
 .wisard-hitsplat,
 .boss-hitsplat {
@@ -221,6 +221,7 @@ b {
   border-radius: 26px;
   position: relative;
   margin: 10px 0px;
+  overflow: hidden;
 }
 .hitsplat-holder {
   display: flex;

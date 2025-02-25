@@ -412,8 +412,11 @@ function BossAttack() {
                   wisardAttackWrapper.src = "dead.png"
                 }
                 yhpOutput.innerHTML = wisardHp; 
-                const theBarWidth = wisardHp / 300 * 100
+                let theBarWidth = wisardHp / 300 * 100
                 const wisardHPbar = document.getElementById("wisard-hp-bar")
+                if (theBarWidth < 0) {
+                  theBarWidth = 0
+                }
                 wisardHPbar.style.width = theBarWidth + "%"
                 if (theBarWidth > 80) {
                   wisardHPbar.style.backgroundColor = "rgb(19, 130, 0)"
