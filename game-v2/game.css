@@ -1,6 +1,11 @@
 * {
   box-sizing: border-box;
 }
+button {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 body {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
@@ -163,8 +168,19 @@ b {
   justify-content: center;
   align-items: center;
 }
+.pointer-button {
+  width: 80px;
+  height: 50px;
+  background-color: rgb(205 199 223);
+  color: rgb(0, 0, 0);
+  border-radius: 30px;
+  border: none;
+  font-weight: 500;
+}
 .pointer-button:hover {
   cursor: pointer;
+  background-color: rgb(175, 175, 209);
+  border-color: rgb(175, 175, 209);
 }
 .attack-button:hover {
   cursor: pointer;
@@ -237,11 +253,6 @@ b {
   flex-direction: column;
   align-items: center;
 }
-@media screen and (max-width: 600px) {
-  .boss-timer {
-    font-size: 14px;
-  }
-}
 .PlayerAttackWrapper {
   width: 100%;
   border-radius: 50%;
@@ -289,6 +300,17 @@ b {
 }
 .input-box {
   width: 200px;
+  border-radius: 30px;
+  height: 50px;
+  width: 134px;
+  font-size: 16px;
+  margin: 0px 5px;
+  padding: 5px 10px;
+  border: 9px solid #d4d4f5;
+  outline: none;
+}
+.input-box:focus {
+  border-color: rgb(175, 175, 209);
 }
 .input-teller {
   width: 300px;

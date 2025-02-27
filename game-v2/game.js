@@ -182,7 +182,7 @@ function askThem(charge, TheDamage) {
     }
 
     theInputBox.focus()
-    theInputWords.innerHTML = "To proseed you must do math. What is " + theMathQuestion + "?"
+    theInputWords.innerHTML = "To proceed you must do math." + "<br/>" + " What is " + theMathQuestion + "?"
     theMathAsk.appendChild(theInputWords);
     
   } else {
