@@ -287,7 +287,7 @@ function GoleShootHit() {
                    attackHolder.style.display  = "none"
                    inputTeller.style.display = "none"
                    theEndMessage.style.display = "block"
-                   theEndScreenInput.innerHTML = "you win"
+                   theEndScreenInput.innerHTML = "You Win!! 🏆"
                    clearInterval(bossTimerInHtml)
                    theEndScreen.appendChild(theEndScreenInput)
                  } 
@@ -440,7 +440,7 @@ function BossAttack() {
             attackHolder.style.display  = "none"
             inputTeller.style.display = "none"
             theEndMessage.style.display = "block"
-            theEndScreenInput.innerHTML = "you lose"
+            theEndScreenInput.innerHTML = "You Lose 😭😭😭"
             clearInterval(bossTimerInHtml)
             theEndScreen.appendChild(theEndScreenInput)
           }, 7000);

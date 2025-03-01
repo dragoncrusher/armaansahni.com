@@ -99,9 +99,17 @@ b {
   display: flex;
   border-style: outset;
 }
+.end-button {
+  padding: 15px 15px;
+  background-color: rgb(205 199 223);
+  color: rgb(0, 0, 0);
+  border-radius: 43px;
+  border: none;
+  font-weight: 500;
+}
 .notification-area {
   height: 260px;
-  width: 450px;
+  max-width: 450px;
   align-items: center;
   text-align: center;
   display: flex;
