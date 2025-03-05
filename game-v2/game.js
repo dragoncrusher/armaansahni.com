@@ -274,6 +274,7 @@ function checkTheAnswer() {
 }
 
 function GoleShootHit() {
+  let theBarWidth;
   if (isWisardDead == "") {
     const bossHitsplat = document.getElementById("boss-hitsplat");
     infoDivInput.innerHTML = "Question right";
@@ -307,6 +308,11 @@ function GoleShootHit() {
       bossHitsplat.innerHTML = "-" + theGlobalDamageInfo;
       bossHitsplat.style.display = "flex";
       let timeout = 250;
+      setTimeout(function () {
+        theBarWidth = ((hp - theGlobalDamageInfo) / globalHPsetter) * 100;
+        bossHPbar.style.width = theBarWidth + "%";
+        console.log("updated", theBarWidth);
+      }, 359);
       for (let i = 0; i < 10; i++) {
         setTimeout(function () {
           setTimeout(function () {
@@ -325,9 +331,6 @@ function GoleShootHit() {
               clearInterval(bossTimerInHtml);
               theEndScreen.appendChild(theEndScreenInput);
             }
-            const theBarWidth = (hp / globalHPsetter) * 100;
-            bossHPbar;
-            bossHPbar.style.width = theBarWidth + "%";
             if (theBarWidth > 80) {
               bossHPbar.style.backgroundColor = "rgb(19, 130, 0)";
             }
@@ -380,6 +383,7 @@ function restart() {
 }
 
 function BossAttack() {
+  let theBarWidth;
   const bossAttackSound = boss + "/" + "attack_sound.wav";
   let randomIndex;
   let theBossesAnswer;
@@ -431,6 +435,10 @@ function BossAttack() {
       }, 2000);
 
       let timeout = 250;
+      setTimeout(function () {
+        theBarWidth = ((wisardHp - theDamigeas) / 300) * 100;
+        wisardHPbar.style.width = theBarWidth + "%";
+      }, 350);
       for (let i = 0; i < 10; i++) {
         setTimeout(function () {
           setTimeout(function () {
@@ -440,12 +448,10 @@ function BossAttack() {
               wisardAttackWrapper.src = "dead.png";
             }
             yhpOutput.innerHTML = wisardHp;
-            let theBarWidth = (wisardHp / 300) * 100;
             const wisardHPbar = document.getElementById("wisard-hp-bar");
             if (theBarWidth < 0) {
               theBarWidth = 0;
             }
-            wisardHPbar.style.width = theBarWidth + "%";
             if (theBarWidth > 80) {
               wisardHPbar.style.backgroundColor = "rgb(19, 130, 0)";
             }
