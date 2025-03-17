@@ -20,7 +20,7 @@ body {
   justify-content: center;
   margin: 0;
 
-  background-image: url("test background.png");
+  background-image: url("blank-space.png");
   background-repeat: no-repeat;
   background-position: center top;
   width: 100%;

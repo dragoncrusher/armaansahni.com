@@ -48,6 +48,7 @@ const attackHolder = document.getElementById("attack-holder");
 const attackInProgress = document.getElementById("attack-in-progress");
 const bossHPbar = document.getElementById("boss-hp-bar");
 const wisardHPbar = document.getElementById("wisard-hp-bar");
+const body = document.body;
 
 infoDiv.appendChild(infoDivInput);
 
@@ -86,6 +87,7 @@ function startGame(HPsetter, theboss, boss_attack_timer_time) {
   theEndMessage.style.display = "none";
   wisardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif";
   bossAttackWraper.src = theboss + "/" + theboss + ".gif";
+  body.style.backgroundImage = "url('test-background.png')";
 
   //imagePath = `${theboss}/background1.gif`;
   // thebackground.style.backgroundImage = `url(${imagePath})`;
@@ -380,6 +382,7 @@ function restart() {
   theEndMessage.style.display = "none";
   bossSelect.style.display = "block";
   bossKill.style.display = "none";
+  body.style.backgroundImage = "url('blank-space.png')";
 }
 
 function BossAttack() {
