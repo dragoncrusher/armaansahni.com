@@ -262,7 +262,7 @@ function checkTheAnswer() {
     attackCharges["attackButton4Charge"] = attackCharges["attackButton4Charge"] + 1;
     GoleShootHit();
   } else {
-    infoDivInput.innerHTML = "Wrong answer";
+    infoDivInput.innerHTML = "Wrong Answer";
     infoDiv.classList.add("info-div-question-wrong");
     infoDiv.style.display = "block";
     attackHolder.style.display = "none";
@@ -281,7 +281,7 @@ function GoleShootHit() {
   let theBarWidth;
   if (isWisardDead == "") {
     const bossHitsplat = document.getElementById("boss-hitsplat");
-    infoDivInput.innerHTML = "Right answer";
+    infoDivInput.innerHTML = "Right Answer";
     infoDiv.style.display = "block";
     infoDiv.classList.add("info-div-question-right");
     attackHolder.style.display = "none";
@@ -400,7 +400,7 @@ function BossAttack() {
   if (theBossesAnswer == "yes") {
     bossRightOrWrong.classList.add("boss-question-right");
     bossRightOrWrong.style.display = "block";
-    bossRightOrWrong.innerHTML = "Right answer";
+    bossRightOrWrong.innerHTML = "Right Answer";
 
     bossTimerHolder.style.display = "none";
     setTimeout(function () {
@@ -492,8 +492,8 @@ function BossAttack() {
   } else {
     bossTimerHolder.style.display = "none";
     bossRightOrWrong.style.display = "block";
-    bossRightOrWrong.innerHTML = "Wrong answer";
-    console.log("Wrong answer");
+    bossRightOrWrong.innerHTML = "Wrong Answer";
+    console.log("Wrong Answer");
     bossRightOrWrong.classList.add("boss-question-wrong");
     console.log("class add" + bossRightOrWrong.style.display + bossRightOrWrong.innerHTML);
     setTimeout(function () {
