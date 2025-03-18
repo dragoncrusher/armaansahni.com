@@ -66,6 +66,7 @@ b {
   border-radius: 100px;
 }
 .battle-arina {
+  margin-top: 135px;
   display: flex;
   /* background-image: url("boss1/background1.gif"); */
   background-size: cover;
@@ -178,7 +179,7 @@ b {
 .attack-button {
   padding: 10px;
   width: 200px;
-  height: 100px;
+  height: 77px;
   margin: 10px;
   border-radius: 40px;
   background-color: rgb(112, 166, 255);

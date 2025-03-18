@@ -87,7 +87,7 @@ function startGame(HPsetter, theboss, boss_attack_timer_time) {
   theEndMessage.style.display = "none";
   wisardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif";
   bossAttackWraper.src = theboss + "/" + theboss + ".gif";
-  body.style.backgroundImage = "url('test-background.png')";
+  body.style.backgroundImage = "url('grid.png')";
 
   //imagePath = `${theboss}/background1.gif`;
   // thebackground.style.backgroundImage = `url(${imagePath})`;
