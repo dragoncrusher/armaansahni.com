@@ -11,6 +11,9 @@
   <body>
     <div class="inerrcenterred">
       <div class="choose-page">
+        <div class="need-to-center">
+          <img src="logo.png" class="logo" />
+        </div>
         <div class="titles-boss-chooser">
           <div class="instruction-title">INSTRUCTIONS</div>
           <div>
@@ -155,6 +158,9 @@
         </button>
       </div>
       <div class="fight-page">
+        <div class="need-to-center">
+          <img src="logo.png" class="logo" />
+        </div>
         <!-- <audio>
             <source src="file_example_MP3_700KB.mp3" type="audio/mpeg" />
           </audio> -->
@@ -188,9 +194,9 @@
             <p id="the-end-screen"></p>
             <button class="end-button" onclick="restart()">Fight Again</button>
           </div>
-          <div id="info-div"></div>
+          <div class="info-div" id="info-div"></div>
           <div class="input-teller" id="input_teller">
-            <div id="the-input-words"></div>
+            <div class="the-input-words" id="the-input-words"></div>
             <input id="input" class="input-box" type="number" name="math_answer" />
             <button class="pointer-button" onclick="getTheInput()">Answer</button>
           </div>
@@ -230,7 +236,6 @@
           </div>
         </div>
       </div>
-      <a href="/">home</a>
       <script src="game.js"></script>
       <link rel="stylesheet" href="game.css" />
     </div>

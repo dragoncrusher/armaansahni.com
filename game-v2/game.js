@@ -71,6 +71,7 @@ function playSoundForever(soundFile) {
 }
 
 function startGame(HPsetter, theboss, boss_attack_timer_time) {
+  body.style.backgroundColor = "rgb(0, 0, 0)";
   globalBossAttackTimerTime = boss_attack_timer_time;
   isBossDead = "";
   isWisardDead = "";
@@ -87,7 +88,7 @@ function startGame(HPsetter, theboss, boss_attack_timer_time) {
   theEndMessage.style.display = "none";
   wisardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif";
   bossAttackWraper.src = theboss + "/" + theboss + ".gif";
-  body.style.backgroundImage = "url('grid.png')";
+  body.style.backgroundImage = "url('boss1/background.png')";
 
   //imagePath = `${theboss}/background1.gif`;
   // thebackground.style.backgroundImage = `url(${imagePath})`;
@@ -96,6 +97,7 @@ function startGame(HPsetter, theboss, boss_attack_timer_time) {
   }, 1000);
   bossSelect.style.display = "none";
   bossKill.style.display = "flex";
+  body.style.backgroundColor = "rgb(0, 0, 0)";
   hp = HPsetter;
   globalHPsetter = HPsetter;
   fullHp.innerHTML = hp;
@@ -260,7 +262,7 @@ function checkTheAnswer() {
     attackCharges["attackButton4Charge"] = attackCharges["attackButton4Charge"] + 1;
     GoleShootHit();
   } else {
-    infoDivInput.innerHTML = "Question wrong, try again";
+    infoDivInput.innerHTML = "Wrong answer";
     infoDiv.classList.add("info-div-question-wrong");
     infoDiv.style.display = "block";
     attackHolder.style.display = "none";
@@ -279,7 +281,7 @@ function GoleShootHit() {
   let theBarWidth;
   if (isWisardDead == "") {
     const bossHitsplat = document.getElementById("boss-hitsplat");
-    infoDivInput.innerHTML = "Question right";
+    infoDivInput.innerHTML = "Right answer";
     infoDiv.style.display = "block";
     infoDiv.classList.add("info-div-question-right");
     attackHolder.style.display = "none";
@@ -381,6 +383,7 @@ function restart() {
   yhpOutput.innerHTML = wisardHp;
   theEndMessage.style.display = "none";
   bossSelect.style.display = "block";
+  body.style.backgroundColor = "rgb(255, 255, 255)";
   bossKill.style.display = "none";
   body.style.backgroundImage = "url('blank-space.png')";
 }
@@ -397,7 +400,7 @@ function BossAttack() {
   if (theBossesAnswer == "yes") {
     bossRightOrWrong.classList.add("boss-question-right");
     bossRightOrWrong.style.display = "block";
-    bossRightOrWrong.innerHTML = "question right";
+    bossRightOrWrong.innerHTML = "Right answer";
 
     bossTimerHolder.style.display = "none";
     setTimeout(function () {
@@ -489,8 +492,8 @@ function BossAttack() {
   } else {
     bossTimerHolder.style.display = "none";
     bossRightOrWrong.style.display = "block";
-    bossRightOrWrong.innerHTML = "question wrong";
-    console.log("question wrong");
+    bossRightOrWrong.innerHTML = "Wrong answer";
+    console.log("Wrong answer");
     bossRightOrWrong.classList.add("boss-question-wrong");
     console.log("class add" + bossRightOrWrong.style.display + bossRightOrWrong.innerHTML);
     setTimeout(function () {

@@ -2,9 +2,17 @@ html,
 body {
   width: 100%;
   height: 100%;
+  background-color: rgb(255, 255, 255);
 }
 * {
   box-sizing: border-box;
+}
+.the-input-words {
+  background-color: rgb(221 221 221);
+  border-radius: 26px;
+  padding: 1px;
+  height: 67px;
+  margin: 10px;
 }
 button {
   font-family: "Roboto", sans-serif;
@@ -51,6 +59,11 @@ b {
 .under-boss {
   display: flex;
   justify-content: center;
+  background: lightgrey;
+  padding: 10px;
+  border-radius: 22px;
+  height: 61px;
+  align-items: center;
 }
 .hp-shower {
   display: block;
@@ -119,7 +132,7 @@ b {
   font-weight: 500;
 }
 .notification-area {
-  height: 260px;
+  height: 210px;
   max-width: 450px;
   align-items: center;
   text-align: center;
@@ -165,6 +178,10 @@ b {
 }
 .attack-in-progress {
   display: none;
+  background-color: rgb(221 221 221);
+  border-radius: 26px;
+  padding: 16px;
+  margin: 10px;
 }
 .boss-button-boss-image {
   width: 100px;
@@ -186,6 +203,7 @@ b {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-style: solid;
 }
 .pointer-button {
   width: 80px;
@@ -240,10 +258,20 @@ b {
   background-image: url("hitsplat.gif");
   background-size: 90px;
 }
+.need-to-center {
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
 .wisard-hitsplat {
   left: 0;
 }
-.background {
+.logo {
+  width: 380px;
+  height: 80px;
+  margin-top: 5px;
+  align-items: center;
 }
 .hp-bar {
   height: 40px;
@@ -288,22 +316,34 @@ b {
 .boss-question-wrong {
   font-weight: 700;
   color: rgb(169, 0, 0);
-  font-size: 25px;
 }
 .attacks {
   display: flex;
 }
 .info-div-question-right,
+.info-div-question-wrong {
+  background-color: rgb(183 187 187);
+  border-radius: 44px;
+  width: 238px;
+  height: 80px;
+  font-size: 25px;
+}
+.info-div-question-right,
 .boss-question-right {
   font-weight: 700;
   color: rgb(4, 96, 12);
-  font-size: 25px;
 }
-.attack-button-left {
+.boss-question-right .attack-button-left {
   margin-right: 5px;
+  border-style: solid;
+}
+.boss-question-right,
+.boss-question-wrong {
+  font-size: 20px;
 }
 .attack-button-right {
   margin-left: 5px;
+  border-style: solid;
 }
 .arena-left,
 .arena-right {
