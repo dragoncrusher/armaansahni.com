@@ -1,8 +1,8 @@
 //let imagePath;
 //let thebackground = document.getElementById("background");
 let hp;
-let isBossDead;
-let isWisardDead;
+let isBossDead = false;
+let isWisardDead = false;
 let theMathAnswer;
 let theAnswer;
 let boss;
@@ -52,7 +52,7 @@ const body = document.body;
 infoDiv.appendChild(infoDivInput);
 
 const yhpOutput = document.createElement("div");
-let wisardHp = 300;
+let wisardHp = 50;
 yhpOutput.innerHTML = wisardHp;
 wisardHpHolder.appendChild(yhpOutput);
 const fullHp = document.createElement("div");
@@ -71,8 +71,8 @@ function playSoundForever(soundFile) {
 
 function startGame(HPsetter, theboss) {
   body.style.backgroundColor = "rgb(0, 0, 0)";
-  isBossDead = "";
-  isWisardDead = "";
+  isBossDead = false;
+  isWisardDead = false;
   bossHPbar.style.width = "100%";
   bossHPbar.style.backgroundColor = "rgb(19, 130, 0)";
   wisardHPbar.style.width = "100%";
@@ -277,7 +277,7 @@ function checkTheAnswer() {
 
 function GoleShootHit() {
   let theBarWidth;
-  if (isWisardDead == "") {
+  if (isWisardDead == false) {
     const bossHitsplat = document.getElementById("boss-hitsplat");
     infoDivInput.innerHTML = "Right Answer";
     infoDiv.style.display = "block";
@@ -319,7 +319,7 @@ function GoleShootHit() {
         setTimeout(function () {
           setTimeout(function () {
             if (hp - theGlobalDamageInfo <= 0) {
-              isBossDead = "yes";
+              isBossDead = true;
               bossAttackWraper.src = "dead.png";
             }
             hp = hp - theGlobalDamageInfo / 10;
@@ -377,7 +377,7 @@ function GoleShootHit() {
 
 function restart() {
   wisardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif";
-  wisardHp = 300;
+  wisardHp = 50;
   yhpOutput.innerHTML = wisardHp;
   theEndMessage.style.display = "none";
   bossSelect.style.display = "block";
@@ -406,18 +406,26 @@ function BossAttack() {
       bossTimerHtml.innerHTML = 15;
       bossRightOrWrong.style.display = "none";
       bossTimerHolder.style.display = "flex";
-      bossAttackWraper.src = boss + "/" + boss + ".gif";
+      if (isBossDead == false) {
+        bossAttackWraper.src = boss + "/" + boss + ".gif";
+      }
     }, 2000);
     setTimeout(function () {
-      bossAttackWraper.src = boss + "/" + boss + "costume2.gif";
+      if (isBossDead == false) {
+        bossAttackWraper.src = boss + "/" + boss + "costume2.gif";
+      }
     }, 3000);
     setTimeout(function () {
-      bossAttackWraper.src = boss + "/" + boss + "costume3.gif";
+      if (isBossDead == false) {
+        bossAttackWraper.src = boss + "/" + boss + "costume3.gif";
+      }
       playSound(bossAttackSound);
     }, 4000);
 
     setTimeout(function () {
-      bossAttackWraper.src = boss + "/" + boss + ".gif";
+      if (isBossDead == false) {
+        bossAttackWraper.src = boss + "/" + boss + ".gif";
+      }
     }, 5000);
     setTimeout(function () {
       wisardPlayer.style.backgroundColor = "red";
@@ -463,7 +471,7 @@ function BossAttack() {
               wisardHp = 0;
             }
             if (wisardHp == 0) {
-              isWisardDead = "yes";
+              isWisardDead = true;
               wisardAttackWrapper.src = "dead.png";
             }
             yhpOutput.innerHTML = wisardHp;
