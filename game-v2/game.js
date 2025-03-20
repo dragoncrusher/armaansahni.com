@@ -70,9 +70,8 @@ function playSoundForever(soundFile) {
   audio.play();
 }
 
-function startGame(HPsetter, theboss, boss_attack_timer_time) {
+function startGame(HPsetter, theboss) {
   body.style.backgroundColor = "rgb(0, 0, 0)";
-  globalBossAttackTimerTime = boss_attack_timer_time;
   isBossDead = "";
   isWisardDead = "";
   bossHPbar.style.width = "100%";
@@ -103,7 +102,7 @@ function startGame(HPsetter, theboss, boss_attack_timer_time) {
   fullHp.innerHTML = hp;
   boss = theboss;
   bossAttackWraper.src = boss + "/" + boss + ".gif";
-  bossTimer(boss_attack_timer_time);
+  bossTimer();
 
   playSoundForever(battleSound);
 }
@@ -114,8 +113,8 @@ function randomChoice(choices) {
   return choices[indexLookup];
 }
 
-function bossTimer(boss_attack_timer_time) {
-  bossTimerHtml.innerHTML = boss_attack_timer_time;
+function bossTimer() {
+  bossTimerHtml.innerHTML = 15;
 }
 function timertick() {
   bossTimerHtml.innerHTML = bossTimerHtml.innerHTML - 1;

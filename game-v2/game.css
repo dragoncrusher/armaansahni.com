@@ -188,6 +188,11 @@ b {
   height: 100px;
   margin: 10px;
 }
+.the-end-screen {
+  background-color: rgb(191 182 182);
+  border-radius: 17px;
+  padding: 12px;
+}
 .uncharged {
   pointer-events: none;
   opacity: 75%;
