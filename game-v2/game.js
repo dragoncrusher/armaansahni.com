@@ -312,6 +312,9 @@ function GoleShootHit() {
       let timeout = 250;
       setTimeout(function () {
         theBarWidth = ((hp - theGlobalDamageInfo) / globalHPsetter) * 100;
+        if (theBarWidth < 0) {
+          theBarWidth = 0;
+        }
         bossHPbar.style.width = theBarWidth + "%";
         console.log("updated", theBarWidth);
       }, 359);
@@ -323,8 +326,11 @@ function GoleShootHit() {
               bossAttackWraper.src = "dead.png";
             }
             hp = hp - theGlobalDamageInfo / 10;
+            if (hp < 0) {
+              hp = 0;
+            }
             fullHp.innerHTML = +hp;
-            if (hp <= 0) {
+            if (hp == 0) {
               infoDiv.style.display = "none";
               attackHolder.style.display = "none";
               inputTeller.style.display = "none";
