@@ -19,7 +19,6 @@ let attackCharges = {
 };
 let theAttack;
 let globalHPsetter;
-let globalBossAttackTimerTime;
 
 const bossTimerHtml = document.getElementById("boss-timer");
 const attackButton2 = document.getElementById("attack-button-2");
@@ -404,7 +403,7 @@ function BossAttack() {
     bossTimerHolder.style.display = "none";
     setTimeout(function () {
       bossRightOrWrong.classList.remove("boss-question-right");
-      bossTimerHtml.innerHTML = globalBossAttackTimerTime;
+      bossTimerHtml.innerHTML = 15;
       bossRightOrWrong.style.display = "none";
       bossTimerHolder.style.display = "flex";
       bossAttackWraper.src = boss + "/" + boss + ".gif";
@@ -442,37 +441,37 @@ function BossAttack() {
       let timeout = 250;
       setTimeout(function () {
         theBarWidth = ((wisardHp - theDamigeas) / 300) * 100;
+        if (theBarWidth < 0) {
+          theBarWidth = 0;
+        }
         wisardHPbar.style.width = theBarWidth + "%";
+        if (theBarWidth > 80) {
+          wisardHPbar.style.backgroundColor = "rgb(19, 130, 0)";
+        }
+        if (theBarWidth <= 80 && theBarWidth > 49) {
+          wisardHPbar.style.backgroundColor = "rgb(255, 221, 0)";
+        }
+        if (theBarWidth < 50) {
+          wisardHPbar.style.backgroundColor = "rgb(167, 14, 14)";
+        }
       }, 350);
       for (let i = 0; i < 10; i++) {
         setTimeout(function () {
           setTimeout(function () {
             wisardHp = wisardHp - theDamigeas / 10;
-            if (wisardHp <= 0) {
+            if (wisardHp < 0) {
+              wisardHp = 0;
+            }
+            if (wisardHp == 0) {
               isWisardDead = "yes";
               wisardAttackWrapper.src = "dead.png";
             }
             yhpOutput.innerHTML = wisardHp;
-            const wisardHPbar = document.getElementById("wisard-hp-bar");
-            if (theBarWidth < 0) {
-              theBarWidth = 0;
-            }
-            if (theBarWidth > 80) {
-              wisardHPbar.style.backgroundColor = "rgb(19, 130, 0)";
-            }
-            if (theBarWidth <= 80 && theBarWidth > 49) {
-              wisardHPbar.style.backgroundColor = "rgb(255, 221, 0)";
-            }
-            if (theBarWidth < 50) {
-              wisardHPbar.style.backgroundColor = "rgb(167, 14, 14)";
-            }
           }, 100);
         }, timeout);
         timeout = timeout + 250;
       }
-      if (wisardHp < 0) {
-        wisardHp = 0;
-      }
+
       if (wisardHp <= 0) {
         setTimeout(function () {
           infoDiv.style.display = "none";
@@ -500,7 +499,7 @@ function BossAttack() {
       bossRightOrWrong.style.display = "none";
       bossRightOrWrong.classList.remove("boss-question-wrong");
       console.log("class remove");
-      bossTimerHtml.innerHTML = globalBossAttackTimerTime;
+      bossTimerHtml.innerHTML = 10;
     }, 2000);
   }
 }
