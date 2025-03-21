@@ -34,7 +34,7 @@ const wizardPlayer = document.getElementById("wizard-player");
 const bossPlayer = document.getElementById("to-be-boss-player");
 const bossHPholder = document.getElementById("boss-hp-holder");
 const wizardHpHolder = document.getElementById("wizard-hp-holder");
-const mathQuestion = document.getElementById("the-input-words");
+const mathQuestionContainer = document.getElementById("the-input-words");
 const InputBox = document.getElementById("input");
 const endWords = document.getElementById("the-end-screen");
 const bossSelect = document.querySelector(".choose-page");
@@ -217,7 +217,7 @@ function askThem(charge, damage) {
       }
     }
     InputBox.focus();
-    mathQuestion.innerHTML = "To proceed you must do math." + "<br/>" + " What is " + mathQuestion + "?";
+    mathQuestionContainer.innerHTML = "To proceed you must do math." + "<br/>" + " What is " + mathQuestion + "?";
   } else {
     infoDiv.innerHTML = "The move you want to use is not charged up yet. Please select another move.";
     infoDiv.style.display = "block";
@@ -236,7 +236,7 @@ function getTheInput() {
   userAnswer = InputBox.value;
   checkTheAnswer();
   InputBox.value = "";
-  mathQuestion.innerHTML = "";
+  mathQuestionContainer.innerHTML = "";
 }
 function checkTheAnswer() {
   if (userAnswer == null) {
