@@ -35,7 +35,7 @@ const wisardAttackWrapper = document.getElementById("wisard-attack-wrapper");
 const bossAttackWraper = document.getElementById("boss-attack-wrapper");
 const wisardPlayer = document.getElementById("wisard-player");
 const bossPlayer = document.getElementById("to-be-boss-player");
-const whereToPrint = document.getElementById("boss-hp-holder");
+const bossHPholder = document.getElementById("boss-hp-holder");
 const wisardHpHolder = document.getElementById("wisard-hp-holder");
 const theMathAsk = document.getElementById("the-input-words");
 const theInputBox = document.getElementById("input");
@@ -56,7 +56,7 @@ const wizardHPOutput = document.createElement("div");
 wizardHPOutput.innerHTML = wisardHp;
 wisardHpHolder.appendChild(wizardHPOutput);
 const bossHPoutput = document.createElement("div");
-whereToPrint.appendChild(bossHPoutput);
+bossHPholder.appendChild(bossHPoutput);
 
 function playSound(soundFile) {
   const audio = new Audio(soundFile);
