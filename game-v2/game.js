@@ -15,7 +15,7 @@ let attackCharges = {
   attackButton3Charge: 1,
   attackButton4Charge: 1,
 };
-let theAttack;
+let currentAttack;
 let globalHPsetter;
 
 const hitSound = "Hit_sound.wav";
@@ -123,19 +123,19 @@ function askThem(charge, TheDamage) {
   attackHolder.style.display = "none";
   inputContaner.style.display = "block";
   if (TheDamage == 1) {
-    theAttack = "attackButton1Charge";
+    currentAttack = "attackButton1Charge";
   }
   if (TheDamage == 2) {
-    theAttack = "attackButton2Charge";
+    currentAttack = "attackButton2Charge";
   }
   if (TheDamage == 3) {
-    theAttack = "attackButton3Charge";
+    currentAttack = "attackButton3Charge";
   }
   if (TheDamage == 4) {
-    theAttack = "attackButton4Charge";
+    currentAttack = "attackButton4Charge";
   }
-  if (charge <= attackCharges[theAttack]) {
-    attackCharges[theAttack] = attackCharges[theAttack] - charge;
+  if (charge <= attackCharges[currentAttack]) {
+    attackCharges[currentAttack] = attackCharges[currentAttack] - charge;
     if (attackCharges["attackButton2Charge"] <= 2) {
       attackButton2.classList.add("uncharged");
     } else {
