@@ -114,20 +114,20 @@ function timertick() {
     BossAttack();
   }
 }
-function askThem(charge, TheDamage) {
+function askThem(charge, damage) {
   infoDiv.style.display = "none";
   attackHolder.style.display = "none";
   inputContaner.style.display = "block";
-  if (TheDamage == 1) {
+  if (damage == 1) {
     currentAttack = "attackButton1Charge";
   }
-  if (TheDamage == 2) {
+  if (damage == 2) {
     currentAttack = "attackButton2Charge";
   }
-  if (TheDamage == 3) {
+  if (damage == 3) {
     currentAttack = "attackButton3Charge";
   }
-  if (TheDamage == 4) {
+  if (damage == 4) {
     currentAttack = "attackButton4Charge";
   }
   if (charge <= attackCharges[currentAttack]) {
@@ -147,77 +147,77 @@ function askThem(charge, TheDamage) {
     } else {
       attackButton4.classList.remove("uncharged");
     }
-    let theMathQuestion;
-    damageToBoss = TheDamage * 10;
-    if (TheDamage == 1) {
+    let MathQuestion;
+    damageToBoss = damage * 10;
+    if (damage == 1) {
       const level = randomChoice(["addition", "subtraction"]);
       if (level == "addition") {
         let a = 1 + Math.floor(Math.random() * 10);
         let b = 1 + Math.floor(Math.random() * 10);
-        theMathQuestion = a + "+" + b + "=";
+        MathQuestion = a + "+" + b + "=";
         realAnswer = a + b;
       } else {
         let a = 1 + Math.floor(Math.random() * 6);
         let b = 1 + Math.floor(Math.random() * 6);
         a = a + 5;
-        theMathQuestion = a + "-" + b + "=";
+        MathQuestion = a + "-" + b + "=";
         realAnswer = a - b;
       }
-    } else if (TheDamage == 2) {
+    } else if (damage == 2) {
       const level = randomChoice(["addition", "subtraction", "division"]);
       if (level == "addition") {
         let a = 1 + Math.floor(Math.random() * 10);
         let b = 1 + Math.floor(Math.random() * 100);
-        theMathQuestion = a + "+" + b + "=";
+        MathQuestion = a + "+" + b + "=";
         realAnswer = a + b;
       } else if (level == "subtraction") {
         let a = 1 + Math.floor(Math.random() * 500);
         let b = 1 + Math.floor(Math.random() * 10);
         a = a + 500;
-        theMathQuestion = a + "-" + b + "=";
+        MathQuestion = a + "-" + b + "=";
         realAnswer = a - b;
       } else {
         let a = 1 + Math.floor(Math.random() * 5);
         let b = 1 + Math.floor(Math.random() * 5);
         a = a * b;
-        theMathQuestion = a + "÷" + b + "=";
+        MathQuestion = a + "÷" + b + "=";
         realAnswer = a / b;
       }
-    } else if (TheDamage == 3) {
+    } else if (damage == 3) {
       const level = randomChoice(["addition", "multiplication", "division"]);
       if (level == "addition") {
         let a = 1 + Math.floor(Math.random() * 100);
         let b = 1 + Math.floor(Math.random() * 100);
-        theMathQuestion = a + "+" + b + "=";
+        MathQuestion = a + "+" + b + "=";
         realAnswer = a + b;
       } else if (level == "multiplication") {
         let a = 1 + Math.floor(Math.random() * 5);
         let b = 1 + Math.floor(Math.random() * 5);
-        theMathQuestion = a + "x" + b + "=";
+        MathQuestion = a + "x" + b + "=";
         realAnswer = a * b;
       } else {
         let a = 6 + Math.floor(Math.random() * 12);
         let b = 6 + Math.floor(Math.random() * 12);
         a = a * b;
-        theMathQuestion = a + "÷" + b + "=";
+        MathQuestion = a + "÷" + b + "=";
         realAnswer = a / b;
       }
-    } else if (TheDamage == 4) {
+    } else if (damage == 4) {
       const level = randomChoice(["subtraction", "multiplication"]);
       if (level == "subtraction") {
         let a = 61 + Math.floor(Math.random() * 50);
         let b = 11 + Math.floor(Math.random() * 50);
-        theMathQuestion = a + "-" + b + "=";
+        MathQuestion = a + "-" + b + "=";
         realAnswer = a - b;
       } else {
         let a = 6 + Math.floor(Math.random() * 12);
         let b = 6 + Math.floor(Math.random() * 12);
-        theMathQuestion = a + "x" + b + "=";
+        MathQuestion = a + "x" + b + "=";
         realAnswer = a * b;
       }
     }
     InputBox.focus();
-    mathQuestion.innerHTML = "To proceed you must do math." + "<br/>" + " What is " + theMathQuestion + "?";
+    mathQuestion.innerHTML = "To proceed you must do math." + "<br/>" + " What is " + MathQuestion + "?";
   } else {
     infoDiv.innerHTML = "The move you want to use is not charged up yet. Please select another move.";
     infoDiv.style.display = "block";
@@ -271,7 +271,7 @@ function checkTheAnswer() {
 }
 
 function WizardAttack() {
-  let theBarWidth;
+  let BarWidth;
   if (isGameOver == false) {
     const bossHitsplat = document.getElementById("boss-hitsplat");
     infoDiv.innerHTML = "Right Answer";
@@ -317,12 +317,12 @@ function WizardAttack() {
 
         setTimeout(function () {
           if (isGameOver == false) {
-            theBarWidth = ((hp - damageToBoss) / globalHPsetter) * 100;
-            if (theBarWidth < 0) {
-              theBarWidth = 0;
+            BarWidth = ((hp - damageToBoss) / globalHPsetter) * 100;
+            if (BarWidth < 0) {
+              BarWidth = 0;
             }
-            bossHPbar.style.width = theBarWidth + "%";
-            console.log("updated", theBarWidth);
+            bossHPbar.style.width = BarWidth + "%";
+            console.log("updated", BarWidth);
           }
         }, 359);
         for (let i = 0; i < 10; i++) {
@@ -346,13 +346,13 @@ function WizardAttack() {
                   endWords.innerHTML = "You Win!! 🏆";
                   clearInterval(bossTimer);
                 }
-                if (theBarWidth > 80) {
+                if (BarWidth > 80) {
                   bossHPbar.style.backgroundColor = "rgb(19, 130, 0)";
                 }
-                if (theBarWidth <= 80 && theBarWidth > 49) {
+                if (BarWidth <= 80 && BarWidth > 49) {
                   bossHPbar.style.backgroundColor = "rgb(255, 221, 0)";
                 }
-                if (theBarWidth < 50) {
+                if (BarWidth < 50) {
                   bossHPbar.style.backgroundColor = "rgb(167, 14, 14)";
                 }
               }
@@ -404,15 +404,15 @@ function restart() {
 }
 
 function BossAttack() {
-  let theBarWidth;
+  let BarWidth;
   const bossAttackSound = bossId + "/" + "attack_sound.wav";
   let randomIndex;
-  let theBossesAnswer;
+  let bossAnswer;
   const bossArray = ["yes", "no"];
 
   randomIndex = Math.floor(Math.random() * 2);
-  theBossesAnswer = bossArray[randomIndex];
-  if (theBossesAnswer == "yes") {
+  bossAnswer = bossArray[randomIndex];
+  if (bossAnswer == "yes") {
     bossRightOrWrong.classList.add("boss-question-right");
     bossRightOrWrong.style.display = "block";
     bossRightOrWrong.innerHTML = "Right Answer";
@@ -450,13 +450,13 @@ function BossAttack() {
         wizardPlayer.style.backgroundColor = "red";
         playSound(hitSound);
 
-        const theBossAttack = Math.floor(Math.random() * 4);
+        const bossAttackChoice = Math.floor(Math.random() * 4);
         const bossMoveArray = ["10", "20", "30", "40"];
         let damageToWizard;
 
         const wizardHitsplat = document.getElementById("wizard-hitsplat");
 
-        damageToWizard = bossMoveArray[theBossAttack];
+        damageToWizard = bossMoveArray[bossAttackChoice];
 
         wizardHitsplat.style.display = "flex";
         wizardHitsplat.innerHTML = "-" + damageToWizard;
@@ -467,18 +467,18 @@ function BossAttack() {
 
         let timeout = 250;
         setTimeout(function () {
-          theBarWidth = ((wizardHp - damageToWizard) / 300) * 100;
-          if (theBarWidth < 0) {
-            theBarWidth = 0;
+          BarWidth = ((wizardHp - damageToWizard) / 300) * 100;
+          if (BarWidth < 0) {
+            BarWidth = 0;
           }
-          wizardHPbar.style.width = theBarWidth + "%";
-          if (theBarWidth > 80) {
+          wizardHPbar.style.width = BarWidth + "%";
+          if (BarWidth > 80) {
             wizardHPbar.style.backgroundColor = "rgb(19, 130, 0)";
           }
-          if (theBarWidth <= 80 && theBarWidth > 49) {
+          if (BarWidth <= 80 && BarWidth > 49) {
             wizardHPbar.style.backgroundColor = "rgb(255, 221, 0)";
           }
-          if (theBarWidth < 50) {
+          if (BarWidth < 50) {
             wizardHPbar.style.backgroundColor = "rgb(167, 14, 14)";
           }
         }, 350);
