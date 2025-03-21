@@ -1,6 +1,6 @@
 //let imagePath;
 //let thebackground = document.getElementById("background");
-let hp;
+let bossHP;
 let wisardHp = 300;
 let isGameOver = false;
 let theMathAnswer;
