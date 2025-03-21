@@ -147,20 +147,20 @@ function askThem(charge, damage) {
     } else {
       attackButton4.classList.remove("uncharged");
     }
-    let MathQuestion;
+    let mathQuestion;
     damageToBoss = damage * 10;
     if (damage == 1) {
       const level = randomChoice(["addition", "subtraction"]);
       if (level == "addition") {
         let a = 1 + Math.floor(Math.random() * 10);
         let b = 1 + Math.floor(Math.random() * 10);
-        MathQuestion = a + "+" + b + "=";
+        mathQuestion = a + "+" + b + "=";
         realAnswer = a + b;
       } else {
         let a = 1 + Math.floor(Math.random() * 6);
         let b = 1 + Math.floor(Math.random() * 6);
         a = a + 5;
-        MathQuestion = a + "-" + b + "=";
+        mathQuestion = a + "-" + b + "=";
         realAnswer = a - b;
       }
     } else if (damage == 2) {
@@ -168,19 +168,19 @@ function askThem(charge, damage) {
       if (level == "addition") {
         let a = 1 + Math.floor(Math.random() * 10);
         let b = 1 + Math.floor(Math.random() * 100);
-        MathQuestion = a + "+" + b + "=";
+        mathQuestion = a + "+" + b + "=";
         realAnswer = a + b;
       } else if (level == "subtraction") {
         let a = 1 + Math.floor(Math.random() * 500);
         let b = 1 + Math.floor(Math.random() * 10);
         a = a + 500;
-        MathQuestion = a + "-" + b + "=";
+        mathQuestion = a + "-" + b + "=";
         realAnswer = a - b;
       } else {
         let a = 1 + Math.floor(Math.random() * 5);
         let b = 1 + Math.floor(Math.random() * 5);
         a = a * b;
-        MathQuestion = a + "÷" + b + "=";
+        mathQuestion = a + "÷" + b + "=";
         realAnswer = a / b;
       }
     } else if (damage == 3) {
@@ -188,18 +188,18 @@ function askThem(charge, damage) {
       if (level == "addition") {
         let a = 1 + Math.floor(Math.random() * 100);
         let b = 1 + Math.floor(Math.random() * 100);
-        MathQuestion = a + "+" + b + "=";
+        mathQuestion = a + "+" + b + "=";
         realAnswer = a + b;
       } else if (level == "multiplication") {
         let a = 1 + Math.floor(Math.random() * 5);
         let b = 1 + Math.floor(Math.random() * 5);
-        MathQuestion = a + "x" + b + "=";
+        mathQuestion = a + "x" + b + "=";
         realAnswer = a * b;
       } else {
         let a = 6 + Math.floor(Math.random() * 12);
         let b = 6 + Math.floor(Math.random() * 12);
         a = a * b;
-        MathQuestion = a + "÷" + b + "=";
+        mathQuestion = a + "÷" + b + "=";
         realAnswer = a / b;
       }
     } else if (damage == 4) {
@@ -207,17 +207,17 @@ function askThem(charge, damage) {
       if (level == "subtraction") {
         let a = 61 + Math.floor(Math.random() * 50);
         let b = 11 + Math.floor(Math.random() * 50);
-        MathQuestion = a + "-" + b + "=";
+        mathQuestion = a + "-" + b + "=";
         realAnswer = a - b;
       } else {
         let a = 6 + Math.floor(Math.random() * 12);
         let b = 6 + Math.floor(Math.random() * 12);
-        MathQuestion = a + "x" + b + "=";
+        mathQuestion = a + "x" + b + "=";
         realAnswer = a * b;
       }
     }
     InputBox.focus();
-    mathQuestion.innerHTML = "To proceed you must do math." + "<br/>" + " What is " + MathQuestion + "?";
+    mathQuestion.innerHTML = "To proceed you must do math." + "<br/>" + " What is " + mathQuestion + "?";
   } else {
     infoDiv.innerHTML = "The move you want to use is not charged up yet. Please select another move.";
     infoDiv.style.display = "block";
