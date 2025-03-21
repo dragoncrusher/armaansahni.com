@@ -8,7 +8,7 @@ let userAnswer;
 let bossId;
 let bossTimerValue = 10;
 let damageToBoss;
-let bossTimerInHtml;
+let bossTimer;
 let attackCharges = {
   attackButton1Charge: 1,
   attackButton2Charge: 1,
@@ -88,7 +88,7 @@ function startGame(HPsetter, theboss) {
 
   //imagePath = `${theboss}/background1.gif`;
   // thebackground.style.backgroundImage = `url(${imagePath})`;
-  bossTimerInHtml = setInterval(() => {
+  bossTimer = setInterval(() => {
     timertick();
   }, 1000);
   bossSelect.style.display = "none";
@@ -99,7 +99,8 @@ function startGame(HPsetter, theboss) {
   bossHPoutput.innerHTML = hp;
   bossId = theboss;
   bossAttackWraper.src = bossId + "/" + bossId + ".gif";
-  bossTimer();
+  bossTimerValue = 10;
+  bossTimerHtml.innerHTML = bossTimerValue;
 
   playSoundForever(battleSound);
 }
@@ -110,10 +111,6 @@ function randomChoice(choices) {
   return choices[indexLookup];
 }
 
-function bossTimer() {
-  bossTimerValue = 10;
-  bossTimerHtml.innerHTML = bossTimerValue;
-}
 function timertick() {
   bossTimerValue = bossTimerValue - 1;
   bossTimerHtml.innerHTML = bossTimerValue;
@@ -351,7 +348,7 @@ function WizardAttack() {
                   inputContaner.style.display = "none";
                   theEndMessage.style.display = "block";
                   theEndScreen.innerHTML = "You Win!! 🏆";
-                  clearInterval(bossTimerInHtml);
+                  clearInterval(bossTimer);
                 }
                 if (theBarWidth > 80) {
                   bossHPbar.style.backgroundColor = "rgb(19, 130, 0)";
@@ -507,7 +504,7 @@ function BossAttack() {
                   inputContaner.style.display = "none";
                   theEndMessage.style.display = "block";
                   theEndScreen.innerHTML = "You Lose 😭😭😭";
-                  clearInterval(bossTimerInHtml);
+                  clearInterval(bossTimer);
                 }
                 wizardHPOutput.innerHTML = wizardHp;
               }
