@@ -260,7 +260,7 @@ function checkTheAnswer() {
     attackCharges["attackButton2Charge"] = attackCharges["attackButton2Charge"] + 1;
     attackCharges["attackButton3Charge"] = attackCharges["attackButton3Charge"] + 1;
     attackCharges["attackButton4Charge"] = attackCharges["attackButton4Charge"] + 1;
-    GoleShootHit();
+    WizardAttack();
   } else {
     infoDivInput.innerHTML = "Wrong Answer";
     infoDiv.classList.add("info-div-question-wrong");
@@ -279,7 +279,7 @@ function checkTheAnswer() {
   }
 }
 
-function GoleShootHit() {
+function WizardAttack() {
   let theBarWidth;
   if (isGameOver == false) {
     const bossHitsplat = document.getElementById("boss-hitsplat");
