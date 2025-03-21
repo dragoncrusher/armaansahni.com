@@ -23,6 +23,7 @@ const bossTimerHtml = document.getElementById("boss-timer");
 const attackButton2 = document.getElementById("attack-button-2");
 const attackButton3 = document.getElementById("attack-button-3");
 const attackButton4 = document.getElementById("attack-button-4");
+const underBoss = document.getElementById("under-boss");
 const hitSound = "Hit_sound.wav";
 const bossRightOrWrong = document.querySelector(".boss-right-or-wrong");
 const bossTimerHolder = document.getElementById("boss-timer-holder");
@@ -78,6 +79,7 @@ function startGame(HPsetter, theboss) {
   attackButton2.classList.add("uncharged");
   attackButton3.classList.add("uncharged");
   attackButton4.classList.add("uncharged");
+  underBoss.style.display = "flex";
   infoDiv.style.display = "none";
   attackHolder.style.display = "block";
   inputTeller.style.display = "none";
@@ -343,6 +345,7 @@ function GoleShootHit() {
                 fullHp.innerHTML = +hp;
                 if (hp == 0) {
                   isGameOver = true;
+                  underBoss.style.display = "none";
                   bossAttackWraper.src = "dead.png";
                   attackInProgress.style.display = "none";
                   infoDiv.style.display = "none";
@@ -499,6 +502,7 @@ function BossAttack() {
                 if (wisardHp == 0) {
                   isGameOver = true;
                   wisardAttackWrapper.src = "dead.png";
+                  underBoss.style.display = "none";
                   attackInProgress.style.display = "none";
                   infoDiv.style.display = "none";
                   attackHolder.style.display = "none";
