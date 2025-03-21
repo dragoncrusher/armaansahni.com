@@ -1,6 +1,7 @@
 //let imagePath;
 //let thebackground = document.getElementById("background");
 let hp;
+let wisardHp = 300;
 let isGameOver = false;
 let theMathAnswer;
 let theAnswer;
@@ -51,12 +52,11 @@ const body = document.body;
 
 infoDiv.appendChild(infoDivInput);
 
-const yhpOutput = document.createElement("div");
-let wisardHp = 50;
-yhpOutput.innerHTML = wisardHp;
-wisardHpHolder.appendChild(yhpOutput);
-const fullHp = document.createElement("div");
-whereToPrint.appendChild(fullHp);
+const wizardHPOutput = document.createElement("div");
+wizardHPOutput.innerHTML = wisardHp;
+wisardHpHolder.appendChild(wizardHPOutput);
+const bossHPoutput = document.createElement("div");
+whereToPrint.appendChild(bossHPoutput);
 
 function playSound(soundFile) {
   const audio = new Audio(soundFile);
@@ -98,7 +98,7 @@ function startGame(HPsetter, theboss) {
   body.style.backgroundColor = "rgb(0, 0, 0)";
   hp = HPsetter;
   globalHPsetter = HPsetter;
-  fullHp.innerHTML = hp;
+  bossHPoutput.innerHTML = hp;
   boss = theboss;
   bossAttackWraper.src = boss + "/" + boss + ".gif";
   bossTimer();
@@ -342,7 +342,7 @@ function GoleShootHit() {
                 if (hp < 0) {
                   hp = 0;
                 }
-                fullHp.innerHTML = +hp;
+                bossHPoutput.innerHTML = +hp;
                 if (hp == 0) {
                   isGameOver = true;
                   underBoss.style.display = "none";
@@ -405,7 +405,7 @@ function GoleShootHit() {
 function restart() {
   wisardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif";
   wisardHp = 50;
-  yhpOutput.innerHTML = wisardHp;
+  wizardHPOutput.innerHTML = wisardHp;
   theEndMessage.style.display = "none";
   bossSelect.style.display = "block";
   body.style.backgroundColor = "rgb(255, 255, 255)";
@@ -512,7 +512,7 @@ function BossAttack() {
                   clearInterval(bossTimerInHtml);
                   theEndScreen.appendChild(theEndScreenInput);
                 }
-                yhpOutput.innerHTML = wisardHp;
+                wizardHPOutput.innerHTML = wisardHp;
               }
             }, 100);
           }, timeout);
