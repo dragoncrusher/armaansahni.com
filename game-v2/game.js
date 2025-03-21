@@ -20,16 +20,17 @@ let attackCharges = {
 let theAttack;
 let globalHPsetter;
 
+const hitSound = "Hit_sound.wav";
+const battleSound = "Battle_sound_game.m4a";
+const wizardAttackSound = "wizardgoodguy/Wizard_attack_sound.m4a";
+
 const bossTimerHtml = document.getElementById("boss-timer");
 const attackButton2 = document.getElementById("attack-button-2");
 const attackButton3 = document.getElementById("attack-button-3");
 const attackButton4 = document.getElementById("attack-button-4");
 const underBoss = document.getElementById("under-boss");
-const hitSound = "Hit_sound.wav";
 const bossRightOrWrong = document.querySelector(".boss-right-or-wrong");
 const bossTimerHolder = document.getElementById("boss-timer-holder");
-const battleSound = "Battle_sound_game.m4a";
-const wizardAttackSound = "wizardgoodguy/Wizard_attack_sound.m4a";
 const bossKill = document.querySelector(".fight-page");
 const wizardAttackWrapper = document.getElementById("wizard-attack-wrapper");
 const bossAttackWraper = document.getElementById("boss-attack-wrapper");
