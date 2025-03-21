@@ -29,14 +29,14 @@ const hitSound = "Hit_sound.wav";
 const bossRightOrWrong = document.querySelector(".boss-right-or-wrong");
 const bossTimerHolder = document.getElementById("boss-timer-holder");
 const battleSound = "Battle_sound_game.m4a";
-const wizardAttackSound = "wisardgoodguy/Wisard_attack_sound.m4a";
+const wizardAttackSound = "wizardgoodguy/Wizard_attack_sound.m4a";
 const bossKill = document.querySelector(".fight-page");
-const wizardAttackWrapper = document.getElementById("wisard-attack-wrapper");
+const wizardAttackWrapper = document.getElementById("wizard-attack-wrapper");
 const bossAttackWraper = document.getElementById("boss-attack-wrapper");
-const wizardPlayer = document.getElementById("wisard-player");
+const wizardPlayer = document.getElementById("wizard-player");
 const bossPlayer = document.getElementById("to-be-boss-player");
 const bossHPholder = document.getElementById("boss-hp-holder");
-const wizardHpHolder = document.getElementById("wisard-hp-holder");
+const wizardHpHolder = document.getElementById("wizard-hp-holder");
 const theMathAsk = document.getElementById("the-input-words");
 const theInputBox = document.getElementById("input");
 const theEndScreen = document.getElementById("the-end-screen");
@@ -47,7 +47,7 @@ const inputTeller = document.getElementById("input_teller");
 const attackHolder = document.getElementById("attack-holder");
 const attackInProgress = document.getElementById("attack-in-progress");
 const bossHPbar = document.getElementById("boss-hp-bar");
-const wizardHPbar = document.getElementById("wisard-hp-bar");
+const wizardHPbar = document.getElementById("wizard-hp-bar");
 const body = document.body;
 
 infoDiv.appendChild(infoDivInput);
@@ -84,7 +84,7 @@ function startGame(HPsetter, theboss) {
   attackHolder.style.display = "block";
   inputTeller.style.display = "none";
   theEndMessage.style.display = "none";
-  wizardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif";
+  wizardAttackWrapper.src = "wizardgoodguy/wizardgoodguy.gif";
   bossAttackWraper.src = theboss + "/" + theboss + ".gif";
   body.style.backgroundImage = "url('" + theboss + "/background.png')";
 
@@ -269,7 +269,7 @@ function checkTheAnswer() {
     inputTeller.style.display = "none";
     setTimeout(function () {
       if (isGameOver == false) {
-        wizardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif";
+        wizardAttackWrapper.src = "wizardgoodguy/wizardgoodguy.gif";
         infoDiv.style.display = "none";
         infoDiv.classList.remove("info-div-question-wrong");
         attackHolder.style.display = "block";
@@ -301,19 +301,19 @@ function WizardAttack() {
     setTimeout(function () {
       if (isGameOver == false) {
         playSound(wizardAttackSound);
-        wizardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif";
+        wizardAttackWrapper.src = "wizardgoodguy/wizardgoodguy.gif";
       }
     }, 1000);
 
     setTimeout(function () {
       if (isGameOver == false) {
-        wizardAttackWrapper.src = "wisardgoodguy/wizardgoodguycostume2.gif";
+        wizardAttackWrapper.src = "wizardgoodguy/wizardgoodguycostume2.gif";
       }
     }, 2000);
 
     setTimeout(function () {
       if (isGameOver == false) {
-        wizardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif";
+        wizardAttackWrapper.src = "wizardgoodguy/wizardgoodguy.gif";
       }
     }, 3000);
 
@@ -403,7 +403,7 @@ function WizardAttack() {
 }
 
 function restart() {
-  wizardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif";
+  wizardAttackWrapper.src = "wizardgoodguy/wizardgoodguy.gif";
   wizardHp = 50;
   wizardHPOutput.innerHTML = wizardHp;
   theEndMessage.style.display = "none";
@@ -463,7 +463,7 @@ function BossAttack() {
         const bossMoveArray = ["10", "20", "30", "40"];
         let damageToWizard;
 
-        const wizardHitsplat = document.getElementById("wisard-hitsplat");
+        const wizardHitsplat = document.getElementById("wizard-hitsplat");
 
         damageToWizard = bossMoveArray[theBossAttack];
 

@@ -231,7 +231,7 @@ b {
   width: 60px;
   height: 60px;
 }
-.wisard-hitsplat,
+.wizard-hitsplat,
 .boss-hitsplat {
   width: 200px;
   height: 100px;
@@ -269,7 +269,7 @@ b {
   justify-content: center;
   display: flex;
 }
-.wisard-hitsplat {
+.wizard-hitsplat {
   left: 0;
 }
 .logo {
