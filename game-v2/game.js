@@ -7,8 +7,6 @@ let theMathAnswer;
 let theAnswer;
 let bossId;
 let damageToBoss;
-let theInputWords = document.createElement("p");
-let theEndScreenInput = document.createElement("p");
 let bossTimerInHtml;
 let attackCharges = {
   attackButton1Charge: 1,
@@ -222,8 +220,7 @@ function askThem(charge, TheDamage) {
       }
     }
     theInputBox.focus();
-    theInputWords.innerHTML = "To proceed you must do math." + "<br/>" + " What is " + theMathQuestion + "?";
-    theMathAsk.appendChild(theInputWords);
+    theMathAsk.innerHTML = "To proceed you must do math." + "<br/>" + " What is " + theMathQuestion + "?";
   } else {
     infoDiv.innerHTML = "The move you want to use is not charged up yet. Please select another move.";
     infoDiv.style.display = "block";
@@ -242,8 +239,7 @@ function getTheInput() {
   theAnswer = theInputBox.value;
   checkTheAnswer();
   theInputBox.value = "";
-  theInputWords.innerHTML = "";
-  theMathAsk.appendChild(theInputWords);
+  theMathAsk.innerHTML = "";
 }
 function checkTheAnswer() {
   if (theAnswer == null) {
@@ -350,9 +346,8 @@ function WizardAttack() {
                   attackHolder.style.display = "none";
                   inputTeller.style.display = "none";
                   theEndMessage.style.display = "block";
-                  theEndScreenInput.innerHTML = "You Win!! 🏆";
+                  theEndScreen.innerHTML = "You Win!! 🏆";
                   clearInterval(bossTimerInHtml);
-                  theEndScreen.appendChild(theEndScreenInput);
                 }
                 if (theBarWidth > 80) {
                   bossHPbar.style.backgroundColor = "rgb(19, 130, 0)";
@@ -506,9 +501,8 @@ function BossAttack() {
                   attackHolder.style.display = "none";
                   inputTeller.style.display = "none";
                   theEndMessage.style.display = "block";
-                  theEndScreenInput.innerHTML = "You Lose 😭😭😭";
+                  theEndScreen.innerHTML = "You Lose 😭😭😭";
                   clearInterval(bossTimerInHtml);
-                  theEndScreen.appendChild(theEndScreenInput);
                 }
                 wizardHPOutput.innerHTML = wizardHp;
               }
