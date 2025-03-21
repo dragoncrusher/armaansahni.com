@@ -461,14 +461,14 @@ function BossAttack() {
 
         const theBossAttack = Math.floor(Math.random() * 4);
         const bossMoveArray = ["10", "20", "30", "40"];
-        let theDamigeas;
+        let damageToBoss;
 
         const wisardHitsplat = document.getElementById("wisard-hitsplat");
 
-        theDamigeas = bossMoveArray[theBossAttack];
+        damageToBoss = bossMoveArray[theBossAttack];
 
         wisardHitsplat.style.display = "flex";
-        wisardHitsplat.innerHTML = "-" + theDamigeas;
+        wisardHitsplat.innerHTML = "-" + damageToBoss;
         setTimeout(function () {
           wisardHitsplat.style.display = "none";
           wisardHitsplat.innerHTML = " ";
@@ -476,7 +476,7 @@ function BossAttack() {
 
         let timeout = 250;
         setTimeout(function () {
-          theBarWidth = ((wisardHp - theDamigeas) / 300) * 100;
+          theBarWidth = ((wisardHp - damageToBoss) / 300) * 100;
           if (theBarWidth < 0) {
             theBarWidth = 0;
           }
@@ -495,7 +495,7 @@ function BossAttack() {
           setTimeout(function () {
             setTimeout(function () {
               if (isGameOver == false) {
-                wisardHp = wisardHp - theDamigeas / 10;
+                wisardHp = wisardHp - damageToBoss / 10;
                 if (wisardHp < 0) {
                   wisardHp = 0;
                 }
