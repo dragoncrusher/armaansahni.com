@@ -1,5 +1,3 @@
-//let imagePath;
-//let thebackground = document.getElementById("background");
 let bossHP;
 let wizardHp = 300;
 let isGameOver = false;
@@ -36,11 +34,11 @@ const wizardPlayer = document.getElementById("wizard-player");
 const bossPlayer = document.getElementById("to-be-boss-player");
 const bossHPholder = document.getElementById("boss-hp-holder");
 const wizardHpHolder = document.getElementById("wizard-hp-holder");
-const theMathAsk = document.getElementById("the-input-words");
-const theInputBox = document.getElementById("input");
-const theEndScreen = document.getElementById("the-end-screen");
+const mathQuestion = document.getElementById("the-input-words");
+const InputBox = document.getElementById("input");
+const endWords = document.getElementById("the-end-screen");
 const bossSelect = document.querySelector(".choose-page");
-const theEndMessage = document.querySelector(".end-page");
+const endPage = document.querySelector(".end-page");
 const infoDiv = document.getElementById("info-div");
 const inputContaner = document.getElementById("input-container");
 const attackHolder = document.getElementById("attack-holder");
@@ -67,7 +65,8 @@ function playSoundForever(soundFile) {
   audio.play();
 }
 
-function startGame(HPsetter, theboss) {
+function startGame(HPsetter, selectedBoss) {
+  bossId = selectedBoss;
   body.style.backgroundColor = "rgb(0, 0, 0)";
   isGameOver = false;
   bossHPbar.style.width = "100%";
@@ -81,13 +80,11 @@ function startGame(HPsetter, theboss) {
   infoDiv.style.display = "none";
   attackHolder.style.display = "block";
   inputContaner.style.display = "none";
-  theEndMessage.style.display = "none";
+  endPage.style.display = "none";
   wizardAttackWrapper.src = "wizardgoodguy/wizardgoodguy.gif";
-  bossAttackWraper.src = theboss + "/" + theboss + ".gif";
-  body.style.backgroundImage = "url('" + theboss + "/background.png')";
+  bossAttackWraper.src = bossId + "/" + bossId + ".gif";
+  body.style.backgroundImage = "url('" + bossId + "/background.png')";
 
-  //imagePath = `${theboss}/background1.gif`;
-  // thebackground.style.backgroundImage = `url(${imagePath})`;
   bossTimer = setInterval(() => {
     timertick();
   }, 1000);
@@ -97,7 +94,6 @@ function startGame(HPsetter, theboss) {
   hp = HPsetter;
   globalHPsetter = HPsetter;
   bossHPoutput.innerHTML = hp;
-  bossId = theboss;
   bossAttackWraper.src = bossId + "/" + bossId + ".gif";
   bossTimerValue = 10;
   bossTimerHtml.innerHTML = bossTimerValue;
@@ -220,8 +216,8 @@ function askThem(charge, TheDamage) {
         realAnswer = a * b;
       }
     }
-    theInputBox.focus();
-    theMathAsk.innerHTML = "To proceed you must do math." + "<br/>" + " What is " + theMathQuestion + "?";
+    InputBox.focus();
+    mathQuestion.innerHTML = "To proceed you must do math." + "<br/>" + " What is " + theMathQuestion + "?";
   } else {
     infoDiv.innerHTML = "The move you want to use is not charged up yet. Please select another move.";
     infoDiv.style.display = "block";
@@ -237,10 +233,10 @@ function askThem(charge, TheDamage) {
   }
 }
 function getTheInput() {
-  userAnswer = theInputBox.value;
+  userAnswer = InputBox.value;
   checkTheAnswer();
-  theInputBox.value = "";
-  theMathAsk.innerHTML = "";
+  InputBox.value = "";
+  mathQuestion.innerHTML = "";
 }
 function checkTheAnswer() {
   if (userAnswer == null) {
@@ -346,8 +342,8 @@ function WizardAttack() {
                   infoDiv.style.display = "none";
                   attackHolder.style.display = "none";
                   inputContaner.style.display = "none";
-                  theEndMessage.style.display = "block";
-                  theEndScreen.innerHTML = "You Win!! 🏆";
+                  endPage.style.display = "block";
+                  endWords.innerHTML = "You Win!! 🏆";
                   clearInterval(bossTimer);
                 }
                 if (theBarWidth > 80) {
@@ -400,7 +396,7 @@ function restart() {
   wizardAttackWrapper.src = "wizardgoodguy/wizardgoodguy.gif";
   wizardHp = 50;
   wizardHPOutput.innerHTML = wizardHp;
-  theEndMessage.style.display = "none";
+  endPage.style.display = "none";
   bossSelect.style.display = "block";
   body.style.backgroundColor = "rgb(255, 255, 255)";
   bossKill.style.display = "none";
@@ -502,8 +498,8 @@ function BossAttack() {
                   infoDiv.style.display = "none";
                   attackHolder.style.display = "none";
                   inputContaner.style.display = "none";
-                  theEndMessage.style.display = "block";
-                  theEndScreen.innerHTML = "You Lose 😭😭😭";
+                  endPage.style.display = "block";
+                  endWords.innerHTML = "You Lose 😭😭😭";
                   clearInterval(bossTimer);
                 }
                 wizardHPOutput.innerHTML = wizardHp;
