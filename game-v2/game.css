@@ -380,7 +380,7 @@ b {
 .input-box:focus {
   border-color: rgb(175, 175, 209);
 }
-.input-teller {
+.input-container {
   width: 300px;
   justify-content: center;
   align-items: center;

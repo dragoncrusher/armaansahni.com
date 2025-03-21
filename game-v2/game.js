@@ -42,7 +42,7 @@ const theEndScreen = document.getElementById("the-end-screen");
 const bossSelect = document.querySelector(".choose-page");
 const theEndMessage = document.querySelector(".end-page");
 const infoDiv = document.getElementById("info-div");
-const inputTeller = document.getElementById("input_teller");
+const inputContaner = document.getElementById("input-container");
 const attackHolder = document.getElementById("attack-holder");
 const attackInProgress = document.getElementById("attack-in-progress");
 const bossHPbar = document.getElementById("boss-hp-bar");
@@ -80,7 +80,7 @@ function startGame(HPsetter, theboss) {
   underBoss.style.display = "flex";
   infoDiv.style.display = "none";
   attackHolder.style.display = "block";
-  inputTeller.style.display = "none";
+  inputContaner.style.display = "none";
   theEndMessage.style.display = "none";
   wizardAttackWrapper.src = "wizardgoodguy/wizardgoodguy.gif";
   bossAttackWraper.src = theboss + "/" + theboss + ".gif";
@@ -124,7 +124,7 @@ function timertick() {
 function askThem(charge, TheDamage) {
   infoDiv.style.display = "none";
   attackHolder.style.display = "none";
-  inputTeller.style.display = "block";
+  inputContaner.style.display = "block";
   if (TheDamage == 1) {
     theAttack = "attackButton1Charge";
   }
@@ -229,12 +229,12 @@ function askThem(charge, TheDamage) {
     infoDiv.innerHTML = "The move you want to use is not charged up yet. Please select another move.";
     infoDiv.style.display = "block";
     attackHolder.style.display = "none";
-    inputTeller.style.display = "none";
+    inputContaner.style.display = "none";
     setTimeout(function () {
       if (isGameOver == false) {
         infoDiv.style.display = "none";
         attackHolder.style.display = "block";
-        inputTeller.style.display = "none";
+        inputContaner.style.display = "none";
       }
     }, 4000);
   }
@@ -251,7 +251,7 @@ function checkTheAnswer() {
   }
   infoDiv.style.display = "none";
   attackHolder.style.display = "none";
-  inputTeller.style.display = "none";
+  inputContaner.style.display = "none";
 
   if (Number(userAnswer) == realAnswer) {
     attackCharges["attackButton1Charge"] = attackCharges["attackButton1Charge"] + 1;
@@ -264,14 +264,14 @@ function checkTheAnswer() {
     infoDiv.classList.add("info-div-question-wrong");
     infoDiv.style.display = "block";
     attackHolder.style.display = "none";
-    inputTeller.style.display = "none";
+    inputContaner.style.display = "none";
     setTimeout(function () {
       if (isGameOver == false) {
         wizardAttackWrapper.src = "wizardgoodguy/wizardgoodguy.gif";
         infoDiv.style.display = "none";
         infoDiv.classList.remove("info-div-question-wrong");
         attackHolder.style.display = "block";
-        inputTeller.style.display = "none";
+        inputContaner.style.display = "none";
       }
     }, 1000);
   }
@@ -285,14 +285,14 @@ function WizardAttack() {
     infoDiv.style.display = "block";
     infoDiv.classList.add("info-div-question-right");
     attackHolder.style.display = "none";
-    inputTeller.style.display = "none";
+    inputContaner.style.display = "none";
     attackInProgress.style.display = "none";
     setTimeout(function () {
       if (isGameOver == false) {
         infoDiv.style.display = "none";
         infoDiv.classList.remove("info-div-question-right");
         attackHolder.style.display = "none";
-        inputTeller.style.display = "none";
+        inputContaner.style.display = "none";
         attackInProgress.style.display = "block";
       }
     }, 2000);
@@ -348,7 +348,7 @@ function WizardAttack() {
                   attackInProgress.style.display = "none";
                   infoDiv.style.display = "none";
                   attackHolder.style.display = "none";
-                  inputTeller.style.display = "none";
+                  inputContaner.style.display = "none";
                   theEndMessage.style.display = "block";
                   theEndScreen.innerHTML = "You Win!! 🏆";
                   clearInterval(bossTimerInHtml);
@@ -386,7 +386,7 @@ function WizardAttack() {
       if (isGameOver == false) {
         infoDiv.style.display = "none";
         attackHolder.style.display = "block";
-        inputTeller.style.display = "none";
+        inputContaner.style.display = "none";
         attackInProgress.style.display = "none";
       }
     }, 6000);
@@ -394,7 +394,7 @@ function WizardAttack() {
     infoDiv.innerHTML = "sorry you are dead, and you cannot attack if you are dead";
     infoDiv.style.display = "block";
     attackHolder.style.display = "none";
-    inputTeller.style.display = "none";
+    inputContaner.style.display = "none";
     attackInProgress.style.display = "none";
   }
 }
@@ -504,7 +504,7 @@ function BossAttack() {
                   attackInProgress.style.display = "none";
                   infoDiv.style.display = "none";
                   attackHolder.style.display = "none";
-                  inputTeller.style.display = "none";
+                  inputContaner.style.display = "none";
                   theEndMessage.style.display = "block";
                   theEndScreen.innerHTML = "You Lose 😭😭😭";
                   clearInterval(bossTimerInHtml);
