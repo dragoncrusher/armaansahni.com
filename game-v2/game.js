@@ -116,7 +116,7 @@ function bossTimer() {
 function timertick() {
   bossTimerValue = bossTimerValue - 1;
   bossTimerHtml.innerHTML = bossTimerValue;
-  if (bossTimerHtml.innerHTML == 0) {
+  if (bossTimerValue == 0) {
     BossAttack();
   }
 }
