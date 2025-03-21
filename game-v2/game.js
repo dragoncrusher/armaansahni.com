@@ -6,7 +6,7 @@ let isGameOver = false;
 let theMathAnswer;
 let theAnswer;
 let bossId;
-let theGlobalDamageInfo;
+let damageToBoss;
 let theInputWords = document.createElement("p");
 let theEndScreenInput = document.createElement("p");
 let infoDivInput = document.createElement("p");
@@ -155,7 +155,7 @@ function askThem(charge, TheDamage) {
       attackButton4.classList.remove("uncharged");
     }
     let theMathQuestion;
-    theGlobalDamageInfo = TheDamage * 10;
+    damageToBoss = TheDamage * 10;
     if (TheDamage == 1) {
       const level = randomChoice(["addition", "subtraction"]);
       if (level == "addition") {
@@ -320,13 +320,13 @@ function WizardAttack() {
     setTimeout(function () {
       if (isGameOver == false) {
         bossPlayer.style.backgroundColor = "red";
-        bossHitsplat.innerHTML = "-" + theGlobalDamageInfo;
+        bossHitsplat.innerHTML = "-" + damageToBoss;
         bossHitsplat.style.display = "flex";
         let timeout = 250;
 
         setTimeout(function () {
           if (isGameOver == false) {
-            theBarWidth = ((hp - theGlobalDamageInfo) / globalHPsetter) * 100;
+            theBarWidth = ((hp - damageToBoss) / globalHPsetter) * 100;
             if (theBarWidth < 0) {
               theBarWidth = 0;
             }
@@ -338,7 +338,7 @@ function WizardAttack() {
           setTimeout(function () {
             setTimeout(function () {
               if (isGameOver == false) {
-                hp = hp - theGlobalDamageInfo / 10;
+                hp = hp - damageToBoss / 10;
                 if (hp < 0) {
                   hp = 0;
                 }
@@ -461,14 +461,14 @@ function BossAttack() {
 
         const theBossAttack = Math.floor(Math.random() * 4);
         const bossMoveArray = ["10", "20", "30", "40"];
-        let damageToBoss;
+        let damageToWizard;
 
         const wisardHitsplat = document.getElementById("wisard-hitsplat");
 
-        damageToBoss = bossMoveArray[theBossAttack];
+        damageToWizard = bossMoveArray[theBossAttack];
 
         wisardHitsplat.style.display = "flex";
-        wisardHitsplat.innerHTML = "-" + damageToBoss;
+        wisardHitsplat.innerHTML = "-" + damageToWizard;
         setTimeout(function () {
           wisardHitsplat.style.display = "none";
           wisardHitsplat.innerHTML = " ";
@@ -476,7 +476,7 @@ function BossAttack() {
 
         let timeout = 250;
         setTimeout(function () {
-          theBarWidth = ((wisardHp - damageToBoss) / 300) * 100;
+          theBarWidth = ((wisardHp - damageToWizard) / 300) * 100;
           if (theBarWidth < 0) {
             theBarWidth = 0;
           }
@@ -495,7 +495,7 @@ function BossAttack() {
           setTimeout(function () {
             setTimeout(function () {
               if (isGameOver == false) {
-                wisardHp = wisardHp - damageToBoss / 10;
+                wisardHp = wisardHp - damageToWizard / 10;
                 if (wisardHp < 0) {
                   wisardHp = 0;
                 }
