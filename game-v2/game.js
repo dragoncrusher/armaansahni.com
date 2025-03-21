@@ -6,6 +6,7 @@ let isGameOver = false;
 let theMathAnswer;
 let theAnswer;
 let bossId;
+let bossTimerValue = 10;
 let damageToBoss;
 let bossTimerInHtml;
 let attackCharges = {
@@ -53,6 +54,7 @@ wizardHPOutput.innerHTML = wizardHp;
 wizardHpHolder.appendChild(wizardHPOutput);
 const bossHPoutput = document.createElement("div");
 bossHPholder.appendChild(bossHPoutput);
+bossTimerHtml.innerHTML = bossTimerValue;
 
 function playSound(soundFile) {
   const audio = new Audio(soundFile);
@@ -109,10 +111,11 @@ function randomChoice(choices) {
 }
 
 function bossTimer() {
-  bossTimerHtml.innerHTML = 15;
+  bossTimerValue = 10;
 }
 function timertick() {
-  bossTimerHtml.innerHTML = bossTimerHtml.innerHTML - 1;
+  bossTimerValue = bossTimerValue - 1;
+  bossTimerHtml.innerHTML = bossTimerValue;
   if (bossTimerHtml.innerHTML == 0) {
     BossAttack();
   }
@@ -424,7 +427,7 @@ function BossAttack() {
     setTimeout(function () {
       if (isGameOver == false) {
         bossRightOrWrong.classList.remove("boss-question-right");
-        bossTimerHtml.innerHTML = 15;
+        bossTimerValue = 15;
         bossRightOrWrong.style.display = "none";
         bossTimerHolder.style.display = "flex";
         bossAttackWraper.src = bossId + "/" + bossId + ".gif";
@@ -528,7 +531,7 @@ function BossAttack() {
         bossRightOrWrong.style.display = "none";
         bossRightOrWrong.classList.remove("boss-question-wrong");
         console.log("class remove");
-        bossTimerHtml.innerHTML = 10;
+        bossTimerValue = 10;
       }
     }, 2000);
   }
