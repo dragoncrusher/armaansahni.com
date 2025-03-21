@@ -9,7 +9,6 @@ let bossId;
 let damageToBoss;
 let theInputWords = document.createElement("p");
 let theEndScreenInput = document.createElement("p");
-let infoDivInput = document.createElement("p");
 let bossTimerInHtml;
 let attackCharges = {
   attackButton1Charge: 1,
@@ -50,8 +49,6 @@ const attackInProgress = document.getElementById("attack-in-progress");
 const bossHPbar = document.getElementById("boss-hp-bar");
 const wizardHPbar = document.getElementById("wizard-hp-bar");
 const body = document.body;
-
-infoDiv.appendChild(infoDivInput);
 
 const wizardHPOutput = document.createElement("div");
 wizardHPOutput.innerHTML = wizardHp;
@@ -228,7 +225,7 @@ function askThem(charge, TheDamage) {
     theInputWords.innerHTML = "To proceed you must do math." + "<br/>" + " What is " + theMathQuestion + "?";
     theMathAsk.appendChild(theInputWords);
   } else {
-    infoDivInput.innerHTML = "The move you want to use is not charged up yet. Please select another move.";
+    infoDiv.innerHTML = "The move you want to use is not charged up yet. Please select another move.";
     infoDiv.style.display = "block";
     attackHolder.style.display = "none";
     inputTeller.style.display = "none";
@@ -263,7 +260,7 @@ function checkTheAnswer() {
     attackCharges["attackButton4Charge"] = attackCharges["attackButton4Charge"] + 1;
     WizardAttack();
   } else {
-    infoDivInput.innerHTML = "Wrong Answer";
+    infoDiv.innerHTML = "Wrong Answer";
     infoDiv.classList.add("info-div-question-wrong");
     infoDiv.style.display = "block";
     attackHolder.style.display = "none";
@@ -284,7 +281,7 @@ function WizardAttack() {
   let theBarWidth;
   if (isGameOver == false) {
     const bossHitsplat = document.getElementById("boss-hitsplat");
-    infoDivInput.innerHTML = "Right Answer";
+    infoDiv.innerHTML = "Right Answer";
     infoDiv.style.display = "block";
     infoDiv.classList.add("info-div-question-right");
     attackHolder.style.display = "none";
@@ -395,7 +392,7 @@ function WizardAttack() {
       }
     }, 6000);
   } else {
-    infoDivInput.innerHTML = "sorry you are dead, and you cannot attack if you are dead";
+    infoDiv.innerHTML = "sorry you are dead, and you cannot attack if you are dead";
     infoDiv.style.display = "block";
     attackHolder.style.display = "none";
     inputTeller.style.display = "none";
