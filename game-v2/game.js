@@ -3,7 +3,7 @@
 let bossHP;
 let wizardHp = 300;
 let isGameOver = false;
-let theMathAnswer;
+let realAnswer;
 let theAnswer;
 let bossId;
 let bossTimerValue = 10;
@@ -112,6 +112,7 @@ function randomChoice(choices) {
 
 function bossTimer() {
   bossTimerValue = 10;
+  bossTimerHtml.innerHTML = bossTimerValue;
 }
 function timertick() {
   bossTimerValue = bossTimerValue - 1;
@@ -161,13 +162,13 @@ function askThem(charge, TheDamage) {
         let a = 1 + Math.floor(Math.random() * 10);
         let b = 1 + Math.floor(Math.random() * 10);
         theMathQuestion = a + "+" + b + "=";
-        theMathAnswer = a + b;
+        realAnswer = a + b;
       } else {
         let a = 1 + Math.floor(Math.random() * 6);
         let b = 1 + Math.floor(Math.random() * 6);
         a = a + 5;
         theMathQuestion = a + "-" + b + "=";
-        theMathAnswer = a - b;
+        realAnswer = a - b;
       }
     } else if (TheDamage == 2) {
       const level = randomChoice(["addition", "subtraction", "division"]);
@@ -175,19 +176,19 @@ function askThem(charge, TheDamage) {
         let a = 1 + Math.floor(Math.random() * 10);
         let b = 1 + Math.floor(Math.random() * 100);
         theMathQuestion = a + "+" + b + "=";
-        theMathAnswer = a + b;
+        realAnswer = a + b;
       } else if (level == "subtraction") {
         let a = 1 + Math.floor(Math.random() * 500);
         let b = 1 + Math.floor(Math.random() * 10);
         a = a + 500;
         theMathQuestion = a + "-" + b + "=";
-        theMathAnswer = a - b;
+        realAnswer = a - b;
       } else {
         let a = 1 + Math.floor(Math.random() * 5);
         let b = 1 + Math.floor(Math.random() * 5);
         a = a * b;
         theMathQuestion = a + "÷" + b + "=";
-        theMathAnswer = a / b;
+        realAnswer = a / b;
       }
     } else if (TheDamage == 3) {
       const level = randomChoice(["addition", "multiplication", "division"]);
@@ -195,18 +196,18 @@ function askThem(charge, TheDamage) {
         let a = 1 + Math.floor(Math.random() * 100);
         let b = 1 + Math.floor(Math.random() * 100);
         theMathQuestion = a + "+" + b + "=";
-        theMathAnswer = a + b;
+        realAnswer = a + b;
       } else if (level == "multiplication") {
         let a = 1 + Math.floor(Math.random() * 5);
         let b = 1 + Math.floor(Math.random() * 5);
         theMathQuestion = a + "x" + b + "=";
-        theMathAnswer = a * b;
+        realAnswer = a * b;
       } else {
         let a = 6 + Math.floor(Math.random() * 12);
         let b = 6 + Math.floor(Math.random() * 12);
         a = a * b;
         theMathQuestion = a + "÷" + b + "=";
-        theMathAnswer = a / b;
+        realAnswer = a / b;
       }
     } else if (TheDamage == 4) {
       const level = randomChoice(["subtraction", "multiplication"]);
@@ -214,12 +215,12 @@ function askThem(charge, TheDamage) {
         let a = 61 + Math.floor(Math.random() * 50);
         let b = 11 + Math.floor(Math.random() * 50);
         theMathQuestion = a + "-" + b + "=";
-        theMathAnswer = a - b;
+        realAnswer = a - b;
       } else {
         let a = 6 + Math.floor(Math.random() * 12);
         let b = 6 + Math.floor(Math.random() * 12);
         theMathQuestion = a + "x" + b + "=";
-        theMathAnswer = a * b;
+        realAnswer = a * b;
       }
     }
     theInputBox.focus();
@@ -252,7 +253,7 @@ function checkTheAnswer() {
   attackHolder.style.display = "none";
   inputTeller.style.display = "none";
 
-  if (Number(theAnswer) == theMathAnswer) {
+  if (Number(theAnswer) == realAnswer) {
     attackCharges["attackButton1Charge"] = attackCharges["attackButton1Charge"] + 1;
     attackCharges["attackButton2Charge"] = attackCharges["attackButton2Charge"] + 1;
     attackCharges["attackButton3Charge"] = attackCharges["attackButton3Charge"] + 1;
@@ -428,6 +429,7 @@ function BossAttack() {
       if (isGameOver == false) {
         bossRightOrWrong.classList.remove("boss-question-right");
         bossTimerValue = 15;
+        bossTimerHtml.innerHTML = bossTimerValue;
         bossRightOrWrong.style.display = "none";
         bossTimerHolder.style.display = "flex";
         bossAttackWraper.src = bossId + "/" + bossId + ".gif";
@@ -532,6 +534,7 @@ function BossAttack() {
         bossRightOrWrong.classList.remove("boss-question-wrong");
         console.log("class remove");
         bossTimerValue = 10;
+        bossTimerHtml.innerHTML = bossTimerValue;
       }
     }, 2000);
   }
