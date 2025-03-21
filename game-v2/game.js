@@ -5,7 +5,7 @@ let wisardHp = 300;
 let isGameOver = false;
 let theMathAnswer;
 let theAnswer;
-let boss;
+let bossId;
 let theGlobalDamageInfo;
 let theInputWords = document.createElement("p");
 let theEndScreenInput = document.createElement("p");
@@ -99,8 +99,8 @@ function startGame(HPsetter, theboss) {
   hp = HPsetter;
   globalHPsetter = HPsetter;
   bossHPoutput.innerHTML = hp;
-  boss = theboss;
-  bossAttackWraper.src = boss + "/" + boss + ".gif";
+  bossId = theboss;
+  bossAttackWraper.src = bossId + "/" + bossId + ".gif";
   bossTimer();
 
   playSoundForever(battleSound);
@@ -415,7 +415,7 @@ function restart() {
 
 function BossAttack() {
   let theBarWidth;
-  const bossAttackSound = boss + "/" + "attack_sound.wav";
+  const bossAttackSound = bossId + "/" + "attack_sound.wav";
   let randomIndex;
   let theBossesAnswer;
   const bossArray = ["yes", "no"];
@@ -434,24 +434,24 @@ function BossAttack() {
         bossTimerHtml.innerHTML = 15;
         bossRightOrWrong.style.display = "none";
         bossTimerHolder.style.display = "flex";
-        bossAttackWraper.src = boss + "/" + boss + ".gif";
+        bossAttackWraper.src = bossId + "/" + bossId + ".gif";
       }
     }, 2000);
     setTimeout(function () {
       if (isGameOver == false) {
-        bossAttackWraper.src = boss + "/" + boss + "costume2.gif";
+        bossAttackWraper.src = bossId + "/" + bossId + "costume2.gif";
       }
     }, 3000);
     setTimeout(function () {
       if (isGameOver == false) {
-        bossAttackWraper.src = boss + "/" + boss + "costume3.gif";
+        bossAttackWraper.src = bossId + "/" + bossId + "costume3.gif";
       }
       playSound(bossAttackSound);
     }, 4000);
 
     setTimeout(function () {
       if (isGameOver == false) {
-        bossAttackWraper.src = boss + "/" + boss + ".gif";
+        bossAttackWraper.src = bossId + "/" + bossId + ".gif";
       }
     }, 5000);
     setTimeout(function () {
