@@ -1,8 +1,7 @@
 //let imagePath;
 //let thebackground = document.getElementById("background");
 let hp;
-let isBossDead = false;
-let isWisardDead = false;
+let isGameOver = false;
 let theMathAnswer;
 let theAnswer;
 let boss;
@@ -71,8 +70,7 @@ function playSoundForever(soundFile) {
 
 function startGame(HPsetter, theboss) {
   body.style.backgroundColor = "rgb(0, 0, 0)";
-  isBossDead = false;
-  isWisardDead = false;
+  isGameOver = false;
   bossHPbar.style.width = "100%";
   bossHPbar.style.backgroundColor = "rgb(19, 130, 0)";
   wisardHPbar.style.width = "100%";
@@ -232,9 +230,11 @@ function askThem(charge, TheDamage) {
     attackHolder.style.display = "none";
     inputTeller.style.display = "none";
     setTimeout(function () {
-      infoDiv.style.display = "none";
-      attackHolder.style.display = "block";
-      inputTeller.style.display = "none";
+      if (isGameOver == false) {
+        infoDiv.style.display = "none";
+        attackHolder.style.display = "block";
+        inputTeller.style.display = "none";
+      }
     }, 4000);
   }
 }
@@ -266,18 +266,20 @@ function checkTheAnswer() {
     attackHolder.style.display = "none";
     inputTeller.style.display = "none";
     setTimeout(function () {
-      wisardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif";
-      infoDiv.style.display = "none";
-      infoDiv.classList.remove("info-div-question-wrong");
-      attackHolder.style.display = "block";
-      inputTeller.style.display = "none";
+      if (isGameOver == false) {
+        wisardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif";
+        infoDiv.style.display = "none";
+        infoDiv.classList.remove("info-div-question-wrong");
+        attackHolder.style.display = "block";
+        inputTeller.style.display = "none";
+      }
     }, 1000);
   }
 }
 
 function GoleShootHit() {
   let theBarWidth;
-  if (isWisardDead == false) {
+  if (isGameOver == false) {
     const bossHitsplat = document.getElementById("boss-hitsplat");
     infoDivInput.innerHTML = "Right Answer";
     infoDiv.style.display = "block";
@@ -286,80 +288,94 @@ function GoleShootHit() {
     inputTeller.style.display = "none";
     attackInProgress.style.display = "none";
     setTimeout(function () {
-      infoDiv.style.display = "none";
-      infoDiv.classList.remove("info-div-question-right");
-      attackHolder.style.display = "none";
-      inputTeller.style.display = "none";
-      attackInProgress.style.display = "block";
+      if (isGameOver == false) {
+        infoDiv.style.display = "none";
+        infoDiv.classList.remove("info-div-question-right");
+        attackHolder.style.display = "none";
+        inputTeller.style.display = "none";
+        attackInProgress.style.display = "block";
+      }
     }, 2000);
     setTimeout(function () {
-      playSound(wisardAttackSound);
-      wisardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif";
+      if (isGameOver == false) {
+        playSound(wisardAttackSound);
+        wisardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif";
+      }
     }, 1000);
 
     setTimeout(function () {
-      wisardAttackWrapper.src = "wisardgoodguy/wizardgoodguycostume2.gif";
+      if (isGameOver == false) {
+        wisardAttackWrapper.src = "wisardgoodguy/wizardgoodguycostume2.gif";
+      }
     }, 2000);
 
     setTimeout(function () {
-      wisardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif";
+      if (isGameOver == false) {
+        wisardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif";
+      }
     }, 3000);
 
     setTimeout(function () {
-      bossPlayer.style.backgroundColor = "red";
-      bossHitsplat.innerHTML = "-" + theGlobalDamageInfo;
-      bossHitsplat.style.display = "flex";
-      let timeout = 250;
-      setTimeout(function () {
-        theBarWidth = ((hp - theGlobalDamageInfo) / globalHPsetter) * 100;
-        if (theBarWidth < 0) {
-          theBarWidth = 0;
-        }
-        bossHPbar.style.width = theBarWidth + "%";
-        console.log("updated", theBarWidth);
-      }, 359);
-      for (let i = 0; i < 10; i++) {
-        setTimeout(function () {
-          setTimeout(function () {
-            if (hp - theGlobalDamageInfo <= 0) {
-              isBossDead = true;
-              bossAttackWraper.src = "dead.png";
-            }
-            hp = hp - theGlobalDamageInfo / 10;
-            if (hp < 0) {
-              hp = 0;
-            }
-            fullHp.innerHTML = +hp;
-            if (hp == 0) {
-              infoDiv.style.display = "none";
-              attackHolder.style.display = "none";
-              inputTeller.style.display = "none";
-              theEndMessage.style.display = "block";
-              theEndScreenInput.innerHTML = "You Win!! 🏆";
-              clearInterval(bossTimerInHtml);
-              theEndScreen.appendChild(theEndScreenInput);
-            }
-            if (theBarWidth > 80) {
-              bossHPbar.style.backgroundColor = "rgb(19, 130, 0)";
-            }
-            if (theBarWidth <= 80 && theBarWidth > 49) {
-              bossHPbar.style.backgroundColor = "rgb(255, 221, 0)";
-            }
-            if (theBarWidth < 50) {
-              bossHPbar.style.backgroundColor = "rgb(167, 14, 14)";
-            }
-          }, 100);
-        }, timeout);
-        timeout = timeout + 250;
-      }
-      setTimeout(function () {
-        bossHitsplat.style.display = "none";
-        bossHitsplat.innerHTML = " ";
-      }, 2000);
-      playSound(hitSound);
+      if (isGameOver == false) {
+        bossPlayer.style.backgroundColor = "red";
+        bossHitsplat.innerHTML = "-" + theGlobalDamageInfo;
+        bossHitsplat.style.display = "flex";
+        let timeout = 250;
 
-      if (hp < 0) {
-        hp = 0;
+        setTimeout(function () {
+          if (isGameOver == false) {
+            theBarWidth = ((hp - theGlobalDamageInfo) / globalHPsetter) * 100;
+            if (theBarWidth < 0) {
+              theBarWidth = 0;
+            }
+            bossHPbar.style.width = theBarWidth + "%";
+            console.log("updated", theBarWidth);
+          }
+        }, 359);
+        for (let i = 0; i < 10; i++) {
+          setTimeout(function () {
+            setTimeout(function () {
+              if (isGameOver == false) {
+                hp = hp - theGlobalDamageInfo / 10;
+                if (hp < 0) {
+                  hp = 0;
+                }
+                fullHp.innerHTML = +hp;
+                if (hp == 0) {
+                  isGameOver = true;
+                  bossAttackWraper.src = "dead.png";
+                  attackInProgress.style.display = "none";
+                  infoDiv.style.display = "none";
+                  attackHolder.style.display = "none";
+                  inputTeller.style.display = "none";
+                  theEndMessage.style.display = "block";
+                  theEndScreenInput.innerHTML = "You Win!! 🏆";
+                  clearInterval(bossTimerInHtml);
+                  theEndScreen.appendChild(theEndScreenInput);
+                }
+                if (theBarWidth > 80) {
+                  bossHPbar.style.backgroundColor = "rgb(19, 130, 0)";
+                }
+                if (theBarWidth <= 80 && theBarWidth > 49) {
+                  bossHPbar.style.backgroundColor = "rgb(255, 221, 0)";
+                }
+                if (theBarWidth < 50) {
+                  bossHPbar.style.backgroundColor = "rgb(167, 14, 14)";
+                }
+              }
+            }, 100);
+          }, timeout);
+          timeout = timeout + 250;
+        }
+        setTimeout(function () {
+          bossHitsplat.style.display = "none";
+          bossHitsplat.innerHTML = " ";
+        }, 2000);
+        playSound(hitSound);
+
+        if (hp < 0) {
+          hp = 0;
+        }
       }
     }, 4000);
 
@@ -367,10 +383,12 @@ function GoleShootHit() {
       bossPlayer.style.backgroundColor = "transparent";
     }, 5000);
     setTimeout(function () {
-      infoDiv.style.display = "none";
-      attackHolder.style.display = "block";
-      inputTeller.style.display = "none";
-      attackInProgress.style.display = "none";
+      if (isGameOver == false) {
+        infoDiv.style.display = "none";
+        attackHolder.style.display = "block";
+        inputTeller.style.display = "none";
+        attackInProgress.style.display = "none";
+      }
     }, 6000);
   } else {
     infoDivInput.innerHTML = "sorry you are dead, and you cannot attack if you are dead";
@@ -408,94 +426,94 @@ function BossAttack() {
 
     bossTimerHolder.style.display = "none";
     setTimeout(function () {
-      bossRightOrWrong.classList.remove("boss-question-right");
-      bossTimerHtml.innerHTML = 15;
-      bossRightOrWrong.style.display = "none";
-      bossTimerHolder.style.display = "flex";
-      if (isBossDead == false) {
+      if (isGameOver == false) {
+        bossRightOrWrong.classList.remove("boss-question-right");
+        bossTimerHtml.innerHTML = 15;
+        bossRightOrWrong.style.display = "none";
+        bossTimerHolder.style.display = "flex";
         bossAttackWraper.src = boss + "/" + boss + ".gif";
       }
     }, 2000);
     setTimeout(function () {
-      if (isBossDead == false) {
+      if (isGameOver == false) {
         bossAttackWraper.src = boss + "/" + boss + "costume2.gif";
       }
     }, 3000);
     setTimeout(function () {
-      if (isBossDead == false) {
+      if (isGameOver == false) {
         bossAttackWraper.src = boss + "/" + boss + "costume3.gif";
       }
       playSound(bossAttackSound);
     }, 4000);
 
     setTimeout(function () {
-      if (isBossDead == false) {
+      if (isGameOver == false) {
         bossAttackWraper.src = boss + "/" + boss + ".gif";
       }
     }, 5000);
     setTimeout(function () {
-      wisardPlayer.style.backgroundColor = "red";
-      playSound(hitSound);
+      if (isGameOver == false) {
+        wisardPlayer.style.backgroundColor = "red";
+        playSound(hitSound);
 
-      const theBossAttack = Math.floor(Math.random() * 4);
-      const bossMoveArray = ["10", "20", "30", "40"];
-      let theDamigeas;
+        const theBossAttack = Math.floor(Math.random() * 4);
+        const bossMoveArray = ["10", "20", "30", "40"];
+        let theDamigeas;
 
-      const wisardHitsplat = document.getElementById("wisard-hitsplat");
+        const wisardHitsplat = document.getElementById("wisard-hitsplat");
 
-      theDamigeas = bossMoveArray[theBossAttack];
+        theDamigeas = bossMoveArray[theBossAttack];
 
-      wisardHitsplat.style.display = "flex";
-      wisardHitsplat.innerHTML = "-" + theDamigeas;
-      setTimeout(function () {
-        wisardHitsplat.style.display = "none";
-        wisardHitsplat.innerHTML = " ";
-      }, 2000);
-
-      let timeout = 250;
-      setTimeout(function () {
-        theBarWidth = ((wisardHp - theDamigeas) / 300) * 100;
-        if (theBarWidth < 0) {
-          theBarWidth = 0;
-        }
-        wisardHPbar.style.width = theBarWidth + "%";
-        if (theBarWidth > 80) {
-          wisardHPbar.style.backgroundColor = "rgb(19, 130, 0)";
-        }
-        if (theBarWidth <= 80 && theBarWidth > 49) {
-          wisardHPbar.style.backgroundColor = "rgb(255, 221, 0)";
-        }
-        if (theBarWidth < 50) {
-          wisardHPbar.style.backgroundColor = "rgb(167, 14, 14)";
-        }
-      }, 350);
-      for (let i = 0; i < 10; i++) {
+        wisardHitsplat.style.display = "flex";
+        wisardHitsplat.innerHTML = "-" + theDamigeas;
         setTimeout(function () {
+          wisardHitsplat.style.display = "none";
+          wisardHitsplat.innerHTML = " ";
+        }, 2000);
+
+        let timeout = 250;
+        setTimeout(function () {
+          theBarWidth = ((wisardHp - theDamigeas) / 300) * 100;
+          if (theBarWidth < 0) {
+            theBarWidth = 0;
+          }
+          wisardHPbar.style.width = theBarWidth + "%";
+          if (theBarWidth > 80) {
+            wisardHPbar.style.backgroundColor = "rgb(19, 130, 0)";
+          }
+          if (theBarWidth <= 80 && theBarWidth > 49) {
+            wisardHPbar.style.backgroundColor = "rgb(255, 221, 0)";
+          }
+          if (theBarWidth < 50) {
+            wisardHPbar.style.backgroundColor = "rgb(167, 14, 14)";
+          }
+        }, 350);
+        for (let i = 0; i < 10; i++) {
           setTimeout(function () {
-            wisardHp = wisardHp - theDamigeas / 10;
-            if (wisardHp < 0) {
-              wisardHp = 0;
-            }
-            if (wisardHp == 0) {
-              isWisardDead = true;
-              wisardAttackWrapper.src = "dead.png";
-            }
-            yhpOutput.innerHTML = wisardHp;
-          }, 100);
-        }, timeout);
-        timeout = timeout + 250;
-      }
-
-      if (wisardHp <= 0) {
-        setTimeout(function () {
-          infoDiv.style.display = "none";
-          attackHolder.style.display = "none";
-          inputTeller.style.display = "none";
-          theEndMessage.style.display = "block";
-          theEndScreenInput.innerHTML = "You Lose 😭😭😭";
-          clearInterval(bossTimerInHtml);
-          theEndScreen.appendChild(theEndScreenInput);
-        }, 7000);
+            setTimeout(function () {
+              if (isGameOver == false) {
+                wisardHp = wisardHp - theDamigeas / 10;
+                if (wisardHp < 0) {
+                  wisardHp = 0;
+                }
+                if (wisardHp == 0) {
+                  isGameOver = true;
+                  wisardAttackWrapper.src = "dead.png";
+                  attackInProgress.style.display = "none";
+                  infoDiv.style.display = "none";
+                  attackHolder.style.display = "none";
+                  inputTeller.style.display = "none";
+                  theEndMessage.style.display = "block";
+                  theEndScreenInput.innerHTML = "You Lose 😭😭😭";
+                  clearInterval(bossTimerInHtml);
+                  theEndScreen.appendChild(theEndScreenInput);
+                }
+                yhpOutput.innerHTML = wisardHp;
+              }
+            }, 100);
+          }, timeout);
+          timeout = timeout + 250;
+        }
       }
     }, 5000);
     setTimeout(function () {
@@ -509,11 +527,13 @@ function BossAttack() {
     bossRightOrWrong.classList.add("boss-question-wrong");
     console.log("class add" + bossRightOrWrong.style.display + bossRightOrWrong.innerHTML);
     setTimeout(function () {
-      bossTimerHolder.style.display = "flex";
-      bossRightOrWrong.style.display = "none";
-      bossRightOrWrong.classList.remove("boss-question-wrong");
-      console.log("class remove");
-      bossTimerHtml.innerHTML = 10;
+      if (isGameOver == false) {
+        bossTimerHolder.style.display = "flex";
+        bossRightOrWrong.style.display = "none";
+        bossRightOrWrong.classList.remove("boss-question-wrong");
+        console.log("class remove");
+        bossTimerHtml.innerHTML = 10;
+      }
     }, 2000);
   }
 }
