@@ -4,7 +4,7 @@ let bossHP;
 let wizardHp = 300;
 let isGameOver = false;
 let realAnswer;
-let theAnswer;
+let userAnswer;
 let bossId;
 let bossTimerValue = 10;
 let damageToBoss;
@@ -240,20 +240,20 @@ function askThem(charge, TheDamage) {
   }
 }
 function getTheInput() {
-  theAnswer = theInputBox.value;
+  userAnswer = theInputBox.value;
   checkTheAnswer();
   theInputBox.value = "";
   theMathAsk.innerHTML = "";
 }
 function checkTheAnswer() {
-  if (theAnswer == null) {
+  if (userAnswer == null) {
     return;
   }
   infoDiv.style.display = "none";
   attackHolder.style.display = "none";
   inputTeller.style.display = "none";
 
-  if (Number(theAnswer) == realAnswer) {
+  if (Number(userAnswer) == realAnswer) {
     attackCharges["attackButton1Charge"] = attackCharges["attackButton1Charge"] + 1;
     attackCharges["attackButton2Charge"] = attackCharges["attackButton2Charge"] + 1;
     attackCharges["attackButton3Charge"] = attackCharges["attackButton3Charge"] + 1;
