@@ -1,7 +1,7 @@
 //let imagePath;
 //let thebackground = document.getElementById("background");
 let bossHP;
-let wisardHp = 300;
+let wizardHp = 300;
 let isGameOver = false;
 let theMathAnswer;
 let theAnswer;
@@ -29,14 +29,14 @@ const hitSound = "Hit_sound.wav";
 const bossRightOrWrong = document.querySelector(".boss-right-or-wrong");
 const bossTimerHolder = document.getElementById("boss-timer-holder");
 const battleSound = "Battle_sound_game.m4a";
-const wisardAttackSound = "wisardgoodguy/Wisard_attack_sound.m4a";
+const wizardAttackSound = "wisardgoodguy/Wisard_attack_sound.m4a";
 const bossKill = document.querySelector(".fight-page");
-const wisardAttackWrapper = document.getElementById("wisard-attack-wrapper");
+const wizardAttackWrapper = document.getElementById("wisard-attack-wrapper");
 const bossAttackWraper = document.getElementById("boss-attack-wrapper");
-const wisardPlayer = document.getElementById("wisard-player");
+const wizardPlayer = document.getElementById("wisard-player");
 const bossPlayer = document.getElementById("to-be-boss-player");
 const bossHPholder = document.getElementById("boss-hp-holder");
-const wisardHpHolder = document.getElementById("wisard-hp-holder");
+const wizardHpHolder = document.getElementById("wisard-hp-holder");
 const theMathAsk = document.getElementById("the-input-words");
 const theInputBox = document.getElementById("input");
 const theEndScreen = document.getElementById("the-end-screen");
@@ -47,14 +47,14 @@ const inputTeller = document.getElementById("input_teller");
 const attackHolder = document.getElementById("attack-holder");
 const attackInProgress = document.getElementById("attack-in-progress");
 const bossHPbar = document.getElementById("boss-hp-bar");
-const wisardHPbar = document.getElementById("wisard-hp-bar");
+const wizardHPbar = document.getElementById("wisard-hp-bar");
 const body = document.body;
 
 infoDiv.appendChild(infoDivInput);
 
 const wizardHPOutput = document.createElement("div");
-wizardHPOutput.innerHTML = wisardHp;
-wisardHpHolder.appendChild(wizardHPOutput);
+wizardHPOutput.innerHTML = wizardHp;
+wizardHpHolder.appendChild(wizardHPOutput);
 const bossHPoutput = document.createElement("div");
 bossHPholder.appendChild(bossHPoutput);
 
@@ -74,8 +74,8 @@ function startGame(HPsetter, theboss) {
   isGameOver = false;
   bossHPbar.style.width = "100%";
   bossHPbar.style.backgroundColor = "rgb(19, 130, 0)";
-  wisardHPbar.style.width = "100%";
-  wisardHPbar.style.backgroundColor = "rgb(19, 130, 0)";
+  wizardHPbar.style.width = "100%";
+  wizardHPbar.style.backgroundColor = "rgb(19, 130, 0)";
   attackButton2.classList.add("uncharged");
   attackButton3.classList.add("uncharged");
   attackButton4.classList.add("uncharged");
@@ -84,7 +84,7 @@ function startGame(HPsetter, theboss) {
   attackHolder.style.display = "block";
   inputTeller.style.display = "none";
   theEndMessage.style.display = "none";
-  wisardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif";
+  wizardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif";
   bossAttackWraper.src = theboss + "/" + theboss + ".gif";
   body.style.backgroundImage = "url('" + theboss + "/background.png')";
 
@@ -269,7 +269,7 @@ function checkTheAnswer() {
     inputTeller.style.display = "none";
     setTimeout(function () {
       if (isGameOver == false) {
-        wisardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif";
+        wizardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif";
         infoDiv.style.display = "none";
         infoDiv.classList.remove("info-div-question-wrong");
         attackHolder.style.display = "block";
@@ -300,20 +300,20 @@ function WizardAttack() {
     }, 2000);
     setTimeout(function () {
       if (isGameOver == false) {
-        playSound(wisardAttackSound);
-        wisardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif";
+        playSound(wizardAttackSound);
+        wizardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif";
       }
     }, 1000);
 
     setTimeout(function () {
       if (isGameOver == false) {
-        wisardAttackWrapper.src = "wisardgoodguy/wizardgoodguycostume2.gif";
+        wizardAttackWrapper.src = "wisardgoodguy/wizardgoodguycostume2.gif";
       }
     }, 2000);
 
     setTimeout(function () {
       if (isGameOver == false) {
-        wisardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif";
+        wizardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif";
       }
     }, 3000);
 
@@ -403,9 +403,9 @@ function WizardAttack() {
 }
 
 function restart() {
-  wisardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif";
-  wisardHp = 50;
-  wizardHPOutput.innerHTML = wisardHp;
+  wizardAttackWrapper.src = "wisardgoodguy/wisardgoodguy.gif";
+  wizardHp = 50;
+  wizardHPOutput.innerHTML = wizardHp;
   theEndMessage.style.display = "none";
   bossSelect.style.display = "block";
   body.style.backgroundColor = "rgb(255, 255, 255)";
@@ -456,52 +456,52 @@ function BossAttack() {
     }, 5000);
     setTimeout(function () {
       if (isGameOver == false) {
-        wisardPlayer.style.backgroundColor = "red";
+        wizardPlayer.style.backgroundColor = "red";
         playSound(hitSound);
 
         const theBossAttack = Math.floor(Math.random() * 4);
         const bossMoveArray = ["10", "20", "30", "40"];
         let damageToWizard;
 
-        const wisardHitsplat = document.getElementById("wisard-hitsplat");
+        const wizardHitsplat = document.getElementById("wisard-hitsplat");
 
         damageToWizard = bossMoveArray[theBossAttack];
 
-        wisardHitsplat.style.display = "flex";
-        wisardHitsplat.innerHTML = "-" + damageToWizard;
+        wizardHitsplat.style.display = "flex";
+        wizardHitsplat.innerHTML = "-" + damageToWizard;
         setTimeout(function () {
-          wisardHitsplat.style.display = "none";
-          wisardHitsplat.innerHTML = " ";
+          wizardHitsplat.style.display = "none";
+          wizardHitsplat.innerHTML = " ";
         }, 2000);
 
         let timeout = 250;
         setTimeout(function () {
-          theBarWidth = ((wisardHp - damageToWizard) / 300) * 100;
+          theBarWidth = ((wizardHp - damageToWizard) / 300) * 100;
           if (theBarWidth < 0) {
             theBarWidth = 0;
           }
-          wisardHPbar.style.width = theBarWidth + "%";
+          wizardHPbar.style.width = theBarWidth + "%";
           if (theBarWidth > 80) {
-            wisardHPbar.style.backgroundColor = "rgb(19, 130, 0)";
+            wizardHPbar.style.backgroundColor = "rgb(19, 130, 0)";
           }
           if (theBarWidth <= 80 && theBarWidth > 49) {
-            wisardHPbar.style.backgroundColor = "rgb(255, 221, 0)";
+            wizardHPbar.style.backgroundColor = "rgb(255, 221, 0)";
           }
           if (theBarWidth < 50) {
-            wisardHPbar.style.backgroundColor = "rgb(167, 14, 14)";
+            wizardHPbar.style.backgroundColor = "rgb(167, 14, 14)";
           }
         }, 350);
         for (let i = 0; i < 10; i++) {
           setTimeout(function () {
             setTimeout(function () {
               if (isGameOver == false) {
-                wisardHp = wisardHp - damageToWizard / 10;
-                if (wisardHp < 0) {
-                  wisardHp = 0;
+                wizardHp = wizardHp - damageToWizard / 10;
+                if (wizardHp < 0) {
+                  wizardHp = 0;
                 }
-                if (wisardHp == 0) {
+                if (wizardHp == 0) {
                   isGameOver = true;
-                  wisardAttackWrapper.src = "dead.png";
+                  wizardAttackWrapper.src = "dead.png";
                   underBoss.style.display = "none";
                   attackInProgress.style.display = "none";
                   infoDiv.style.display = "none";
@@ -512,7 +512,7 @@ function BossAttack() {
                   clearInterval(bossTimerInHtml);
                   theEndScreen.appendChild(theEndScreenInput);
                 }
-                wizardHPOutput.innerHTML = wisardHp;
+                wizardHPOutput.innerHTML = wizardHp;
               }
             }, 100);
           }, timeout);
@@ -521,7 +521,7 @@ function BossAttack() {
       }
     }, 5000);
     setTimeout(function () {
-      wisardPlayer.style.backgroundColor = "transparent";
+      wizardPlayer.style.backgroundColor = "transparent";
     }, 6000);
   } else {
     bossTimerHolder.style.display = "none";
