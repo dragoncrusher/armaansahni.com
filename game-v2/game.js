@@ -29,7 +29,7 @@ const attackButton4 = document.getElementById("attack-button-4");
 const underBoss = document.getElementById("under-boss");
 const bossRightOrWrong = document.querySelector(".boss-right-or-wrong");
 const bossTimerHolder = document.getElementById("boss-timer-holder");
-const bossKill = document.querySelector(".fight-page");
+const fightPage = document.querySelector(".fight-page");
 const wizardAttackWrapper = document.getElementById("wizard-attack-wrapper");
 const bossAttackWraper = document.getElementById("boss-attack-wrapper");
 const wizardPlayer = document.getElementById("wizard-player");
@@ -37,9 +37,9 @@ const bossPlayer = document.getElementById("to-be-boss-player");
 const bossHPholder = document.getElementById("boss-hp-holder");
 const wizardHpHolder = document.getElementById("wizard-hp-holder");
 const mathQuestionContainer = document.getElementById("the-input-words");
-const InputBox = document.getElementById("input");
+const inputBox = document.getElementById("input");
 const endWords = document.getElementById("the-end-screen");
-const bossSelect = document.querySelector(".choose-page");
+const choosePage = document.querySelector(".choose-page");
 const endPage = document.querySelector(".end-page");
 const infoDiv = document.getElementById("info-div");
 const inputContaner = document.getElementById("input-container");
@@ -90,8 +90,8 @@ function startGame(totalHP, selectedBoss) {
   bossTimer = setInterval(() => {
     timertick();
   }, 1000);
-  bossSelect.style.display = "none";
-  bossKill.style.display = "flex";
+  choosePage.style.display = "none";
+  fightPage.style.display = "flex";
   body.style.backgroundColor = "rgb(0, 0, 0)";
   bossHP = totalHP;
   totalBossHP = totalHP;
@@ -218,7 +218,7 @@ function askThem(charge, damage) {
         realAnswer = a * b;
       }
     }
-    InputBox.focus();
+    inputBox.focus();
     mathQuestionContainer.innerHTML = "To proceed you must do math." + "<br/>" + " What is " + mathQuestion + "?";
   } else {
     infoDiv.innerHTML = "The move you want to use is not charged up yet. Please select another move.";
@@ -235,9 +235,9 @@ function askThem(charge, damage) {
   }
 }
 function getTheInput() {
-  userAnswer = InputBox.value;
+  userAnswer = inputBox.value;
   checkTheAnswer();
-  InputBox.value = "";
+  inputBox.value = "";
   mathQuestionContainer.innerHTML = "";
 }
 function checkTheAnswer() {
@@ -253,7 +253,7 @@ function checkTheAnswer() {
     attackCharges["attackButton2Charge"] = attackCharges["attackButton2Charge"] + 1;
     attackCharges["attackButton3Charge"] = attackCharges["attackButton3Charge"] + 1;
     attackCharges["attackButton4Charge"] = attackCharges["attackButton4Charge"] + 1;
-    WizardAttack();
+    wizardAttack();
   } else {
     infoDiv.innerHTML = "Wrong Answer";
     infoDiv.classList.add("info-div-question-wrong");
@@ -272,8 +272,8 @@ function checkTheAnswer() {
   }
 }
 
-function WizardAttack() {
-  let BarWidth;
+function wizardAttack() {
+  let barWidth;
   if (isGameOver == false) {
     const bossHitsplat = document.getElementById("boss-hitsplat");
     infoDiv.innerHTML = "Right Answer";
@@ -319,12 +319,12 @@ function WizardAttack() {
 
         setTimeout(function () {
           if (isGameOver == false) {
-            BarWidth = ((bossHP - damageToBoss) / totalBossHP) * 100;
-            if (BarWidth < 0) {
-              BarWidth = 0;
+            barWidth = ((bossHP - damageToBoss) / totalBossHP) * 100;
+            if (barWidth < 0) {
+              barWidth = 0;
             }
-            bossHPbar.style.width = BarWidth + "%";
-            console.log("updated", BarWidth);
+            bossHPbar.style.width = barWidth + "%";
+            console.log("updated", barWidth);
           }
         }, 359);
         for (let i = 0; i < 10; i++) {
@@ -348,13 +348,13 @@ function WizardAttack() {
                   endWords.innerHTML = "You Win!! 🏆";
                   clearInterval(bossTimer);
                 }
-                if (BarWidth > 80) {
+                if (barWidth > 80) {
                   bossHPbar.style.backgroundColor = "rgb(19, 130, 0)";
                 }
-                if (BarWidth <= 80 && BarWidth > 49) {
+                if (barWidth <= 80 && barWidth > 49) {
                   bossHPbar.style.backgroundColor = "rgb(255, 221, 0)";
                 }
-                if (BarWidth < 50) {
+                if (barWidth < 50) {
                   bossHPbar.style.backgroundColor = "rgb(167, 14, 14)";
                 }
               }
@@ -399,14 +399,14 @@ function restart() {
   wizardHp = 300;
   wizardHPOutput.innerHTML = wizardHp;
   endPage.style.display = "none";
-  bossSelect.style.display = "block";
+  choosePage.style.display = "block";
   body.style.backgroundColor = "rgb(255, 255, 255)";
-  bossKill.style.display = "none";
+  fightPage.style.display = "none";
   body.style.backgroundImage = "url('blank-space.png')";
 }
 
 function BossAttack() {
-  let BarWidth;
+  let barWidth;
   const bossAttackSound = bossId + "/" + "attack_sound.wav";
   let randomIndex;
   let bossAnswer;
@@ -469,18 +469,18 @@ function BossAttack() {
 
         let timeout = 250;
         setTimeout(function () {
-          BarWidth = ((wizardHp - damageToWizard) / 300) * 100;
-          if (BarWidth < 0) {
-            BarWidth = 0;
+          barWidth = ((wizardHp - damageToWizard) / 300) * 100;
+          if (barWidth < 0) {
+            barWidth = 0;
           }
-          wizardHPbar.style.width = BarWidth + "%";
-          if (BarWidth > 80) {
+          wizardHPbar.style.width = barWidth + "%";
+          if (barWidth > 80) {
             wizardHPbar.style.backgroundColor = "rgb(19, 130, 0)";
           }
-          if (BarWidth <= 80 && BarWidth > 49) {
+          if (barWidth <= 80 && barWidth > 49) {
             wizardHPbar.style.backgroundColor = "rgb(255, 221, 0)";
           }
-          if (BarWidth < 50) {
+          if (barWidth < 50) {
             wizardHPbar.style.backgroundColor = "rgb(167, 14, 14)";
           }
         }, 350);
