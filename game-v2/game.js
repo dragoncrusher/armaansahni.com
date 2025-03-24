@@ -1,4 +1,7 @@
+"use strict";
+
 let bossHP;
+let totalBossHP;
 let wizardHp = 300;
 let isGameOver = false;
 let realAnswer;
@@ -14,7 +17,6 @@ let attackCharges = {
   attackButton4Charge: 1,
 };
 let currentAttack;
-let globalHPsetter;
 
 const hitSound = "Hit_sound.wav";
 const battleSound = "Battle_sound_game.m4a";
@@ -65,7 +67,7 @@ function playSoundForever(soundFile) {
   audio.play();
 }
 
-function startGame(HPsetter, selectedBoss) {
+function startGame(totalHP, selectedBoss) {
   bossId = selectedBoss;
   body.style.backgroundColor = "rgb(0, 0, 0)";
   isGameOver = false;
@@ -91,9 +93,9 @@ function startGame(HPsetter, selectedBoss) {
   bossSelect.style.display = "none";
   bossKill.style.display = "flex";
   body.style.backgroundColor = "rgb(0, 0, 0)";
-  hp = HPsetter;
-  globalHPsetter = HPsetter;
-  bossHPoutput.innerHTML = hp;
+  bossHP = totalHP;
+  totalBossHP = totalHP;
+  bossHPoutput.innerHTML = bossHP;
   bossAttackWraper.src = bossId + "/" + bossId + ".gif";
   bossTimerValue = 10;
   bossTimerHtml.innerHTML = bossTimerValue;
@@ -317,7 +319,7 @@ function WizardAttack() {
 
         setTimeout(function () {
           if (isGameOver == false) {
-            BarWidth = ((hp - damageToBoss) / globalHPsetter) * 100;
+            BarWidth = ((bossHP - damageToBoss) / totalBossHP) * 100;
             if (BarWidth < 0) {
               BarWidth = 0;
             }
@@ -329,12 +331,12 @@ function WizardAttack() {
           setTimeout(function () {
             setTimeout(function () {
               if (isGameOver == false) {
-                hp = hp - damageToBoss / 10;
-                if (hp < 0) {
-                  hp = 0;
+                bossHP = bossHP - damageToBoss / 10;
+                if (bossHP < 0) {
+                  bossHP = 0;
                 }
-                bossHPoutput.innerHTML = +hp;
-                if (hp == 0) {
+                bossHPoutput.innerHTML = +bossHP;
+                if (bossHP == 0) {
                   isGameOver = true;
                   underBoss.style.display = "none";
                   bossAttackWraper.src = "dead.png";
@@ -366,8 +368,8 @@ function WizardAttack() {
         }, 2000);
         playSound(hitSound);
 
-        if (hp < 0) {
-          hp = 0;
+        if (bossHP < 0) {
+          bossHP = 0;
         }
       }
     }, 4000);
@@ -394,7 +396,7 @@ function WizardAttack() {
 
 function restart() {
   wizardAttackWrapper.src = "wizardgoodguy/wizardgoodguy.gif";
-  wizardHp = 50;
+  wizardHp = 300;
   wizardHPOutput.innerHTML = wizardHp;
   endPage.style.display = "none";
   bossSelect.style.display = "block";
