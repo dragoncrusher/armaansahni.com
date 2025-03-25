@@ -179,8 +179,8 @@ function askThem(charge, damage) {
         mathQuestion = a + "-" + b + "=";
         realAnswer = a - b;
       } else {
-        let a = 1 + Math.floor(Math.random() * 5);
-        let b = 1 + Math.floor(Math.random() * 5);
+        let a = 1 + Math.floor(Math.random() * 6);
+        let b = 1 + Math.floor(Math.random() * 6);
         a = a * b;
         mathQuestion = a + "÷" + b + "=";
         realAnswer = a / b;
@@ -193,13 +193,13 @@ function askThem(charge, damage) {
         mathQuestion = a + "+" + b + "=";
         realAnswer = a + b;
       } else if (level == "multiplication") {
-        let a = 1 + Math.floor(Math.random() * 5);
-        let b = 1 + Math.floor(Math.random() * 5);
+        let a = 1 + Math.floor(Math.random() * 6);
+        let b = 1 + Math.floor(Math.random() * 6);
         mathQuestion = a + "x" + b + "=";
         realAnswer = a * b;
       } else {
-        let a = 6 + Math.floor(Math.random() * 12);
-        let b = 6 + Math.floor(Math.random() * 12);
+        let a = 6 + Math.floor(Math.random() * 7);
+        let b = 6 + Math.floor(Math.random() * 7);
         a = a * b;
         mathQuestion = a + "÷" + b + "=";
         realAnswer = a / b;
@@ -212,8 +212,8 @@ function askThem(charge, damage) {
         mathQuestion = a + "-" + b + "=";
         realAnswer = a - b;
       } else {
-        let a = 6 + Math.floor(Math.random() * 12);
-        let b = 6 + Math.floor(Math.random() * 12);
+        let a = 6 + Math.floor(Math.random() * 7);
+        let b = 6 + Math.floor(Math.random() * 7);
         mathQuestion = a + "x" + b + "=";
         realAnswer = a * b;
       }
