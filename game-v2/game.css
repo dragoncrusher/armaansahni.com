@@ -116,6 +116,7 @@ b {
   background-color: #ffffff;
   display: flex;
   border-style: outset;
+  border-color: rgb(0, 0, 0);
 }
 .end-button {
   padding: 15px 15px;
