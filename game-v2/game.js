@@ -18,7 +18,7 @@ let attackCharges = {
 };
 let currentAttack;
 
-const hitSound = "Hit_sound.wav";
+const hitSound = "Hit_sound.m4a";
 const battleSound = "Battle_sound_game.m4a";
 const wizardAttackSound = "wizardgoodguy/Wizard_attack_sound.m4a";
 
@@ -407,7 +407,7 @@ function restart() {
 
 function BossAttack() {
   let barWidth;
-  const bossAttackSound = bossId + "/" + "attack_sound.wav";
+  const bossAttackSound = bossId + "/" + "attack_sound.m4a";
   let randomIndex;
   let bossAnswer;
   const bossArray = ["yes", "no"];
