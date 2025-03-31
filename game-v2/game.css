@@ -118,6 +118,11 @@ b {
   border-style: outset;
   border-color: rgb(0, 0, 0);
 }
+.home-link {
+  padding: 20px;
+  justify-content: center;
+  display: flex;
+}
 .end-button {
   padding: 15px 15px;
   background-color: rgb(205 199 223);
