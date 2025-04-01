@@ -332,6 +332,16 @@ function wizardAttack() {
             setTimeout(function () {
               if (isGameOver == false) {
                 bossHP = bossHP - damageToBoss / 10;
+                const bossHpPercentage = ((bossHP - damageToBoss) / totalBossHP) * 100;
+                if (bossHpPercentage > 80) {
+                  bossHPbar.style.backgroundColor = "rgb(19, 130, 0)";
+                }
+                if (bossHpPercentage <= 80 && bossHpPercentage > 49) {
+                  bossHPbar.style.backgroundColor = "rgb(255, 221, 0)";
+                }
+                if (bossHpPercentage < 50) {
+                  bossHPbar.style.backgroundColor = "rgb(167, 14, 14)";
+                }
                 if (bossHP < 0) {
                   bossHP = 0;
                 }
@@ -347,15 +357,6 @@ function wizardAttack() {
                   endPage.style.display = "block";
                   endWords.innerHTML = "You Win!! 🏆";
                   clearInterval(bossTimer);
-                }
-                if (barWidth > 80) {
-                  bossHPbar.style.backgroundColor = "rgb(19, 130, 0)";
-                }
-                if (barWidth <= 80 && barWidth > 49) {
-                  bossHPbar.style.backgroundColor = "rgb(255, 221, 0)";
-                }
-                if (barWidth < 50) {
-                  bossHPbar.style.backgroundColor = "rgb(167, 14, 14)";
                 }
               }
             }, 100);
@@ -474,21 +475,22 @@ function BossAttack() {
             barWidth = 0;
           }
           wizardHPbar.style.width = barWidth + "%";
-          if (barWidth > 80) {
-            wizardHPbar.style.backgroundColor = "rgb(19, 130, 0)";
-          }
-          if (barWidth <= 80 && barWidth > 49) {
-            wizardHPbar.style.backgroundColor = "rgb(255, 221, 0)";
-          }
-          if (barWidth < 50) {
-            wizardHPbar.style.backgroundColor = "rgb(167, 14, 14)";
-          }
         }, 350);
         for (let i = 0; i < 10; i++) {
           setTimeout(function () {
             setTimeout(function () {
               if (isGameOver == false) {
                 wizardHp = wizardHp - damageToWizard / 10;
+                const wizardHpPercentage = ((wizardHp - damageToWizard) / 300) * 100;
+                if (wizardHpPercentage > 80) {
+                  wizardHPbar.style.backgroundColor = "rgb(19, 130, 0)";
+                }
+                if (wizardHpPercentage <= 80 && wizardHpPercentage > 49) {
+                  wizardHPbar.style.backgroundColor = "rgb(255, 221, 0)";
+                }
+                if (wizardHpPercentage < 50) {
+                  wizardHPbar.style.backgroundColor = "rgb(167, 14, 14)";
+                }
                 if (wizardHp < 0) {
                   wizardHp = 0;
                 }

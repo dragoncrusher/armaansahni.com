@@ -197,6 +197,7 @@ b {
   pointer-events: none;
   opacity: 75%;
   filter: grayscale(100%);
+  color: rgb(83, 83, 83);
 }
 .attack-button {
   padding: 10px;
