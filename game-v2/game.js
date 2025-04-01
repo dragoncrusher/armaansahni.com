@@ -236,17 +236,18 @@ function askThem(charge, damage) {
 }
 function getTheInput() {
   userAnswer = inputBox.value;
+  console.log(userAnswer, "the answer");
   checkTheAnswer();
-  inputBox.value = "";
-  mathQuestionContainer.innerHTML = "";
 }
 function checkTheAnswer() {
-  if (userAnswer == null) {
+  if (userAnswer == null || userAnswer == "") {
     return;
   }
   infoDiv.style.display = "none";
   attackHolder.style.display = "none";
   inputContaner.style.display = "none";
+  inputBox.value = "";
+  mathQuestionContainer.innerHTML = "";
 
   if (Number(userAnswer) == realAnswer) {
     attackCharges["attackButton1Charge"] = attackCharges["attackButton1Charge"] + 1;
@@ -332,7 +333,7 @@ function wizardAttack() {
             setTimeout(function () {
               if (isGameOver == false) {
                 bossHP = bossHP - damageToBoss / 10;
-                const bossHpPercentage = ((bossHP - damageToBoss) / totalBossHP) * 100;
+                const bossHpPercentage = (bossHP / totalBossHP) * 100;
                 if (bossHpPercentage > 80) {
                   bossHPbar.style.backgroundColor = "rgb(19, 130, 0)";
                 }
@@ -481,7 +482,7 @@ function BossAttack() {
             setTimeout(function () {
               if (isGameOver == false) {
                 wizardHp = wizardHp - damageToWizard / 10;
-                const wizardHpPercentage = ((wizardHp - damageToWizard) / 300) * 100;
+                const wizardHpPercentage = (wizardHp / 300) * 100;
                 if (wizardHpPercentage > 80) {
                   wizardHPbar.style.backgroundColor = "rgb(19, 130, 0)";
                 }
