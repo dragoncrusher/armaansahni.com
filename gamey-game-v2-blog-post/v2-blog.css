@@ -1,0 +1,17 @@
+h2 {
+  margin-top: 100px;
+}
+.container {
+  padding: 10px;
+  margin-bottom: 20px;
+  margin: auto;
+  width: 400px;
+}
+* {
+  box-sizing: border-box;
+}
+img {
+  border-radius: 15px;
+  max-width: 100%;
+  border: solid rgb(161, 171, 226);
+}
