@@ -409,7 +409,7 @@ function restart() {
 
 function BossAttack() {
   let barWidth;
-  const bossAttackSound = bossId + "/" + "attack_sound.m4a";
+  const bossAttackSound = bossId + "/" + "attack_sound.wav";
   let randomIndex;
   let bossAnswer;
   const bossArray = ["yes", "no"];
