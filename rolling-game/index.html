@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rolling game</title>
+  </head>
+  <body>
+    <div class="block-container">
+      <h2 class="instuction">Insructions</h2>
+      <div>
+        Click "roll" to get a random word. Each word has a different ammount of xp it gives you. Use xp to level up!
+      </div>
+      <div class="level-teller" id="level-teller"></div>
+      <div class="xp-bar-outside">
+        <div class="xp-bar" id="xp-bar"></div>
+      </div>
+      <img class="what-you-got" id="what-you-got" />
+      <button class="roll-button" id="roll-button" onclick="roll()">roll</button>
+      <div class="badge-title">Badges</div>
+      <ol>
+        <li><div class="badge">High climber: reach level 50</div></li>
+        <li><div class="badge">level 11: get a 'normal'</div></li>
+        <li><div class="badge">level 22: get a 'invaluble'</div></li>
+        <li><div class="badge">level 33: get a 'rare'</div></li>
+        <li><div class="badge">level 44: get a 'unbelevable'</div></li>
+        <li><div class="badge">level 55: get a 'legendary'</div></li>
+        <li><div class="badge">level 66: get a 'mythical'</div></li>
+        <li><div class="badge">level 77: get a 'secret'</div></li>
+        <li><div class="badge">level 88: get a 'forgoton'</div></li>
+      </ol>
+    </div>
+  </body>
+
+  <script src="game.js"></script>
+  <link rel="stylesheet" href="game.css" />
+</html>
