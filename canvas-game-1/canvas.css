@@ -1,4 +1,8 @@
 #game-canvas {
   border: 1px solid #000;
   background-color: #eee;
+  background-position: center top;
+}
+body {
+  overflow: hidden;
 }
