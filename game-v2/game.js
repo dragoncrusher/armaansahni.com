@@ -352,6 +352,7 @@ function wizardAttack() {
                   inputContaner.style.display = "none";
                   endPage.style.display = "block";
                   endWords.innerHTML = "You Win!! 🏆";
+                  backgroundMusic.pause();
                   clearInterval(bossTimer);
                 }
               }
@@ -500,6 +501,7 @@ function BossAttack() {
                   inputContaner.style.display = "none";
                   endPage.style.display = "block";
                   endWords.innerHTML = "You Lose 😭😭😭";
+                  backgroundMusic.pause();
                   clearInterval(bossTimer);
                 }
                 wizardHPOutput.innerHTML = wizardHp;
