@@ -21,6 +21,8 @@ let currentAttack;
 const hitSound = "Hit_sound.m4a";
 const battleSound = "Battle_sound_game.m4a";
 const wizardAttackSound = "wizardgoodguy/Wizard_attack_sound.m4a";
+const backgroundMusic = new Audio(battleSound);
+backgroundMusic.loop = true;
 
 const bossTimerHtml = document.getElementById("boss-timer");
 const attackButton2 = document.getElementById("attack-button-2");
@@ -61,12 +63,6 @@ function playSound(soundFile) {
   audio.play();
 }
 
-function playSoundForever(soundFile) {
-  const audio = new Audio(soundFile);
-  audio.loop = true;
-  audio.play();
-}
-
 function startGame(totalHP, selectedBoss) {
   bossId = selectedBoss;
   body.style.backgroundColor = "rgb(0, 0, 0)";
@@ -99,8 +95,7 @@ function startGame(totalHP, selectedBoss) {
   bossAttackWraper.src = bossId + "/" + bossId + ".gif";
   bossTimerValue = 10;
   bossTimerHtml.innerHTML = bossTimerValue;
-
-  playSoundForever(battleSound);
+  backgroundMusic.play();
 }
 
 function randomChoice(choices) {
