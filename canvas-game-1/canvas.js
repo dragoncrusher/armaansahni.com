@@ -52,9 +52,6 @@ personimg.onload = function () {
       d2x: theDetectorX,
       c2x: theDetectorX + detectorWidth,
     };
-    // console.log("d2x " + rect2.d2x + " c2x " + rect2.c2x + " a2y " + rect2.a2y + " a1y " + rect1.a1y);
-    // console.log("theDetectorY" + theDetectorY + "detectorWidth" + detectorWidth);
-
     const isTouching = checkCollision(rect1, rect2);
     if (isTouching && !touching) {
       console.error("touching");
@@ -81,35 +78,6 @@ personimg.onload = function () {
 function checkCollision(rect1, rect2) {
   const not_touching_x = rect2.d2x > rect1.c1x || rect1.d1x > rect2.c2x;
   const not_touching_y = rect1.d1y < rect2.a2y || rect2.d2y < rect1.a1y;
-
-  console.log(rect2.d2x > rect1.c1x);
-  console.log("11");
-  console.log(rect1.d1x > rect2.c2x);
-  console.log("12");
-  console.log(rect1.d1y < rect2.a2y);
-  console.log("21");
-  console.log(rect2.d2y < rect1.a1y);
-  console.log("22");
-  // console.log("not_touching_x ", not_touching_x, "not_touching_y ", not_touching_y);
-  // console.log(
-  //   "d2x " +
-  //     rect2.d2x +
-  //     " c1x " +
-  //     rect1.c1x +
-  //     " d1x " +
-  //     rect1.d1x +
-  //     " c2x " +
-  //     rect2.c2x +
-  //     " d1y " +
-  //     rect1.d1y +
-  //     " a2y " +
-  //     rect2.a2y +
-  //     " d2y " +
-  //     rect2.d2y +
-  //     " a1y " +
-  //     rect1.a1y
-  // );
-
   return !(not_touching_x || not_touching_y);
 }
 document.addEventListener("keydown", function (event) {
