@@ -14,11 +14,11 @@ let sPressed = false;
 let wPressed = false;
 let moveSpeed = 2;
 let touching = false;
-let imageSize = 0.5;
+let imageSize = 1;
 let imageX = canvas.width / 2;
 let imageY = canvas.height / 2;
-let theDetectorX = 0;
-let theDetectorY = 0;
+let theDetectorX = 100;
+let theDetectorY = 100;
 let detectorWidth;
 let detectorHeight;
 touchDetector.onload = function () {
@@ -27,7 +27,6 @@ touchDetector.onload = function () {
 };
 personimg.onload = function () {
   function drawRotatedImage() {
-    charecter.clearRect(0, 0, canvas.width, canvas.height);
     touchElement.drawImage(touchDetector, theDetectorX, theDetectorY, detectorWidth, detectorHeight);
     const angleInRadians = (currentAngle * Math.PI) / 180;
     charecter.save();
@@ -41,17 +40,19 @@ personimg.onload = function () {
     const moveX = moveSpeed * Math.cos(angleInRadians);
     const moveY = moveSpeed * Math.sin(angleInRadians);
     const rect1 = {
-      d1y: imageY + newHeight,
-      a1y: imageY,
-      c1x: imageX + newWidth,
-      d1x: imageX,
+      d1y: imageY + newHeight / 2,
+      a1y: imageY - newHeight / 2,
+      c1x: imageX + newWidth / 2,
+      d1x: imageX - newWidth / 2,
     };
     const rect2 = {
-      a2y: theDetectorY,
-      d2y: theDetectorY + detectorHeight,
-      d2x: theDetectorX,
-      c2x: theDetectorX + detectorWidth,
+      a2y: theDetectorY - detectorHeight / 2,
+      d2y: theDetectorY + detectorHeight / 2,
+      d2x: theDetectorX - detectorWidth / 2,
+      c2x: theDetectorX + detectorWidth / 2,
     };
+    console.log(rect1.d1y + " d1y " + rect1.a1y + " a1y " + rect1.c1x + " c1x " + rect1.d1x + " d1x ");
+
     const isTouching = checkCollision(rect1, rect2);
     if (isTouching && !touching) {
       console.error("touching");
