@@ -27,6 +27,7 @@ touchDetector.onload = function () {
 };
 personimg.onload = function () {
   function drawRotatedImage() {
+    charecter.clearRect(0, 0, canvas.width, canvas.height);
     touchElement.drawImage(touchDetector, theDetectorX, theDetectorY, detectorWidth, detectorHeight);
     const angleInRadians = (currentAngle * Math.PI) / 180;
     charecter.save();
@@ -46,12 +47,12 @@ personimg.onload = function () {
       d1x: imageX - newWidth / 2,
     };
     const rect2 = {
-      a2y: theDetectorY - detectorHeight / 2,
-      d2y: theDetectorY + detectorHeight / 2,
-      d2x: theDetectorX - detectorWidth / 2,
-      c2x: theDetectorX + detectorWidth / 2,
+      a2y: theDetectorY,
+      d2y: theDetectorY + detectorHeight,
+      d2x: theDetectorX,
+      c2x: theDetectorX + detectorWidth,
     };
-    console.log(rect1.d1y + " d1y " + rect1.a1y + " a1y " + rect1.c1x + " c1x " + rect1.d1x + " d1x ");
+    console.log(rect2.d2y + " d2y " + rect2.a2y + " a2y " + rect2.c2x + " c2x " + rect2.d2x + " d2x ");
 
     const isTouching = checkCollision(rect1, rect2);
     if (isTouching && !touching) {
