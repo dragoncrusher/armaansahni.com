@@ -1,7 +1,7 @@
  
 
 
-> Open this page at [https://dragoncrusher.github.io/super-armaan-world/](https://dragoncrusher.github.io/super-armaan-world/)
+> Open this page at [https://dragoncrusher.github.io/super-armaan-world-2/](https://dragoncrusher.github.io/super-armaan-world-2/)
 
 ## Use as Extension
 
@@ -10,7 +10,7 @@ This repository can be added as an **extension** in MakeCode.
 * open [https://arcade.makecode.com/](https://arcade.makecode.com/)
 * click on **New Project**
 * click on **Extensions** under the gearwheel menu
-* search for **https://github.com/dragoncrusher/super-armaan-world** and import
+* search for **https://github.com/dragoncrusher/super-armaan-world-2** and import
 
 ## Edit this project
 
@@ -18,7 +18,7 @@ To edit this repository in MakeCode.
 
 * open [https://arcade.makecode.com/](https://arcade.makecode.com/)
 * click on **Import** then click on **Import URL**
-* paste **https://github.com/dragoncrusher/super-armaan-world** and click import
+* paste **https://github.com/dragoncrusher/super-armaan-world-2** and click import
 
 #### Metadata (used for search, rendering)
 

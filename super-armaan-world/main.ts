@@ -347,73 +347,11 @@ function LEVELUP (LEVEL: number) {
     makecoins()
     create_enemys()
     create_weak_enemys()
+    bossattack()
+    spawn_world_boss()
+    spawn_world_2_boss()
+    create_armored_enemys()
 }
-sprites.onOverlap(SpriteKind.armoredyo, SpriteKind.armoredyo, function (sprite, otherSprite) {
-    if (sprite.vy > 0) {
-        animation.runImageAnimation(
-        otherSprite,
-        [img`
-            . . 7 7 7 . . . . . . . . . . . 
-            . . 7 7 7 . . . . 7 7 7 7 7 . . 
-            . . 7 7 7 . . . . 7 7 7 7 7 . . 
-            . . . . . . . . . 7 7 7 7 7 . . 
-            . . . . . 7 7 7 7 7 7 7 7 7 . . 
-            . . . . 7 7 7 7 7 7 7 7 7 7 . . 
-            . . . . 7 7 7 7 7 7 7 . . . . . 
-            . . . 7 7 7 7 7 7 7 7 7 7 . . . 
-            . . . 7 7 7 7 7 7 7 7 7 7 7 . . 
-            . . . 7 7 7 7 7 7 7 7 7 7 7 . . 
-            . . . 7 7 7 7 7 7 7 7 7 7 7 . . 
-            . . . 7 7 7 7 7 7 7 7 7 7 7 . . 
-            . . . . . . . 7 7 7 7 7 7 7 . . 
-            . . . . . . . . 7 7 7 7 7 . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `,img`
-            . . . . . . . . . . . . . . . . 
-            . . 7 7 7 . . . . 7 7 7 7 7 . . 
-            . . 7 7 7 . . . . 7 7 7 7 7 . . 
-            . . . . . . . . . . . . 7 7 . . 
-            . . . . . 7 7 . . . . . 7 7 . . 
-            . . . . 7 7 7 . . . . . 7 7 . . 
-            . . . . 7 7 7 . . . . . . . . . 
-            . . . 7 7 7 7 . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `,img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `],
-        200,
-        false
-        )
-        music.play(music.createSong(hex`0078000408020109010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c8000600000001000107`), music.PlaybackMode.InBackground)
-        pause(600)
-        sprites.destroy(otherSprite)
-    } else {
-        lifelose()
-    }
-})
 function spawn_world_2_boss () {
     for (let value11 of tiles.getTilesByType(assets.tile`myTile13`)) {
         creator = sprites.create(img`
@@ -587,6 +525,72 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.weakeryo, function (sprite, othe
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
     lifelose()
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.armoredyo, function (sprite, otherSprite) {
+    if (sprite.vy > 0) {
+        animation.runImageAnimation(
+        otherSprite,
+        [img`
+            . . 7 7 7 . . . . . . . . . . . 
+            . . 7 7 7 . . . . 7 7 7 7 7 . . 
+            . . 7 7 7 . . . . 7 7 7 7 7 . . 
+            . . . . . . . . . 7 7 7 7 7 . . 
+            . . . . . 7 7 7 7 7 7 7 7 7 . . 
+            . . . . 7 7 7 7 7 7 7 7 7 7 . . 
+            . . . . 7 7 7 7 7 7 7 . . . . . 
+            . . . 7 7 7 7 7 7 7 7 7 7 . . . 
+            . . . 7 7 7 7 7 7 7 7 7 7 7 . . 
+            . . . 7 7 7 7 7 7 7 7 7 7 7 . . 
+            . . . 7 7 7 7 7 7 7 7 7 7 7 . . 
+            . . . 7 7 7 7 7 7 7 7 7 7 7 . . 
+            . . . . . . . 7 7 7 7 7 7 7 . . 
+            . . . . . . . . 7 7 7 7 7 . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `,img`
+            . . . . . . . . . . . . . . . . 
+            . . 7 7 7 . . . . 7 7 7 7 7 . . 
+            . . 7 7 7 . . . . 7 7 7 7 7 . . 
+            . . . . . . . . . . . . 7 7 . . 
+            . . . . . 7 7 . . . . . 7 7 . . 
+            . . . . 7 7 7 . . . . . 7 7 . . 
+            . . . . 7 7 7 . . . . . . . . . 
+            . . . 7 7 7 7 . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `,img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `],
+        200,
+        false
+        )
+        music.play(music.createSong(hex`0078000408020109010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c8000600000001000107`), music.PlaybackMode.InBackground)
+        pause(600)
+        sprites.destroy(otherSprite)
+    } else {
+        lifelose()
+    }
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile8`, function (sprite, location) {
     hero.vy = -50
@@ -816,8 +820,7 @@ function startLevel () {
         game.showLongText("watch out for ghosts", DialogLayout.Top)
     }
     if (3 == LEVEL) {
-        tiles.setCurrentTilemap(tilemap`level3`)
-        game.showLongText("level 3", DialogLayout.Top)
+        tiles.setCurrentTilemap(tilemap`level50`)
     }
     if (4 == LEVEL) {
         tiles.setCurrentTilemap(tilemap`level4`)
@@ -862,11 +865,9 @@ function startLevel () {
     }
     if (13 == LEVEL) {
         tiles.setCurrentTilemap(tilemap`level13`)
-        game.showLongText("level 13", DialogLayout.Top)
     }
     if (14 == LEVEL) {
         tiles.setCurrentTilemap(tilemap`level14`)
-        game.showLongText("level 14", DialogLayout.Top)
     }
     if (15 == LEVEL) {
         tiles.setCurrentTilemap(tilemap`level15`)
@@ -906,7 +907,7 @@ function startLevel () {
         game.showLongText("level 23", DialogLayout.Top)
     }
     if (24 == LEVEL) {
-        tiles.setCurrentTilemap(tilemap`level24 DLFKS`)
+        tiles.setCurrentTilemap(tilemap`level46`)
         game.showLongText("level 24", DialogLayout.Top)
     }
     if (25 == LEVEL) {
