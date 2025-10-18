@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>How I built my first game using a game engine</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>How I built my first game using a game engine</h1>
+      <p>Hello my name is Armaan, I am a coder and I am 10 years old!</p>
+      <p>
+        Previously, I made games using JavaScript. But recently, I discovered a game engine. This blog post is about how
+        I built my first game using the game engine, called
+        <a href="/super-armaan-world/">Super Armaan World.</a>
+      </p>
+      <p>
+        If you would like to follow me on my coding adventures, then you can <a href="/join.html">Join the Journey</a>
+      </p>
+      <h2>My past games were built with JavaScript</h2>
+      <p>My first games were <a href="/game/"> The Gamey Game</a> and <a href="/game-v2/">The Gamey Game V2</a>.</p>
+      <p>
+        I made these games using pure JavaScript. This was easy for a while. But I spent most of my time making small
+        features by structuring HTML and CSS. Because of this I had little time to really work on the bigger components
+        like levels, enemies and death animation. So I was only able to make simple games.
+      </p>
+      <p>
+        If you are having similar struggles, then I would recommend using a game engine. It helps you get a sturdy base
+        to build your game on. Keep reading to learn about how I used a game engine to solve my problems. So you can
+        too!
+      </p>
+      <h2>I discovered Microsoft Makecode Arcade</h2>
+      <p>
+        I participated in a hackathon at <a href="https://www.codeninjas.com/">Code Ninjas</a>. The hackathon was a
+        coding competition where you made a game to celebrate why you are proud to be Canadian. At the hackathon, we
+        used a game engine called<a href="https://www.microsoft.com/en-us/makecode"> Microsoft Makecode Arcade</a>.
+      </p>
+      <p>
+        Makecode Arcade supports the tools needed to make my games and has most of the small features built in! This
+        included <a href="#Levels and Worlds">tilemaps</a>, <a href="#enemies">collision events</a>,
+        <a href="#Coins">animations</a>, velocity X and Y, acceleration X and Y, game controller support, keyboard /
+        mouse support, popup menus, pixel editor and sound editor. With the small features taken care of, I was able to
+        work on the big things like levels, enemies, death animations and boss battles.
+      </p>
+      <h2>I made Super Armaan World</h2>
+      <p>
+        The game I made using Makecode Arcade is called <a href="/super-armaan-world/">Super Armaan World.</a> Super
+        Armaan World is a 2D side-scrolling platform game where you must survive the level, to get to the fire orb at
+        the end. It is a one player game similar to Super Mario World. It has multiple levels where you stop
+        <a href="#enemies">ghosts</a> by jumping on their head, find treasuries and collect
+        <a href="#Coins">coins</a> to make it to a fire orb. You will also have to hit blue gems from underneath to
+        discover what is inside. With 21 levels and 3 boss fights, Super Armaan World is a tough game to beat. It even
+        features evolved enemies that shoot unstoppable bats!.
+      </p>
+      <img src="super_armaan_world.png" />
+      <h2 id="Levels and Worlds">Levels and Worlds</h2>
+      <p>
+        One of the things Makecode Arcade offers is tilemaps. A tilemap allows you to put down a grid of smaller images
+        instead of one big image. This is useful because one big image takes up more space than a few small images. I
+        utilized tilemaps to make bigger levels and worlds.
+      </p>
+      <p>
+        A tilemap takes a few images and duplicates them to form the map. For example, if you had a 5000 square big map
+        and used 4 little images that were duplicated, that tilemap takes up the storage space of 4 images. Instead, if
+        you use one big image, then your map will take the space of 5000 small images. Using these principles, the
+        tilemap usually takes up less space than one big image.
+      </p>
+      <p>
+        Makecode Arcade tilemaps also support walls. If you mark a tile as a wall, then no sprite will be able to pass
+        through it. This is valuable when making 2D side-scrolling platform games.
+      </p>
+      <h2>Jumping</h2>
+      <p>Initially, my character jumping did not seem realistic.</p>
+      <p>
+        For one whole month, I couldn't get the jumping speed of the sprite to change while it was in the air. This was
+        until I found AY (Y acceleration). Acceleration increases the speed that something is moving by a specified
+        amount. I used acceleration Y to slow down when the sprite was moving up and speed up when the sprite was moving
+        down.
+      </p>
+      <p>As a result, my character jumping is much more realistic.</p>
+      <h2 id="enemies">Enemies</h2>
+      <p>
+        I added moving enemies and I wanted them to kill you if you touch them, but die if you jump on their head. In
+        order to do that, I needed collision events. A collision event checks if two sprites are overlapping so you can
+        program something to happen.
+      </p>
+      <p>This is the code for a collision event written in JS:</p>
+      <pre class="code_panel">
+function checkCollision(rect1, rect2) {
+    const not_touching_x = rect2.d2x > rect1.c1x || rect1.d1x > rect2.c2x;
+    const not_touching_y = rect1.d1y < rect2.a2y || rect2.d2y < rect1.a1y;
+    return !(not_touching_x || not_touching_y);
+}</pre
+      >
+      <p>
+        The code above works by taking two sprites and comparing the corners to see if they are not touching in the x
+        direction, then in the y direction. At the end, sending true if they are touching in both directions and false
+        if they are not touching in any direction. Because, if they are touching in both x and y directions, they must
+        be overlapping.
+      </p>
+      <p>
+        It works but is extremely complicated. It is difficult to use, because with multiple sprites you would have to
+        make an overlap function for every sprite.
+      </p>
+      <p>But luckily Makecode Arcade has collision detection built in!</p>
+      <img src="ghost.gif" />
+      <h2 id="Coins">Coins</h2>
+      <p>
+        My game required rotating coins that gave you points. For this I would need to make a coin animate. To animate
+        in pure JS, you would need to change the image multiple times with intervals in between. This makes it hard to
+        stop the animation.
+      </p>
+      <p>Luckily, Makecode Arcade also has animation built in! So I was able to animate with ease.</p>
+      <img src="coins.gif" />
+      <h2>Disadvantages of Makecode Arcade</h2>
+      <p>
+        The disadvantages of Microsoft Makecode Arcade are that it is a relatively limited game engine, which does not
+        support things like:
+      </p>
+      <ul>
+        <li>It does not allow sprite rotation.</li>
+        <li>It does not allow more than 4 players.</li>
+        <li>The screen can not follow more than one player.</li>
+        <li>If you add too many sprites the game will lag constantly.</li>
+      </ul>
+      <p>For Super Armaan World, these are small things and there are ways to get around them.</p>
+      <h2>Conclusion</h2>
+      <p>
+        Game engines have their advantages and disadvantages. I would recommend trying out Microsoft Makecode Arcade.
+        But maybe it’s not right for you. Other engines could be useful as well.
+      </p>
+      <p>If you would like to follow me on my coding adventures, then <a href="/join.html">Join the Journey</a>!</p>
+    </div>
+
+    <link rel="stylesheet" href="../blog.css" />
+  </body>
+</html>
