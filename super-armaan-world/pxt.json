@@ -1,5 +1,6 @@
 {
-    "name": "super armaan world",
+    "name": "super armaan world (GITHUB)",
+    "version": "0.0.2",
     "description": "",
     "dependencies": {
         "device": "*",
@@ -20,7 +21,7 @@
         "test.ts"
     ],
     "targetVersions": {
-        "target": "2.0.56",
+        "target": "2.0.59",
         "targetId": "arcade"
     },
     "supportedTargets": [

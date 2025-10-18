@@ -70,12 +70,99 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.boss, function (sprite, otherSpr
         music.play(music.createSong(hex`0078000408020300001c00010a006400f401640000040000000000000000000000000005000004150000000400042225292c1c002000012c20002400012708001c000e050046006603320000040a002d0000006400140001320002010002700000000400021e290400080002202908000c00041b1d20240c001000041d24292a1000140002202514001800051b1e22242718001c0004191d25291c002000011e24002800031d272c28002c00041e22242930003400041e24272a34003800012538003c00031d20253c004000031e222a09010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c8007c0000000100040005070b080009000300080b0c000d0002030610001100040002090b14001500010a180019000302070b1c001d00020508200021000302050b2400250003040609280029000305090a2c002d0005020407090a30003100040305060834003500040205090a38003900040406080a3c003d000402040609`), music.PlaybackMode.InBackground)
         pause(600)
         sprites.destroy(otherSprite)
+        coinup(otherSprite)
     } else {
         lifelose()
     }
 })
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     jump()
+})
+scene.onHitWall(SpriteKind.Player, function (sprite, location) {
+    if (tiles.tileAtLocationEquals(location, sprites.dungeon.collectibleInsignia) && hero.tileKindAt(TileDirection.Top, sprites.dungeon.collectibleInsignia)) {
+        info.changeScoreBy(1)
+        tiles.setWallAt(location, false)
+        coin = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . 5 5 5 5 5 5 4 . . . . 
+            . . . . 5 5 5 5 5 5 5 5 4 . . . 
+            . . . 5 5 5 5 f f 5 5 5 5 4 . . 
+            . . . 5 5 5 5 f f 5 5 5 5 4 . . 
+            . . . 5 5 5 5 f f 5 5 5 5 4 . . 
+            . . . 5 5 5 5 f f 5 5 5 5 4 . . 
+            . . . 5 5 5 5 f f 5 5 5 5 4 . . 
+            . . . 5 5 5 5 f f 5 5 5 5 4 . . 
+            . . . 5 5 5 5 f f 5 5 5 5 4 . . 
+            . . . . 5 5 5 5 5 5 5 5 4 . . . 
+            . . . . . 5 5 5 5 5 5 4 . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Food)
+        tiles.placeOnTile(coin, location)
+        tiles.setTileAt(location, assets.tile`transparency16`)
+        music.play(music.createSoundEffect(WaveShape.Sine, 1844, 3779, 174, 44, 500, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
+        animation.runImageAnimation(
+        coin,
+        [img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . 5 5 5 5 4 . . . . . . 
+            . . . . 5 5 5 5 5 5 4 . . . . . 
+            . . . . 5 5 5 f 5 5 4 . . . . . 
+            . . . . 5 5 5 f 5 5 4 . . . . . 
+            . . . . 5 5 5 f 5 5 4 . . . . . 
+            . . . . 5 5 5 5 5 5 4 . . . . . 
+            . . . . . 5 5 5 5 4 . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `,img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . 5 5 5 4 . . . . . . 
+            . . . . . . 5 f 5 4 . . . . . . 
+            . . . . . . 5 5 5 4 . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `,img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `],
+        500,
+        false
+        )
+        sprites.destroy(coin, effects.spray, 500)
+        info.changeScoreBy(1)
+    }
 })
 function lifelose () {
     isdiying = 1
@@ -262,6 +349,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.magaboss, function (sprite, othe
         music.play(music.createSong(hex`0078000408020405001c000f0a006400f4010a00000400000000000000000000000000000000026f0000000400011e0400080005191d27292a08000c00011e0c0010000225291000140002292c14001800012718001c000327292a1c00200002272a20002400012c24002800012928002c0002272c2c0030000225293000340002292c34003800012c38003c000325292c3c00400002292c07001c00020a006400f401640000040000000000000000000000000000000003750000000400012a0400080002272c08000c0002292c0c00100001291000140002272a1400180002292a18001c0002272a1c00200002292a2000240003292a2c2400280002292c28002c00012a2c0030000427292a2c300034000327292c3400380003272a2c38003c000424272a2c3c0040000325292c08001c000e050046006603320000040a002d00000064001400013200020100029c000000040006191b1e22272a040008000320272c08000c0006191b2025292c0c00100005191b20252c10001400041d22252914001800061d2022252a2c18001c0005191e22242c1c002000031e272c2000240005191d2224292400280005191e25272c28002c00051d2225272c2c00300004191e272c3000340004191e24293400380004191e252c38003c00041e22272a3c004000071d1e2425292a2c09010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c80085000000010005020406080a04000500040405060708000900030506070c000d0003050607100011000204061400150003040608180019000502030406071c001d0003040607200021000203062400250002050728002900030304062c002d0003040607300031000403040507340035000402030406380039000203063c003d00050304050608`), music.PlaybackMode.InBackground)
         pause(600)
         sprites.destroy(otherSprite)
+        coinup(otherSprite)
     }
 })
 function create_weak_enemys () {
@@ -296,6 +384,29 @@ function create_weak_enemys () {
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     jump()
 })
+function coinup (OTHERSPRITE: Sprite) {
+    coin = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . 5 5 5 5 5 5 4 . . . . 
+        . . . . 5 5 5 5 5 5 5 5 4 . . . 
+        . . . 5 5 5 5 f f 5 5 5 5 4 . . 
+        . . . 5 5 5 5 f f 5 5 5 5 4 . . 
+        . . . 5 5 5 5 f f 5 5 5 5 4 . . 
+        . . . 5 5 5 5 f f 5 5 5 5 4 . . 
+        . . . 5 5 5 5 f f 5 5 5 5 4 . . 
+        . . . 5 5 5 5 f f 5 5 5 5 4 . . 
+        . . . 5 5 5 5 f f 5 5 5 5 4 . . 
+        . . . . 5 5 5 5 5 5 5 5 4 . . . 
+        . . . . . 5 5 5 5 5 5 4 . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.rotatingCoin)
+    coin.setPosition(OTHERSPRITE.x, OTHERSPRITE.y)
+    coin.setVelocity(50, 0)
+    coin.setBounceOnWall(true)
+}
 function makecoins () {
     for (let value10 of tiles.getTilesByType(assets.tile`myTile1`)) {
         mySprite = sprites.create(img`
@@ -347,73 +458,11 @@ function LEVELUP (LEVEL: number) {
     makecoins()
     create_enemys()
     create_weak_enemys()
+    bossattack()
+    spawn_world_boss()
+    spawn_world_2_boss()
+    create_armored_enemys()
 }
-sprites.onOverlap(SpriteKind.armoredyo, SpriteKind.armoredyo, function (sprite, otherSprite) {
-    if (sprite.vy > 0) {
-        animation.runImageAnimation(
-        otherSprite,
-        [img`
-            . . 7 7 7 . . . . . . . . . . . 
-            . . 7 7 7 . . . . 7 7 7 7 7 . . 
-            . . 7 7 7 . . . . 7 7 7 7 7 . . 
-            . . . . . . . . . 7 7 7 7 7 . . 
-            . . . . . 7 7 7 7 7 7 7 7 7 . . 
-            . . . . 7 7 7 7 7 7 7 7 7 7 . . 
-            . . . . 7 7 7 7 7 7 7 . . . . . 
-            . . . 7 7 7 7 7 7 7 7 7 7 . . . 
-            . . . 7 7 7 7 7 7 7 7 7 7 7 . . 
-            . . . 7 7 7 7 7 7 7 7 7 7 7 . . 
-            . . . 7 7 7 7 7 7 7 7 7 7 7 . . 
-            . . . 7 7 7 7 7 7 7 7 7 7 7 . . 
-            . . . . . . . 7 7 7 7 7 7 7 . . 
-            . . . . . . . . 7 7 7 7 7 . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `,img`
-            . . . . . . . . . . . . . . . . 
-            . . 7 7 7 . . . . 7 7 7 7 7 . . 
-            . . 7 7 7 . . . . 7 7 7 7 7 . . 
-            . . . . . . . . . . . . 7 7 . . 
-            . . . . . 7 7 . . . . . 7 7 . . 
-            . . . . 7 7 7 . . . . . 7 7 . . 
-            . . . . 7 7 7 . . . . . . . . . 
-            . . . 7 7 7 7 . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `,img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `],
-        200,
-        false
-        )
-        music.play(music.createSong(hex`0078000408020109010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c8000600000001000107`), music.PlaybackMode.InBackground)
-        pause(600)
-        sprites.destroy(otherSprite)
-    } else {
-        lifelose()
-    }
-})
 function spawn_world_2_boss () {
     for (let value11 of tiles.getTilesByType(assets.tile`myTile13`)) {
         creator = sprites.create(img`
@@ -435,7 +484,7 @@ function spawn_world_2_boss () {
             . . . . . . . 6 6 6 . . . . . . 
             `, SpriteKind.creator)
         tiles.placeOnTile(creator, value11)
-        tiles.setTileAt(value11, assets.tile`myTile14`)
+        tiles.setTileAt(value11, assets.tile`myTile0`)
     }
 }
 scene.onOverlapTile(SpriteKind.Enemy, assets.tile`myTile`, function (sprite, location) {
@@ -581,6 +630,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.weakeryo, function (sprite, othe
         music.play(music.createSong(hex`0078000408020109010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c8000600000001000107`), music.PlaybackMode.InBackground)
         pause(600)
         sprites.destroy(otherSprite)
+        coinup(otherSprite)
     } else {
         lifelose()
     }
@@ -588,8 +638,219 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.weakeryo, function (sprite, othe
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
     lifelose()
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.armoredyo, function (sprite, otherSprite) {
+    if (sprite.vy > 0) {
+        animation.runImageAnimation(
+        otherSprite,
+        [img`
+            . . 7 7 7 . . . . . . . . . . . 
+            . . 7 7 7 . . . . 7 7 7 7 7 . . 
+            . . 7 7 7 . . . . 7 7 7 7 7 . . 
+            . . . . . . . . . 7 7 7 7 7 . . 
+            . . . . . 7 7 7 7 7 7 7 7 7 . . 
+            . . . . 7 7 7 7 7 7 7 7 7 7 . . 
+            . . . . 7 7 7 7 7 7 7 . . . . . 
+            . . . 7 7 7 7 7 7 7 7 7 7 . . . 
+            . . . 7 7 7 7 7 7 7 7 7 7 7 . . 
+            . . . 7 7 7 7 7 7 7 7 7 7 7 . . 
+            . . . 7 7 7 7 7 7 7 7 7 7 7 . . 
+            . . . 7 7 7 7 7 7 7 7 7 7 7 . . 
+            . . . . . . . 7 7 7 7 7 7 7 . . 
+            . . . . . . . . 7 7 7 7 7 . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `,img`
+            . . . . . . . . . . . . . . . . 
+            . . 7 7 7 . . . . 7 7 7 7 7 . . 
+            . . 7 7 7 . . . . 7 7 7 7 7 . . 
+            . . . . . . . . . . . . 7 7 . . 
+            . . . . . 7 7 . . . . . 7 7 . . 
+            . . . . 7 7 7 . . . . . 7 7 . . 
+            . . . . 7 7 7 . . . . . . . . . 
+            . . . 7 7 7 7 . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `,img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `],
+        200,
+        false
+        )
+        music.play(music.createSong(hex`0078000408020109010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c8000600000001000107`), music.PlaybackMode.InBackground)
+        pause(600)
+        sprites.destroy(otherSprite)
+        coinup(otherSprite)
+    } else {
+        lifelose()
+    }
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile8`, function (sprite, location) {
     hero.vy = -50
+})
+sprites.onCreated(SpriteKind.rotatingCoin, function (sprite) {
+    animation.runImageAnimation(
+    sprite,
+    [img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . 5 5 5 5 5 5 4 . . . . 
+        . . . . 5 5 5 5 5 5 5 5 4 . . . 
+        . . . 5 5 5 5 f f 5 5 5 5 4 . . 
+        . . . 5 5 5 5 f f 5 5 5 5 4 . . 
+        . . . 5 5 5 5 f f 5 5 5 5 4 . . 
+        . . . 5 5 5 5 f f 5 5 5 5 4 . . 
+        . . . 5 5 5 5 f f 5 5 5 5 4 . . 
+        . . . 5 5 5 5 f f 5 5 5 5 4 . . 
+        . . . 5 5 5 5 f f 5 5 5 5 4 . . 
+        . . . . 5 5 5 5 5 5 5 5 4 . . . 
+        . . . . . 5 5 5 5 5 5 4 . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . 5 5 5 5 4 4 . . . . 
+        . . . . . 5 5 5 5 5 5 4 4 . . . 
+        . . . . 5 5 5 f f 5 5 5 4 4 . . 
+        . . . . 5 5 5 f f 5 5 5 4 4 . . 
+        . . . . 5 5 5 f f 5 5 5 4 4 . . 
+        . . . . 5 5 5 f f 5 5 5 4 4 . . 
+        . . . . 5 5 5 f f 5 5 5 4 4 . . 
+        . . . . 5 5 5 f f 5 5 5 4 4 . . 
+        . . . . 5 5 5 f f 5 5 5 4 4 . . 
+        . . . . . 5 5 5 5 5 5 4 4 . . . 
+        . . . . . . 5 5 5 5 4 4 . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . 5 5 5 5 4 4 . . . . 
+        . . . . . . 5 5 5 5 4 4 4 . . . 
+        . . . . . 5 5 f 5 5 5 4 4 . . . 
+        . . . . . 5 5 f 5 5 5 4 4 . . . 
+        . . . . . 5 5 f 5 5 5 4 4 . . . 
+        . . . . . 5 5 f 5 5 5 4 4 . . . 
+        . . . . . 5 5 f 5 5 5 4 4 . . . 
+        . . . . . 5 5 f 5 5 5 4 4 . . . 
+        . . . . . 5 5 f 5 5 5 4 4 . . . 
+        . . . . . . 5 5 5 5 4 4 4 . . . 
+        . . . . . . 5 5 5 5 4 4 . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . 5 5 4 4 . . . . . 
+        . . . . . . . 5 5 4 4 . . . . . 
+        . . . . . . 5 5 f 4 4 4 . . . . 
+        . . . . . . 5 5 f 5 4 4 . . . . 
+        . . . . . . 5 5 f 5 4 4 . . . . 
+        . . . . . . 5 5 f 5 4 4 . . . . 
+        . . . . . . 5 5 f 5 4 4 . . . . 
+        . . . . . . 5 5 f 5 4 4 . . . . 
+        . . . . . . 5 5 f 4 4 4 . . . . 
+        . . . . . . . 5 5 4 4 . . . . . 
+        . . . . . . . 5 5 4 4 . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . 4 4 . . . . . . 
+        . . . . . . . . 4 4 . . . . . . 
+        . . . . . . . . 4 4 . . . . . . 
+        . . . . . . . . 4 4 . . . . . . 
+        . . . . . . . . 4 4 . . . . . . 
+        . . . . . . . . 4 4 . . . . . . 
+        . . . . . . . . 4 4 . . . . . . 
+        . . . . . . . . 4 4 . . . . . . 
+        . . . . . . . . 4 4 . . . . . . 
+        . . . . . . . . 4 4 . . . . . . 
+        . . . . . . . . 4 4 . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . 4 4 5 5 . . . . . 
+        . . . . . . . 4 4 5 5 . . . . . 
+        . . . . . . 4 4 4 f 5 5 . . . . 
+        . . . . . . 4 4 5 f 5 5 . . . . 
+        . . . . . . 4 4 5 f 5 5 . . . . 
+        . . . . . . 4 4 5 f 5 5 . . . . 
+        . . . . . . 4 4 5 f 5 5 . . . . 
+        . . . . . . 4 4 5 f 5 5 . . . . 
+        . . . . . . 4 4 4 f 5 5 . . . . 
+        . . . . . . . 4 4 5 5 . . . . . 
+        . . . . . . . 4 4 5 5 . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . 4 4 5 5 5 5 . . . . 
+        . . . . . 4 4 4 5 5 5 5 . . . . 
+        . . . . . 4 4 5 5 5 f 5 5 . . . 
+        . . . . . 4 4 5 5 5 f 5 5 . . . 
+        . . . . . 4 4 5 5 5 f 5 5 . . . 
+        . . . . . 4 4 5 5 5 f 5 5 . . . 
+        . . . . . 4 4 5 5 5 f 5 5 . . . 
+        . . . . . 4 4 5 5 5 f 5 5 . . . 
+        . . . . . 4 4 5 5 5 f 5 5 . . . 
+        . . . . . 4 4 4 5 5 5 5 . . . . 
+        . . . . . . 4 4 5 5 5 5 . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . 4 4 5 5 5 5 . . . . 
+        . . . . . 4 4 5 5 5 5 5 5 . . . 
+        . . . . 4 4 5 5 5 f f 5 5 5 . . 
+        . . . . 4 4 5 5 5 f f 5 5 5 . . 
+        . . . . 4 4 5 5 5 f f 5 5 5 . . 
+        . . . . 4 4 5 5 5 f f 5 5 5 . . 
+        . . . . 4 4 5 5 5 f f 5 5 5 . . 
+        . . . . 4 4 5 5 5 f f 5 5 5 . . 
+        . . . . 4 4 5 5 5 f f 5 5 5 . . 
+        . . . . . 4 4 5 5 5 5 5 5 . . . 
+        . . . . . . 4 4 5 5 5 5 . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `],
+    100,
+    true
+    )
 })
 function create_armored_enemys () {
     for (let value14 of tiles.getTilesByType(assets.tile`myTile18`)) {
@@ -785,7 +1046,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.creator, function (sprite, other
         music.play(music.createSong(hex`0078000408020405001c000f0a006400f4010a00000400000000000000000000000000000000026f0000000400011e0400080005191d27292a08000c00011e0c0010000225291000140002292c14001800012718001c000327292a1c00200002272a20002400012c24002800012928002c0002272c2c0030000225293000340002292c34003800012c38003c000325292c3c00400002292c07001c00020a006400f401640000040000000000000000000000000000000003750000000400012a0400080002272c08000c0002292c0c00100001291000140002272a1400180002292a18001c0002272a1c00200002292a2000240003292a2c2400280002292c28002c00012a2c0030000427292a2c300034000327292c3400380003272a2c38003c000424272a2c3c0040000325292c08001c000e050046006603320000040a002d00000064001400013200020100029c000000040006191b1e22272a040008000320272c08000c0006191b2025292c0c00100005191b20252c10001400041d22252914001800061d2022252a2c18001c0005191e22242c1c002000031e272c2000240005191d2224292400280005191e25272c28002c00051d2225272c2c00300004191e272c3000340004191e24293400380004191e252c38003c00041e22272a3c004000071d1e2425292a2c09010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c80085000000010005020406080a04000500040405060708000900030506070c000d0003050607100011000204061400150003040608180019000502030406071c001d0003040607200021000203062400250002050728002900030304062c002d0003040607300031000403040507340035000402030406380039000203063c003d00050304050608`), music.PlaybackMode.InBackground)
         pause(600)
         sprites.destroy(otherSprite)
-        for (let value9 of tiles.getTilesByType(assets.tile`myTile14`)) {
+        for (let value9 of tiles.getTilesByType(assets.tile`transparency16`)) {
             tiles.setTileAt(value9, assets.tile`transparency16`)
         }
     }
@@ -800,7 +1061,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile10`, function (sprite, 
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleRedCrystal, function (sprite, location) {
     sprite.vx = 0
     sprite.vy = 0
-    tiles.setTileAt(location, sprites.castle.tilePath2)
+    tiles.setTileAt(location, assets.tile`transparency16`)
     LEVEL += 1
     startLevel()
     info.setLife(10)
@@ -816,100 +1077,97 @@ function startLevel () {
         game.showLongText("watch out for ghosts", DialogLayout.Top)
     }
     if (3 == LEVEL) {
-        tiles.setCurrentTilemap(tilemap`level3`)
+        tiles.setCurrentTilemap(tilemap`level50`)
+    }
+    if (3 == LEVEL) {
+        tiles.setCurrentTilemap(tilemap`level4`)
         game.showLongText("level 3", DialogLayout.Top)
     }
     if (4 == LEVEL) {
-        tiles.setCurrentTilemap(tilemap`level4`)
+        tiles.setCurrentTilemap(tilemap`level5`)
         game.showLongText("level 4", DialogLayout.Top)
     }
     if (5 == LEVEL) {
-        tiles.setCurrentTilemap(tilemap`level5`)
-        game.showLongText("level 5", DialogLayout.Top)
-    }
-    if (6 == LEVEL) {
         tiles.setCurrentTilemap(tilemap`level6`)
-        game.showLongText("level 6", DialogLayout.Top)
+        game.showLongText("level 5", DialogLayout.Top)
         game.showLongText("Watch out for red enemies. They move faster!", DialogLayout.Center)
     }
-    if (7 == LEVEL) {
+    if (6 == LEVEL) {
         tiles.setCurrentTilemap(tilemap`level7`)
-        game.showLongText("level 7", DialogLayout.Top)
+        game.showLongText("level 6", DialogLayout.Top)
         game.showLongText("Watch out for green enemies. They move slower!", DialogLayout.Center)
     }
-    if (8 == LEVEL) {
+    if (7 == LEVEL) {
         tiles.setCurrentTilemap(tilemap`level8`)
-        game.showLongText("level 8", DialogLayout.Top)
+        game.showLongText("level 7", DialogLayout.Top)
         game.showLongText("Watch out for the world boss! He shoots fireballs.", DialogLayout.Center)
     }
-    if (9 == LEVEL) {
+    if (8 == LEVEL) {
         tiles.setCurrentTilemap(tilemap`level9`)
-        game.showLongText("level 9", DialogLayout.Top)
+        game.showLongText("level 8", DialogLayout.Top)
         game.showLongText("World 2", DialogLayout.Center)
     }
-    if (10 == LEVEL) {
+    if (9 == LEVEL) {
         tiles.setCurrentTilemap(tilemap`level10`)
+        game.showLongText("level 9", DialogLayout.Top)
+    }
+    if (10 == LEVEL) {
+        tiles.setCurrentTilemap(tilemap`level11`)
         game.showLongText("level 10", DialogLayout.Top)
     }
     if (11 == LEVEL) {
-        tiles.setCurrentTilemap(tilemap`level11`)
-        game.showLongText("level 11", DialogLayout.Top)
-    }
-    if (12 == LEVEL) {
         tiles.setCurrentTilemap(tilemap`level12`)
-        game.showLongText("level 12", DialogLayout.Top)
+        game.showLongText("level 11", DialogLayout.Top)
         game.showLongText("watch out for the mudstone it will disappear when you touch it!", DialogLayout.Center)
     }
-    if (13 == LEVEL) {
+    if (12 == LEVEL) {
         tiles.setCurrentTilemap(tilemap`level13`)
+    }
+    if (12 == LEVEL) {
+        tiles.setCurrentTilemap(tilemap`level14`)
+    }
+    if (12 == LEVEL) {
+        tiles.setCurrentTilemap(tilemap`level15`)
+        game.showLongText("level 12", DialogLayout.Top)
+    }
+    if (13 == LEVEL) {
+        tiles.setCurrentTilemap(tilemap`level16  fbo`)
         game.showLongText("level 13", DialogLayout.Top)
     }
     if (14 == LEVEL) {
-        tiles.setCurrentTilemap(tilemap`level14`)
+        tiles.setCurrentTilemap(tilemap`level17 ef`)
         game.showLongText("level 14", DialogLayout.Top)
+        game.showLongText("World 3", DialogLayout.Center)
     }
     if (15 == LEVEL) {
-        tiles.setCurrentTilemap(tilemap`level15`)
+        tiles.setCurrentTilemap(tilemap`level18 ewr`)
         game.showLongText("level 15", DialogLayout.Top)
     }
     if (16 == LEVEL) {
-        tiles.setCurrentTilemap(tilemap`level16  fbo`)
+        tiles.setCurrentTilemap(tilemap`level19 dsjfslfe`)
         game.showLongText("level 16", DialogLayout.Top)
     }
     if (17 == LEVEL) {
-        tiles.setCurrentTilemap(tilemap`level17 ef`)
+        tiles.setCurrentTilemap(tilemap`level37`)
         game.showLongText("level 17", DialogLayout.Top)
-        game.showLongText("World 3", DialogLayout.Center)
     }
     if (18 == LEVEL) {
-        tiles.setCurrentTilemap(tilemap`level18 ewr`)
+        tiles.setCurrentTilemap(tilemap`level38`)
         game.showLongText("level 18", DialogLayout.Top)
     }
     if (19 == LEVEL) {
-        tiles.setCurrentTilemap(tilemap`level19 dsjfslfe`)
+        tiles.setCurrentTilemap(tilemap`level23 jdildkajdlskDJ`)
         game.showLongText("level 19", DialogLayout.Top)
     }
     if (20 == LEVEL) {
-        tiles.setCurrentTilemap(tilemap`level37`)
+        tiles.setCurrentTilemap(tilemap`level23 jdildkajdlskDJ`)
         game.showLongText("level 20", DialogLayout.Top)
     }
     if (21 == LEVEL) {
-        tiles.setCurrentTilemap(tilemap`level38`)
+        tiles.setCurrentTilemap(tilemap`level46`)
         game.showLongText("level 21", DialogLayout.Top)
     }
     if (22 == LEVEL) {
-        tiles.setCurrentTilemap(tilemap`level23 jdildkajdlskDJ`)
-        game.showLongText("level 22", DialogLayout.Top)
-    }
-    if (23 == LEVEL) {
-        tiles.setCurrentTilemap(tilemap`level23 jdildkajdlskDJ`)
-        game.showLongText("level 23", DialogLayout.Top)
-    }
-    if (24 == LEVEL) {
-        tiles.setCurrentTilemap(tilemap`level24 DLFKS`)
-        game.showLongText("level 24", DialogLayout.Top)
-    }
-    if (25 == LEVEL) {
         game.gameOver(true)
     }
     LEVELUP(1)
@@ -922,89 +1180,7 @@ function spawn_world_boss () {
     }
 }
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleInsignia, function (sprite, location) {
-    if (hero.tileKindAt(TileDirection.Top, sprites.dungeon.collectibleInsignia)) {
-        info.changeScoreBy(1)
-        coin = sprites.create(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . 5 5 5 5 5 5 4 . . . . 
-            . . . . 5 5 5 5 5 5 5 5 4 . . . 
-            . . . 5 5 5 5 f f 5 5 5 5 4 . . 
-            . . . 5 5 5 5 f f 5 5 5 5 4 . . 
-            . . . 5 5 5 5 f f 5 5 5 5 4 . . 
-            . . . 5 5 5 5 f f 5 5 5 5 4 . . 
-            . . . 5 5 5 5 f f 5 5 5 5 4 . . 
-            . . . 5 5 5 5 f f 5 5 5 5 4 . . 
-            . . . 5 5 5 5 f f 5 5 5 5 4 . . 
-            . . . . 5 5 5 5 5 5 5 5 4 . . . 
-            . . . . . 5 5 5 5 5 5 4 . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `, SpriteKind.Food)
-        tiles.placeOnTile(coin, location)
-        tiles.setTileAt(location, assets.tile`transparency16`)
-        music.play(music.createSoundEffect(WaveShape.Sine, 1844, 3779, 174, 44, 500, SoundExpressionEffect.None, InterpolationCurve.Linear), music.PlaybackMode.InBackground)
-        animation.runImageAnimation(
-        coin,
-        [img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . 5 5 5 5 4 . . . . . . 
-            . . . . 5 5 5 5 5 5 4 . . . . . 
-            . . . . 5 5 5 f 5 5 4 . . . . . 
-            . . . . 5 5 5 f 5 5 4 . . . . . 
-            . . . . 5 5 5 f 5 5 4 . . . . . 
-            . . . . 5 5 5 5 5 5 4 . . . . . 
-            . . . . . 5 5 5 5 4 . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `,img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . 5 5 5 4 . . . . . . 
-            . . . . . . 5 f 5 4 . . . . . . 
-            . . . . . . 5 5 5 4 . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `,img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `],
-        500,
-        false
-        )
-        sprites.destroy(coin, effects.spray, 500)
-        info.changeScoreBy(1)
-    }
+	
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     if (hero.vy > 0) {
@@ -1068,13 +1244,13 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
         music.play(music.createSong(hex`0078000408020109010e02026400000403780000040a000301000000640001c80000040100000000640001640000040100000000fa0004af00000401c80000040a00019600000414000501006400140005010000002c0104dc00000401fa0000040a0001c8000004140005d0076400140005d0070000c800029001f40105c201f4010a0005900114001400039001000005c201f4010500058403050032000584030000fa00049001000005c201f4010500058403c80032000584030500640005840300009001049001000005c201f4010500058403c80064000584030500c8000584030000f40105ac0d000404a00f00000a0004ac0d2003010004a00f0000280004ac0d9001010004a00f0000280002d00700040408070f0064000408070000c80003c800c8000e7d00c80019000e64000f0032000e78000000fa00032c01c8000ee100c80019000ec8000f0032000edc000000fa0003f401c8000ea901c80019000e90010f0032000ea4010000fa0001c8000004014b000000c800012c01000401c8000000c8000190010004012c010000c80002c800000404c8000f0064000496000000c80002c2010004045e010f006400042c010000640002c409000404c4096400960004f6090000f40102b80b000404b80b64002c0104f40b0000f401022003000004200300040a000420030000ea01029001000004900100040a000490010000900102d007000410d0076400960010d0070000c8000600000001000107`), music.PlaybackMode.InBackground)
         pause(600)
         sprites.destroy(otherSprite)
+        coinup(otherSprite)
     } else {
         lifelose()
     }
 })
 let wallsmasher: Sprite = null
 let projectile: Sprite = null
-let coin: Sprite = null
 let worldboss: Sprite = null
 let myEnemy: Sprite = null
 let my_armored_enemy: Sprite = null
@@ -1084,6 +1260,7 @@ let wall_Y = 0
 let wall_X = 0
 let my_small_eniemy: Sprite = null
 let mySprite: Sprite = null
+let coin: Sprite = null
 let isdiying = 0
 let runningright = 0
 let runningleft = 0
@@ -1327,10 +1504,10 @@ game.onUpdate(function () {
     }
 })
 game.onUpdate(function () {
-    if (mySprite.tileKindAt(TileDirection.Right, assets.tile`myTile10`) && hero.vx > 0) {
+    if (mySprite.tileKindAt(TileDirection.Right, sprites.dungeon.collectibleBlueCrystal) && hero.vx > 0) {
         hero.vx = 0
     }
-    if (mySprite.tileKindAt(TileDirection.Left, assets.tile`myTile10`) && hero.vx < 0) {
+    if (mySprite.tileKindAt(TileDirection.Left, sprites.dungeon.collectibleBlueCrystal) && hero.vx < 0) {
         hero.vx = 0
     }
 })
@@ -1383,154 +1560,13 @@ game.onUpdateInterval(2000, function () {
             `, value, -50, 0)
     }
 })
-game.onUpdateInterval(800, function () {
-    for (let value9 of sprites.allOfKind(SpriteKind.rotatingCoin)) {
-        animation.runImageAnimation(
-        value9,
-        [img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . 5 5 5 5 5 5 4 . . . . 
-            . . . . 5 5 5 5 5 5 5 5 4 . . . 
-            . . . 5 5 5 5 f f 5 5 5 5 4 . . 
-            . . . 5 5 5 5 f f 5 5 5 5 4 . . 
-            . . . 5 5 5 5 f f 5 5 5 5 4 . . 
-            . . . 5 5 5 5 f f 5 5 5 5 4 . . 
-            . . . 5 5 5 5 f f 5 5 5 5 4 . . 
-            . . . 5 5 5 5 f f 5 5 5 5 4 . . 
-            . . . 5 5 5 5 f f 5 5 5 5 4 . . 
-            . . . . 5 5 5 5 5 5 5 5 4 . . . 
-            . . . . . 5 5 5 5 5 5 4 . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `,img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . 5 5 5 5 4 4 . . . . 
-            . . . . . 5 5 5 5 5 5 4 4 . . . 
-            . . . . 5 5 5 f f 5 5 5 4 4 . . 
-            . . . . 5 5 5 f f 5 5 5 4 4 . . 
-            . . . . 5 5 5 f f 5 5 5 4 4 . . 
-            . . . . 5 5 5 f f 5 5 5 4 4 . . 
-            . . . . 5 5 5 f f 5 5 5 4 4 . . 
-            . . . . 5 5 5 f f 5 5 5 4 4 . . 
-            . . . . 5 5 5 f f 5 5 5 4 4 . . 
-            . . . . . 5 5 5 5 5 5 4 4 . . . 
-            . . . . . . 5 5 5 5 4 4 . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `,img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . 5 5 5 5 4 4 . . . . 
-            . . . . . . 5 5 5 5 4 4 4 . . . 
-            . . . . . 5 5 f 5 5 5 4 4 . . . 
-            . . . . . 5 5 f 5 5 5 4 4 . . . 
-            . . . . . 5 5 f 5 5 5 4 4 . . . 
-            . . . . . 5 5 f 5 5 5 4 4 . . . 
-            . . . . . 5 5 f 5 5 5 4 4 . . . 
-            . . . . . 5 5 f 5 5 5 4 4 . . . 
-            . . . . . 5 5 f 5 5 5 4 4 . . . 
-            . . . . . . 5 5 5 5 4 4 4 . . . 
-            . . . . . . 5 5 5 5 4 4 . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `,img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . 5 5 4 4 . . . . . 
-            . . . . . . . 5 5 4 4 . . . . . 
-            . . . . . . 5 5 f 4 4 4 . . . . 
-            . . . . . . 5 5 f 5 4 4 . . . . 
-            . . . . . . 5 5 f 5 4 4 . . . . 
-            . . . . . . 5 5 f 5 4 4 . . . . 
-            . . . . . . 5 5 f 5 4 4 . . . . 
-            . . . . . . 5 5 f 5 4 4 . . . . 
-            . . . . . . 5 5 f 4 4 4 . . . . 
-            . . . . . . . 5 5 4 4 . . . . . 
-            . . . . . . . 5 5 4 4 . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `,img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . 4 4 . . . . . . 
-            . . . . . . . . 4 4 . . . . . . 
-            . . . . . . . . 4 4 . . . . . . 
-            . . . . . . . . 4 4 . . . . . . 
-            . . . . . . . . 4 4 . . . . . . 
-            . . . . . . . . 4 4 . . . . . . 
-            . . . . . . . . 4 4 . . . . . . 
-            . . . . . . . . 4 4 . . . . . . 
-            . . . . . . . . 4 4 . . . . . . 
-            . . . . . . . . 4 4 . . . . . . 
-            . . . . . . . . 4 4 . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `,img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . 4 4 5 5 . . . . . 
-            . . . . . . . 4 4 5 5 . . . . . 
-            . . . . . . 4 4 4 f 5 5 . . . . 
-            . . . . . . 4 4 5 f 5 5 . . . . 
-            . . . . . . 4 4 5 f 5 5 . . . . 
-            . . . . . . 4 4 5 f 5 5 . . . . 
-            . . . . . . 4 4 5 f 5 5 . . . . 
-            . . . . . . 4 4 5 f 5 5 . . . . 
-            . . . . . . 4 4 4 f 5 5 . . . . 
-            . . . . . . . 4 4 5 5 . . . . . 
-            . . . . . . . 4 4 5 5 . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `,img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . 4 4 5 5 5 5 . . . . 
-            . . . . . 4 4 4 5 5 5 5 . . . . 
-            . . . . . 4 4 5 5 5 f 5 5 . . . 
-            . . . . . 4 4 5 5 5 f 5 5 . . . 
-            . . . . . 4 4 5 5 5 f 5 5 . . . 
-            . . . . . 4 4 5 5 5 f 5 5 . . . 
-            . . . . . 4 4 5 5 5 f 5 5 . . . 
-            . . . . . 4 4 5 5 5 f 5 5 . . . 
-            . . . . . 4 4 5 5 5 f 5 5 . . . 
-            . . . . . 4 4 4 5 5 5 5 . . . . 
-            . . . . . . 4 4 5 5 5 5 . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `,img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . 4 4 5 5 5 5 . . . . 
-            . . . . . 4 4 5 5 5 5 5 5 . . . 
-            . . . . 4 4 5 5 5 f f 5 5 5 . . 
-            . . . . 4 4 5 5 5 f f 5 5 5 . . 
-            . . . . 4 4 5 5 5 f f 5 5 5 . . 
-            . . . . 4 4 5 5 5 f f 5 5 5 . . 
-            . . . . 4 4 5 5 5 f f 5 5 5 . . 
-            . . . . 4 4 5 5 5 f f 5 5 5 . . 
-            . . . . 4 4 5 5 5 f f 5 5 5 . . 
-            . . . . . 4 4 5 5 5 5 5 5 . . . 
-            . . . . . . 4 4 5 5 5 5 . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `],
-        100,
-        false
-        )
+forever(function () {
+    if (LEVEL > 13) {
+        scene.setBackgroundColor(11)
     }
 })
 game.onUpdateInterval(10000, function () {
-    for (let value12 of tiles.getTilesByType(assets.tile`myTile14`)) {
+    for (let value12 of tiles.getTilesByType(assets.tile`myTile0`)) {
         wallsmasher = sprites.create(img`
             . . . . . . 9 9 9 9 . . . . . . 
             . . . . 9 9 1 1 1 1 9 9 . . . . 
