@@ -1,0 +1,28 @@
+.center {
+border-radius: 30%;
+border-color: black;
+border-width: 10px;
+margin: auto;
+border: solid;
+width: 400px;
+}
+img {
+width: 400px;
+height: 400px;
+}
+* {
+  box-sizing: border-box;
+}
+.name {
+    width: 100px;
+    margin: auto;
+    margin-top: 20px;
+}
+.button {
+    margin: auto;
+    width: 80px;
+    height: 20px;
+    margin-left: 150px;
+    border-radius: 20%;
+    margin-top: 30px;
+}
