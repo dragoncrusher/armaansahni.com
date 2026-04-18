@@ -29,6 +29,7 @@ function randomizer() {
     
     let theone = columb1andonly[x][y];
     let rarity = "common";
+    let varient = "common";
 
     // 1. Initial Rarity Check
     if (theone < 9) {
@@ -44,43 +45,43 @@ function randomizer() {
     }
 
 // 2. The Fate Roll (1 in 40 chance to upgrade)
-    let theFate = Math.floor(Math.random() * 16);
+    let theFate = Math.floor(Math.random() * 5);
     
-    if (theFate === 15) { 
-        if (rarity === "common") rarity = "uncommon";
-        else if (rarity === "uncommon") rarity = "rare";
-        else if (rarity === "rare") rarity = "epic";
-        else if (rarity === "epic") rarity = "legendary";
-        else if (rarity === "legendary") rarity = "mythical";
-        else if (rarity === "mythical") rarity = "unique";
-        else if (rarity === "unique") rarity = "forgotten"; // New Tier!
+    if (theFate === 1) { 
+        if (rarity === "common") varient = "uncommon";
+        else if (rarity === "uncommon") varient = "rare";
+        else if (rarity === "rare") varient = "epic";
+        else if (rarity === "epic") varient = "legendary";
+        else if (rarity === "legendary") varient = "mythical";
+        else if (rarity === "mythical") varient = "unique";
+        else if (rarity === "unique") varient = "forgotten"; // New Tier!
     }
-    theFate = Math.floor(Math.random() * 16);
+    theFate = Math.floor(Math.random() * 5);
     
-    if (theFate === 15) { 
-        if (rarity === "common") rarity = "uncommon";
-        else if (rarity === "uncommon") rarity = "rare";
-        else if (rarity === "rare") rarity = "epic";
-        else if (rarity === "epic") rarity = "legendary";
-        else if (rarity === "legendary") rarity = "mythical";
-        else if (rarity === "mythical") rarity = "unique";
-        else if (rarity === "unique") rarity = "forgotten"; // New Tier!
+    if (theFate === 1) { 
+        if (rarity === "common") varient = "uncommon";
+        else if (rarity === "uncommon") varient = "rare";
+        else if (rarity === "rare") varient = "epic";
+        else if (rarity === "epic") varient = "legendary";
+        else if (rarity === "legendary") varient = "mythical";
+        else if (rarity === "mythical") varient = "unique";
+        else if (rarity === "unique") varient = "forgotten"; // New Tier!
     }
-    theFate = Math.floor(Math.random() * 16);
+    theFate = Math.floor(Math.random() * 5);
     
-    if (theFate === 15) { 
-        if (rarity === "common") rarity = "uncommon";
-        else if (rarity === "uncommon") rarity = "rare";
-        else if (rarity === "rare") rarity = "epic";
-        else if (rarity === "epic") rarity = "legendary";
-        else if (rarity === "legendary") rarity = "mythical";
-        else if (rarity === "mythical") rarity = "unique";
-        else if (rarity === "unique") rarity = "forgotten"; // New Tier!
+    if (theFate === 1) { 
+        if (rarity === "common") varient = "uncommon";
+        else if (rarity === "uncommon") varient = "rare";
+        else if (rarity === "rare") varient = "epic";
+        else if (rarity === "epic") varient = "legendary";
+        else if (rarity === "legendary") varient = "mythical";
+        else if (rarity === "mythical") varient = "unique";
+        else if (rarity === "unique") varient = "forgotten"; // New Tier!
     }
 
     // 3. Update the UI
     img.src = rarity + ".png";
-    nameBox.innerHTML = rarity + " " + (theone || "Fate Upgrade");
+    nameBox.innerHTML = rarity + " " + theone + " varient = " + varient;
     
     console.log(`Coords: x:${x+1}, y:${y+1} | Value: ${theone} | Final: ${rarity}`);
 }
