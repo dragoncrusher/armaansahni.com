@@ -29,7 +29,7 @@ function randomizer() {
     
     let theone = columb1andonly[x][y];
     let rarity = "common";
-    let varient = "common";
+    let varient = "none";
 
     // 1. Initial Rarity Check
     if (theone < 9) {
