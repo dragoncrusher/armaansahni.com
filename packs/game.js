@@ -45,9 +45,9 @@ function randomizer() {
     }
 
 // 2. The Fate Roll (1 in 40 chance to upgrade)
-    let theFate = Math.floor(Math.random() * 5);
+    let theFate = Math.floor(Math.random() * 2);
     
-    if (theFate === 1) { 
+    if (theFate === 0) { 
         if (rarity === "common") varient = "uncommon";
         else if (rarity === "uncommon") varient = "rare";
         else if (rarity === "rare") varient = "epic";
@@ -56,27 +56,27 @@ function randomizer() {
         else if (rarity === "mythical") varient = "unique";
         else if (rarity === "unique") varient = "forgotten"; // New Tier!
     }
-    theFate = Math.floor(Math.random() * 5);
+    theFate = Math.floor(Math.random() * 2);
     
-    if (theFate === 1) { 
-        if (rarity === "common") varient = "uncommon";
-        else if (rarity === "uncommon") varient = "rare";
-        else if (rarity === "rare") varient = "epic";
-        else if (rarity === "epic") varient = "legendary";
-        else if (rarity === "legendary") varient = "mythical";
-        else if (rarity === "mythical") varient = "unique";
-        else if (rarity === "unique") varient = "forgotten"; // New Tier!
+    if (theFate === 0) { 
+        if (varient === "common") varient = "uncommon";
+        else if (varient === "uncommon") varient = "rare";
+        else if (varient === "rare") varient = "epic";
+        else if (varient === "epic") varient = "legendary";
+        else if (varient === "legendary") varient = "mythical";
+        else if (varient === "mythical") varient = "unique";
+        else if (varient === "unique") varient = "forgotten"; // New Tier!
     }
-    theFate = Math.floor(Math.random() * 5);
+    theFate = Math.floor(Math.random() * 2);
     
-    if (theFate === 1) { 
-        if (rarity === "common") varient = "uncommon";
-        else if (rarity === "uncommon") varient = "rare";
-        else if (rarity === "rare") varient = "epic";
-        else if (rarity === "epic") varient = "legendary";
-        else if (rarity === "legendary") varient = "mythical";
-        else if (rarity === "mythical") varient = "unique";
-        else if (rarity === "unique") varient = "forgotten"; // New Tier!
+    if (theFate === 0) { 
+        if (varient === "common") varient = "uncommon";
+        else if (varient === "uncommon") varient = "rare";
+        else if (varient === "rare") varient = "epic";
+        else if (varient === "epic") varient = "legendary";
+        else if (varient === "legendary") varient = "mythical";
+        else if (varient === "mythical") varient = "unique";
+        else if (varient === "unique") varient = "forgotten"; // New Tier!
     }
 
     // 3. Update the UI
