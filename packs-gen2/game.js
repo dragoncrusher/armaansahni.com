@@ -2,44 +2,61 @@ const nameBox = document.getElementById("name");
 const img = document.getElementById("img");
 
 function randomizer() {
-    // 1. Base Rarity Roll (Legendary is 0.3%)
+    // 1. Roll for Rarity Category (Legendary is exactly 0.3%)
     let roll = Math.random() * 100;
     let rarity = "";
+    let maxNumber = 0;
 
-    if (roll <= 0.3) rarity = "legendary";
-    else if (roll <= 2.0) rarity = "mythical";
-    else if (roll <= 5.0) rarity = "unique";
-    else if (roll <= 12.0) rarity = "epic";
-    else if (roll <= 25.0) rarity = "rare";
-    else if (roll <= 50.0) rarity = "uncommon";
-    else rarity = "common";
+    if (roll <= 0.01) { 
+        rarity = "forgotten"; 
+        maxNumber = 1; 
+    } else if (roll <= 0.05) { 
+        rarity = "mythical"; 
+        maxNumber = 3; 
+    } else if (roll <= 0.20) { 
+        rarity = "unique"; 
+        maxNumber = 2; 
+    } else if (roll <= 0.50) { 
+        rarity = "legendary"; // (0.50 - 0.20) = 0.3%
+        maxNumber = 4; 
+    } else if (roll <= 5.0) { 
+        rarity = "epic"; 
+        maxNumber = 5; 
+    } else if (roll <= 15.0) { 
+        rarity = "rare"; 
+        maxNumber = 6; 
+    } else if (roll <= 40.0) { 
+        rarity = "uncommon"; 
+        maxNumber = 10; 
+    } else { 
+        rarity = "common"; 
+        maxNumber = 12; 
+    }
 
-    // 2. Set default Variant
+    // 2. Pick a specific number within that rarity (e.g., Common 5)
+    // This gives an equal chance to every number in that set
+    let specificNumber = Math.floor(Math.random() * maxNumber) + 1;
+
+    // 3. Setup the Variant Rank (Starts at M1)
     let variant = "M1";
 
-    // 3. Three Separate Fate Rolls (The Chained Upgrade)
-    
-    // --- Fate Roll 1 ---
+    // 4. Three 50/50 Fate Rolls (Chained Upgrade)
     if (Math.floor(Math.random() * 2) === 0) {
         if (variant === "M1") variant = "M2";
     }
-
-    // --- Fate Roll 2 ---
     if (Math.floor(Math.random() * 2) === 0) {
         if (variant === "M2") variant = "M3";
-        else if (variant === "M1") variant = "M2"; // Catch-up if roll 1 failed
+        else if (variant === "M1") variant = "M2"; 
     }
-
-    // --- Fate Roll 3 ---
     if (Math.floor(Math.random() * 2) === 0) {
         if (variant === "M3") variant = "M4";
         else if (variant === "M2") variant = "M3";
         else if (variant === "M1") variant = "M2";
     }
 
-    // 4. Final Output
+    // 5. Final Output (e.g., "common 5 M2")
     img.src = rarity + ".png"; 
-    nameBox.innerHTML = `${rarity} ${variant}`;
+    nameBox.innerHTML = `${rarity} ${specificNumber} ${variant}`;
 
-    console.log(`Roll: ${roll.toFixed(2)} | Result: ${rarity} ${variant}`);
+    console.log(`Roll: ${roll.toFixed(4)}% | Result: ${rarity} ${specificNumber} ${variant}`);
 }
