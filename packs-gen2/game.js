@@ -1,6 +1,44 @@
 const nameBox = document.getElementById("name");
 const img = document.getElementById("img");
-
+function seeit(number){
+    randomizer()
+    setTimeout(function () {
+        randomizer()
+    } , number)
+        setTimeout(function () {
+        randomizer()
+    } , number)
+        setTimeout(function () {
+        randomizer()
+    } , number)
+        setTimeout(function () {
+        randomizer()
+    } , number)    
+        setTimeout(function () {
+        randomizer()
+    } , number)
+        setTimeout(function () {
+        randomizer()
+    } , number)
+        setTimeout(function () {
+        randomizer()
+    } , number)
+        setTimeout(function () {
+        randomizer()
+    } , number)
+    setTimeout(function () {
+        randomizer()
+    } , number)
+        setTimeout(function () {
+        randomizer()
+    } , number)
+        setTimeout(function () {
+        randomizer()
+    } , number)
+        setTimeout(function () {
+        randomizer()
+    } , number)
+}
 function randomizer() {
     // 1. Roll for Rarity Category (Legendary is exactly 0.3%)
     let roll = Math.random() * 100;
@@ -55,8 +93,11 @@ function randomizer() {
     }
 
     // 5. Final Output (e.g., "common 5 M2")
-    img.src = rarity + ".png"; 
     nameBox.innerHTML = `${rarity} ${specificNumber} ${variant}`;
 
     console.log(`Roll: ${roll.toFixed(4)}% | Result: ${rarity} ${specificNumber} ${variant}`);
+        img.src = rarity + ".gif"; 
+         setTimeout(function () {
+img.src = rarity + ".png"
+    } , 1222)
 }
