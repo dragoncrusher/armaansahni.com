@@ -1,45 +1,8 @@
 const nameBox = document.getElementById("name");
 const img = document.getElementById("img");
-function seeit(number){
-    randomizer()
-    setTimeout(function () {
-        randomizer()
-    } , number)
-        setTimeout(function () {
-        randomizer()
-    } , number)
-        setTimeout(function () {
-        randomizer()
-    } , number)
-        setTimeout(function () {
-        randomizer()
-    } , number)    
-        setTimeout(function () {
-        randomizer()
-    } , number)
-        setTimeout(function () {
-        randomizer()
-    } , number)
-        setTimeout(function () {
-        randomizer()
-    } , number)
-        setTimeout(function () {
-        randomizer()
-    } , number)
-    setTimeout(function () {
-        randomizer()
-    } , number)
-        setTimeout(function () {
-        randomizer()
-    } , number)
-        setTimeout(function () {
-        randomizer()
-    } , number)
-        setTimeout(function () {
-        randomizer()
-    } , number)
-}
+const button = document.getElementById("button");
 function randomizer() {
+    button.disabled = true;
     // 1. Roll for Rarity Category (Legendary is exactly 0.3%)
     let roll = Math.random() * 100;
     let rarity = "";
@@ -100,4 +63,9 @@ function randomizer() {
          setTimeout(function () {
 img.src = rarity + ".png"
     } , 1222)
+    setTimeout(function () {
+    img.src = "rune&grass.png"
+    button.disabled = false;
+    } , 2000)
+
 }
