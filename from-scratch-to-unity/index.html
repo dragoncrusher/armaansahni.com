@@ -10,15 +10,20 @@
       <h1>From Scratch to Unity: Building My Most Ambitious Game Yet</h1>
       <p>Hello my name is Armaan, I am a coder and I am 10 years old!</p>
       <p>
-        Previously, I made games using JavaScript, and a game engine called <a>Microsoft Makecode Arcade</a>. This blog
-        post is about how I switched to <a>Unity</a> and the lessons learned along the way.
+        Previously, I made games using JavaScript, and a game engine called
+        <a href="https://arcade.makecode.com/">Microsoft Makecode Arcade</a>. This blog post is about how I switched to
+        <a href="https://unity.com/">Unity</a> and the lessons learned along the way.
       </p>
-      <p>If you would like to follow me on my coding adventures, then please <a>Join the Journey</a>.</p>
+      <p>
+        If you would like to follow me on my coding adventures, then please <a href="/join.html">Join the Journey</a>.
+      </p>
       <h2>My past games were all 2D</h2>
       <p>
-        All my past games were 2D. I made The <a>Gamey Game V1</a> and <a>V2</a> in pure javascript,
-        <a>Super Armaan World</a> and <a>Blackhole Adventures</a> in <a>Microsoft Makecode Arcade</a>. But I did not
-        want to make 2D games anymore. I thought that 3D games had to be next level and just simply better.
+        All my past games were 2D. I made The <a href="/game">Gamey Game V1</a> and <a href="/game-v2">V2</a> in pure
+        javascript, <a href="/super-armaan-world">Super Armaan World</a> and
+        <a href="/blackhole-adventures">Blackhole Adventures</a> in
+        <a href="https://arcade.makecode.com/">Microsoft Makecode Arcade</a>. But I did not want to make 2D games
+        anymore. I thought that 3D games had to be next level and just simply better.
       </p>
       <!-- <img>super armaan world -->
       <h2>I discovered Unity</h2>
@@ -49,9 +54,9 @@
       <!-- <img> Slightly pixelated code only so that you cannot read the text but you can see everything else -->
       <h2>I made Elemental Parkour</h2>
       <p>
-        The game I made in Unity is called <a>Elemental Parkour</a>. Elemental parkour is a 3D platformer with a boss
-        fight, moving platforms, hidden surprises and a deadly jack in the box. If you fail, a whole ecosystem will fall
-        to its doom. When the pressure is on, can you really get to the core in time?
+        The game I made in Unity is called <a href="/elemental-parkour">Elemental Parkour</a>. Elemental parkour is a 3D
+        platformer with a boss fight, moving platforms, hidden surprises and a deadly jack in the box. If you fail, a
+        whole ecosystem will fall to its doom. When the pressure is on, can you really get to the core in time?
       </p>
       <!-- <img> elemental parkour -->
       <h2>3D modelling with Blender</h2>
@@ -59,17 +64,17 @@
         Sometimes I just can't work with Unity’s built in spheres and cubes. That’s where modeling comes in. Modeling is
         when you make custom shapes. Unity has its own modeler, ProBuilder. But ProBuilder is really just for basic
         editing of shapes, and that is not enough for my player’s complex model. I need to make a character! So I
-        switched to <a>Blender</a>. Blender is a 3D modeling software that helps me make my own custom shapes in a
-        proper pro editor. This makes things more complicated, especially with <a>colliders</a>. But it really gives
-        your game a better look.
+        switched to <a href="https://www.blender.org/">Blender</a>. Blender is a 3D modeling software that helps me make
+        my own custom shapes in a proper pro editor. This makes things more complicated, especially with
+        <a href="#colliders">colliders</a>. But it really gives your game a better look.
       </p>
-      <h2>Better collision tracking with mesh colliders</h2>
+      <h2 id="colliders">Better collision tracking with mesh colliders</h2>
       <p>
         A collider is like a hitbox for a shape. They allow you to make a shape interact with everything else. But when
-        you make shapes with <a>Blender</a>, the shapes can get really complex. This means your shape may be too
-        abstract for a cube or sphere collider to fit it properly. But everything needs a collider, and that's why mesh
-        colliders are useful. Mesh colliders match the shape of the object perfectly, which helps with accurate
-        hitboxes. This is my model for the player:
+        you make shapes with <a href="https://www.blender.org/">Blender</a>, the shapes can get really complex. This
+        means your shape may be too abstract for a cube or sphere collider to fit it properly. But everything needs a
+        collider, and that's why mesh colliders are useful. Mesh colliders match the shape of the object perfectly,
+        which helps with accurate hitboxes. This is my model for the player:
       </p>
       <!-- <img> player model -->
       <p>
@@ -101,11 +106,12 @@
       </p>
       <h2>Understanding complications with high-poly</h2>
       <p>
-        In <a>Blender</a> there is a thing called poly, low-poly and high-poly. Poly is how many polygons are in your
-        shape. Poly can also mean how complex your shape is. The more poly, the more memory space and CPU time it takes
-        up. This is where I had the same problem as with <a>Mesh colliders</a>, I made a complex castle model and it
-        lagged a lot. I then changed it to a less high -poly model and I learned the same lesson as in
-        <a>Mesh colliders</a>: “You do not have to be super complex unless you really need to.”
+        In <a href="https://www.blender.org/">Blender</a> there is a thing called poly, low-poly and high-poly. Poly is
+        how many polygons are in your shape. Poly can also mean how complex your shape is. The more poly, the more
+        memory space and CPU time it takes up. This is where I had the same problem as with
+        <a href="#colliders">Mesh colliders</a>, I made a complex castle model and it lagged a lot. I then changed it to
+        a less high -poly model and I learned the same lesson as in <a href="#colliders">Mesh colliders</a>: “You do not
+        have to be super complex unless you really need to.”
       </p>
       <h2>Connecting a game controller</h2>
       <p>
