@@ -25,7 +25,7 @@
         <a href="https://arcade.makecode.com/">Microsoft Makecode Arcade</a>. But I did not want to make 2D games
         anymore. I thought that 3D games had to be next level and just simply better.
       </p>
-      <!-- <img>super armaan world -->
+      <img src="super-armaan-world.gif" />
       <h2>I discovered Unity</h2>
       <p>
         Then I discovered Unity. Unity is another game engine, just like Microsoft Makecode Arcade. It is more complex,
@@ -41,7 +41,7 @@
         back, and Unity had still not loaded! This was when I realized it was time for my dad to upgrade me to a much
         more powerful computer.
       </p>
-      <!-- <img> pixalated elemental parkour -->
+      <img src="pixelated.gif" />
       <h2>Working with a new set of development tools</h2>
       <p>
         For this game I tried to use AI to teach me how to work in the Unity editor. For example, "How to create a
@@ -51,14 +51,14 @@
         wrote the code following my exact instructions. For example, “use an if loop with == to check if the isGrounded
         boolean is True.” The thoughts were mine, but AI could type much faster than I could.
       </p>
-      <!-- <img> Slightly pixelated code only so that you cannot read the text but you can see everything else -->
+      <img src="code.png" />
       <h2>I made Elemental Parkour</h2>
       <p>
         The game I made in Unity is called <a href="/elemental-parkour">Elemental Parkour</a>. Elemental parkour is a 3D
         platformer with a boss fight, moving platforms, hidden surprises and a deadly jack in the box. If you fail, a
         whole ecosystem will fall to its doom. When the pressure is on, can you really get to the core in time?
       </p>
-      <!-- <img> elemental parkour -->
+      <img src="elemental-parkour.gif" />
       <h2>3D modelling with Blender</h2>
       <p>
         Sometimes I just can't work with Unity’s built in spheres and cubes. That’s where modeling comes in. Modeling is
@@ -76,7 +76,7 @@
         collider, and that's why mesh colliders are useful. Mesh colliders match the shape of the object perfectly,
         which helps with accurate hitboxes. This is my model for the player:
       </p>
-      <!-- <img> player model -->
+      <img src="player.png" />
       <p>
         For this shape I wanted a mesh collider because it would fit nicely, but the problem was I had added too many
         mesh colliders. Mesh colliders take up a lot of memory space and CPU time. This means having too many of them
@@ -85,16 +85,15 @@
         and capsule colliders, depending on which one matched the shape better. This really helped reduce the lag. I
         also realized that you do not have to be super complex unless you really need to.
       </p>
-      <!-- <img> selecting and says to high poly error -->
-      <h2>Bending physics with grapple ability</h2>
+      <h2>Bending physics with wall grip</h2>
       <p>
         Soon I encountered a problem. If you walked into a wall, you would stop falling and get stuck in the wall! I
-        realized this was because my physics material had a high level of fiction. In Unity a physics material specifies
-        how the object reacts to friction. My object used the default physics. The default physics material had high
-        friction, so the player would get stuck. To stop this, I made a new material and called it slippery. I then set
-        the friction to zero to stop the player from getting stuck.
+        realized this was because my physics material had a high level of friction. In Unity a physics material
+        specifies how the object reacts to friction. My object used the default physics. The default physics material
+        had high friction, so the player would get stuck. To stop this, I made a new material and called it slippery. I
+        then set the friction to zero to stop the player from getting stuck.
       </p>
-      <!-- <img> remove slippery and show grapple -->
+      <img src="wall-grip.gif" />
       <h2>Third Person View using Cinemachine</h2>
       <p>
         I needed to make the camera follow the player, so I decided to use Cinemachine. Cinemachine is a package that
@@ -115,11 +114,11 @@
       </p>
       <h2>Connecting a game controller</h2>
       <p>
-        I had basically finished my game, but there was one thing left to do. I had friends, who would playtest the
-        game. They had requested I add gamepad support because that was how they were used to playing other games. I
-        added the input and it worked perfectly, but when I tested on the web using a WebGL build nothing worked! Turns
-        out that gamepads use different controls in Unity editor and on the web! So I worked on getting everything to
-        match up on the web before declaring my game finished!
+        I had basically finished my game, but there was one thing left to do. My frends would playtest the game. They
+        requested I add gamepad support because that was how they were used to playing other games. I added the input
+        and it worked perfectly, but when I tested on the web using a WebGL build nothing worked! Turns out that
+        gamepads use different controls in Unity editor and on the web! So I worked on getting everything to match up on
+        the web before declaring my game finished!
       </p>
       <h2>Is 3D really better than 2D?</h2>
       <p>
@@ -127,7 +126,8 @@
         that this was not the case. 3D is better for games like FPS, but 2D is better for games like platformers. I
         realized that none of them are better but it really comes down to choosing the right tool for the job.
       </p>
-      <!-- <img> super armaan world and elemental platformer side by side -->
+      <img src="elemental-parkour.gif" />
+      <img src="super-armaan-world.gif" />
       <h2>Conclusion</h2>
       <p>
         In conclusion, I really think making this game helped me understand how to use Unity. I think knowledge of a
