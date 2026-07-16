@@ -18,7 +18,7 @@ function randomizer() {
     rarity = "unique";
     maxNumber = 2;
   } else if (roll <= 0.5) {
-    rarity = "legendary"; // (0.50 - 0.20) = 0.3%
+    rarity = "legendary";
     maxNumber = 4;
   } else if (roll <= 5.0) {
     rarity = "epic";

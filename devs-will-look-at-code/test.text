@@ -1,0 +1,28 @@
+Developers will still look at code with AI. Here's why
+Hello my name is Armaan. I am 11 years old. 
+
+I have been researching Assembly, compilers and AI. I learned some interesting facts and have had a revelation of why I think AI will never replace developers.
+
+Compilers are deterministic
+Assembly is a low-level language that is one level above binary. For a long time, people had to code in assembly. There were many games made in assembly. One of the most famous ones is called Roller Coaster Tycoon. Even when high level languages existed, people would code in the high level languages and then manually convert the code into assembly to run it. They would do this because Assembly is a language with difficult syntax, and it’s easier to not think about it until all the code is already laid down.
+
+But soon, compilers were invented. Turning a high level language into binary is easy to do with a machine because it is deterministic (the same input always equals the same output).
+
+On top of this, the source code that the compiler gets for input is already really clear because it's like exact instructions. There are only a few ways to do the same thing. The compiler just needs to replicate the same instructions. This makes compilers more reliable.
+
+No one looks at Assembly anymore because a working compiler will be reliable and extremely predictable. Your code will always compile correctly. So why would you write Assembly directly? It's just more hard work.
+
+But some people do convert code to Assembly manually. They do this because sometimes the compiled code will be slightly unoptimized for memory space and efficiency of runtime. If this gets important enough, some developers will manually optimize to prevent lag.
+How does AI work
+AI, on the other hand, is non-deterministic. It uses its training to make a list of possible next words with percentage chances. Then it will randomly select one of those words and say it.  But when coding, sometimes it will miss the edge cases and many times it will not do security properly. This means people will still need to review these errors. Also, because AI says the most common thing and sometimes the most common thing is not the best way to do it, AI might not be 100% quality. This means that in order to get 100% quality, you should double check the work that AI gives you.
+
+But some people do not double check because they vibe code. Vibe coding is when AI makes all the code and they do not even look at the code. This allows people with no coding knowledge to code. But when AI makes an error, they have no knowledge on how to solve it.
+
+
+AI uses natural language as input
+Even natural language is not clear. So when you give AI instructions, you are only saying it in the way you talk.  For example, if you asked AI “make it more pretty.” What would AI do? Ai does not know what is "pretty" to you. So the result might not be what you wanted. To add on to this mess even more, many people make working code with just one prompt. This might seem good, but the AI is focused on the one prompt and the code might not be optimized for the next changes you add. 
+
+You need to know what you’re doing because otherwise you won’t know what the code should look like when you give AI a prompt. If you don’t know what the code is supposed to look like, you can’t double check the AI’s work.  So any error AI makes would go straight into the system you’re developing.
+Conclusion
+In conclusion, developers will never be completely wiped out by AI. We will still need people to guide the AI in its tasks. So we’ll definitely need less developers but we will still need some. Maybe some vibe coders will even learn development skills to guide AI in its tasks!
+
